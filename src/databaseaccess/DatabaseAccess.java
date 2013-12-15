@@ -21,7 +21,7 @@ public class DatabaseAccess {
     }
     public static String executeSQL(String result){
         String url = "jdbc:mysql://localhost:3306/";
-        String dbName = "people";
+        String dbName = "assetDB";
         String driver = "com.mysql.jdbc.Driver";
         String userName = "root";
         String password = "root";
@@ -29,10 +29,10 @@ public class DatabaseAccess {
             Class.forName(driver).newInstance();
             try (Connection conn = DriverManager.getConnection(url + dbName, userName, password)) {
                 Statement st = conn.createStatement();
-                ResultSet res = st.executeQuery("Select * FROM peoples");
+                ResultSet res = st.executeQuery("Select * FROM PC");
                 while (res.next()){
-                    int id = res.getInt("people_id");
-                    String name = res.getString("people_name");
+                    int name = res.getInt("Name");
+                    String id = res.getString("ID");
                     System.out.println(id + "\t" + name);
                 }
             }
