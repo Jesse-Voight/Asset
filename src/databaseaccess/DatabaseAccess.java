@@ -40,8 +40,11 @@ public class DatabaseAccess {
                 while (res.next()){
                     String name = res.getString("Name");
                     String id = res.getString("idPC");
+                    String assetNum = res.getString("AssetNo");
+                    String location = res.getString("idLocation");
+                    String pcModel = res.getString("idPCModel");
                     System.out.println(id + "\t " + name);
-                    String colNames[] = {id, name, "Column 3"}; 
+                    String colNames[] = {id, name, assetNum, location, pcModel}; 
                     resultList.add(colNames);
                 }
                 conn.close();

@@ -32,17 +32,14 @@ public class GUITest extends javax.swing.JFrame {
     private void initComponents() {
 
         jInternalFrame1 = new javax.swing.JInternalFrame();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        queryInput = new javax.swing.JTextPane();
-        jButton1 = new javax.swing.JButton();
         windowTable = new javax.swing.JTabbedPane();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        textBox1 = new javax.swing.JTextArea();
         jPanel1 = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
         jScrollPane4 = new javax.swing.JScrollPane();
         resultsTable = new javax.swing.JTable();
 
+        jInternalFrame1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "ICT Asset Manager", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 10), java.awt.Color.pink)); // NOI18N
+        jInternalFrame1.setTitle("ICT Asset Manager");
         jInternalFrame1.setVisible(true);
 
         javax.swing.GroupLayout jInternalFrame1Layout = new javax.swing.GroupLayout(jInternalFrame1.getContentPane());
@@ -57,26 +54,10 @@ public class GUITest extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("ICT Asset Manager");
+        setForeground(java.awt.Color.pink);
 
-        queryInput.setText("Query Line");
-        queryInput.setName("queryInput"); // NOI18N
-        jScrollPane1.setViewportView(queryInput);
-        queryInput.getAccessibleContext().setAccessibleName("queryInput");
-
-        jButton1.setText("List PCs");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
-        textBox1.setColumns(20);
-        textBox1.setRows(5);
-        jScrollPane2.setViewportView(textBox1);
-
-        windowTable.addTab("TextTest", jScrollPane2);
-
-        jButton2.setText("jButton2");
+        jButton2.setText("List All");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -85,13 +66,10 @@ public class GUITest extends javax.swing.JFrame {
 
         resultsTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Title 1", "Title 2", "Title 3", "Title 4", "Title 5"
             }
         ));
         jScrollPane4.setViewportView(resultsTable);
@@ -100,23 +78,23 @@ public class GUITest extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(127, 127, 127)
-                .addComponent(jButton2)
-                .addContainerGap(224, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 866, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jButton2)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(48, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 427, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(220, 220, 220))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
 
         windowTable.addTab("TableTest", jPanel1);
@@ -127,25 +105,15 @@ public class GUITest extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton1)
-                            .addComponent(windowTable, javax.swing.GroupLayout.PREFERRED_SIZE, 891, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 41, Short.MAX_VALUE)))
-                .addContainerGap())
+                .addComponent(windowTable, javax.swing.GroupLayout.PREFERRED_SIZE, 891, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(61, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(4, 4, 4)
-                .addComponent(windowTable)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1)
-                .addContainerGap())
+                .addComponent(windowTable, javax.swing.GroupLayout.DEFAULT_SIZE, 529, Short.MAX_VALUE)
+                .addGap(74, 74, 74))
         );
 
         windowTable.getAccessibleContext().setAccessibleName("Tab1");
@@ -153,32 +121,22 @@ public class GUITest extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        System.out.println(queryInput.getText());
-        String query = queryInput.getText();
-        ArrayList qResult = DatabaseAccess.executeSQL(query);
-        for (int i = 0; i < qResult.size(); i++)
-        {
-            textBox1.append(qResult.get(i).toString());
-        }
-        
-        //textBox1.add(qResult[0], this);
-        //textBox1.setText(qResult);
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        String colNames[] = {"Id", "Name", "Column 3"};
+        String colNames[] = {"Id", "Name", "Asset", "Location", "PC Model"};
         DefaultTableModel dtm = new DefaultTableModel(null,colNames);
-        System.out.println(queryInput.getText());
-        String query = queryInput.getText();
-        ArrayList<String[]> qResult = DatabaseAccess.executeSQL(query);
+        //System.out.println(queryInput.getText());
+        //String query = queryInput.getText();
+        ArrayList<String[]> qResult = DatabaseAccess.executeSQL("placeholder");
         resultsTable.setModel(dtm);
         for (int i = 0; i < qResult.size(); i++)
         {
             dtm.addRow(new String[3]);
             resultsTable.getModel().setValueAt(qResult.get(i)[0], i, 0);
             resultsTable.getModel().setValueAt(qResult.get(i)[1], i, 1);
-            textBox1.append(qResult.get(i).toString());
+            resultsTable.getModel().setValueAt(qResult.get(i)[2], i, 2);
+            resultsTable.getModel().setValueAt(qResult.get(i)[3], i, 3);
+            resultsTable.getModel().setValueAt(qResult.get(i)[4], i, 4);
+            //textBox1.append(qResult.get(i).toString()); removed
             
         }
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -209,7 +167,7 @@ public class GUITest extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(GUITest.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
+        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -219,16 +177,11 @@ public class GUITest extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JTextPane queryInput;
     private javax.swing.JTable resultsTable;
-    private javax.swing.JTextArea textBox1;
     private javax.swing.JTabbedPane windowTable;
     // End of variables declaration//GEN-END:variables
 }
