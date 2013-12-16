@@ -19,11 +19,11 @@ public class DatabaseAccess {
     String lastResult = "";
     
     public static void main(String[] args) {
-        //executeSQL("hi");
+        executeSQL("hi");
         
     }
     public static ArrayList executeSQL(String inputQuery){
-        String url = "jdbc:mysql://websrv:3306/";
+        String url = "jdbc:mysql://localhost:3306/";
         String dbName = "assetDB";
         String driver = "com.mysql.jdbc.Driver";
         String userName = "jessvoig";
