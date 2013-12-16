@@ -41,7 +41,8 @@ public class DatabaseAccess {
                     String name = res.getString("Name");
                     String id = res.getString("idPC");
                     System.out.println(id + "\t " + name);
-                    resultList.add(id + " " + name + "\n");
+                    String colNames[] = {id, name, "Column 3"}; 
+                    resultList.add(colNames);
                 }
                 conn.close();
             }
