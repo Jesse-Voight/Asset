@@ -56,7 +56,7 @@ public class GUITest extends javax.swing.JFrame {
         jButton5 = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         jScrollPane6 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        userTable = new javax.swing.JTable();
         jButton6 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
@@ -346,8 +346,8 @@ public class GUITest extends javax.swing.JFrame {
 
         jTab.addTab("PC Model", jPanel5);
 
-        jTable2.setAutoCreateRowSorter(true);
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        userTable.setAutoCreateRowSorter(true);
+        userTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null}
             },
@@ -355,11 +355,16 @@ public class GUITest extends javax.swing.JFrame {
                 "UserName", "LatestPC"
             }
         ));
-        jTable2.setGridColor(new java.awt.Color(100, 100, 100));
-        jTable2.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        jScrollPane6.setViewportView(jTable2);
+        userTable.setGridColor(new java.awt.Color(100, 100, 100));
+        userTable.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        jScrollPane6.setViewportView(userTable);
 
-        jButton6.setText("jButton6");
+        jButton6.setText("Show Users");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -528,6 +533,20 @@ public class GUITest extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton5ActionPerformed
 
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // Tricky one to show all users
+        String colNames[] = {"UserName","LatestPC"};
+        DefaultTableModel dtm = new DefaultTableModel(null,colNames);
+        ArrayList<String[]> qResult = DatabaseAccess.loadUsers();
+        userTable.setModel(dtm);
+        for (int i = 0; i < qResult.size(); i++)
+        {
+            dtm.addRow(new String[2]);
+            userTable.getModel().setValueAt(qResult.get(i)[0], i, 0);
+            userTable.getModel().setValueAt(qResult.get(i)[1], i, 1);           
+        }
+    }//GEN-LAST:event_jButton6ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -587,11 +606,11 @@ public class GUITest extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JTabbedPane jTab;
-    private javax.swing.JTable jTable2;
     private javax.swing.JTable locationTable;
     private javax.swing.JTable monitorModelTable;
     private javax.swing.JTable monitorTable;
     private javax.swing.JTable pcModelTable;
     private javax.swing.JTable resultsTable;
+    private javax.swing.JTable userTable;
     // End of variables declaration//GEN-END:variables
 }

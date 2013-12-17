@@ -234,5 +234,35 @@ public class DatabaseAccess {
         }
         return resultList;
     }
+    public static ArrayList loadUsers(){
+        String url = "jdbc:mysql://wsc267:3306/";
+        String dbName = "assetDB";
+        String driver = "com.mysql.jdbc.Driver";
+        String userName = "jessvoig";
+        String password = "qzpm9876";
+        ArrayList resultList = new ArrayList();
+
+        try {
+            Class.forName(driver).newInstance();
+            try (Connection conn = DriverManager.getConnection(url + dbName, userName, password)) {
+                Statement st = conn.createStatement();
+                ResultSet res = st.executeQuery("Select distinct Name FROM userhistory order by Name asc");
+                
+                while (res.next()) {
+                    String name = res.getString("Name");
+                    String idPC = "PC newest";//res.getString("idPC");
+                    String colNames[] = {name,idPC};
+                    resultList.add(colNames);
+                    
+                }
+                conn.close();
+            }
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | SQLException e) {
+            e.printStackTrace();
+        }
+        return resultList;
+
+        
+    }
     // TODO code application logic here
 }

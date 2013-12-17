@@ -707,7 +707,7 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JTable" name="jTable2">
+                <Component class="javax.swing.JTable" name="userTable">
                   <Properties>
                     <Property name="autoCreateRowSorter" type="boolean" value="true"/>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
@@ -745,8 +745,11 @@
             </Container>
             <Component class="javax.swing.JButton" name="jButton6">
               <Properties>
-                <Property name="text" type="java.lang.String" value="jButton6"/>
+                <Property name="text" type="java.lang.String" value="Show Users"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton6ActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
