@@ -42,6 +42,14 @@ public class GUITest extends javax.swing.JFrame {
         jScrollPane4 = new javax.swing.JScrollPane();
         monitorTable = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        monitorModelTable = new javax.swing.JTable();
+        jButton3 = new javax.swing.JButton();
+        jPanel4 = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        locationTable = new javax.swing.JTable();
+        jButton4 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -67,14 +75,14 @@ public class GUITest extends javax.swing.JFrame {
 
         resultsTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Id", "Name", "Asset", "Location", "PC Model"
+                "IdPC", "Name", "IDLocation", "IDPCModel", "SerialNo", "Monitor1", "Monitor2", "AssetNo", "LastLogin", "Notes", "Status", "RepDate"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false, false, true, true, true, true, true, true, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -107,14 +115,14 @@ public class GUITest extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(478, Short.MAX_VALUE)
+                .addContainerGap(487, Short.MAX_VALUE)
                 .addComponent(jButton2)
                 .addContainerGap())
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 475, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(26, Short.MAX_VALUE)))
+                    .addContainerGap(34, Short.MAX_VALUE)))
         );
 
         jTab.addTab("PC's", jPanel1);
@@ -153,13 +161,113 @@ public class GUITest extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 456, Short.MAX_VALUE)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 465, Short.MAX_VALUE)
                 .addGap(11, 11, 11)
                 .addComponent(jButton1)
                 .addContainerGap())
         );
 
         jTab.addTab("Monitors", jPanel2);
+
+        monitorModelTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null}
+            },
+            new String [] {
+                "idMonitorModel", "Make", "Model"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(monitorModelTable);
+
+        jButton3.setText("Load Models");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 866, Short.MAX_VALUE)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jButton3)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 465, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton3)
+                .addContainerGap())
+        );
+
+        jTab.addTab("Monitor Models", jPanel3);
+
+        locationTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "idLocation", "Building", "Department", "Address1", "Address2", "Town", "RC"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, true, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane3.setViewportView(locationTable);
+
+        jButton4.setText("Load Locations");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 866, Short.MAX_VALUE)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jButton4)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 465, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton4)
+                .addContainerGap())
+        );
+
+        jTab.addTab("Locations", jPanel4);
 
         jMenu1.setText("File");
 
@@ -198,20 +306,29 @@ public class GUITest extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        String colNames[] = {"Id", "Name", "Asset", "Location", "PC Model"};
+        String colNames[] = {"Id", "Name", "Location", "PCModel", "SerialNumber", "Monitor1", "Monitor2", "AssetNum", "LastLogin", 
+                        "Notes", "Status", "RepDate"};
         DefaultTableModel dtm = new DefaultTableModel(null,colNames);
         //System.out.println(queryInput.getText());
         //String query = queryInput.getText();
-        ArrayList<String[]> qResult = DatabaseAccess.executeSQL("placeholder");
+        ArrayList<String[]> qResult = DatabaseAccess.loadPCs("placeholder");
         resultsTable.setModel(dtm);
         for (int i = 0; i < qResult.size(); i++)
         {
-            dtm.addRow(new String[3]);
+            dtm.addRow(new String[5]);
             resultsTable.getModel().setValueAt(qResult.get(i)[0], i, 0);
             resultsTable.getModel().setValueAt(qResult.get(i)[1], i, 1);
             resultsTable.getModel().setValueAt(qResult.get(i)[2], i, 2);
             resultsTable.getModel().setValueAt(qResult.get(i)[3], i, 3);
             resultsTable.getModel().setValueAt(qResult.get(i)[4], i, 4);
+            resultsTable.getModel().setValueAt(qResult.get(i)[5], i, 5);
+            resultsTable.getModel().setValueAt(qResult.get(i)[6], i, 6);
+            resultsTable.getModel().setValueAt(qResult.get(i)[7], i, 7);
+            resultsTable.getModel().setValueAt(qResult.get(i)[8], i, 8);
+            resultsTable.getModel().setValueAt(qResult.get(i)[9], i, 9);
+            resultsTable.getModel().setValueAt(qResult.get(i)[10], i, 10);
+            resultsTable.getModel().setValueAt(qResult.get(i)[11], i, 11);
+            
             //textBox1.append(qResult.get(i).toString()); removed
             
         }
@@ -224,7 +341,7 @@ public class GUITest extends javax.swing.JFrame {
         monitorTable.setModel(dtm);
         for (int i = 0; i < qResult.size(); i++)
         {
-            dtm.addRow(new String[3]);
+            dtm.addRow(new String[6]);
             monitorTable.getModel().setValueAt(qResult.get(i)[0], i, 0);
             monitorTable.getModel().setValueAt(qResult.get(i)[1], i, 1);
             monitorTable.getModel().setValueAt(qResult.get(i)[2], i, 2);
@@ -239,6 +356,38 @@ public class GUITest extends javax.swing.JFrame {
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         System.exit(0);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        String colNames[] = {"idMonitorModel", "Make", "Model"};
+        DefaultTableModel dtm = new DefaultTableModel(null,colNames);
+        ArrayList<String[]> qResult = DatabaseAccess.loadMonitorModels("placeholder");
+        monitorModelTable.setModel(dtm);
+        for (int i = 0; i < qResult.size(); i++)
+        {
+            dtm.addRow(new String[3]);
+            monitorModelTable.getModel().setValueAt(qResult.get(i)[0], i, 0);
+            monitorModelTable.getModel().setValueAt(qResult.get(i)[1], i, 1);
+            monitorModelTable.getModel().setValueAt(qResult.get(i)[2], i, 2);
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        String colNames[] = {"idLocation","Building","Department","Address1","Address2","Town","RCode"};
+        DefaultTableModel dtm = new DefaultTableModel(null,colNames);
+        ArrayList<String[]> qResult = DatabaseAccess.loadLocations("placeholder");
+        locationTable.setModel(dtm);
+        for (int i = 0; i < qResult.size(); i++)
+        {
+            dtm.addRow(new String[7]);
+            locationTable.getModel().setValueAt(qResult.get(i)[0], i, 0);
+            locationTable.getModel().setValueAt(qResult.get(i)[1], i, 1);
+            locationTable.getModel().setValueAt(qResult.get(i)[2], i, 2);
+            locationTable.getModel().setValueAt(qResult.get(i)[3], i, 3);
+            locationTable.getModel().setValueAt(qResult.get(i)[4], i, 4);
+            locationTable.getModel().setValueAt(qResult.get(i)[5], i, 5);
+            locationTable.getModel().setValueAt(qResult.get(i)[6], i, 6);            
+        }
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -277,15 +426,23 @@ public class GUITest extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTabbedPane jTab;
+    private javax.swing.JTable locationTable;
+    private javax.swing.JTable monitorModelTable;
     private javax.swing.JTable monitorTable;
     private javax.swing.JTable resultsTable;
     // End of variables declaration//GEN-END:variables

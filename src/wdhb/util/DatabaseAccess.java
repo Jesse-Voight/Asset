@@ -14,31 +14,68 @@ import java.util.HashMap;
  */
 public class DatabaseAccess {
 
-    /**
-     * @param args the command line arguments
-     */
-    public static ArrayList executeSQL(String inputQuery) {
-        String url = "jdbc:mysql://localhost:3306/";
+    public static ArrayList loadPCs(String inputQuery) {
+        String url = "jdbc:mysql://wsc267:3306/";
         String dbName = "assetDB";
         String driver = "com.mysql.jdbc.Driver";
         String userName = "jessvoig";
         String password = "qzpm9876";
         ArrayList resultList = new ArrayList();
+        HashMap locationMap = new HashMap();
+        HashMap pcModelMap = new HashMap();
 
         try {
             Class.forName(driver).newInstance();
             try (Connection conn = DriverManager.getConnection(url + dbName, userName, password)) {
                 Statement st = conn.createStatement();
-                //ResultSet res = st.executeQuery("inputQuery");
-                ResultSet res = st.executeQuery("Select * FROM PC WHERE Name like 'WSC%' or Name like 'LTC%' order by Name");
-                while (res.next()) {
-                    String name = res.getString("Name");
-                    String id = res.getString("idPC");
-                    String assetNum = res.getString("AssetNo");
-                    String location = res.getString("idLocation");
-                    String pcModel = res.getString("idPCModel");
+                
+                ResultSet locationResult = st.executeQuery("Select * FROM location");
+                while (locationResult.next()) {                                                             //location foreign key connection
+                    locationMap.put(locationResult.getString(1), locationResult.getString(2));
+                }
+                
+                ResultSet pcModelResult = st.executeQuery("Select * FROM pcmodel");
+                while (pcModelResult.next()) {                                                             //location foreign key connection
+                    pcModelMap.put(pcModelResult.getString(1), pcModelResult.getString(2));
+                }
+                
+                
+                
+                
+                ResultSet pcResult = st.executeQuery("Select * FROM PC WHERE Name like 'WSC%' or Name like 'LTC%' order by Name");
+                while (pcResult.next()) {
+                    String id = pcResult.getString("idPC");
+                    String name = pcResult.getString("Name");
+                    
+                    //String location = pcResult.getString("idLocation");
+                    String location = (String)locationMap.get(pcResult.getString("idLocation"));  //monitor model
+                    
+                    
+                    String pcModel = (String)pcModelMap.get(pcResult.getString("idPCModel"));
+                    
+                    
+                    String serialNumber = pcResult.getString("SerialNo");
+                    String monitor1 = pcResult.getString("Monitor1");
+                    String monitor2 = pcResult.getString("Monitor2");
+                    String assetNum = pcResult.getString("AssetNo");
+                    
+                    //String lastLogin = pcResult.getString("LastLogin");
+                    int loginDateCode = pcResult.getInt("LastLogin");
+                    Date loginDateFormatted = new Date((long)loginDateCode*1000);          //Date conversion from 10 digit unix number to correct date FML
+                    String lastLogin = loginDateFormatted.toString();                
+                    
+                    
+                    String notes = pcResult.getString("Notes");
+                    String status = pcResult.getString("Status");
+                    
+                    //String repDate = pcResult.getString("RepDate");
+                    int repDateCode = pcResult.getInt("RepDate");
+                    Date repDateFormatted = new Date((long)repDateCode*1000);          //Date conversion from 10 digit unix number to correct date FML
+                    String repDate = repDateFormatted.toString();  
+                    
                     //System.out.println(id + "\t " + name);
-                    String colNames[] = {id, name, assetNum, location, pcModel};
+                    String colNames[] = {id, name, location, pcModel, serialNumber, monitor1, monitor2, assetNum, lastLogin, 
+                        notes, status, repDate};
                     resultList.add(colNames);
                 }
                 conn.close();
@@ -50,7 +87,7 @@ public class DatabaseAccess {
     }
 
     public static ArrayList loadMonitors(String inputQuery) {
-        String url = "jdbc:mysql://localhost:3306/";
+        String url = "jdbc:mysql://wsc267:3306/";
         String dbName = "assetDB";
         String driver = "com.mysql.jdbc.Driver";
         String userName = "jessvoig";
@@ -65,7 +102,7 @@ public class DatabaseAccess {
 
 
                 ResultSet monitorModelResult = querier.executeQuery("Select * FROM monitormodel");
-                while (monitorModelResult.next()) {
+                while (monitorModelResult.next()) {                                                             //monitormodel foreign key connection
                     monitorModelMap.put(monitorModelResult.getString(1), monitorModelResult.getString(2) + " " + monitorModelResult.getString(3));
                 }
 
@@ -80,6 +117,7 @@ public class DatabaseAccess {
                     String asset = res.getString("AssetNo");
                     String serial = res.getString("SerialNo");
                     String status = res.getString("Status");
+                    
                     String idMonitorModel = (String) monitorModelMap.get(res.getString("idMonitorModel"));
                     
                     String notes = res.getString("notes");
@@ -91,6 +129,71 @@ public class DatabaseAccess {
                     //System.out.println(asset + "\t " + serial);
                     String tempData[] = {asset, serial, status, notes, idMonitorModel, dateInstalled};
                     resultList.add(tempData);
+                }
+                conn.close();
+            }
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | SQLException e) {
+            e.printStackTrace();
+        }
+        return resultList;
+    }
+    public static ArrayList loadMonitorModels(String inputQuery) {
+        String url = "jdbc:mysql://wsc267:3306/";
+        String dbName = "assetDB";
+        String driver = "com.mysql.jdbc.Driver";
+        String userName = "jessvoig";
+        String password = "qzpm9876";
+        ArrayList resultList = new ArrayList();
+
+        try {
+            Class.forName(driver).newInstance();
+            try (Connection conn = DriverManager.getConnection(url + dbName, userName, password)) {
+                Statement st = conn.createStatement();
+                //ResultSet res = st.executeQuery("inputQuery");
+                ResultSet res = st.executeQuery("Select * FROM monitormodel order by idMonitorModel asc");
+                
+                while (res.next()) {
+                    String idMonitor = res.getString("idMonitorModel");
+                    String make = res.getString("Make");
+                    String model = res.getString("Model");
+                    String colNames[] = {idMonitor, make, model};
+                    resultList.add(colNames);
+                    
+                }
+                conn.close();
+                System.out.println("passed sql to array");
+            }
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | SQLException e) {
+            e.printStackTrace();
+        }
+        return resultList;
+    }
+    public static ArrayList loadLocations(String inputQuery) {
+        String url = "jdbc:mysql://wsc267:3306/";
+        String dbName = "assetDB";
+        String driver = "com.mysql.jdbc.Driver";
+        String userName = "jessvoig";
+        String password = "qzpm9876";
+        ArrayList resultList = new ArrayList();
+
+        try {
+            Class.forName(driver).newInstance();
+            try (Connection conn = DriverManager.getConnection(url + dbName, userName, password)) {
+                Statement st = conn.createStatement();
+                //ResultSet res = st.executeQuery("inputQuery");
+                ResultSet res = st.executeQuery("Select * FROM location order by idLocation asc");
+                
+                while (res.next()) {
+                    String idLocation = res.getString("idLocation");
+                    String building = res.getString("Building");
+                    String department = res.getString("Department");
+                    String address1 = res.getString("Address1");
+                    String address2 = res.getString("Address2");
+                    String town = res.getString("Town");
+                    String rc = res.getString("RC");
+                    String colNames[] = {idLocation, building, department, address1, address2, town, rc};
+                    resultList.add(colNames);
+                    
                 }
                 conn.close();
             }
