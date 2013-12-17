@@ -5,6 +5,7 @@
  */
 package wdhb.gui;
 
+import java.awt.Event;
 import wdhb.util.DatabaseAccess;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
@@ -32,6 +33,8 @@ public class GUITest extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jButton7 = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         jInternalFrame1 = new javax.swing.JInternalFrame();
         jTab = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
@@ -84,6 +87,11 @@ public class GUITest extends javax.swing.JFrame {
             }
         });
 
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
+        jLabel3.setText("WDHB Asset Manager");
+
+        jLabel4.setText("Database by Dave King");
+
         javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
         jDialog1.getContentPane().setLayout(jDialog1Layout);
         jDialog1Layout.setHorizontalGroup(
@@ -92,23 +100,32 @@ public class GUITest extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jDialog1Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 158, Short.MAX_VALUE)
+                        .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton7))
                     .addGroup(jDialog1Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3))
+                        .addGap(0, 29, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jDialog1Layout.setVerticalGroup(
             jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDialog1Layout.createSequentialGroup()
                 .addContainerGap()
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 115, Short.MAX_VALUE)
-                .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jButton7))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
+                .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton7)
+                    .addGroup(jDialog1Layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel4)))
                 .addContainerGap())
         );
 
@@ -130,6 +147,11 @@ public class GUITest extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("ICT Asset Manager");
         setForeground(java.awt.Color.pink);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         resultsTable.setAutoCreateRowSorter(true);
         resultsTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -454,8 +476,12 @@ public class GUITest extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem1);
 
-        decommissionCheck.setSelected(true);
         decommissionCheck.setText("Show Decommissioned PCs");
+        decommissionCheck.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                decommissionCheckItemStateChanged(evt);
+            }
+        });
         jMenu1.add(decommissionCheck);
 
         jMenuBar1.add(jMenu1);
@@ -507,7 +533,7 @@ public class GUITest extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jMenu1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jMenu1StateChanged
-        // TODO for the decommissioned checkbox change
+        //loadPCs();
     }//GEN-LAST:event_jMenu1StateChanged
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
@@ -523,8 +549,18 @@ public class GUITest extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseClicked
+        //jDialog1.setSize(500, 500);
+        jDialog1.setLocation(jMenuBar1.getLocationOnScreen());
         jDialog1.setVisible(true);// TODO add your handling code here:
     }//GEN-LAST:event_jMenu2MouseClicked
+
+    private void decommissionCheckItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_decommissionCheckItemStateChanged
+        loadPCs();// TODO add your handling code here:
+    }//GEN-LAST:event_decommissionCheckItemStateChanged
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        loadAll();// TODO add your handling code here: window opened
+    }//GEN-LAST:event_formWindowOpened
     
     /**
      * @param args the command line arguments
@@ -553,9 +589,11 @@ public class GUITest extends javax.swing.JFrame {
         }
         //</editor-fold>
         /* Create and display the form */
+        
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new GUITest().setVisible(true);
+                
             }
         });
     }
@@ -573,6 +611,8 @@ public class GUITest extends javax.swing.JFrame {
     private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
@@ -668,12 +708,14 @@ public class GUITest extends javax.swing.JFrame {
         }
     }
     private void loadPCs(){
+        Boolean loadDecom = decommissionCheck.isSelected();
+        System.out.println(loadDecom);
         String colNames[] = {"Id", "Name", "Location", "PCModel", "SerialNumber", "Monitor1", "Monitor2", "AssetNum", "LastLogin",
             "Notes", "Status", "RepDate"};
         DefaultTableModel dtm = new DefaultTableModel(null, colNames);
         //System.out.println(queryInput.getText());
         //String query = queryInput.getText();
-        ArrayList<String[]> qResult = DatabaseAccess.loadPCs("placeholder");
+        ArrayList<String[]> qResult = DatabaseAccess.loadPCs(loadDecom);
         resultsTable.setModel(dtm);
         for (int i = 0; i < qResult.size(); i++) {
             dtm.addRow(new String[5]);
@@ -696,5 +738,9 @@ public class GUITest extends javax.swing.JFrame {
     private void loadAll(){
         loadPCs();
         loadLocations();
+        loadMonitorModel();
+        loadMonitors();
+        loadPCModels();
+        loadUsers();
     }
 }

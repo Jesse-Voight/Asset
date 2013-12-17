@@ -14,8 +14,9 @@ import java.util.HashMap;
  */
 public class DatabaseAccess {
 
-    public static ArrayList loadPCs(String inputQuery) {
-        String url = "jdbc:mysql://localhost:3306/";
+    public static ArrayList loadPCs(Boolean loadDecommision) {
+        
+        String url = "jdbc:mysql://wsc267:3306/";
         String dbName = "assetDB";
         String driver = "com.mysql.jdbc.Driver";
         String userName = "jessvoig";
@@ -38,8 +39,15 @@ public class DatabaseAccess {
                 while (pcModelResult.next()) {                                                             //location foreign key connection
                     pcModelMap.put(pcModelResult.getString(1), pcModelResult.getString(2));
                 }
-
-                ResultSet pcResult = st.executeQuery("Select * FROM PC WHERE Name like 'WSC%' or Name like 'LTC%' order by Name");
+                ResultSet pcResult;
+                if(loadDecommision == true){
+                    //System.out.println(loadDecommision);
+                    pcResult = st.executeQuery("Select * FROM PC WHERE Name like 'WSC%' or Name like 'LTC%' order by Name");
+                }
+                else{
+                    //System.out.println(loadDecommision);
+                    pcResult = st.executeQuery("Select * FROM PC WHERE Status = 'A' AND Name like 'WSC%' or Status = 'A' AND Name like 'LTC%' order by Name;");
+                }
                 while (pcResult.next()) {
                     String id = pcResult.getString("idPC");
                     String name = pcResult.getString("Name");
@@ -80,7 +88,7 @@ public class DatabaseAccess {
     }
 
     public static ArrayList loadMonitors(String inputQuery) {
-        String url = "jdbc:mysql://localhost:3306/";
+        String url = "jdbc:mysql://wsc267:3306/";
         String dbName = "assetDB";
         String driver = "com.mysql.jdbc.Driver";
         String userName = "jessvoig";
@@ -128,7 +136,7 @@ public class DatabaseAccess {
     }
 
     public static ArrayList loadMonitorModels(String inputQuery) {
-        String url = "jdbc:mysql://localhost:3306/";
+        String url = "jdbc:mysql://wsc267:3306/";
         String dbName = "assetDB";
         String driver = "com.mysql.jdbc.Driver";
         String userName = "jessvoig";
@@ -159,7 +167,7 @@ public class DatabaseAccess {
     }
 
     public static ArrayList loadPCModels() {
-        String url = "jdbc:mysql://localhost:3306/";
+        String url = "jdbc:mysql://wsc267:3306/";
         String dbName = "assetDB";
         String driver = "com.mysql.jdbc.Driver";
         String userName = "jessvoig";
@@ -191,7 +199,7 @@ public class DatabaseAccess {
     }
 
     public static ArrayList loadLocations(String inputQuery) {
-        String url = "jdbc:mysql://localhost:3306/";
+        String url = "jdbc:mysql://wsc267:3306/";
         String dbName = "assetDB";
         String driver = "com.mysql.jdbc.Driver";
         String userName = "jessvoig";
@@ -226,7 +234,7 @@ public class DatabaseAccess {
     }
 
     public static ArrayList loadUsers() {
-        String url = "jdbc:mysql://localhost:3306/";
+        String url = "jdbc:mysql://wsc267:3306/";
         String dbName = "assetDB";
         String driver = "com.mysql.jdbc.Driver";
         String userName = "jessvoig";
