@@ -52,7 +52,7 @@ public class GUITest extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        pcModelTable = new javax.swing.JTable();
         jButton5 = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         jScrollPane6 = new javax.swing.JScrollPane();
@@ -294,8 +294,8 @@ public class GUITest extends javax.swing.JFrame {
 
         jTab.addTab("Locations", jPanel4);
 
-        jTable1.setAutoCreateRowSorter(true);
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        pcModelTable.setAutoCreateRowSorter(true);
+        pcModelTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null}
             },
@@ -311,10 +311,15 @@ public class GUITest extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jTable1.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        jScrollPane5.setViewportView(jTable1);
+        pcModelTable.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        jScrollPane5.setViewportView(pcModelTable);
 
         jButton5.setText("Load PC Models");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -508,6 +513,21 @@ public class GUITest extends javax.swing.JFrame {
         // TODO for the decommissioned checkbox change
     }//GEN-LAST:event_jMenu1StateChanged
 
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        String colNames[] = {"idPCModel","Make","Model","SubModel"};
+        DefaultTableModel dtm = new DefaultTableModel(null,colNames);
+        ArrayList<String[]> qResult = DatabaseAccess.loadPCModels();
+        pcModelTable.setModel(dtm);
+        for (int i = 0; i < qResult.size(); i++)
+        {
+            dtm.addRow(new String[4]);
+            pcModelTable.getModel().setValueAt(qResult.get(i)[0], i, 0);
+            pcModelTable.getModel().setValueAt(qResult.get(i)[1], i, 1);
+            pcModelTable.getModel().setValueAt(qResult.get(i)[2], i, 2);
+            pcModelTable.getModel().setValueAt(qResult.get(i)[3], i, 3);            
+        }
+    }//GEN-LAST:event_jButton5ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -567,11 +587,11 @@ public class GUITest extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JTabbedPane jTab;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
     private javax.swing.JTable locationTable;
     private javax.swing.JTable monitorModelTable;
     private javax.swing.JTable monitorTable;
+    private javax.swing.JTable pcModelTable;
     private javax.swing.JTable resultsTable;
     // End of variables declaration//GEN-END:variables
 }
