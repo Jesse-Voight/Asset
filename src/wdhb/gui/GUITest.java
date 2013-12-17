@@ -15,9 +15,6 @@ import javax.swing.table.DefaultTableModel;
  */
 public class GUITest extends javax.swing.JFrame {
 
-    /**
-     * Creates new form GUITest
-     */
     public GUITest() {
         initComponents();
     }
@@ -432,52 +429,11 @@ public class GUITest extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         loadPCs();
     }//GEN-LAST:event_jButton2ActionPerformed
-    private void loadPCs(){
-        String colNames[] = {"Id", "Name", "Location", "PCModel", "SerialNumber", "Monitor1", "Monitor2", "AssetNum", "LastLogin",
-            "Notes", "Status", "RepDate"};
-        DefaultTableModel dtm = new DefaultTableModel(null, colNames);
-        //System.out.println(queryInput.getText());
-        //String query = queryInput.getText();
-        ArrayList<String[]> qResult = DatabaseAccess.loadPCs("placeholder");
-        resultsTable.setModel(dtm);
-        for (int i = 0; i < qResult.size(); i++) {
-            dtm.addRow(new String[5]);
-            resultsTable.getModel().setValueAt(qResult.get(i)[0], i, 0);
-            resultsTable.getModel().setValueAt(qResult.get(i)[1], i, 1);
-            resultsTable.getModel().setValueAt(qResult.get(i)[2], i, 2);
-            resultsTable.getModel().setValueAt(qResult.get(i)[3], i, 3);
-            resultsTable.getModel().setValueAt(qResult.get(i)[4], i, 4);
-            resultsTable.getModel().setValueAt(qResult.get(i)[5], i, 5);
-            resultsTable.getModel().setValueAt(qResult.get(i)[6], i, 6);
-            resultsTable.getModel().setValueAt(qResult.get(i)[7], i, 7);
-            resultsTable.getModel().setValueAt(qResult.get(i)[8], i, 8);
-            resultsTable.getModel().setValueAt(qResult.get(i)[9], i, 9);
-            resultsTable.getModel().setValueAt(qResult.get(i)[10], i, 10);
-            resultsTable.getModel().setValueAt(qResult.get(i)[11], i, 11);
 
-            //textBox1.append(qResult.get(i).toString()); removed
-        }
-    }
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         loadMonitors();
     }//GEN-LAST:event_jButton1ActionPerformed
-    private void loadMonitors(){
-        String colNames[] = {"Asset", "Serial", "Status", "Notes", "IDMonitorModel", "DateInstalled"};
-        DefaultTableModel dtm = new DefaultTableModel(null, colNames);
-        ArrayList<String[]> qResult = DatabaseAccess.loadMonitors("placeholder");
-        monitorTable.setModel(dtm);
-        for (int i = 0; i < qResult.size(); i++) {
-            dtm.addRow(new String[6]);
-            monitorTable.getModel().setValueAt(qResult.get(i)[0], i, 0);
-            monitorTable.getModel().setValueAt(qResult.get(i)[1], i, 1);
-            monitorTable.getModel().setValueAt(qResult.get(i)[2], i, 2);
-            monitorTable.getModel().setValueAt(qResult.get(i)[3], i, 3);
-            monitorTable.getModel().setValueAt(qResult.get(i)[4], i, 4);
-            monitorTable.getModel().setValueAt(qResult.get(i)[5], i, 5);
-            //textBox1.append(qResult.get(i).toString()); removed
-
-        }
-    }
+   
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         System.exit(0);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
@@ -485,40 +441,11 @@ public class GUITest extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         loadMonitorModel();
     }//GEN-LAST:event_jButton3ActionPerformed
-    
-    private void loadMonitorModel(){
-        String colNames[] = {"idMonitorModel", "Make", "Model"};
-        DefaultTableModel dtm = new DefaultTableModel(null, colNames);
-        ArrayList<String[]> qResult = DatabaseAccess.loadMonitorModels("placeholder");
-        monitorModelTable.setModel(dtm);
-        for (int i = 0; i < qResult.size(); i++) {
-            dtm.addRow(new String[3]);
-            monitorModelTable.getModel().setValueAt(qResult.get(i)[0], i, 0);
-            monitorModelTable.getModel().setValueAt(qResult.get(i)[1], i, 1);
-            monitorModelTable.getModel().setValueAt(qResult.get(i)[2], i, 2);
-        }
-    }
-    
+   
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         loadLocations();
     }//GEN-LAST:event_jButton4ActionPerformed
 
-    private void loadLocations(){
-        String colNames[] = {"idLocation", "Building", "Department", "Address1", "Address2", "Town", "RCode"};
-        DefaultTableModel dtm = new DefaultTableModel(null, colNames);
-        ArrayList<String[]> qResult = DatabaseAccess.loadLocations("placeholder");
-        locationTable.setModel(dtm);
-        for (int i = 0; i < qResult.size(); i++) {
-            dtm.addRow(new String[7]);
-            locationTable.getModel().setValueAt(qResult.get(i)[0], i, 0);
-            locationTable.getModel().setValueAt(qResult.get(i)[1], i, 1);
-            locationTable.getModel().setValueAt(qResult.get(i)[2], i, 2);
-            locationTable.getModel().setValueAt(qResult.get(i)[3], i, 3);
-            locationTable.getModel().setValueAt(qResult.get(i)[4], i, 4);
-            locationTable.getModel().setValueAt(qResult.get(i)[5], i, 5);
-            locationTable.getModel().setValueAt(qResult.get(i)[6], i, 6);
-        }
-    }
     private void jMenu1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jMenu1StateChanged
         // TODO for the decommissioned checkbox change
     }//GEN-LAST:event_jMenu1StateChanged
@@ -526,34 +453,11 @@ public class GUITest extends javax.swing.JFrame {
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         loadPCModels();
     }//GEN-LAST:event_jButton5ActionPerformed
-    private void loadPCModels(){
-        String colNames[] = {"idPCModel", "Make", "Model", "SubModel"};
-        DefaultTableModel dtm = new DefaultTableModel(null, colNames);
-        ArrayList<String[]> qResult = DatabaseAccess.loadPCModels();
-        pcModelTable.setModel(dtm);
-        for (int i = 0; i < qResult.size(); i++) {
-            dtm.addRow(new String[4]);
-            pcModelTable.getModel().setValueAt(qResult.get(i)[0], i, 0);
-            pcModelTable.getModel().setValueAt(qResult.get(i)[1], i, 1);
-            pcModelTable.getModel().setValueAt(qResult.get(i)[2], i, 2);
-            pcModelTable.getModel().setValueAt(qResult.get(i)[3], i, 3);
-        }
-    }
+
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         loadUsers();
     }//GEN-LAST:event_jButton6ActionPerformed
-    private void loadUsers(){
-        // Tricky one to show all users
-        String colNames[] = {"UserName", "LatestPC"};
-        DefaultTableModel dtm = new DefaultTableModel(null, colNames);
-        ArrayList<String[]> qResult = DatabaseAccess.loadUsers();
-        userTable.setModel(dtm);
-        for (int i = 0; i < qResult.size(); i++) {
-            dtm.addRow(new String[2]);
-            userTable.getModel().setValueAt(qResult.get(i)[0], i, 0);
-            userTable.getModel().setValueAt(qResult.get(i)[1], i, 1);
-        }
-    }
+    
     /**
      * @param args the command line arguments
      */
@@ -620,4 +524,104 @@ public class GUITest extends javax.swing.JFrame {
     private javax.swing.JTable resultsTable;
     private javax.swing.JTable userTable;
     // End of variables declaration//GEN-END:variables
+    private void loadUsers(){
+        // Tricky one to show all users
+        String colNames[] = {"UserName", "LatestPC"};
+        DefaultTableModel dtm = new DefaultTableModel(null, colNames);
+        ArrayList<String[]> qResult = DatabaseAccess.loadUsers();
+        userTable.setModel(dtm);
+        for (int i = 0; i < qResult.size(); i++) {
+            dtm.addRow(new String[2]);
+            userTable.getModel().setValueAt(qResult.get(i)[0], i, 0);
+            userTable.getModel().setValueAt(qResult.get(i)[1], i, 1);
+        }
+    }
+    private void loadPCModels(){
+        String colNames[] = {"idPCModel", "Make", "Model", "SubModel"};
+        DefaultTableModel dtm = new DefaultTableModel(null, colNames);
+        ArrayList<String[]> qResult = DatabaseAccess.loadPCModels();
+        pcModelTable.setModel(dtm);
+        for (int i = 0; i < qResult.size(); i++) {
+            dtm.addRow(new String[4]);
+            pcModelTable.getModel().setValueAt(qResult.get(i)[0], i, 0);
+            pcModelTable.getModel().setValueAt(qResult.get(i)[1], i, 1);
+            pcModelTable.getModel().setValueAt(qResult.get(i)[2], i, 2);
+            pcModelTable.getModel().setValueAt(qResult.get(i)[3], i, 3);
+        }
+    }
+    private void loadLocations(){
+        String colNames[] = {"idLocation", "Building", "Department", "Address1", "Address2", "Town", "RCode"};
+        DefaultTableModel dtm = new DefaultTableModel(null, colNames);
+        ArrayList<String[]> qResult = DatabaseAccess.loadLocations("placeholder");
+        locationTable.setModel(dtm);
+        for (int i = 0; i < qResult.size(); i++) {
+            dtm.addRow(new String[7]);
+            locationTable.getModel().setValueAt(qResult.get(i)[0], i, 0);
+            locationTable.getModel().setValueAt(qResult.get(i)[1], i, 1);
+            locationTable.getModel().setValueAt(qResult.get(i)[2], i, 2);
+            locationTable.getModel().setValueAt(qResult.get(i)[3], i, 3);
+            locationTable.getModel().setValueAt(qResult.get(i)[4], i, 4);
+            locationTable.getModel().setValueAt(qResult.get(i)[5], i, 5);
+            locationTable.getModel().setValueAt(qResult.get(i)[6], i, 6);
+        }
+    }
+    private void loadMonitorModel(){
+        String colNames[] = {"idMonitorModel", "Make", "Model"};
+        DefaultTableModel dtm = new DefaultTableModel(null, colNames);
+        ArrayList<String[]> qResult = DatabaseAccess.loadMonitorModels("placeholder");
+        monitorModelTable.setModel(dtm);
+        for (int i = 0; i < qResult.size(); i++) {
+            dtm.addRow(new String[3]);
+            monitorModelTable.getModel().setValueAt(qResult.get(i)[0], i, 0);
+            monitorModelTable.getModel().setValueAt(qResult.get(i)[1], i, 1);
+            monitorModelTable.getModel().setValueAt(qResult.get(i)[2], i, 2);
+        }
+    }
+    private void loadMonitors(){
+        String colNames[] = {"Asset", "Serial", "Status", "Notes", "IDMonitorModel", "DateInstalled"};
+        DefaultTableModel dtm = new DefaultTableModel(null, colNames);
+        ArrayList<String[]> qResult = DatabaseAccess.loadMonitors("placeholder");
+        monitorTable.setModel(dtm);
+        for (int i = 0; i < qResult.size(); i++) {
+            dtm.addRow(new String[6]);
+            monitorTable.getModel().setValueAt(qResult.get(i)[0], i, 0);
+            monitorTable.getModel().setValueAt(qResult.get(i)[1], i, 1);
+            monitorTable.getModel().setValueAt(qResult.get(i)[2], i, 2);
+            monitorTable.getModel().setValueAt(qResult.get(i)[3], i, 3);
+            monitorTable.getModel().setValueAt(qResult.get(i)[4], i, 4);
+            monitorTable.getModel().setValueAt(qResult.get(i)[5], i, 5);
+            //textBox1.append(qResult.get(i).toString()); removed
+
+        }
+    }
+    private void loadPCs(){
+        String colNames[] = {"Id", "Name", "Location", "PCModel", "SerialNumber", "Monitor1", "Monitor2", "AssetNum", "LastLogin",
+            "Notes", "Status", "RepDate"};
+        DefaultTableModel dtm = new DefaultTableModel(null, colNames);
+        //System.out.println(queryInput.getText());
+        //String query = queryInput.getText();
+        ArrayList<String[]> qResult = DatabaseAccess.loadPCs("placeholder");
+        resultsTable.setModel(dtm);
+        for (int i = 0; i < qResult.size(); i++) {
+            dtm.addRow(new String[5]);
+            resultsTable.getModel().setValueAt(qResult.get(i)[0], i, 0);
+            resultsTable.getModel().setValueAt(qResult.get(i)[1], i, 1);
+            resultsTable.getModel().setValueAt(qResult.get(i)[2], i, 2);
+            resultsTable.getModel().setValueAt(qResult.get(i)[3], i, 3);
+            resultsTable.getModel().setValueAt(qResult.get(i)[4], i, 4);
+            resultsTable.getModel().setValueAt(qResult.get(i)[5], i, 5);
+            resultsTable.getModel().setValueAt(qResult.get(i)[6], i, 6);
+            resultsTable.getModel().setValueAt(qResult.get(i)[7], i, 7);
+            resultsTable.getModel().setValueAt(qResult.get(i)[8], i, 8);
+            resultsTable.getModel().setValueAt(qResult.get(i)[9], i, 9);
+            resultsTable.getModel().setValueAt(qResult.get(i)[10], i, 10);
+            resultsTable.getModel().setValueAt(qResult.get(i)[11], i, 11);
+
+            //textBox1.append(qResult.get(i).toString()); removed
+        }
+    }
+    private void loadAll(){
+        loadPCs();
+        loadLocations();
+    }
 }
