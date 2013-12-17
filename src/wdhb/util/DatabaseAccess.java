@@ -15,7 +15,7 @@ import java.util.HashMap;
 public class DatabaseAccess {
 
     public static ArrayList loadPCs(String inputQuery) {
-        String url = "jdbc:mysql://wsc267:3306/";
+        String url = "jdbc:mysql://localhost:3306/";
         String dbName = "assetDB";
         String driver = "com.mysql.jdbc.Driver";
         String userName = "jessvoig";
@@ -80,7 +80,7 @@ public class DatabaseAccess {
     }
 
     public static ArrayList loadMonitors(String inputQuery) {
-        String url = "jdbc:mysql://wsc267:3306/";
+        String url = "jdbc:mysql://localhost:3306/";
         String dbName = "assetDB";
         String driver = "com.mysql.jdbc.Driver";
         String userName = "jessvoig";
@@ -128,7 +128,7 @@ public class DatabaseAccess {
     }
 
     public static ArrayList loadMonitorModels(String inputQuery) {
-        String url = "jdbc:mysql://wsc267:3306/";
+        String url = "jdbc:mysql://localhost:3306/";
         String dbName = "assetDB";
         String driver = "com.mysql.jdbc.Driver";
         String userName = "jessvoig";
@@ -159,7 +159,7 @@ public class DatabaseAccess {
     }
 
     public static ArrayList loadPCModels() {
-        String url = "jdbc:mysql://wsc267:3306/";
+        String url = "jdbc:mysql://localhost:3306/";
         String dbName = "assetDB";
         String driver = "com.mysql.jdbc.Driver";
         String userName = "jessvoig";
@@ -191,7 +191,7 @@ public class DatabaseAccess {
     }
 
     public static ArrayList loadLocations(String inputQuery) {
-        String url = "jdbc:mysql://wsc267:3306/";
+        String url = "jdbc:mysql://localhost:3306/";
         String dbName = "assetDB";
         String driver = "com.mysql.jdbc.Driver";
         String userName = "jessvoig";
@@ -226,7 +226,7 @@ public class DatabaseAccess {
     }
 
     public static ArrayList loadUsers() {
-        String url = "jdbc:mysql://wsc267:3306/";
+        String url = "jdbc:mysql://localhost:3306/";
         String dbName = "assetDB";
         String driver = "com.mysql.jdbc.Driver";
         String userName = "jessvoig";
