@@ -67,7 +67,6 @@ public class DatabaseAccess {
                     Date repDateFormatted = new Date((long) repDateCode * 1000);          //Date conversion from 10 digit unix number to correct date FML
                     String repDate = repDateFormatted.toString();
 
-                    //System.out.println(id + "\t " + name);
                     String colNames[] = {id, name, location, pcModel, serialNumber, monitor1, monitor2, assetNum, lastLogin,
                         notes, status, repDate};
                     resultList.add(colNames);
@@ -152,7 +151,6 @@ public class DatabaseAccess {
 
                 }
                 conn.close();
-                System.out.println("passed sql to array");
             }
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | SQLException e) {
             e.printStackTrace();

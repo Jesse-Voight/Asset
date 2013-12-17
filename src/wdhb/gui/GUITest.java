@@ -430,6 +430,9 @@ public class GUITest extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        loadPCs();
+    }//GEN-LAST:event_jButton2ActionPerformed
+    private void loadPCs(){
         String colNames[] = {"Id", "Name", "Location", "PCModel", "SerialNumber", "Monitor1", "Monitor2", "AssetNum", "LastLogin",
             "Notes", "Status", "RepDate"};
         DefaultTableModel dtm = new DefaultTableModel(null, colNames);
@@ -454,9 +457,11 @@ public class GUITest extends javax.swing.JFrame {
 
             //textBox1.append(qResult.get(i).toString()); removed
         }
-    }//GEN-LAST:event_jButton2ActionPerformed
-
+    }
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        loadMonitors();
+    }//GEN-LAST:event_jButton1ActionPerformed
+    private void loadMonitors(){
         String colNames[] = {"Asset", "Serial", "Status", "Notes", "IDMonitorModel", "DateInstalled"};
         DefaultTableModel dtm = new DefaultTableModel(null, colNames);
         ArrayList<String[]> qResult = DatabaseAccess.loadMonitors("placeholder");
@@ -472,13 +477,16 @@ public class GUITest extends javax.swing.JFrame {
             //textBox1.append(qResult.get(i).toString()); removed
 
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
-
+    }
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         System.exit(0);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        loadMonitorModel();
+    }//GEN-LAST:event_jButton3ActionPerformed
+    
+    private void loadMonitorModel(){
         String colNames[] = {"idMonitorModel", "Make", "Model"};
         DefaultTableModel dtm = new DefaultTableModel(null, colNames);
         ArrayList<String[]> qResult = DatabaseAccess.loadMonitorModels("placeholder");
@@ -489,9 +497,13 @@ public class GUITest extends javax.swing.JFrame {
             monitorModelTable.getModel().setValueAt(qResult.get(i)[1], i, 1);
             monitorModelTable.getModel().setValueAt(qResult.get(i)[2], i, 2);
         }
-    }//GEN-LAST:event_jButton3ActionPerformed
-
+    }
+    
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        loadLocations();
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void loadLocations(){
         String colNames[] = {"idLocation", "Building", "Department", "Address1", "Address2", "Town", "RCode"};
         DefaultTableModel dtm = new DefaultTableModel(null, colNames);
         ArrayList<String[]> qResult = DatabaseAccess.loadLocations("placeholder");
@@ -506,13 +518,15 @@ public class GUITest extends javax.swing.JFrame {
             locationTable.getModel().setValueAt(qResult.get(i)[5], i, 5);
             locationTable.getModel().setValueAt(qResult.get(i)[6], i, 6);
         }
-    }//GEN-LAST:event_jButton4ActionPerformed
-
+    }
     private void jMenu1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jMenu1StateChanged
         // TODO for the decommissioned checkbox change
     }//GEN-LAST:event_jMenu1StateChanged
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        loadPCModels();
+    }//GEN-LAST:event_jButton5ActionPerformed
+    private void loadPCModels(){
         String colNames[] = {"idPCModel", "Make", "Model", "SubModel"};
         DefaultTableModel dtm = new DefaultTableModel(null, colNames);
         ArrayList<String[]> qResult = DatabaseAccess.loadPCModels();
@@ -524,9 +538,11 @@ public class GUITest extends javax.swing.JFrame {
             pcModelTable.getModel().setValueAt(qResult.get(i)[2], i, 2);
             pcModelTable.getModel().setValueAt(qResult.get(i)[3], i, 3);
         }
-    }//GEN-LAST:event_jButton5ActionPerformed
-
+    }
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        loadUsers();
+    }//GEN-LAST:event_jButton6ActionPerformed
+    private void loadUsers(){
         // Tricky one to show all users
         String colNames[] = {"UserName", "LatestPC"};
         DefaultTableModel dtm = new DefaultTableModel(null, colNames);
@@ -537,8 +553,7 @@ public class GUITest extends javax.swing.JFrame {
             userTable.getModel().setValueAt(qResult.get(i)[0], i, 0);
             userTable.getModel().setValueAt(qResult.get(i)[1], i, 1);
         }
-    }//GEN-LAST:event_jButton6ActionPerformed
-
+    }
     /**
      * @param args the command line arguments
      */
