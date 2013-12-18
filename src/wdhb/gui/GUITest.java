@@ -12,7 +12,8 @@ import wdhb.util.DatabaseAccess;
 import java.util.ArrayList;
 import javax.swing.JViewport;
 import javax.swing.table.DefaultTableModel;
-
+import javax.swing.table.TableModel;
+import wdhb.util.BetterTableModel;
 /**
  *
  * @author JessVoig
@@ -186,6 +187,11 @@ public class GUITest extends javax.swing.JFrame {
         });
 
         jTextField1.setText("Enter Text Here");
+        jTextField1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jTextField1FocusGained(evt);
+            }
+        });
 
         jButton8.setText("Find Value");
         jButton8.addActionListener(new java.awt.event.ActionListener() {
@@ -586,6 +592,7 @@ public class GUITest extends javax.swing.JFrame {
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         String toFind = jTextField1.getText();// TODO add your handling code here
+        System.out.println(toFind);
         for(int x = 0; x < resultsTable.getRowCount(); x++){
             for(int y = 0; y < resultsTable.getColumnCount(); y++){
                 String tempValue = (String)resultsTable.getValueAt(x, y);
@@ -602,6 +609,10 @@ public class GUITest extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jTextField1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField1FocusGained
+        jTextField1.setText("");// TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1FocusGained
     
     /**
      * @param args the command line arguments
@@ -755,7 +766,11 @@ public class GUITest extends javax.swing.JFrame {
         System.out.println(loadDecom);
         String colNames[] = {"Id", "Name", "Location", "PCModel", "SerialNumber", "Monitor1", "Monitor2", "AssetNum", "LastLogin",
             "Notes", "Status", "RepDate"};
-        DefaultTableModel dtm = new DefaultTableModel(null, colNames);
+        BetterTableModel dtm = new BetterTableModel();
+        //DefaultTableModel dtm = new DefaultTableModel(null, colNames);
+        dtm.setDataVector(null, colNames);
+
+        
         //System.out.println(queryInput.getText());
         //String query = queryInput.getText();
         ArrayList<String[]> qResult = DatabaseAccess.loadPCs(loadDecom);
@@ -777,6 +792,7 @@ public class GUITest extends javax.swing.JFrame {
 
             //textBox1.append(qResult.get(i).toString()); removed
         }
+        
     }
     private void loadAll(){
         loadPCs();
