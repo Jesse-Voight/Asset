@@ -5,15 +5,19 @@
  */
 package wdhb.gui;
 
+import java.awt.Component;
 import java.awt.Event;
 import java.awt.Point;
 import java.awt.Rectangle;
+import java.awt.event.KeyEvent;
 import wdhb.util.DatabaseAccess;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.JViewport;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import wdhb.util.BetterTableModel;
+
 /**
  *
  * @author JessVoig
@@ -39,6 +43,12 @@ public class GUITest extends javax.swing.JFrame {
         jButton7 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        jDialog2 = new javax.swing.JDialog();
+        jLabel5 = new javax.swing.JLabel();
+        userLabel = new javax.swing.JLabel();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        userHistoryTable = new javax.swing.JTable();
+        jButton9 = new javax.swing.JButton();
         jInternalFrame1 = new javax.swing.JInternalFrame();
         jTab = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
@@ -67,6 +77,7 @@ public class GUITest extends javax.swing.JFrame {
         jScrollPane6 = new javax.swing.JScrollPane();
         userTable = new javax.swing.JTable();
         jButton6 = new javax.swing.JButton();
+        jButton10 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -135,6 +146,66 @@ public class GUITest extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        jDialog2.setMinimumSize(new java.awt.Dimension(440, 430));
+        jDialog2.setPreferredSize(new java.awt.Dimension(440, 430));
+        jDialog2.addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                jDialog2WindowActivated(evt);
+            }
+        });
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel5.setText("User History -");
+
+        userLabel.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        userLabel.setText("user");
+
+        userHistoryTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null}
+            },
+            new String [] {
+                "ID PC", "Name", "Date", "cFree"
+            }
+        ));
+        jScrollPane7.setViewportView(userHistoryTable);
+
+        jButton9.setText("Close");
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jDialog2Layout = new javax.swing.GroupLayout(jDialog2.getContentPane());
+        jDialog2.getContentPane().setLayout(jDialog2Layout);
+        jDialog2Layout.setHorizontalGroup(
+            jDialog2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jDialog2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jDialog2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton9)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jDialog2Layout.createSequentialGroup()
+                        .addComponent(jLabel5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(userLabel))
+                    .addComponent(jScrollPane7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 420, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        jDialog2Layout.setVerticalGroup(
+            jDialog2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jDialog2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jDialog2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(userLabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton9)
+                .addContainerGap())
+        );
+
         jInternalFrame1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "ICT Asset Manager", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 10), java.awt.Color.pink)); // NOI18N
         jInternalFrame1.setTitle("ICT Asset Manager");
         jInternalFrame1.setVisible(true);
@@ -190,6 +261,11 @@ public class GUITest extends javax.swing.JFrame {
         jTextField1.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 jTextField1FocusGained(evt);
+            }
+        });
+        jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextField1KeyPressed(evt);
             }
         });
 
@@ -464,6 +540,13 @@ public class GUITest extends javax.swing.JFrame {
             }
         });
 
+        jButton10.setText("View Details");
+        jButton10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton10ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
@@ -474,7 +557,8 @@ public class GUITest extends javax.swing.JFrame {
                     .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 886, Short.MAX_VALUE)
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addComponent(jButton6)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton10)))
                 .addContainerGap())
         );
         jPanel6Layout.setVerticalGroup(
@@ -483,7 +567,9 @@ public class GUITest extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 512, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton6)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton6)
+                    .addComponent(jButton10))
                 .addContainerGap())
         );
 
@@ -547,7 +633,7 @@ public class GUITest extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         loadMonitors();
     }//GEN-LAST:event_jButton1ActionPerformed
-   
+
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         System.exit(0);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
@@ -555,7 +641,7 @@ public class GUITest extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         loadMonitorModel();
     }//GEN-LAST:event_jButton3ActionPerformed
-   
+
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         loadLocations();
     }//GEN-LAST:event_jButton4ActionPerformed
@@ -587,33 +673,47 @@ public class GUITest extends javax.swing.JFrame {
     }//GEN-LAST:event_decommissionCheckItemStateChanged
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        //jButton8.isDefaultButton();
         loadAll();// TODO add your handling code here: window opened
     }//GEN-LAST:event_formWindowOpened
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        String toFind = jTextField1.getText();// TODO add your handling code here
-        System.out.println(toFind);
-        for(int x = 0; x < resultsTable.getRowCount(); x++){
-            for(int y = 0; y < resultsTable.getColumnCount(); y++){
-                String tempValue = (String)resultsTable.getValueAt(x, y);
-                //System.out.println(toFind);                
-                //System.out.println(tempValue);
-                if(tempValue != null){
-                if(tempValue.toLowerCase().equals(toFind.toLowerCase())){
-                    System.out.println(tempValue);
-                    resultsTable.setRowSelectionInterval(x,x);
-                    jScrollPane1.getViewport().setViewPosition(new Point(0,x*resultsTable.getRowHeight()));
-                    return;
-                }
-                }
-            }
-        }
+        findPC();
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jTextField1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField1FocusGained
         jTextField1.setText("");// TODO add your handling code here:
     }//GEN-LAST:event_jTextField1FocusGained
-    
+
+    private void jTextField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyPressed
+        int key = evt.getKeyCode();
+        if (key == KeyEvent.VK_ENTER) {
+            findPC();
+        }
+    }//GEN-LAST:event_jTextField1KeyPressed
+
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+        if (userTable.getSelectedRow() != -1){
+        jDialog2.setVisible(true);
+        jDialog2.setLocation(jMenuBar1.getLocationOnScreen());
+        String userTemp = (String)userTable.getModel().getValueAt(userTable.getSelectedRow(), 0);
+        
+        System.out.println(userTemp.toString());
+        userLabel.setText(userTemp);
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "NO USER SELECTED!!!!!!", "Error", JOptionPane.WARNING_MESSAGE);
+        }
+    }//GEN-LAST:event_jButton10ActionPerformed
+
+    private void jDialog2WindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_jDialog2WindowActivated
+            loadUserDetails();
+    }//GEN-LAST:event_jDialog2WindowActivated
+
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        jDialog2.setVisible(false);
+    }//GEN-LAST:event_jButton9ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -641,11 +741,11 @@ public class GUITest extends javax.swing.JFrame {
         }
         //</editor-fold>
         /* Create and display the form */
-        
+
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new GUITest().setVisible(true);
-                
+
             }
         });
     }
@@ -653,6 +753,7 @@ public class GUITest extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JCheckBoxMenuItem decommissionCheck;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -660,12 +761,15 @@ public class GUITest extends javax.swing.JFrame {
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
     private javax.swing.JDialog jDialog1;
+    private javax.swing.JDialog jDialog2;
     private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
@@ -682,6 +786,7 @@ public class GUITest extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JTabbedPane jTab;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTable locationTable;
@@ -689,9 +794,11 @@ public class GUITest extends javax.swing.JFrame {
     private javax.swing.JTable monitorTable;
     private javax.swing.JTable pcModelTable;
     private javax.swing.JTable resultsTable;
+    private javax.swing.JTable userHistoryTable;
+    private javax.swing.JLabel userLabel;
     private javax.swing.JTable userTable;
     // End of variables declaration//GEN-END:variables
-    private void loadUsers(){
+    private void loadUsers() {
         // Tricky one to show all users
         String colNames[] = {"UserName", "LatestPC"};
         DefaultTableModel dtm = new DefaultTableModel(null, colNames);
@@ -703,7 +810,20 @@ public class GUITest extends javax.swing.JFrame {
             userTable.getModel().setValueAt(qResult.get(i)[1], i, 1);
         }
     }
-    private void loadPCModels(){
+    private void loadUserDetails(){
+        String colNames[] = {"PC","Name","Date"};
+        ArrayList<String[]> userDetes =  DatabaseAccess.loadUserInfo(userLabel.getText());
+        BetterTableModel btm = new BetterTableModel();
+        btm.setDataVector(null, colNames);
+        userHistoryTable.setModel(btm);
+        for(int i = 0; i < userDetes.size(); i++){
+            btm.addRow(new String[3]);
+            userHistoryTable.getModel().setValueAt(userDetes.get(i)[0], i, 0);
+            userHistoryTable.getModel().setValueAt(userDetes.get(i)[1], i, 1);
+            userHistoryTable.getModel().setValueAt(userDetes.get(i)[2], i, 2);
+        }
+    }
+    private void loadPCModels() {
         String colNames[] = {"idPCModel", "Make", "Model", "SubModel"};
         DefaultTableModel dtm = new DefaultTableModel(null, colNames);
         ArrayList<String[]> qResult = DatabaseAccess.loadPCModels();
@@ -716,7 +836,28 @@ public class GUITest extends javax.swing.JFrame {
             pcModelTable.getModel().setValueAt(qResult.get(i)[3], i, 3);
         }
     }
-    private void loadLocations(){
+
+    private void findPC() {
+        String toFind = jTextField1.getText();// TODO add your handling code here
+        //System.out.println(toFind);
+        for (int x = 0; x < resultsTable.getRowCount(); x++) {
+            for (int y = 0; y < resultsTable.getColumnCount(); y++) {
+                String tempValue = (String) resultsTable.getValueAt(x, y);
+                //System.out.println(toFind);                
+                //System.out.println(tempValue);
+                if (tempValue != null) {
+                    if (tempValue.toLowerCase().equals(toFind.toLowerCase())) {
+                        System.out.println(tempValue);
+                        resultsTable.setRowSelectionInterval(x, x);
+                        jScrollPane1.getViewport().setViewPosition(new Point(0, x * resultsTable.getRowHeight()));
+                        return;
+                    }
+                }
+            }
+        }
+    }
+
+    private void loadLocations() {
         String colNames[] = {"idLocation", "Building", "Department", "Address1", "Address2", "Town", "RCode"};
         DefaultTableModel dtm = new DefaultTableModel(null, colNames);
         ArrayList<String[]> qResult = DatabaseAccess.loadLocations("placeholder");
@@ -732,7 +873,8 @@ public class GUITest extends javax.swing.JFrame {
             locationTable.getModel().setValueAt(qResult.get(i)[6], i, 6);
         }
     }
-    private void loadMonitorModel(){
+
+    private void loadMonitorModel() {
         String colNames[] = {"idMonitorModel", "Make", "Model"};
         DefaultTableModel dtm = new DefaultTableModel(null, colNames);
         ArrayList<String[]> qResult = DatabaseAccess.loadMonitorModels("placeholder");
@@ -744,7 +886,8 @@ public class GUITest extends javax.swing.JFrame {
             monitorModelTable.getModel().setValueAt(qResult.get(i)[2], i, 2);
         }
     }
-    private void loadMonitors(){
+
+    private void loadMonitors() {
         String colNames[] = {"Asset", "Serial", "Status", "Notes", "IDMonitorModel", "DateInstalled"};
         DefaultTableModel dtm = new DefaultTableModel(null, colNames);
         ArrayList<String[]> qResult = DatabaseAccess.loadMonitors("placeholder");
@@ -761,16 +904,16 @@ public class GUITest extends javax.swing.JFrame {
 
         }
     }
-    private void loadPCs(){
+
+    private void loadPCs() {
         Boolean loadDecom = decommissionCheck.isSelected();
-        System.out.println(loadDecom);
+        //System.out.println(loadDecom);
         String colNames[] = {"Id", "Name", "Location", "PCModel", "SerialNumber", "Monitor1", "Monitor2", "AssetNum", "LastLogin",
             "Notes", "Status", "RepDate"};
         BetterTableModel dtm = new BetterTableModel();
         //DefaultTableModel dtm = new DefaultTableModel(null, colNames);
         dtm.setDataVector(null, colNames);
 
-        
         //System.out.println(queryInput.getText());
         //String query = queryInput.getText();
         ArrayList<String[]> qResult = DatabaseAccess.loadPCs(loadDecom);
@@ -792,9 +935,10 @@ public class GUITest extends javax.swing.JFrame {
 
             //textBox1.append(qResult.get(i).toString()); removed
         }
-        
+
     }
-    private void loadAll(){
+
+    private void loadAll() {
         loadPCs();
         loadLocations();
         loadMonitorModel();

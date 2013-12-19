@@ -86,7 +86,47 @@ public class DatabaseAccess {
         }
         return resultList;
     }
-
+    public static ArrayList loadUserInfo(String user){
+        String url = "jdbc:mysql://websrv:3306/";
+        String dbName = "assetDB";
+        String driver = "com.mysql.jdbc.Driver";
+        String userName = "jessvoig";
+        String password = "qzpm9876";
+        ArrayList resultList = new ArrayList();
+        HashMap pcMap = new HashMap();
+        
+        try {
+            Class.forName(driver).newInstance();
+            try (Connection conn = DriverManager.getConnection(url + dbName, userName, password)) {
+                Statement querier = conn.createStatement();
+                
+                
+                ResultSet res = querier.executeQuery("select * from PC");
+                while (res.next()){
+                    pcMap.put(res.getString(1), res.getString(2));
+                }
+                
+                ResultSet userResult = querier.executeQuery("select * from UserHistory where Name ='"+ user + "'" + " order by Date desc");
+                
+                while (userResult.next()){
+                    String pcId = (String)pcMap.get(userResult.getString("idPC"));
+                    String name = userResult.getString("Name");
+                    
+                    int dateCode = userResult.getInt("Date");
+                    Date dateFormatted = new Date((long) dateCode * 1000);          //Date conversion from 10 digit unix number to correct date FML
+                    String dateInstalled = dateFormatted.toString();
+                    
+                    String tempData[] = {pcId,name,dateInstalled};
+                    resultList.add(tempData);
+                }
+            conn.close();
+            }
+        }
+        catch (ClassNotFoundException | InstantiationException | IllegalAccessException | SQLException e) {
+            e.printStackTrace();
+        }
+        return resultList;
+    }
     public static ArrayList loadMonitors(String inputQuery) {
         String url = "jdbc:mysql://wsc267:3306/";
         String dbName = "assetDB";
