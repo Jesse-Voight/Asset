@@ -87,7 +87,7 @@ public class DatabaseAccess {
         return resultList;
     }
     public static ArrayList loadUserInfo(String user){
-        String url = "jdbc:mysql://websrv:3306/";
+        String url = "jdbc:mysql://wsc267:3306/";
         String dbName = "assetDB";
         String driver = "com.mysql.jdbc.Driver";
         String userName = "jessvoig";
@@ -101,12 +101,12 @@ public class DatabaseAccess {
                 Statement querier = conn.createStatement();
                 
                 
-                ResultSet res = querier.executeQuery("select * from PC");
+                ResultSet res = querier.executeQuery("select * from pc");
                 while (res.next()){
                     pcMap.put(res.getString(1), res.getString(2));
                 }
                 
-                ResultSet userResult = querier.executeQuery("select * from UserHistory where Name ='"+ user + "'" + " order by Date desc");
+                ResultSet userResult = querier.executeQuery("select * from userhistory where Name ='"+ user + "'" + " order by Date desc");
                 
                 while (userResult.next()){
                     String pcId = (String)pcMap.get(userResult.getString("idPC"));
@@ -285,11 +285,16 @@ public class DatabaseAccess {
             Class.forName(driver).newInstance();
             try (Connection conn = DriverManager.getConnection(url + dbName, userName, password)) {
                 Statement st = conn.createStatement();
-                ResultSet res = st.executeQuery("Select distinct Name FROM userhistory order by Name asc");
+                ResultSet res = st.executeQuery("Select idPC, Name, max(Date) FROM userhistory group by Name");
 
                 while (res.next()) {
                     String name = res.getString("Name");
-                    String idPC = "PC newest";//res.getString("idPC");
+                    
+                    int dateCode = res.getInt("max(Date)");
+                    Date dateFormatted = new Date((long) dateCode * 1000);          //Date conversion from 10 digit unix number to correct date FML
+                    String idPC = dateFormatted.toString();
+
+                    //String idPC = res.getString("max(Date)");//res.getString("idPC");
                     String colNames[] = {name, idPC};
                     resultList.add(colNames);
 

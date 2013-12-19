@@ -594,6 +594,11 @@ public class GUITest extends javax.swing.JFrame {
         ));
         userTable.setGridColor(new java.awt.Color(100, 100, 100));
         userTable.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        userTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                userTableMouseClicked(evt);
+            }
+        });
         jScrollPane6.setViewportView(userTable);
 
         jButton6.setText("Refresh");
@@ -784,6 +789,17 @@ public class GUITest extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_loginScreenWindowLostFocus
 
+    private void userTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userTableMouseClicked
+        if(evt.getClickCount() == 2){
+        jDialog2.setVisible(true);
+        jDialog2.setLocation(jMenuBar1.getLocationOnScreen());
+        String userTemp = (String)userTable.getModel().getValueAt(userTable.getSelectedRow(), 0);
+        
+        System.out.println(userTemp.toString());
+        userLabel.setText(userTemp);
+        }// TODO add your handling code here:
+    }//GEN-LAST:event_userTableMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -876,7 +892,7 @@ public class GUITest extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
     private void loadUsers() {
         // Tricky one to show all users
-        String colNames[] = {"UserName", "LatestPC"};
+        String colNames[] = {"UserName", "Last Login"};
         BetterTableModel dtm = new BetterTableModel();
         dtm.setDataVector(null, colNames);
         ArrayList<String[]> qResult = DatabaseAccess.loadUsers();
@@ -885,6 +901,7 @@ public class GUITest extends javax.swing.JFrame {
             dtm.addRow(new String[2]);
             userTable.getModel().setValueAt(qResult.get(i)[0], i, 0);
             userTable.getModel().setValueAt(qResult.get(i)[1], i, 1);
+            //userTable.getModel().setValueAt(qResult.get(i)[2], i, 2);
         }
     }
     private void loadUserDetails(){
