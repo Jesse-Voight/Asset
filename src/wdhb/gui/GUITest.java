@@ -9,6 +9,7 @@ import java.awt.Component;
 import java.awt.Event;
 import java.awt.Point;
 import java.awt.Rectangle;
+import java.awt.Window;
 import java.awt.event.KeyEvent;
 import wdhb.util.DatabaseAccess;
 import java.util.ArrayList;
@@ -50,6 +51,12 @@ public class GUITest extends javax.swing.JFrame {
         userHistoryTable = new javax.swing.JTable();
         jButton9 = new javax.swing.JButton();
         jInternalFrame1 = new javax.swing.JInternalFrame();
+        loginScreen = new javax.swing.JDialog();
+        jLabel6 = new javax.swing.JLabel();
+        jTextField2 = new javax.swing.JTextField();
+        jPasswordField1 = new javax.swing.JPasswordField();
+        jButton11 = new javax.swing.JButton();
+        jButton12 = new javax.swing.JButton();
         jTab = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -219,6 +226,62 @@ public class GUITest extends javax.swing.JFrame {
         jInternalFrame1Layout.setVerticalGroup(
             jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        loginScreen.setMinimumSize(new java.awt.Dimension(310, 170));
+        loginScreen.addWindowFocusListener(new java.awt.event.WindowFocusListener() {
+            public void windowGainedFocus(java.awt.event.WindowEvent evt) {
+            }
+            public void windowLostFocus(java.awt.event.WindowEvent evt) {
+                loginScreenWindowLostFocus(evt);
+            }
+        });
+
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 2, 24)); // NOI18N
+        jLabel6.setText("WDHB ICT Asset Login");
+
+        jTextField2.setText("Username");
+
+        jPasswordField1.setText("jPasswordField1");
+
+        jButton11.setText("Submit");
+
+        jButton12.setText("Cancel");
+
+        javax.swing.GroupLayout loginScreenLayout = new javax.swing.GroupLayout(loginScreen.getContentPane());
+        loginScreen.getContentPane().setLayout(loginScreenLayout);
+        loginScreenLayout.setHorizontalGroup(
+            loginScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(loginScreenLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(loginScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(loginScreenLayout.createSequentialGroup()
+                        .addComponent(jLabel6)
+                        .addContainerGap(69, Short.MAX_VALUE))
+                    .addGroup(loginScreenLayout.createSequentialGroup()
+                        .addGroup(loginScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jButton11)
+                            .addGroup(loginScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jTextField2, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jPasswordField1, javax.swing.GroupLayout.Alignment.LEADING)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton12)
+                        .addGap(48, 48, 48))))
+        );
+        loginScreenLayout.setVerticalGroup(
+            loginScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(loginScreenLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel6)
+                .addGap(30, 30, 30)
+                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(loginScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton11)
+                    .addComponent(jButton12))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -674,6 +737,9 @@ public class GUITest extends javax.swing.JFrame {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         //jButton8.isDefaultButton();
+        //loginScreen.setVisible(true);
+        //loginScreen.setModal(true);
+        //jTab.setVisible(false);
         loadAll();// TODO add your handling code here: window opened
     }//GEN-LAST:event_formWindowOpened
 
@@ -713,6 +779,10 @@ public class GUITest extends javax.swing.JFrame {
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         jDialog2.setVisible(false);
     }//GEN-LAST:event_jButton9ActionPerformed
+
+    private void loginScreenWindowLostFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_loginScreenWindowLostFocus
+        // TODO add your handling code here:
+    }//GEN-LAST:event_loginScreenWindowLostFocus
 
     /**
      * @param args the command line arguments
@@ -754,6 +824,8 @@ public class GUITest extends javax.swing.JFrame {
     private javax.swing.JCheckBoxMenuItem decommissionCheck;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton11;
+    private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -770,6 +842,7 @@ public class GUITest extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
@@ -780,6 +853,7 @@ public class GUITest extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
+    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -789,7 +863,9 @@ public class GUITest extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JTabbedPane jTab;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
     private javax.swing.JTable locationTable;
+    private javax.swing.JDialog loginScreen;
     private javax.swing.JTable monitorModelTable;
     private javax.swing.JTable monitorTable;
     private javax.swing.JTable pcModelTable;
@@ -801,7 +877,8 @@ public class GUITest extends javax.swing.JFrame {
     private void loadUsers() {
         // Tricky one to show all users
         String colNames[] = {"UserName", "LatestPC"};
-        DefaultTableModel dtm = new DefaultTableModel(null, colNames);
+        BetterTableModel dtm = new BetterTableModel();
+        dtm.setDataVector(null, colNames);
         ArrayList<String[]> qResult = DatabaseAccess.loadUsers();
         userTable.setModel(dtm);
         for (int i = 0; i < qResult.size(); i++) {
@@ -825,7 +902,8 @@ public class GUITest extends javax.swing.JFrame {
     }
     private void loadPCModels() {
         String colNames[] = {"idPCModel", "Make", "Model", "SubModel"};
-        DefaultTableModel dtm = new DefaultTableModel(null, colNames);
+        BetterTableModel dtm = new BetterTableModel();
+        dtm.setDataVector(null, colNames);
         ArrayList<String[]> qResult = DatabaseAccess.loadPCModels();
         pcModelTable.setModel(dtm);
         for (int i = 0; i < qResult.size(); i++) {
@@ -859,7 +937,8 @@ public class GUITest extends javax.swing.JFrame {
 
     private void loadLocations() {
         String colNames[] = {"idLocation", "Building", "Department", "Address1", "Address2", "Town", "RCode"};
-        DefaultTableModel dtm = new DefaultTableModel(null, colNames);
+        BetterTableModel dtm = new BetterTableModel();
+        dtm.setDataVector(null, colNames);
         ArrayList<String[]> qResult = DatabaseAccess.loadLocations("placeholder");
         locationTable.setModel(dtm);
         for (int i = 0; i < qResult.size(); i++) {
@@ -876,7 +955,8 @@ public class GUITest extends javax.swing.JFrame {
 
     private void loadMonitorModel() {
         String colNames[] = {"idMonitorModel", "Make", "Model"};
-        DefaultTableModel dtm = new DefaultTableModel(null, colNames);
+        BetterTableModel dtm = new BetterTableModel();
+        dtm.setDataVector(null, colNames);
         ArrayList<String[]> qResult = DatabaseAccess.loadMonitorModels("placeholder");
         monitorModelTable.setModel(dtm);
         for (int i = 0; i < qResult.size(); i++) {
@@ -889,7 +969,8 @@ public class GUITest extends javax.swing.JFrame {
 
     private void loadMonitors() {
         String colNames[] = {"Asset", "Serial", "Status", "Notes", "IDMonitorModel", "DateInstalled"};
-        DefaultTableModel dtm = new DefaultTableModel(null, colNames);
+        BetterTableModel dtm = new BetterTableModel();
+        dtm.setDataVector(null, colNames);
         ArrayList<String[]> qResult = DatabaseAccess.loadMonitors("placeholder");
         monitorTable.setModel(dtm);
         for (int i = 0; i < qResult.size(); i++) {
@@ -911,7 +992,6 @@ public class GUITest extends javax.swing.JFrame {
         String colNames[] = {"Id", "Name", "Location", "PCModel", "SerialNumber", "Monitor1", "Monitor2", "AssetNum", "LastLogin",
             "Notes", "Status", "RepDate"};
         BetterTableModel dtm = new BetterTableModel();
-        //DefaultTableModel dtm = new DefaultTableModel(null, colNames);
         dtm.setDataVector(null, colNames);
 
         //System.out.println(queryInput.getText());
