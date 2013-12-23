@@ -20,6 +20,7 @@ import javax.swing.JViewport;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import wdhb.util.BetterTableModel;
+import wdhb.util.ComboObject;
 
 /**
  *
@@ -71,6 +72,7 @@ public class GUITest extends javax.swing.JFrame {
         monitorCombo1 = new javax.swing.JComboBox();
         monitorCombo2 = new javax.swing.JComboBox();
         statusCombo = new javax.swing.JComboBox();
+        jButton13 = new javax.swing.JButton();
         jTab = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -298,9 +300,9 @@ public class GUITest extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        pcEditDialog.setMaximumSize(new java.awt.Dimension(340, 380));
-        pcEditDialog.setMinimumSize(new java.awt.Dimension(340, 380));
-        pcEditDialog.setPreferredSize(new java.awt.Dimension(340, 380));
+        pcEditDialog.setMaximumSize(new java.awt.Dimension(340, 500));
+        pcEditDialog.setMinimumSize(new java.awt.Dimension(340, 500));
+        pcEditDialog.setPreferredSize(new java.awt.Dimension(340, 500));
         pcEditDialog.setResizable(false);
 
         pcNameLabel.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
@@ -326,6 +328,13 @@ public class GUITest extends javax.swing.JFrame {
 
         statusCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
+        jButton13.setText("jButton13");
+        jButton13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton13ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout pcEditDialogLayout = new javax.swing.GroupLayout(pcEditDialog.getContentPane());
         pcEditDialog.getContentPane().setLayout(pcEditDialogLayout);
         pcEditDialogLayout.setHorizontalGroup(
@@ -345,7 +354,11 @@ public class GUITest extends javax.swing.JFrame {
                     .addComponent(monitorCombo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(locationCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(pcModelCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(89, Short.MAX_VALUE))
+                .addContainerGap(87, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pcEditDialogLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton13)
+                .addContainerGap())
         );
         pcEditDialogLayout.setVerticalGroup(
             pcEditDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -372,7 +385,9 @@ public class GUITest extends javax.swing.JFrame {
                 .addComponent(commonUsersField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(replaceDateField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(82, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                .addComponent(jButton13)
+                .addContainerGap())
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -904,11 +919,26 @@ public class GUITest extends javax.swing.JFrame {
             
             System.out.println(assetTemp);
             pcNameLabel.setText(assetTemp);
-            //ComboBoxModel tempBoxModel = new DefaultComboBoxModel();
+            DefaultComboBoxModel locationComboModel = new DefaultComboBoxModel();
+            ComboObject temp = new ComboObject();
+            temp.setDescription("TemporaryValue");
+            temp.setID("4815162342");
+            locationComboModel.addElement(temp);
+            locationCombo.setModel(locationComboModel);
+            ArrayList loadLocation = DatabaseAccess.loadLocations("string");
+            ArrayList loadPCModel = DatabaseAccess.loadPCModels();
+            ArrayList loadMonitor = DatabaseAccess.loadMonitors("fdfsf");
+            statusCombo.setModel(new DefaultComboBoxModel(new String[] {"A","D"}));
             monitorCombo1.setModel(new DefaultComboBoxModel(new String[] { "0984984","87987949849"}));
 
         }
     }//GEN-LAST:event_resultsTableMouseClicked
+
+    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
+       
+        ComboObject co = (ComboObject)locationCombo.getSelectedItem();
+        System.out.println(co.getID());
+    }//GEN-LAST:event_jButton13ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -955,6 +985,7 @@ public class GUITest extends javax.swing.JFrame {
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
+    private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
