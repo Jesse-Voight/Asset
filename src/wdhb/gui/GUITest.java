@@ -72,7 +72,6 @@ public class GUITest extends javax.swing.JFrame {
         monitorCombo1 = new javax.swing.JComboBox();
         monitorCombo2 = new javax.swing.JComboBox();
         statusCombo = new javax.swing.JComboBox();
-        jButton13 = new javax.swing.JButton();
         jTab = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -300,9 +299,9 @@ public class GUITest extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        pcEditDialog.setMaximumSize(new java.awt.Dimension(340, 500));
-        pcEditDialog.setMinimumSize(new java.awt.Dimension(340, 500));
-        pcEditDialog.setPreferredSize(new java.awt.Dimension(340, 500));
+        pcEditDialog.setMaximumSize(new java.awt.Dimension(450, 500));
+        pcEditDialog.setMinimumSize(new java.awt.Dimension(450, 500));
+        pcEditDialog.setPreferredSize(new java.awt.Dimension(450, 500));
         pcEditDialog.setResizable(false);
 
         pcNameLabel.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
@@ -328,13 +327,6 @@ public class GUITest extends javax.swing.JFrame {
 
         statusCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        jButton13.setText("jButton13");
-        jButton13.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton13ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout pcEditDialogLayout = new javax.swing.GroupLayout(pcEditDialog.getContentPane());
         pcEditDialog.getContentPane().setLayout(pcEditDialogLayout);
         pcEditDialogLayout.setHorizontalGroup(
@@ -354,11 +346,7 @@ public class GUITest extends javax.swing.JFrame {
                     .addComponent(monitorCombo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(locationCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(pcModelCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(87, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pcEditDialogLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton13)
-                .addContainerGap())
+                .addContainerGap(197, Short.MAX_VALUE))
         );
         pcEditDialogLayout.setVerticalGroup(
             pcEditDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -385,9 +373,7 @@ public class GUITest extends javax.swing.JFrame {
                 .addComponent(commonUsersField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(replaceDateField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
-                .addComponent(jButton13)
-                .addContainerGap())
+                .addContainerGap(103, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -913,32 +899,56 @@ public class GUITest extends javax.swing.JFrame {
 
     private void resultsTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_resultsTableMouseClicked
         if (evt.getClickCount() == 2) {
+            //Primariliy for displaying all data for editing
             pcEditDialog.setVisible(true);
             pcEditDialog.setLocation(jMenuBar1.getLocationOnScreen());
             String assetTemp = (String) resultsTable.getModel().getValueAt(resultsTable.getSelectedRow(), 1);
             
-            System.out.println(assetTemp);
+            //System.out.println(assetTemp); print pc name
             pcNameLabel.setText(assetTemp);
-            DefaultComboBoxModel locationComboModel = new DefaultComboBoxModel();
-            ComboObject temp = new ComboObject();
-            temp.setDescription("TemporaryValue");
-            temp.setID("4815162342");
-            locationComboModel.addElement(temp);
+            DefaultComboBoxModel locationComboModel = new DefaultComboBoxModel();    //create combobox models before laoding
+            DefaultComboBoxModel pcModelComboModel = new DefaultComboBoxModel();
+            DefaultComboBoxModel monitorComboModel = new DefaultComboBoxModel();
+            
+            
+            ArrayList<String[]> loadLocationCombo = DatabaseAccess.loadLocations("string");
+            for (Object locationObject: loadLocationCombo){
+                String[] stringArray = (String[])locationObject;
+                ComboObject temp = new ComboObject();
+                temp.setDescription(stringArray[1] + " " + stringArray[2]);
+                temp.setID(stringArray[0]);
+                locationComboModel.addElement(temp);
+                //System.out.println(stringArray[0] + " " + stringArray[1]);
+            }
+            
+            ArrayList<String[]> loadPCModelCombo = DatabaseAccess.loadPCModels();
+            for (Object pcModelObject: loadPCModelCombo){
+                String[] stringArray = (String[])pcModelObject;
+                ComboObject temp = new ComboObject();
+                temp.setDescription(stringArray[1] + " " + stringArray[2]);
+                temp.setID(stringArray[0]);
+                pcModelComboModel.addElement(temp);
+            }
+            
+            ArrayList<String[]> loadMonitorCombo = DatabaseAccess.loadMonitors("kldfuhs");
+            for (Object monitorObject: loadMonitorCombo){
+                String[] stringArray = (String[])monitorObject;
+                ComboObject temp = new ComboObject();
+                temp.setDescription(stringArray[1]);
+                temp.setID(stringArray[0]);
+                monitorComboModel.addElement(temp);
+                System.out.println(stringArray[1] + stringArray[0]);
+            }
             locationCombo.setModel(locationComboModel);
-            ArrayList loadLocation = DatabaseAccess.loadLocations("string");
-            ArrayList loadPCModel = DatabaseAccess.loadPCModels();
-            ArrayList loadMonitor = DatabaseAccess.loadMonitors("fdfsf");
-            statusCombo.setModel(new DefaultComboBoxModel(new String[] {"A","D"}));
-            monitorCombo1.setModel(new DefaultComboBoxModel(new String[] { "0984984","87987949849"}));
-
+            statusCombo.setModel(new DefaultComboBoxModel(new String[] {"A","D","I","S"}));
+            monitorCombo1.setModel(monitorComboModel);
+            monitorCombo2.setModel(monitorComboModel);
+            pcModelCombo.setModel(pcModelComboModel);
+            String pcDataTemp = (String)resultsTable.getModel().getValueAt(resultsTable.getSelectedRow(), 0);
+            String[] pcData = DatabaseAccess.loadPCData(pcDataTemp);
+            System.out.println(pcData);
         }
     }//GEN-LAST:event_resultsTableMouseClicked
-
-    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
-       
-        ComboObject co = (ComboObject)locationCombo.getSelectedItem();
-        System.out.println(co.getID());
-    }//GEN-LAST:event_jButton13ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -985,7 +995,6 @@ public class GUITest extends javax.swing.JFrame {
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
-    private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -1140,7 +1149,7 @@ public class GUITest extends javax.swing.JFrame {
     }
 
     private void loadMonitors() {
-        String colNames[] = {"Asset", "Serial", "Status", "Notes", "IDMonitorModel", "DateInstalled"};
+        String colNames[] = {"Monitorid","Asset", "Serial", "Status", "Notes", "IDMonitorModel", "DateInstalled"};
         BetterTableModel dtm = new BetterTableModel();
         dtm.setDataVector(null, colNames);
         ArrayList<String[]> qResult = DatabaseAccess.loadMonitors("placeholder");
@@ -1153,6 +1162,7 @@ public class GUITest extends javax.swing.JFrame {
             monitorTable.getModel().setValueAt(qResult.get(i)[3], i, 3);
             monitorTable.getModel().setValueAt(qResult.get(i)[4], i, 4);
             monitorTable.getModel().setValueAt(qResult.get(i)[5], i, 5);
+            monitorTable.getModel().setValueAt(qResult.get(i)[6], i, 6);
             //textBox1.append(qResult.get(i).toString()); removed
 
         }

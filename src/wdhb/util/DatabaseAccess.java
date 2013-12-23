@@ -86,6 +86,36 @@ public class DatabaseAccess {
         }
         return resultList;
     }
+    public static String[] loadPCData (String pcID){
+        String url = "jdbc:mysql://wsc267:3306/";
+        String dbName = "assetDB";
+        String driver = "com.mysql.jdbc.Driver";
+        String userName = "jessvoig";
+        String password = "qzpm9876";
+        String[] result = null;
+        try {
+            Class.forName(driver).newInstance();
+            try (Connection conn = DriverManager.getConnection(url + dbName, userName, password)) {
+                Statement st = conn.createStatement();
+
+                ResultSet res = st.executeQuery("Select * FROM pc Where idPC = '" + pcID +"'");
+
+                while (res.next()) {
+                    String idMonitor = res.getString("idMonitorModel");
+                    String make = res.getString("Make");
+                    String model = res.getString("Model");
+                    String[] resulte = {idMonitor, make, model};
+                    result = resulte;
+                   
+
+                }
+                conn.close();
+            }
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | SQLException e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
     public static ArrayList loadUserInfo(String user){
         String url = "jdbc:mysql://websrv:3306/";
         String dbName = "assetDB";
@@ -152,6 +182,7 @@ public class DatabaseAccess {
                  //System.out.println(columnNames.getColumnName(i));           //Test for dynamic column creation
                  }*/
                 while (res.next()) {
+                    String monitorID = res.getString("idMonitor");
                     String asset = res.getString("AssetNo");
                     String serial = res.getString("SerialNo");
                     String status = res.getString("Status");
@@ -164,7 +195,7 @@ public class DatabaseAccess {
                     Date dateFormatted = new Date((long) dateCode * 1000);          //Date conversion from 10 digit unix number to correct date FML
                     String dateInstalled = dateFormatted.toString();
 
-                    String tempData[] = {asset, serial, status, notes, idMonitorModel, dateInstalled};
+                    String tempData[] = {monitorID, asset, serial, status, notes, idMonitorModel, dateInstalled};
                     resultList.add(tempData);
                 }
                 conn.close();
@@ -174,7 +205,7 @@ public class DatabaseAccess {
         }
         return resultList;
     }
-
+    
     public static ArrayList loadMonitorModels(String inputQuery) {
         String url = "jdbc:mysql://wsc267:3306/";
         String dbName = "assetDB";
