@@ -87,7 +87,7 @@ public class DatabaseAccess {
         return resultList;
     }
     public static ArrayList loadUserInfo(String user){
-        String url = "jdbc:mysql://wsc267:3306/";
+        String url = "jdbc:mysql://websrv:3306/";
         String dbName = "assetDB";
         String driver = "com.mysql.jdbc.Driver";
         String userName = "jessvoig";
@@ -101,12 +101,12 @@ public class DatabaseAccess {
                 Statement querier = conn.createStatement();
                 
                 
-                ResultSet res = querier.executeQuery("select * from pc");
+                ResultSet res = querier.executeQuery("select * from PC");
                 while (res.next()){
                     pcMap.put(res.getString(1), res.getString(2));
                 }
                 
-                ResultSet userResult = querier.executeQuery("select * from userhistory where Name ='"+ user + "'" + " order by Date desc");
+                ResultSet userResult = querier.executeQuery("select * from UserHistory where Name ='"+ user + "'" + " order by Date desc");
                 
                 while (userResult.next()){
                     String pcId = (String)pcMap.get(userResult.getString("idPC"));
