@@ -38,13 +38,13 @@ public class GUITest extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jDialog1 = new javax.swing.JDialog();
+        aboutDialog = new javax.swing.JDialog();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jButton7 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jDialog2 = new javax.swing.JDialog();
+        userDialog = new javax.swing.JDialog();
         jLabel5 = new javax.swing.JLabel();
         userLabel = new javax.swing.JLabel();
         jScrollPane7 = new javax.swing.JScrollPane();
@@ -57,6 +57,14 @@ public class GUITest extends javax.swing.JFrame {
         jPasswordField1 = new javax.swing.JPasswordField();
         jButton11 = new javax.swing.JButton();
         jButton12 = new javax.swing.JButton();
+        pcEditDialog = new javax.swing.JDialog();
+        pcNameLabel = new javax.swing.JLabel();
+        jTextField3 = new javax.swing.JTextField();
+        jTextField4 = new javax.swing.JTextField();
+        jTextField5 = new javax.swing.JTextField();
+        jTextField6 = new javax.swing.JTextField();
+        jTextField7 = new javax.swing.JTextField();
+        jTextField8 = new javax.swing.JTextField();
         jTab = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -91,13 +99,13 @@ public class GUITest extends javax.swing.JFrame {
         decommissionCheck = new javax.swing.JCheckBoxMenuItem();
         jMenu2 = new javax.swing.JMenu();
 
-        jDialog1.setTitle("About");
-        jDialog1.setAlwaysOnTop(true);
-        jDialog1.setForeground(new java.awt.Color(0, 153, 153));
-        jDialog1.setLocationByPlatform(true);
-        jDialog1.setMaximumSize(new java.awt.Dimension(340, 195));
-        jDialog1.setMinimumSize(new java.awt.Dimension(340, 195));
-        jDialog1.setResizable(false);
+        aboutDialog.setTitle("About");
+        aboutDialog.setAlwaysOnTop(true);
+        aboutDialog.setForeground(new java.awt.Color(0, 153, 153));
+        aboutDialog.setLocationByPlatform(true);
+        aboutDialog.setMaximumSize(new java.awt.Dimension(340, 195));
+        aboutDialog.setMinimumSize(new java.awt.Dimension(340, 195));
+        aboutDialog.setResizable(false);
 
         jLabel1.setText("Made by Jesse Voight");
 
@@ -116,48 +124,48 @@ public class GUITest extends javax.swing.JFrame {
 
         jLabel4.setText("Database by Dave King");
 
-        javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
-        jDialog1.getContentPane().setLayout(jDialog1Layout);
-        jDialog1Layout.setHorizontalGroup(
-            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDialog1Layout.createSequentialGroup()
+        javax.swing.GroupLayout aboutDialogLayout = new javax.swing.GroupLayout(aboutDialog.getContentPane());
+        aboutDialog.getContentPane().setLayout(aboutDialogLayout);
+        aboutDialogLayout.setHorizontalGroup(
+            aboutDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(aboutDialogLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jDialog1Layout.createSequentialGroup()
-                        .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(aboutDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(aboutDialogLayout.createSequentialGroup()
+                        .addGroup(aboutDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4)
                             .addComponent(jLabel1))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton7))
-                    .addGroup(jDialog1Layout.createSequentialGroup()
-                        .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(aboutDialogLayout.createSequentialGroup()
+                        .addGroup(aboutDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
                             .addComponent(jLabel3))
                         .addGap(0, 29, Short.MAX_VALUE)))
                 .addContainerGap())
         );
-        jDialog1Layout.setVerticalGroup(
-            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDialog1Layout.createSequentialGroup()
+        aboutDialogLayout.setVerticalGroup(
+            aboutDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, aboutDialogLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
-                .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(aboutDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jButton7)
-                    .addGroup(jDialog1Layout.createSequentialGroup()
+                    .addGroup(aboutDialogLayout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel4)))
                 .addContainerGap())
         );
 
-        jDialog2.setMinimumSize(new java.awt.Dimension(440, 430));
-        jDialog2.setPreferredSize(new java.awt.Dimension(440, 430));
-        jDialog2.addWindowListener(new java.awt.event.WindowAdapter() {
+        userDialog.setMinimumSize(new java.awt.Dimension(440, 430));
+        userDialog.setPreferredSize(new java.awt.Dimension(440, 430));
+        userDialog.addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
-                jDialog2WindowActivated(evt);
+                userDialogWindowActivated(evt);
             }
         });
 
@@ -184,26 +192,26 @@ public class GUITest extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jDialog2Layout = new javax.swing.GroupLayout(jDialog2.getContentPane());
-        jDialog2.getContentPane().setLayout(jDialog2Layout);
-        jDialog2Layout.setHorizontalGroup(
-            jDialog2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDialog2Layout.createSequentialGroup()
+        javax.swing.GroupLayout userDialogLayout = new javax.swing.GroupLayout(userDialog.getContentPane());
+        userDialog.getContentPane().setLayout(userDialogLayout);
+        userDialogLayout.setHorizontalGroup(
+            userDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(userDialogLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jDialog2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(userDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jButton9)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jDialog2Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, userDialogLayout.createSequentialGroup()
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(userLabel))
                     .addComponent(jScrollPane7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 420, Short.MAX_VALUE))
                 .addContainerGap())
         );
-        jDialog2Layout.setVerticalGroup(
-            jDialog2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDialog2Layout.createSequentialGroup()
+        userDialogLayout.setVerticalGroup(
+            userDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(userDialogLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jDialog2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(userDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(userLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -284,6 +292,57 @@ public class GUITest extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        pcNameLabel.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        pcNameLabel.setText("Asset");
+
+        jTextField3.setText("Location");
+
+        jTextField4.setText("PC Model");
+
+        jTextField5.setText("Serial Number");
+
+        jTextField6.setText("Monitor1");
+
+        jTextField7.setText("Monitor");
+
+        jTextField8.setText("jTextField8");
+
+        javax.swing.GroupLayout pcEditDialogLayout = new javax.swing.GroupLayout(pcEditDialog.getContentPane());
+        pcEditDialog.getContentPane().setLayout(pcEditDialogLayout);
+        pcEditDialogLayout.setHorizontalGroup(
+            pcEditDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pcEditDialogLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pcEditDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(pcNameLabel)
+                    .addComponent(jTextField3)
+                    .addComponent(jTextField4)
+                    .addComponent(jTextField5, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
+                    .addComponent(jTextField6)
+                    .addComponent(jTextField7)
+                    .addComponent(jTextField8))
+                .addContainerGap(260, Short.MAX_VALUE))
+        );
+        pcEditDialogLayout.setVerticalGroup(
+            pcEditDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pcEditDialogLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(pcNameLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(101, Short.MAX_VALUE))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("ICT Asset Manager");
         setForeground(java.awt.Color.pink);
@@ -311,6 +370,11 @@ public class GUITest extends javax.swing.JFrame {
             }
         });
         resultsTable.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        resultsTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                resultsTableMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(resultsTable);
 
         jButton2.setText("Refresh");
@@ -727,13 +791,13 @@ public class GUITest extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        jDialog1.setVisible(false);
+        aboutDialog.setVisible(false);
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseClicked
         //jDialog1.setSize(500, 500);
-        jDialog1.setLocation(jMenuBar1.getLocationOnScreen());
-        jDialog1.setVisible(true);// TODO add your handling code here:
+        aboutDialog.setLocation(jMenuBar1.getLocationOnScreen());
+        aboutDialog.setVisible(true);// TODO add your handling code here:
     }//GEN-LAST:event_jMenu2MouseClicked
 
     private void decommissionCheckItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_decommissionCheckItemStateChanged
@@ -764,25 +828,24 @@ public class GUITest extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField1KeyPressed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-        if (userTable.getSelectedRow() != -1){
-        jDialog2.setVisible(true);
-        jDialog2.setLocation(jMenuBar1.getLocationOnScreen());
-        String userTemp = (String)userTable.getModel().getValueAt(userTable.getSelectedRow(), 0);
-        
-        System.out.println(userTemp.toString());
-        userLabel.setText(userTemp);
-        }
-        else{
+        if (userTable.getSelectedRow() != -1) {
+            userDialog.setVisible(true);
+            userDialog.setLocation(jMenuBar1.getLocationOnScreen());
+            String userTemp = (String) userTable.getModel().getValueAt(userTable.getSelectedRow(), 0);
+
+            System.out.println(userTemp.toString());
+            userLabel.setText(userTemp);
+        } else {
             JOptionPane.showMessageDialog(null, "NO USER SELECTED!!!!!!", "Error", JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_jButton10ActionPerformed
 
-    private void jDialog2WindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_jDialog2WindowActivated
-            loadUserDetails();
-    }//GEN-LAST:event_jDialog2WindowActivated
+    private void userDialogWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_userDialogWindowActivated
+        loadUserDetails();
+    }//GEN-LAST:event_userDialogWindowActivated
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        jDialog2.setVisible(false);
+        userDialog.setVisible(false);
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void loginScreenWindowLostFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_loginScreenWindowLostFocus
@@ -790,15 +853,21 @@ public class GUITest extends javax.swing.JFrame {
     }//GEN-LAST:event_loginScreenWindowLostFocus
 
     private void userTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userTableMouseClicked
-        if(evt.getClickCount() == 2){
-        jDialog2.setVisible(true);
-        jDialog2.setLocation(jMenuBar1.getLocationOnScreen());
-        String userTemp = (String)userTable.getModel().getValueAt(userTable.getSelectedRow(), 0);
-        
-        System.out.println(userTemp.toString());
-        userLabel.setText(userTemp);
+        if (evt.getClickCount() == 2) {
+            userDialog.setVisible(true);
+            userDialog.setLocation(jMenuBar1.getLocationOnScreen());
+            String userTemp = (String) userTable.getModel().getValueAt(userTable.getSelectedRow(), 0);
+
+            System.out.println(userTemp.toString());
+            userLabel.setText(userTemp);
         }// TODO add your handling code here:
     }//GEN-LAST:event_userTableMouseClicked
+
+    private void resultsTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_resultsTableMouseClicked
+        if (evt.getClickCount() == 2) {
+
+        }
+    }//GEN-LAST:event_resultsTableMouseClicked
 
     /**
      * @param args the command line arguments
@@ -837,6 +906,7 @@ public class GUITest extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JDialog aboutDialog;
     private javax.swing.JCheckBoxMenuItem decommissionCheck;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
@@ -850,8 +920,6 @@ public class GUITest extends javax.swing.JFrame {
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
-    private javax.swing.JDialog jDialog1;
-    private javax.swing.JDialog jDialog2;
     private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -880,12 +948,21 @@ public class GUITest extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTab;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField jTextField6;
+    private javax.swing.JTextField jTextField7;
+    private javax.swing.JTextField jTextField8;
     private javax.swing.JTable locationTable;
     private javax.swing.JDialog loginScreen;
     private javax.swing.JTable monitorModelTable;
     private javax.swing.JTable monitorTable;
+    private javax.swing.JDialog pcEditDialog;
     private javax.swing.JTable pcModelTable;
+    private javax.swing.JLabel pcNameLabel;
     private javax.swing.JTable resultsTable;
+    private javax.swing.JDialog userDialog;
     private javax.swing.JTable userHistoryTable;
     private javax.swing.JLabel userLabel;
     private javax.swing.JTable userTable;
@@ -904,19 +981,21 @@ public class GUITest extends javax.swing.JFrame {
             //userTable.getModel().setValueAt(qResult.get(i)[2], i, 2);
         }
     }
-    private void loadUserDetails(){
-        String colNames[] = {"PC","Name","Date"};
-        ArrayList<String[]> userDetes =  DatabaseAccess.loadUserInfo(userLabel.getText());
+
+    private void loadUserDetails() {
+        String colNames[] = {"PC", "Name", "Date"};
+        ArrayList<String[]> userDetes = DatabaseAccess.loadUserInfo(userLabel.getText());
         BetterTableModel btm = new BetterTableModel();
         btm.setDataVector(null, colNames);
         userHistoryTable.setModel(btm);
-        for(int i = 0; i < userDetes.size(); i++){
+        for (int i = 0; i < userDetes.size(); i++) {
             btm.addRow(new String[3]);
             userHistoryTable.getModel().setValueAt(userDetes.get(i)[0], i, 0);
             userHistoryTable.getModel().setValueAt(userDetes.get(i)[1], i, 1);
             userHistoryTable.getModel().setValueAt(userDetes.get(i)[2], i, 2);
         }
     }
+
     private void loadPCModels() {
         String colNames[] = {"idPCModel", "Make", "Model", "SubModel"};
         BetterTableModel dtm = new BetterTableModel();
@@ -1032,7 +1111,7 @@ public class GUITest extends javax.swing.JFrame {
 
             //textBox1.append(qResult.get(i).toString()); removed
         }
-
+        resultsTable.getColumnModel().removeColumn(resultsTable.getColumnModel().getColumn(0));
     }
 
     private void loadAll() {

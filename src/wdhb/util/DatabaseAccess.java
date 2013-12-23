@@ -32,12 +32,12 @@ public class DatabaseAccess {
 
                 ResultSet locationResult = st.executeQuery("Select * FROM location");
                 while (locationResult.next()) {                                                             //location foreign key connection
-                    locationMap.put(locationResult.getString(1), locationResult.getString(2));
+                    locationMap.put(locationResult.getString(1), (locationResult.getString(2)+ " " + locationResult.getString(3)));
                 }
 
                 ResultSet pcModelResult = st.executeQuery("Select * FROM pcmodel");
                 while (pcModelResult.next()) {                                                             //location foreign key connection
-                    pcModelMap.put(pcModelResult.getString(1), pcModelResult.getString(2));
+                    pcModelMap.put(pcModelResult.getString(1), (pcModelResult.getString(2) + " " +pcModelResult.getString(3)));
                 }
                 ResultSet pcResult;
                 if(loadDecommision == true){
