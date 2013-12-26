@@ -92,7 +92,7 @@ public class DatabaseAccess {
         String driver = "com.mysql.jdbc.Driver";
         String userName = "jessvoig";
         String password = "qzpm9876";
-        String[] result = null;
+        String[] resultList = null;
         try {
             Class.forName(driver).newInstance();
             try (Connection conn = DriverManager.getConnection(url + dbName, userName, password)) {
@@ -101,23 +101,41 @@ public class DatabaseAccess {
                 ResultSet res = st.executeQuery("Select * FROM pc Where idPC = '" + pcID +"'");
 
                 while (res.next()) {
-                    String idMonitor = res.getString("idMonitorModel");
-                    String make = res.getString("Make");
-                    String model = res.getString("Model");
-                    String[] resulte = {idMonitor, make, model};
-                    result = resulte;
-                   
+                    String id = res.getString("idPC");
+                    String name = res.getString("Name");
 
+                    String serialNumber = res.getString("SerialNo");
+                    String monitor1 = res.getString("Monitor1");
+                    String monitor2 = res.getString("Monitor2");
+                    String assetNum = res.getString("AssetNo");
+
+                    //String lastLogin = pcResult.getString("LastLogin");
+                    int loginDateCode = res.getInt("LastLogin");
+                    Date loginDateFormatted = new Date((long) loginDateCode * 1000);          //Date conversion from 10 digit unix number to correct date FML
+                    String lastLogin = loginDateFormatted.toString();
+
+                    String notes = res.getString("Notes");
+                    String status = res.getString("Status");
+                    String location = res.getString("idLocation");
+
+                    //String repDate = pcResult.getString("RepDate");
+                    int repDateCode = res.getInt("RepDate");
+                    Date repDateFormatted = new Date((long) repDateCode * 1000);          //Date conversion from 10 digit unix number to correct date FML
+                    String repDate = repDateFormatted.toString();
+
+                    String colNames[] = {id, name, serialNumber, monitor1, monitor2, assetNum, lastLogin,
+                        notes, status, repDate, location};
+                    resultList = colNames;
                 }
                 conn.close();
             }
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | SQLException e) {
             e.printStackTrace();
         }
-        return result;
+        return resultList;
     }
     public static ArrayList loadUserInfo(String user){
-        String url = "jdbc:mysql://websrv:3306/";
+        String url = "jdbc:mysql://wsc267:3306/";
         String dbName = "assetDB";
         String driver = "com.mysql.jdbc.Driver";
         String userName = "jessvoig";
@@ -131,12 +149,12 @@ public class DatabaseAccess {
                 Statement querier = conn.createStatement();
                 
                 
-                ResultSet res = querier.executeQuery("select * from PC");
+                ResultSet res = querier.executeQuery("select * from pc");
                 while (res.next()){
                     pcMap.put(res.getString(1), res.getString(2));
                 }
                 
-                ResultSet userResult = querier.executeQuery("select * from UserHistory where Name ='"+ user + "'" + " order by Date desc");
+                ResultSet userResult = querier.executeQuery("select * from userhistory where Name ='"+ user + "'" + " order by Date desc");
                 
                 while (userResult.next()){
                     String pcId = (String)pcMap.get(userResult.getString("idPC"));
@@ -157,7 +175,7 @@ public class DatabaseAccess {
         }
         return resultList;
     }
-    public static ArrayList loadMonitors(String inputQuery) {
+    public static ArrayList loadMonitors() {
         String url = "jdbc:mysql://wsc267:3306/";
         String dbName = "assetDB";
         String driver = "com.mysql.jdbc.Driver";
@@ -206,7 +224,7 @@ public class DatabaseAccess {
         return resultList;
     }
     
-    public static ArrayList loadMonitorModels(String inputQuery) {
+    public static ArrayList loadMonitorModels() {
         String url = "jdbc:mysql://wsc267:3306/";
         String dbName = "assetDB";
         String driver = "com.mysql.jdbc.Driver";
@@ -269,7 +287,7 @@ public class DatabaseAccess {
 
     }
 
-    public static ArrayList loadLocations(String inputQuery) {
+    public static ArrayList loadLocations() {
         String url = "jdbc:mysql://wsc267:3306/";
         String dbName = "assetDB";
         String driver = "com.mysql.jdbc.Driver";

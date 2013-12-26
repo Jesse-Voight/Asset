@@ -72,6 +72,16 @@ public class GUITest extends javax.swing.JFrame {
         monitorCombo1 = new javax.swing.JComboBox();
         monitorCombo2 = new javax.swing.JComboBox();
         statusCombo = new javax.swing.JComboBox();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
         jTab = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -299,9 +309,9 @@ public class GUITest extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        pcEditDialog.setMaximumSize(new java.awt.Dimension(450, 500));
-        pcEditDialog.setMinimumSize(new java.awt.Dimension(450, 500));
-        pcEditDialog.setPreferredSize(new java.awt.Dimension(450, 500));
+        pcEditDialog.setMaximumSize(new java.awt.Dimension(530, 590));
+        pcEditDialog.setMinimumSize(new java.awt.Dimension(530, 590));
+        pcEditDialog.setPreferredSize(new java.awt.Dimension(530, 590));
         pcEditDialog.setResizable(false);
 
         pcNameLabel.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
@@ -318,6 +328,9 @@ public class GUITest extends javax.swing.JFrame {
         replaceDateField.setText("Replace Date");
 
         locationCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        locationCombo.setMaximumSize(new java.awt.Dimension(56, 400));
+        locationCombo.setMinimumSize(new java.awt.Dimension(56, 400));
+        locationCombo.setPreferredSize(new java.awt.Dimension(56, 400));
 
         pcModelCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -327,6 +340,26 @@ public class GUITest extends javax.swing.JFrame {
 
         statusCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
+        jLabel7.setText("Location");
+
+        jLabel8.setText("PC Model");
+
+        jLabel9.setText("Serial Number");
+
+        jLabel10.setText("Monitor 1");
+
+        jLabel11.setText("Monitor 2");
+
+        jLabel12.setText("Asset Number");
+
+        jLabel13.setText("Notes");
+
+        jLabel14.setText("Status");
+
+        jLabel15.setText("Common Users");
+
+        jLabel16.setText("Replacement Date");
+
         javax.swing.GroupLayout pcEditDialogLayout = new javax.swing.GroupLayout(pcEditDialog.getContentPane());
         pcEditDialog.getContentPane().setLayout(pcEditDialogLayout);
         pcEditDialogLayout.setHorizontalGroup(
@@ -334,19 +367,40 @@ public class GUITest extends javax.swing.JFrame {
             .addGroup(pcEditDialogLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pcEditDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pcEditDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pcEditDialogLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(pcNameLabel)
-                        .addComponent(serialNumberField)
-                        .addComponent(assetNumberField, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE))
-                    .addComponent(notesField, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(commonUsersField, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(replaceDateField, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(statusCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(monitorCombo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(monitorCombo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(locationCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pcModelCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(197, Short.MAX_VALUE))
+                        .addContainerGap(525, Short.MAX_VALUE))
+                    .addGroup(pcEditDialogLayout.createSequentialGroup()
+                        .addGroup(pcEditDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel8)
+                            .addComponent(jLabel7))
+                        .addGap(78, 78, 78)
+                        .addGroup(pcEditDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(pcModelCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(locationCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(50, Short.MAX_VALUE))
+                    .addGroup(pcEditDialogLayout.createSequentialGroup()
+                        .addGroup(pcEditDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel9)
+                            .addComponent(jLabel10)
+                            .addComponent(jLabel11)
+                            .addComponent(jLabel12)
+                            .addComponent(jLabel13)
+                            .addComponent(jLabel14)
+                            .addComponent(jLabel15)
+                            .addComponent(jLabel16))
+                        .addGap(34, 34, 34)
+                        .addGroup(pcEditDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(monitorCombo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(serialNumberField, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(monitorCombo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(assetNumberField, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(notesField, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(statusCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(commonUsersField, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(replaceDateField, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         pcEditDialogLayout.setVerticalGroup(
             pcEditDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -354,26 +408,46 @@ public class GUITest extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(pcNameLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(locationCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(pcEditDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(locationCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pcModelCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(pcEditDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(pcModelCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(serialNumberField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(pcEditDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(serialNumberField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(monitorCombo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(pcEditDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(monitorCombo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel10))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(monitorCombo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(pcEditDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(monitorCombo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel11))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(assetNumberField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(pcEditDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(assetNumberField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel12))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(notesField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(pcEditDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(notesField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel13))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(statusCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(pcEditDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(statusCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel14))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(commonUsersField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(pcEditDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(commonUsersField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel15))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(replaceDateField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(103, Short.MAX_VALUE))
+                .addGroup(pcEditDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(replaceDateField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel16))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -887,6 +961,7 @@ public class GUITest extends javax.swing.JFrame {
 
     private void userTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userTableMouseClicked
         if (evt.getClickCount() == 2) {
+            userHistoryTable.setModel(new DefaultTableModel());
             userDialog.setVisible(true);
             userDialog.setLocation(jMenuBar1.getLocationOnScreen());
             jScrollPane7.getViewport().setViewPosition(new Point(0,0));
@@ -911,14 +986,13 @@ public class GUITest extends javax.swing.JFrame {
             DefaultComboBoxModel monitorComboModel = new DefaultComboBoxModel();
             
             
-            ArrayList<String[]> loadLocationCombo = DatabaseAccess.loadLocations("string");
+            ArrayList<String[]> loadLocationCombo = DatabaseAccess.loadLocations();
             for (Object locationObject: loadLocationCombo){
                 String[] stringArray = (String[])locationObject;
                 ComboObject temp = new ComboObject();
                 temp.setDescription(stringArray[1] + " " + stringArray[2]);
                 temp.setID(stringArray[0]);
                 locationComboModel.addElement(temp);
-                //System.out.println(stringArray[0] + " " + stringArray[1]);
             }
             
             ArrayList<String[]> loadPCModelCombo = DatabaseAccess.loadPCModels();
@@ -930,14 +1004,13 @@ public class GUITest extends javax.swing.JFrame {
                 pcModelComboModel.addElement(temp);
             }
             
-            ArrayList<String[]> loadMonitorCombo = DatabaseAccess.loadMonitors("kldfuhs");
+            ArrayList<String[]> loadMonitorCombo = DatabaseAccess.loadMonitors();
             for (Object monitorObject: loadMonitorCombo){
                 String[] stringArray = (String[])monitorObject;
                 ComboObject temp = new ComboObject();
                 temp.setDescription(stringArray[1]);
                 temp.setID(stringArray[0]);
                 monitorComboModel.addElement(temp);
-                System.out.println(stringArray[1] + stringArray[0]);
             }
             locationCombo.setModel(locationComboModel);
             statusCombo.setModel(new DefaultComboBoxModel(new String[] {"A","D","I","S"}));
@@ -946,7 +1019,20 @@ public class GUITest extends javax.swing.JFrame {
             pcModelCombo.setModel(pcModelComboModel);
             String pcDataTemp = (String)resultsTable.getModel().getValueAt(resultsTable.getSelectedRow(), 0);
             String[] pcData = DatabaseAccess.loadPCData(pcDataTemp);
-            System.out.println(pcData);
+            serialNumberField.setText(pcData[2]);
+            assetNumberField.setText(pcData[5]);
+            replaceDateField.setText(pcData[9]);
+            notesField.setText(pcData[7]);
+            for (int i = 1; i < locationCombo.getModel().getSize(); i++)
+            {
+                ComboObject temp = (ComboObject)locationCombo.getModel().getElementAt(i);
+                //System.out.println(temp.getID() + " " + pcData[10]);
+                if (temp.getID().equals(pcData[10])){
+                    locationCombo.setSelectedItem(temp);
+                }
+            }
+            /*for (String item: pcData)
+            System.out.println(item);*/
         }
     }//GEN-LAST:event_resultsTableMouseClicked
 
@@ -1005,11 +1091,21 @@ public class GUITest extends javax.swing.JFrame {
     private javax.swing.JButton jButton9;
     private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
@@ -1120,7 +1216,7 @@ public class GUITest extends javax.swing.JFrame {
         String colNames[] = {"idLocation", "Building", "Department", "Address1", "Address2", "Town", "RCode"};
         BetterTableModel dtm = new BetterTableModel();
         dtm.setDataVector(null, colNames);
-        ArrayList<String[]> qResult = DatabaseAccess.loadLocations("placeholder");
+        ArrayList<String[]> qResult = DatabaseAccess.loadLocations();
         locationTable.setModel(dtm);
         for (int i = 0; i < qResult.size(); i++) {
             dtm.addRow(new String[7]);
@@ -1138,7 +1234,7 @@ public class GUITest extends javax.swing.JFrame {
         String colNames[] = {"idMonitorModel", "Make", "Model"};
         BetterTableModel dtm = new BetterTableModel();
         dtm.setDataVector(null, colNames);
-        ArrayList<String[]> qResult = DatabaseAccess.loadMonitorModels("placeholder");
+        ArrayList<String[]> qResult = DatabaseAccess.loadMonitorModels();
         monitorModelTable.setModel(dtm);
         for (int i = 0; i < qResult.size(); i++) {
             dtm.addRow(new String[3]);
@@ -1152,7 +1248,7 @@ public class GUITest extends javax.swing.JFrame {
         String colNames[] = {"Monitorid","Asset", "Serial", "Status", "Notes", "IDMonitorModel", "DateInstalled"};
         BetterTableModel dtm = new BetterTableModel();
         dtm.setDataVector(null, colNames);
-        ArrayList<String[]> qResult = DatabaseAccess.loadMonitors("placeholder");
+        ArrayList<String[]> qResult = DatabaseAccess.loadMonitors();
         monitorTable.setModel(dtm);
         for (int i = 0; i < qResult.size(); i++) {
             dtm.addRow(new String[6]);
