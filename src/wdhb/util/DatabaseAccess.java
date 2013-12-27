@@ -117,6 +117,7 @@ public class DatabaseAccess {
                     String notes = res.getString("Notes");
                     String status = res.getString("Status");
                     String location = res.getString("idLocation");
+                    String pcModel = res.getString("idPCModel");
 
                     //String repDate = pcResult.getString("RepDate");
                     int repDateCode = res.getInt("RepDate");
@@ -124,7 +125,7 @@ public class DatabaseAccess {
                     String repDate = repDateFormatted.toString();
 
                     String colNames[] = {id, name, serialNumber, monitor1, monitor2, assetNum, lastLogin,
-                        notes, status, repDate, location};
+                        notes, status, repDate, location, pcModel};
                     resultList = colNames;
                 }
                 conn.close();
