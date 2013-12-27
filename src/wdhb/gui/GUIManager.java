@@ -5,20 +5,14 @@
  */
 package wdhb.gui;
 
-import java.awt.Component;
-import java.awt.Event;
 import java.awt.Point;
-import java.awt.Rectangle;
-import java.awt.Window;
 import java.awt.event.KeyEvent;
 import wdhb.util.DatabaseAccess;
 import java.util.ArrayList;
-import javax.swing.ComboBoxModel;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
-import javax.swing.JViewport;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableModel;
+import javax.swing.table.TableColumn;
 import wdhb.util.BetterTableModel;
 import wdhb.util.ComboObject;
 
@@ -26,9 +20,9 @@ import wdhb.util.ComboObject;
  *
  * @author JessVoig
  */
-public class GUITest extends javax.swing.JFrame {
+public class GUIManager extends javax.swing.JFrame {
 
-    public GUITest() {
+    public GUIManager() {
         initComponents();
     }
 
@@ -307,9 +301,7 @@ public class GUITest extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        pcEditDialog.setMaximumSize(new java.awt.Dimension(530, 590));
         pcEditDialog.setMinimumSize(new java.awt.Dimension(530, 590));
-        pcEditDialog.setPreferredSize(new java.awt.Dimension(530, 590));
         pcEditDialog.setResizable(false);
 
         pcNameLabel.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
@@ -531,7 +523,7 @@ public class GUITest extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(534, Short.MAX_VALUE)
+                .addContainerGap(558, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -540,7 +532,7 @@ public class GUITest extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 498, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 522, Short.MAX_VALUE)
                     .addGap(59, 59, 59)))
         );
 
@@ -590,7 +582,7 @@ public class GUITest extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 512, Short.MAX_VALUE)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 536, Short.MAX_VALUE)
                 .addGap(11, 11, 11)
                 .addComponent(jButton1)
                 .addContainerGap())
@@ -642,7 +634,7 @@ public class GUITest extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 512, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 536, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton3)
                 .addContainerGap())
@@ -694,7 +686,7 @@ public class GUITest extends javax.swing.JFrame {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 512, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 536, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton4)
                 .addContainerGap())
@@ -746,7 +738,7 @@ public class GUITest extends javax.swing.JFrame {
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 512, Short.MAX_VALUE)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 536, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton5)
                 .addContainerGap())
@@ -804,7 +796,7 @@ public class GUITest extends javax.swing.JFrame {
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 512, Short.MAX_VALUE)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 536, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton6)
@@ -964,7 +956,7 @@ public class GUITest extends javax.swing.JFrame {
             userHistoryTable.setModel(new DefaultTableModel());
             userDialog.setVisible(true);
             userDialog.setLocation(jMenuBar1.getLocationOnScreen());
-            jScrollPane7.getViewport().setViewPosition(new Point(0,0));
+            jScrollPane7.getViewport().setViewPosition(new Point(0, 0));
             String userTemp = (String) userTable.getModel().getValueAt(userTable.getSelectedRow(), 0);
 
             System.out.println(userTemp.toString());
@@ -978,72 +970,95 @@ public class GUITest extends javax.swing.JFrame {
             pcEditDialog.setVisible(true);
             pcEditDialog.setLocation(jMenuBar1.getLocationOnScreen());
             String assetTemp = (String) resultsTable.getModel().getValueAt(resultsTable.getSelectedRow(), 1);
-            
+
             //System.out.println(assetTemp); print pc name
             pcNameLabel.setText(assetTemp);
             DefaultComboBoxModel locationComboModel = new DefaultComboBoxModel();    //create combobox models before laoding
             DefaultComboBoxModel pcModelComboModel = new DefaultComboBoxModel();
-            DefaultComboBoxModel monitorComboModel = new DefaultComboBoxModel();
-            
-            
+            DefaultComboBoxModel monitorComboModel1 = new DefaultComboBoxModel();
+            DefaultComboBoxModel monitorComboModel2 = new DefaultComboBoxModel();
+
             ArrayList<String[]> loadLocationCombo = DatabaseAccess.loadLocations();
-            for (Object locationObject: loadLocationCombo){
-                String[] stringArray = (String[])locationObject;
+            for (Object locationObject : loadLocationCombo) {
+                String[] stringArray = (String[]) locationObject;
                 ComboObject temp = new ComboObject();
                 temp.setDescription(stringArray[1] + " " + stringArray[2]);
                 temp.setID(stringArray[0]);
                 locationComboModel.addElement(temp);
             }
-            
+
             ArrayList<String[]> loadPCModelCombo = DatabaseAccess.loadPCModels();
-            for (Object pcModelObject: loadPCModelCombo){
-                String[] stringArray = (String[])pcModelObject;
+            for (Object pcModelObject : loadPCModelCombo) {
+                String[] stringArray = (String[]) pcModelObject;
                 ComboObject temp = new ComboObject();
                 temp.setDescription(stringArray[1] + " " + stringArray[2]);
                 temp.setID(stringArray[0]);
                 pcModelComboModel.addElement(temp);
             }
-            
+
             ArrayList<String[]> loadMonitorCombo = DatabaseAccess.loadMonitors();
-            for (Object monitorObject: loadMonitorCombo){
-                String[] stringArray = (String[])monitorObject;
+            for (Object monitorObject : loadMonitorCombo) {
+                String[] stringArray = (String[]) monitorObject;
                 ComboObject temp = new ComboObject();
                 temp.setDescription(stringArray[1]);
                 temp.setID(stringArray[0]);
-                monitorComboModel.addElement(temp);
+                monitorComboModel1.addElement(temp);
+                monitorComboModel2.addElement(temp);
             }
             locationCombo.setModel(locationComboModel);
-            statusCombo.setModel(new DefaultComboBoxModel(new String[] {"A","D","I","S"}));
-            monitorCombo1.setModel(monitorComboModel);
-            monitorCombo2.setModel(monitorComboModel);
+            statusCombo.setModel(new DefaultComboBoxModel(new String[]{"A", "D", "I", "S"}));
+            monitorCombo1.setModel(monitorComboModel1);
+            monitorCombo2.setModel(monitorComboModel2);
             pcModelCombo.setModel(pcModelComboModel);
-            String pcDataTemp = (String)resultsTable.getModel().getValueAt(resultsTable.getSelectedRow(), 0);
+            String pcDataTemp = (String) resultsTable.getModel().getValueAt(resultsTable.getSelectedRow(), 0);
             String[] pcData = DatabaseAccess.loadPCData(pcDataTemp);
             serialNumberField.setText(pcData[2]);
             assetNumberField.setText(pcData[5]);
             replaceDateField.setText(pcData[9]);
             notesField.setText(pcData[7]);
-            for (int i = 1; i < locationCombo.getModel().getSize(); i++)
-            {
-                ComboObject temp = (ComboObject)locationCombo.getModel().getElementAt(i);
-                //System.out.println(temp.getID() + " " + pcData[10]);
-                if (temp.getID().equals(pcData[10])){
+            for (int i = 1; i < locationCombo.getModel().getSize(); i++) {
+                ComboObject temp = (ComboObject) locationCombo.getModel().getElementAt(i);
+                if (temp.getID().equals(pcData[10])) {
                     locationCombo.setSelectedItem(temp);
                 }
             }
-            for (int i = 1; i < pcModelCombo.getModel().getSize(); i++){
-                ComboObject temp = (ComboObject)pcModelCombo.getModel().getElementAt(i);
-                
-                if(temp.getID().equals(pcData[11])){
+            for (int i = 1; i < pcModelCombo.getModel().getSize(); i++) {
+                ComboObject temp = (ComboObject) pcModelCombo.getModel().getElementAt(i);
+
+                if (temp.getID().equals(pcData[11])) {
                     pcModelCombo.setSelectedItem(temp);
                 }
             }
-            /*for (String item: pcData)
-            System.out.println(item);*/
+            for (int i = 0; i < monitorCombo1.getModel().getSize(); i++) {
+                ComboObject temp = (ComboObject) monitorCombo1.getModel().getElementAt(i);
+
+                if (temp.toString().equals(pcData[3])) {
+                    monitorCombo1.setSelectedItem(temp);
+                    break;
+                }
+                if (i == monitorCombo1.getModel().getSize()-1){
+                    monitorCombo1.getModel().setSelectedItem(null);
+                }
+               
+            }
+            for (int i = 0; i < monitorCombo2.getModel().getSize(); i++) {
+                ComboObject temp = (ComboObject) monitorCombo2.getModel().getElementAt(i);
+
+                if (temp.toString().equals(pcData[4])) {
+                    monitorCombo2.setSelectedItem(temp);
+                    //System.out.println("Found: " + temp.toString() + " ID: "+ temp.getID());
+                    break;
+                }
+                if (i == monitorCombo2.getModel().getSize()-1){
+                    //System.out.println("No monitor bro");
+                    monitorCombo2.getModel().setSelectedItem(null);
+                }
+            }
         }
     }//GEN-LAST:event_resultsTableMouseClicked
 // </editor-fold>
     // <editor-fold defaultstate="collapsed" desc="Main"> 
+
     /**
      * @param args the command line arguments
      */
@@ -1061,20 +1076,20 @@ public class GUITest extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(GUITest.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUIManager.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(GUITest.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUIManager.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(GUITest.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUIManager.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(GUITest.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUIManager.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         /* Create and display the form */
 
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new GUITest().setVisible(true);
+                new GUIManager().setVisible(true);
 
             }
         });
@@ -1252,7 +1267,7 @@ public class GUITest extends javax.swing.JFrame {
     }
 
     private void loadMonitors() {
-        String colNames[] = {"Monitorid","Asset", "Serial", "Status", "Notes", "IDMonitorModel", "DateInstalled"};
+        String colNames[] = {"Monitorid", "Asset", "Serial", "Status", "Notes", "IDMonitorModel", "DateInstalled"};
         BetterTableModel dtm = new BetterTableModel();
         dtm.setDataVector(null, colNames);
         ArrayList<String[]> qResult = DatabaseAccess.loadMonitors();
@@ -1303,6 +1318,10 @@ public class GUITest extends javax.swing.JFrame {
         loadMonitors();
         loadPCModels();
         loadUsers();
+        TableColumn col = resultsTable.getColumnModel().getColumn(10);
+        col.setMaxWidth(45);
+        col.setMinWidth(45);
+        col.setPreferredWidth(10);
     }
 // </editor-fold> 
 }
