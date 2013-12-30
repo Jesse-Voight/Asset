@@ -224,7 +224,7 @@ public class DatabaseAccess {
                     monitorModelMap.put(monitorModelResult.getString(1), monitorModelResult.getString(2) + " " + monitorModelResult.getString(3));
                 }
 
-                ResultSet res = querier.executeQuery("Select * FROM monitor order by AssetNo");
+                ResultSet res = querier.executeQuery("Select * FROM monitor order by idMonitor");
                 /*ResultSetMetaData columnNames = res.getMetaData();
                  for (int i = 1; i < columnNames.getColumnCount() + 1; i++) {
                  //System.out.println(columnNames.getColumnName(i));           //Test for dynamic column creation
