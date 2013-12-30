@@ -9,6 +9,7 @@ import java.awt.Point;
 import java.awt.event.KeyEvent;
 import wdhb.util.DatabaseAccess;
 import java.util.ArrayList;
+import java.util.Date;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -76,6 +77,22 @@ public class GUIManager extends javax.swing.JFrame {
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
+        addMonitorDialog = new javax.swing.JDialog();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jTextField4 = new javax.swing.JTextField();
+        jLabel20 = new javax.swing.JLabel();
+        jTextField5 = new javax.swing.JTextField();
+        jLabel21 = new javax.swing.JLabel();
+        jTextField6 = new javax.swing.JTextField();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        jTextField8 = new javax.swing.JTextField();
+        jButton13 = new javax.swing.JButton();
+        jButton14 = new javax.swing.JButton();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        modelSelect = new javax.swing.JComboBox();
         jTab = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -87,6 +104,7 @@ public class GUIManager extends javax.swing.JFrame {
         jScrollPane4 = new javax.swing.JScrollPane();
         monitorTable = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
+        jButton15 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         monitorModelTable = new javax.swing.JTable();
@@ -442,6 +460,129 @@ public class GUIManager extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        addMonitorDialog.setMaximumSize(new java.awt.Dimension(400, 370));
+        addMonitorDialog.setMinimumSize(new java.awt.Dimension(400, 370));
+        addMonitorDialog.setModal(true);
+        addMonitorDialog.setPreferredSize(new java.awt.Dimension(400, 370));
+        addMonitorDialog.addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                addMonitorDialogWindowActivated(evt);
+            }
+        });
+
+        jLabel17.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel17.setText("Add New Monitor");
+
+        jLabel18.setText("Model:");
+
+        jLabel19.setText("Asset:");
+
+        jTextField4.setText("Asset");
+
+        jLabel20.setText("Status:");
+
+        jTextField5.setText("Status");
+
+        jLabel21.setText("Serial No:");
+
+        jTextField6.setText("Serial No");
+
+        jLabel22.setText("Date Installed:");
+
+        jLabel23.setText("Notes:");
+
+        jTextField8.setText("Notes");
+
+        jButton13.setText("Close ");
+        jButton13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton13ActionPerformed(evt);
+            }
+        });
+
+        jButton14.setText("Add");
+        jButton14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton14ActionPerformed(evt);
+            }
+        });
+
+        modelSelect.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        javax.swing.GroupLayout addMonitorDialogLayout = new javax.swing.GroupLayout(addMonitorDialog.getContentPane());
+        addMonitorDialog.getContentPane().setLayout(addMonitorDialogLayout);
+        addMonitorDialogLayout.setHorizontalGroup(
+            addMonitorDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(addMonitorDialogLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(addMonitorDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(addMonitorDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, addMonitorDialogLayout.createSequentialGroup()
+                            .addComponent(jLabel21)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(jTextField6, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, addMonitorDialogLayout.createSequentialGroup()
+                            .addGroup(addMonitorDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel19)
+                                .addComponent(jLabel20)
+                                .addComponent(jLabel18))
+                            .addGap(18, 18, 18)
+                            .addGroup(addMonitorDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jTextField4)
+                                .addComponent(jTextField5, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)
+                                .addComponent(modelSelect, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addGroup(addMonitorDialogLayout.createSequentialGroup()
+                        .addComponent(jLabel23)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(addMonitorDialogLayout.createSequentialGroup()
+                        .addComponent(jButton13)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton14))
+                    .addGroup(addMonitorDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, addMonitorDialogLayout.createSequentialGroup()
+                            .addComponent(jLabel22)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jDateChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jLabel17)))
+                .addContainerGap(86, Short.MAX_VALUE))
+        );
+        addMonitorDialogLayout.setVerticalGroup(
+            addMonitorDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(addMonitorDialogLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel17)
+                .addGap(18, 18, 18)
+                .addGroup(addMonitorDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel18)
+                    .addComponent(modelSelect, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(addMonitorDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel19)
+                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(addMonitorDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel20)
+                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(addMonitorDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel21)
+                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(addMonitorDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel22)
+                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(addMonitorDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel23)
+                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 125, Short.MAX_VALUE)
+                .addGroup(addMonitorDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton13)
+                    .addComponent(jButton14))
+                .addContainerGap())
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("ICT Asset Manager");
         setForeground(java.awt.Color.pink);
@@ -565,6 +706,13 @@ public class GUIManager extends javax.swing.JFrame {
             }
         });
 
+        jButton15.setText("Add Monitor");
+        jButton15.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton15MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -572,11 +720,14 @@ public class GUIManager extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 886, Short.MAX_VALUE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 886, Short.MAX_VALUE)
+                        .addContainerGap())
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jButton1)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton15)
+                        .addGap(18, 18, 18))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -584,7 +735,9 @@ public class GUIManager extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 536, Short.MAX_VALUE)
                 .addGap(11, 11, 11)
-                .addComponent(jButton1)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(jButton15))
                 .addContainerGap())
         );
 
@@ -969,6 +1122,228 @@ public class GUIManager extends javax.swing.JFrame {
             //Primariliy for displaying all data for editing
             pcEditDialog.setVisible(true);
             pcEditDialog.setLocation(jMenuBar1.getLocationOnScreen());
+            loadPCDetails();
+        }
+    }//GEN-LAST:event_resultsTableMouseClicked
+
+    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
+        addMonitorDialog.setVisible(false);
+    }//GEN-LAST:event_jButton13ActionPerformed
+
+    private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
+        //Save monitor data and send as insert query
+        String idMonitor, idMonitorModel, serialNumber, assetNumber, status, notes;
+
+        idMonitor = DatabaseAccess.getMaxMonitor();
+        ComboObject idTempMonitorModel = (ComboObject) modelSelect.getSelectedItem();
+        idMonitorModel = idTempMonitorModel.getID();
+        serialNumber = jTextField6.getText();
+        assetNumber = jTextField4.getText();
+        status = jTextField5.getText();
+        notes = jTextField8.getText();
+        long databaseTime;
+        Date datePicked = jDateChooser1.getDate();
+        if (datePicked == null){
+            Date dateTemp = new Date();
+            databaseTime = (dateTemp.getTime() / 1000);
+        }
+        else{
+            databaseTime = datePicked.getTime();
+        }
+        String happy = String.valueOf(databaseTime / 1000);
+        String query = ("INSERT INTO `assetdb`.`monitor` (`idMonitor`, `idMonitorModel`, `SerialNo`, `AssetNo`, `DateInstalled`, `Status`, `Notes`) VALUES ('"
+                + idMonitor + "', '" + idMonitorModel + "', '" + serialNumber + "', '" + assetNumber + "', '" + happy + "', '" + status + "', '" + notes + "');");
+        DatabaseAccess.executeQuery(query);
+        
+        System.out.println(query);
+    }//GEN-LAST:event_jButton14ActionPerformed
+
+    private void addMonitorDialogWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_addMonitorDialogWindowActivated
+        DefaultComboBoxModel newMonitorComboModel = new DefaultComboBoxModel();
+        System.out.println("First part executed");
+        
+        ArrayList<String[]> loadMonitorComboBox = DatabaseAccess.loadMonitorModels();
+        
+        for (Object monitorObject : loadMonitorComboBox) {
+            String[] stringArray = (String[]) monitorObject;
+            ComboObject temp = new ComboObject();
+            temp.setDescription(stringArray[1] + " " + stringArray[2]);
+            temp.setID(stringArray[0]);
+            newMonitorComboModel.addElement(temp);
+            System.out.println(temp.toString());
+        }
+        modelSelect.setModel(newMonitorComboModel);
+    }//GEN-LAST:event_addMonitorDialogWindowActivated
+
+    private void jButton15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton15MouseClicked
+        addMonitorDialog.setLocation(jMenuBar1.getLocationOnScreen());
+        addMonitorDialog.setVisible(true);
+    }//GEN-LAST:event_jButton15MouseClicked
+// </editor-fold>
+    // <editor-fold defaultstate="collapsed" desc="Main"> 
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(GUIManager.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(GUIManager.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(GUIManager.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(GUIManager.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+        /* Create and display the form */
+
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new GUIManager().setVisible(true);
+
+            }
+        });
+    }
+// </editor-fold>
+    // <editor-fold defaultstate="collapsed" desc="Generated Variables">     
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JDialog aboutDialog;
+    private javax.swing.JDialog addMonitorDialog;
+    private javax.swing.JTextField assetNumberField;
+    private javax.swing.JTextField commonUsersField;
+    private javax.swing.JCheckBoxMenuItem decommissionCheck;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton11;
+    private javax.swing.JButton jButton12;
+    private javax.swing.JButton jButton13;
+    private javax.swing.JButton jButton14;
+    private javax.swing.JButton jButton15;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
+    private com.toedter.calendar.JDateChooser jDateChooser1;
+    private javax.swing.JInternalFrame jInternalFrame1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPasswordField jPasswordField1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JTabbedPane jTab;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField jTextField6;
+    private javax.swing.JTextField jTextField8;
+    private javax.swing.JComboBox locationCombo;
+    private javax.swing.JTable locationTable;
+    private javax.swing.JDialog loginScreen;
+    private javax.swing.JComboBox modelSelect;
+    private javax.swing.JComboBox monitorCombo1;
+    private javax.swing.JComboBox monitorCombo2;
+    private javax.swing.JTable monitorModelTable;
+    private javax.swing.JTable monitorTable;
+    private javax.swing.JTextField notesField;
+    private javax.swing.JDialog pcEditDialog;
+    private javax.swing.JComboBox pcModelCombo;
+    private javax.swing.JTable pcModelTable;
+    private javax.swing.JLabel pcNameLabel;
+    private javax.swing.JTextField replaceDateField;
+    private javax.swing.JTable resultsTable;
+    private javax.swing.JTextField serialNumberField;
+    private javax.swing.JComboBox statusCombo;
+    private javax.swing.JDialog userDialog;
+    private javax.swing.JTable userHistoryTable;
+    private javax.swing.JLabel userLabel;
+    private javax.swing.JTable userTable;
+    // End of variables declaration//GEN-END:variables
+// </editor-fold>     
+    // <editor-fold defaultstate="collapsed" desc="Big Functions">     
+    private void loadUsers() {
+        // Tricky one to show all users
+        String colNames[] = {"UserName", "Last Login"};
+        BetterTableModel dtm = new BetterTableModel();
+        dtm.setDataVector(null, colNames);
+        ArrayList<String[]> qResult = DatabaseAccess.loadUsers();
+        userTable.setModel(dtm);
+        for (int i = 0; i < qResult.size(); i++) {
+            dtm.addRow(new String[2]);
+            userTable.getModel().setValueAt(qResult.get(i)[0], i, 0);
+            userTable.getModel().setValueAt(qResult.get(i)[1], i, 1);
+        }
+    }
+    
+    private void loadUserDetails() {
+        String colNames[] = {"PC", "Name", "Date"};
+        ArrayList<String[]> userDetes = DatabaseAccess.loadUserInfo(userLabel.getText());
+        BetterTableModel btm = new BetterTableModel();
+        btm.setDataVector(null, colNames);
+        userHistoryTable.setModel(btm);
+        for (int i = 0; i < userDetes.size(); i++) {
+            btm.addRow(new String[3]);
+            userHistoryTable.getModel().setValueAt(userDetes.get(i)[0], i, 0);
+            userHistoryTable.getModel().setValueAt(userDetes.get(i)[1], i, 1);
+            userHistoryTable.getModel().setValueAt(userDetes.get(i)[2], i, 2);
+        }
+    }
+
+    private void loadPCDetails() {
+        if (resultsTable.getSelectedRow() != -1) {
             String assetTemp = (String) resultsTable.getModel().getValueAt(resultsTable.getSelectedRow(), 1);
 
             //System.out.println(assetTemp); print pc name
@@ -1036,10 +1411,10 @@ public class GUIManager extends javax.swing.JFrame {
                     monitorCombo1.setSelectedItem(temp);
                     break;
                 }
-                if (i == monitorCombo1.getModel().getSize()-1){
+                if (i == monitorCombo1.getModel().getSize() - 1) {
                     monitorCombo1.getModel().setSelectedItem(null);
                 }
-               
+
             }
             for (int i = 0; i < monitorCombo2.getModel().getSize(); i++) {
                 ComboObject temp = (ComboObject) monitorCombo2.getModel().getElementAt(i);
@@ -1049,157 +1424,15 @@ public class GUIManager extends javax.swing.JFrame {
                     //System.out.println("Found: " + temp.toString() + " ID: "+ temp.getID());
                     break;
                 }
-                if (i == monitorCombo2.getModel().getSize()-1){
+                if (i == monitorCombo2.getModel().getSize() - 1) {
                     //System.out.println("No monitor bro");
                     monitorCombo2.getModel().setSelectedItem(null);
                 }
             }
+        } else {
+            JOptionPane.showMessageDialog(null, "NO PC SELECTED!!!!!!", "Error", JOptionPane.WARNING_MESSAGE);
         }
-    }//GEN-LAST:event_resultsTableMouseClicked
-// </editor-fold>
-    // <editor-fold defaultstate="collapsed" desc="Main"> 
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(GUIManager.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(GUIManager.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(GUIManager.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(GUIManager.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        /* Create and display the form */
-
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new GUIManager().setVisible(true);
-
-            }
-        });
-    }
-// </editor-fold>
-    // <editor-fold defaultstate="collapsed" desc="Generated Variables">     
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JDialog aboutDialog;
-    private javax.swing.JTextField assetNumberField;
-    private javax.swing.JTextField commonUsersField;
-    private javax.swing.JCheckBoxMenuItem decommissionCheck;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton12;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
-    private javax.swing.JInternalFrame jInternalFrame1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JScrollPane jScrollPane6;
-    private javax.swing.JScrollPane jScrollPane7;
-    private javax.swing.JTabbedPane jTab;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JComboBox locationCombo;
-    private javax.swing.JTable locationTable;
-    private javax.swing.JDialog loginScreen;
-    private javax.swing.JComboBox monitorCombo1;
-    private javax.swing.JComboBox monitorCombo2;
-    private javax.swing.JTable monitorModelTable;
-    private javax.swing.JTable monitorTable;
-    private javax.swing.JTextField notesField;
-    private javax.swing.JDialog pcEditDialog;
-    private javax.swing.JComboBox pcModelCombo;
-    private javax.swing.JTable pcModelTable;
-    private javax.swing.JLabel pcNameLabel;
-    private javax.swing.JTextField replaceDateField;
-    private javax.swing.JTable resultsTable;
-    private javax.swing.JTextField serialNumberField;
-    private javax.swing.JComboBox statusCombo;
-    private javax.swing.JDialog userDialog;
-    private javax.swing.JTable userHistoryTable;
-    private javax.swing.JLabel userLabel;
-    private javax.swing.JTable userTable;
-    // End of variables declaration//GEN-END:variables
-// </editor-fold>     
-    // <editor-fold defaultstate="collapsed" desc="Big Functions">     
-    private void loadUsers() {
-        // Tricky one to show all users
-        String colNames[] = {"UserName", "Last Login"};
-        BetterTableModel dtm = new BetterTableModel();
-        dtm.setDataVector(null, colNames);
-        ArrayList<String[]> qResult = DatabaseAccess.loadUsers();
-        userTable.setModel(dtm);
-        for (int i = 0; i < qResult.size(); i++) {
-            dtm.addRow(new String[2]);
-            userTable.getModel().setValueAt(qResult.get(i)[0], i, 0);
-            userTable.getModel().setValueAt(qResult.get(i)[1], i, 1);
-        }
-    }
-
-    private void loadUserDetails() {
-        String colNames[] = {"PC", "Name", "Date"};
-        ArrayList<String[]> userDetes = DatabaseAccess.loadUserInfo(userLabel.getText());
-        BetterTableModel btm = new BetterTableModel();
-        btm.setDataVector(null, colNames);
-        userHistoryTable.setModel(btm);
-        for (int i = 0; i < userDetes.size(); i++) {
-            btm.addRow(new String[3]);
-            userHistoryTable.getModel().setValueAt(userDetes.get(i)[0], i, 0);
-            userHistoryTable.getModel().setValueAt(userDetes.get(i)[1], i, 1);
-            userHistoryTable.getModel().setValueAt(userDetes.get(i)[2], i, 2);
-        }
     }
 
     private void loadPCModels() {

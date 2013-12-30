@@ -15,7 +15,7 @@ import java.util.HashMap;
 public class DatabaseAccess {
 
     public static ArrayList loadPCs(Boolean loadDecommision) {
-        
+
         String url = "jdbc:mysql://wsc267:3306/";
         String dbName = "assetDB";
         String driver = "com.mysql.jdbc.Driver";
@@ -32,19 +32,18 @@ public class DatabaseAccess {
 
                 ResultSet locationResult = st.executeQuery("Select * FROM location");
                 while (locationResult.next()) {                                                             //location foreign key connection
-                    locationMap.put(locationResult.getString(1), (locationResult.getString(2)+ " " + locationResult.getString(3)));
+                    locationMap.put(locationResult.getString(1), (locationResult.getString(2) + " " + locationResult.getString(3)));
                 }
 
                 ResultSet pcModelResult = st.executeQuery("Select * FROM pcmodel");
                 while (pcModelResult.next()) {                                                             //location foreign key connection
-                    pcModelMap.put(pcModelResult.getString(1), (pcModelResult.getString(2) + " " +pcModelResult.getString(3)));
+                    pcModelMap.put(pcModelResult.getString(1), (pcModelResult.getString(2) + " " + pcModelResult.getString(3)));
                 }
                 ResultSet pcResult;
-                if(loadDecommision == true){
+                if (loadDecommision == true) {
                     //System.out.println(loadDecommision);
                     pcResult = st.executeQuery("Select * FROM PC WHERE Name like 'WSC%' or Name like 'LTC%' order by Name");
-                }
-                else{
+                } else {
                     //System.out.println(loadDecommision);
                     pcResult = st.executeQuery("Select * FROM PC WHERE Status = 'A' AND Name like 'WSC%' or Status = 'A' AND Name like 'LTC%' order by Name;");
                 }
@@ -86,7 +85,8 @@ public class DatabaseAccess {
         }
         return resultList;
     }
-    public static String[] loadPCData (String pcID){
+
+    public static String[] loadPCData(String pcID) {
         String url = "jdbc:mysql://wsc267:3306/";
         String dbName = "assetDB";
         String driver = "com.mysql.jdbc.Driver";
@@ -98,7 +98,7 @@ public class DatabaseAccess {
             try (Connection conn = DriverManager.getConnection(url + dbName, userName, password)) {
                 Statement st = conn.createStatement();
 
-                ResultSet res = st.executeQuery("Select * FROM pc Where idPC = '" + pcID +"'");
+                ResultSet res = st.executeQuery("Select * FROM pc Where idPC = '" + pcID + "'");
 
                 while (res.next()) {
                     String id = res.getString("idPC");
@@ -135,7 +135,37 @@ public class DatabaseAccess {
         }
         return resultList;
     }
-    public static ArrayList loadUserInfo(String user){
+
+    public static String getMaxMonitor() {
+        String url = "jdbc:mysql://wsc267:3306/";
+        String dbName = "assetDB";
+        String driver = "com.mysql.jdbc.Driver";
+        String userName = "jessvoig";
+        String password = "qzpm9876";
+        String result = "";
+
+        try {
+            Class.forName(driver).newInstance();
+            try (Connection conn = DriverManager.getConnection(url + dbName, userName, password)) {
+                Statement querier = conn.createStatement();
+                
+                ResultSet monitorIDResult = querier.executeQuery("select max(idMonitor) from monitor");
+                
+                while(monitorIDResult.next()){
+                    int maxPlusOne = monitorIDResult.getInt("max(idMonitor)") + 1;
+                    result = String.valueOf(maxPlusOne);  
+                    System.out.println(" " + result);
+                }
+
+                conn.close();
+            }
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | SQLException e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+
+    public static ArrayList loadUserInfo(String user) {
         String url = "jdbc:mysql://wsc267:3306/";
         String dbName = "assetDB";
         String driver = "com.mysql.jdbc.Driver";
@@ -143,39 +173,38 @@ public class DatabaseAccess {
         String password = "qzpm9876";
         ArrayList resultList = new ArrayList();
         HashMap pcMap = new HashMap();
-        
+
         try {
             Class.forName(driver).newInstance();
             try (Connection conn = DriverManager.getConnection(url + dbName, userName, password)) {
                 Statement querier = conn.createStatement();
-                
-                
+
                 ResultSet res = querier.executeQuery("select * from pc");
-                while (res.next()){
+                while (res.next()) {
                     pcMap.put(res.getString(1), res.getString(2));
                 }
-                
-                ResultSet userResult = querier.executeQuery("select * from userhistory where Name ='"+ user + "'" + " order by Date desc");
-                
-                while (userResult.next()){
-                    String pcId = (String)pcMap.get(userResult.getString("idPC"));
+
+                ResultSet userResult = querier.executeQuery("select * from userhistory where Name ='" + user + "'" + " order by Date desc");
+
+                while (userResult.next()) {
+                    String pcId = (String) pcMap.get(userResult.getString("idPC"));
                     String name = userResult.getString("Name");
-                    
+
                     int dateCode = userResult.getInt("Date");
                     Date dateFormatted = new Date((long) dateCode * 1000);          //Date conversion from 10 digit unix number to correct date FML
                     String dateInstalled = dateFormatted.toString();
-                    
-                    String tempData[] = {pcId,name,dateInstalled};
+
+                    String tempData[] = {pcId, name, dateInstalled};
                     resultList.add(tempData);
                 }
-            conn.close();
+                conn.close();
             }
-        }
-        catch (ClassNotFoundException | InstantiationException | IllegalAccessException | SQLException e) {
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | SQLException e) {
             e.printStackTrace();
         }
         return resultList;
     }
+
     public static ArrayList loadMonitors() {
         String url = "jdbc:mysql://wsc267:3306/";
         String dbName = "assetDB";
@@ -189,7 +218,7 @@ public class DatabaseAccess {
             Class.forName(driver).newInstance();
             try (Connection conn = DriverManager.getConnection(url + dbName, userName, password)) {
                 Statement querier = conn.createStatement();
-                
+
                 ResultSet monitorModelResult = querier.executeQuery("Select * FROM monitormodel");
                 while (monitorModelResult.next()) {                                                             //monitormodel foreign key connection
                     monitorModelMap.put(monitorModelResult.getString(1), monitorModelResult.getString(2) + " " + monitorModelResult.getString(3));
@@ -224,7 +253,7 @@ public class DatabaseAccess {
         }
         return resultList;
     }
-    
+
     public static ArrayList loadMonitorModels() {
         String url = "jdbc:mysql://wsc267:3306/";
         String dbName = "assetDB";
@@ -255,7 +284,25 @@ public class DatabaseAccess {
         }
         return resultList;
     }
-
+    public static void executeQuery(String inputQuery){
+        String url = "jdbc:mysql://wsc267:3306/";
+        String dbName = "assetDB";
+        String driver = "com.mysql.jdbc.Driver";
+        String userName = "jessvoig";
+        String password = "qzpm9876";
+        try {
+            Class.forName(driver).newInstance();
+            try (Connection conn = DriverManager.getConnection(url + dbName, userName, password)) {
+                Statement st = conn.createStatement();
+                st.addBatch(inputQuery);
+                st.executeBatch();
+                conn.close();
+            }
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | SQLException e) {
+            e.printStackTrace();
+        }
+        
+    }
     public static ArrayList loadPCModels() {
         String url = "jdbc:mysql://wsc267:3306/";
         String dbName = "assetDB";
@@ -339,7 +386,7 @@ public class DatabaseAccess {
 
                 while (res.next()) {
                     String name = res.getString("Name");
-                    
+
                     int dateCode = res.getInt("max(Date)");
                     Date dateFormatted = new Date((long) dateCode * 1000);          //Date conversion from 10 digit unix number to correct date FML
                     String idPC = dateFormatted.toString();
