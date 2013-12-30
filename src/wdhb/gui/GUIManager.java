@@ -81,9 +81,8 @@ public class GUIManager extends javax.swing.JFrame {
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
         jLabel20 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        jTextField4 = new javax.swing.JTextField();
         jLabel21 = new javax.swing.JLabel();
         jTextField6 = new javax.swing.JTextField();
         jLabel22 = new javax.swing.JLabel();
@@ -93,6 +92,7 @@ public class GUIManager extends javax.swing.JFrame {
         jButton14 = new javax.swing.JButton();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
         modelSelect = new javax.swing.JComboBox();
+        statusComboBox = new javax.swing.JComboBox();
         jTab = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -477,11 +477,9 @@ public class GUIManager extends javax.swing.JFrame {
 
         jLabel19.setText("Asset:");
 
-        jTextField4.setText("Asset");
-
         jLabel20.setText("Status:");
 
-        jTextField5.setText("Status");
+        jTextField4.setText("Asset");
 
         jLabel21.setText("Serial No:");
 
@@ -509,6 +507,8 @@ public class GUIManager extends javax.swing.JFrame {
 
         modelSelect.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
+        statusComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
         javax.swing.GroupLayout addMonitorDialogLayout = new javax.swing.GroupLayout(addMonitorDialog.getContentPane());
         addMonitorDialog.getContentPane().setLayout(addMonitorDialogLayout);
         addMonitorDialogLayout.setHorizontalGroup(
@@ -516,25 +516,6 @@ public class GUIManager extends javax.swing.JFrame {
             .addGroup(addMonitorDialogLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(addMonitorDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(addMonitorDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, addMonitorDialogLayout.createSequentialGroup()
-                            .addComponent(jLabel21)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(jTextField6, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, addMonitorDialogLayout.createSequentialGroup()
-                            .addGroup(addMonitorDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel19)
-                                .addComponent(jLabel20)
-                                .addComponent(jLabel18))
-                            .addGap(18, 18, 18)
-                            .addGroup(addMonitorDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jTextField4)
-                                .addComponent(jTextField5, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)
-                                .addComponent(modelSelect, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                    .addGroup(addMonitorDialogLayout.createSequentialGroup()
-                        .addComponent(jLabel23)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(addMonitorDialogLayout.createSequentialGroup()
                         .addComponent(jButton13)
                         .addGap(18, 18, 18)
@@ -544,7 +525,26 @@ public class GUIManager extends javax.swing.JFrame {
                             .addComponent(jLabel22)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(jDateChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addComponent(jLabel17)))
+                        .addComponent(jLabel17))
+                    .addGroup(addMonitorDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, addMonitorDialogLayout.createSequentialGroup()
+                            .addComponent(jLabel21)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(jTextField6))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, addMonitorDialogLayout.createSequentialGroup()
+                            .addGroup(addMonitorDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel19)
+                                .addComponent(jLabel20)
+                                .addComponent(jLabel18))
+                            .addGap(18, 18, 18)
+                            .addGroup(addMonitorDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(modelSelect, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(statusComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(addMonitorDialogLayout.createSequentialGroup()
+                        .addComponent(jLabel23)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(86, Short.MAX_VALUE))
         );
         addMonitorDialogLayout.setVerticalGroup(
@@ -563,7 +563,7 @@ public class GUIManager extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(addMonitorDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel20)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(statusComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(addMonitorDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel21)
@@ -1138,8 +1138,8 @@ public class GUIManager extends javax.swing.JFrame {
         ComboObject idTempMonitorModel = (ComboObject) modelSelect.getSelectedItem();
         idMonitorModel = idTempMonitorModel.getID();
         serialNumber = jTextField6.getText();
+        status  = statusComboBox.getSelectedItem().toString();
         assetNumber = jTextField4.getText();
-        status = jTextField5.getText();
         notes = jTextField8.getText();
         long databaseTime;
         Date datePicked = jDateChooser1.getDate();
@@ -1153,14 +1153,17 @@ public class GUIManager extends javax.swing.JFrame {
         String happy = String.valueOf(databaseTime / 1000);
         String query = ("INSERT INTO `assetdb`.`monitor` (`idMonitor`, `idMonitorModel`, `SerialNo`, `AssetNo`, `DateInstalled`, `Status`, `Notes`) VALUES ('"
                 + idMonitor + "', '" + idMonitorModel + "', '" + serialNumber + "', '" + assetNumber + "', '" + happy + "', '" + status + "', '" + notes + "');");
-        DatabaseAccess.executeQuery(query);
+        //DatabaseAccess.executeQuery(query);  //Database write
         
         System.out.println(query);
     }//GEN-LAST:event_jButton14ActionPerformed
 
     private void addMonitorDialogWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_addMonitorDialogWindowActivated
         DefaultComboBoxModel newMonitorComboModel = new DefaultComboBoxModel();
-        System.out.println("First part executed");
+        DefaultComboBoxModel statusComboModel = new DefaultComboBoxModel();
+        statusComboModel.addElement("A");
+        statusComboModel.addElement("I");
+        statusComboBox.setModel(statusComboModel);
         
         ArrayList<String[]> loadMonitorComboBox = DatabaseAccess.loadMonitorModels();
         
@@ -1287,7 +1290,6 @@ public class GUIManager extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField8;
     private javax.swing.JComboBox locationCombo;
@@ -1307,6 +1309,7 @@ public class GUIManager extends javax.swing.JFrame {
     private javax.swing.JTable resultsTable;
     private javax.swing.JTextField serialNumberField;
     private javax.swing.JComboBox statusCombo;
+    private javax.swing.JComboBox statusComboBox;
     private javax.swing.JDialog userDialog;
     private javax.swing.JTable userHistoryTable;
     private javax.swing.JLabel userLabel;
