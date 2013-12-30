@@ -1173,7 +1173,7 @@ public class GUIManager extends javax.swing.JFrame {
             temp.setDescription(stringArray[1] + " " + stringArray[2]);
             temp.setID(stringArray[0]);
             newMonitorComboModel.addElement(temp);
-            System.out.println(temp.toString());
+            //System.out.println(temp.toString());
         }
         modelSelect.setModel(newMonitorComboModel);
     }//GEN-LAST:event_addMonitorDialogWindowActivated

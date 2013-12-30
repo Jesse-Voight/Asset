@@ -154,7 +154,7 @@ public class DatabaseAccess {
                 while(monitorIDResult.next()){
                     int maxPlusOne = monitorIDResult.getInt("max(idMonitor)") + 1;
                     result = String.valueOf(maxPlusOne);  
-                    System.out.println(" " + result);
+                    //System.out.println(" " + result);
                 }
 
                 conn.close();
