@@ -224,6 +224,36 @@ public class DatabaseAccess {
         }
         return result;
     }
+    
+    
+    public static String getMaxPCModel() {
+        String url = "jdbc:mysql://wsc267:3306/";
+        String dbName = "assetDB";
+        String driver = "com.mysql.jdbc.Driver";
+        String userName = "jessvoig";
+        String password = "qzpm9876";
+        String result = "";
+
+        try {
+            Class.forName(driver).newInstance();
+            try (Connection conn = DriverManager.getConnection(url + dbName, userName, password)) {
+                Statement querier = conn.createStatement();
+                
+                ResultSet monitorIDResult = querier.executeQuery("select max(idPCModel) from pcmodel");
+                
+                while(monitorIDResult.next()){
+                    int maxPlusOne = monitorIDResult.getInt("max(idPCModel)") + 1;
+                    result = String.valueOf(maxPlusOne);  
+                    //System.out.println(" " + result);
+                }
+
+                conn.close();
+            }
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | SQLException e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
 
     public static ArrayList loadUserInfo(String user) {
         String url = "jdbc:mysql://wsc267:3306/";

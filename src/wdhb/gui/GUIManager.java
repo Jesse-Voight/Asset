@@ -111,6 +111,16 @@ public class GUIManager extends javax.swing.JFrame {
         addLocationRCField = new javax.swing.JTextField();
         addLocationButton = new javax.swing.JButton();
         addLocationCancelButton = new javax.swing.JButton();
+        addPCModelDialog = new javax.swing.JDialog();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel31 = new javax.swing.JLabel();
+        jLabel32 = new javax.swing.JLabel();
+        jLabel33 = new javax.swing.JLabel();
+        addPCModelMakeField = new javax.swing.JTextField();
+        addPCModelModelField = new javax.swing.JTextField();
+        addPCModelSubModelField = new javax.swing.JTextField();
+        savePCModelButton = new javax.swing.JButton();
+        addPCModelCancelButton = new javax.swing.JButton();
         jTab = new javax.swing.JTabbedPane();
         pcPanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -137,6 +147,7 @@ public class GUIManager extends javax.swing.JFrame {
         jScrollPane5 = new javax.swing.JScrollPane();
         pcModelTable = new javax.swing.JTable();
         pcModelRefreshButton = new javax.swing.JButton();
+        addPCModelButton = new javax.swing.JButton();
         userHistoryPanel = new javax.swing.JPanel();
         jScrollPane6 = new javax.swing.JScrollPane();
         userTable = new javax.swing.JTable();
@@ -625,11 +636,6 @@ public class GUIManager extends javax.swing.JFrame {
         addLocationDialog.setMinimumSize(new java.awt.Dimension(400, 315));
         addLocationDialog.setPreferredSize(new java.awt.Dimension(400, 315));
         addLocationDialog.setResizable(false);
-        addLocationDialog.addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowActivated(java.awt.event.WindowEvent evt) {
-                addLocationDialogWindowActivated(evt);
-            }
-        });
 
         jLabel25.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel25.setText("Add Location");
@@ -745,6 +751,88 @@ public class GUIManager extends javax.swing.JFrame {
                     .addComponent(addLocationButton)
                     .addComponent(addLocationCancelButton))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        addPCModelDialog.setMaximumSize(new java.awt.Dimension(300, 220));
+        addPCModelDialog.setMinimumSize(new java.awt.Dimension(300, 220));
+        addPCModelDialog.setPreferredSize(new java.awt.Dimension(300, 220));
+        addPCModelDialog.setResizable(false);
+
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel6.setText("Add PC Model");
+
+        jLabel31.setText("Make:");
+
+        jLabel32.setText("Model:");
+
+        jLabel33.setText("Sub Model:");
+
+        savePCModelButton.setText("Save");
+        savePCModelButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                savePCModelButtonActionPerformed(evt);
+            }
+        });
+
+        addPCModelCancelButton.setText("Cancel");
+        addPCModelCancelButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addPCModelCancelButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout addPCModelDialogLayout = new javax.swing.GroupLayout(addPCModelDialog.getContentPane());
+        addPCModelDialog.getContentPane().setLayout(addPCModelDialogLayout);
+        addPCModelDialogLayout.setHorizontalGroup(
+            addPCModelDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(addPCModelDialogLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(addPCModelDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(addPCModelDialogLayout.createSequentialGroup()
+                        .addGroup(addPCModelDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel6)
+                            .addGroup(addPCModelDialogLayout.createSequentialGroup()
+                                .addComponent(jLabel31)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(addPCModelMakeField))
+                            .addGroup(addPCModelDialogLayout.createSequentialGroup()
+                                .addComponent(jLabel32)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(addPCModelModelField))
+                            .addGroup(addPCModelDialogLayout.createSequentialGroup()
+                                .addComponent(jLabel33)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(addPCModelSubModelField, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addPCModelDialogLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(addPCModelCancelButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(savePCModelButton)))
+                .addContainerGap())
+        );
+        addPCModelDialogLayout.setVerticalGroup(
+            addPCModelDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(addPCModelDialogLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(addPCModelDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel31)
+                    .addComponent(addPCModelMakeField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(addPCModelDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel32)
+                    .addComponent(addPCModelModelField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(addPCModelDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel33)
+                    .addComponent(addPCModelSubModelField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(addPCModelDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(savePCModelButton)
+                    .addComponent(addPCModelCancelButton))
+                .addContainerGap(56, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -1063,6 +1151,13 @@ public class GUIManager extends javax.swing.JFrame {
             }
         });
 
+        addPCModelButton.setText("Add PC Model");
+        addPCModelButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addPCModelButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout pcModelPanelLayout = new javax.swing.GroupLayout(pcModelPanel);
         pcModelPanel.setLayout(pcModelPanelLayout);
         pcModelPanelLayout.setHorizontalGroup(
@@ -1073,7 +1168,8 @@ public class GUIManager extends javax.swing.JFrame {
                     .addComponent(jScrollPane5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 886, Short.MAX_VALUE)
                     .addGroup(pcModelPanelLayout.createSequentialGroup()
                         .addComponent(pcModelRefreshButton)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(addPCModelButton)))
                 .addContainerGap())
         );
         pcModelPanelLayout.setVerticalGroup(
@@ -1082,7 +1178,9 @@ public class GUIManager extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 536, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(pcModelRefreshButton)
+                .addGroup(pcModelPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(pcModelRefreshButton)
+                    .addComponent(addPCModelButton))
                 .addContainerGap())
         );
 
@@ -1149,11 +1247,6 @@ public class GUIManager extends javax.swing.JFrame {
         jTab.addTab("User History", userHistoryPanel);
 
         fileMenu.setText("File");
-        fileMenu.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                fileMenuStateChanged(evt);
-            }
-        });
 
         jMenuItem1.setText("Exit");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
@@ -1218,10 +1311,6 @@ public class GUIManager extends javax.swing.JFrame {
     private void locationRefreshButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_locationRefreshButtonActionPerformed
         loadLocations();
     }//GEN-LAST:event_locationRefreshButtonActionPerformed
-
-    private void fileMenuStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_fileMenuStateChanged
-        //loadPCs();
-    }//GEN-LAST:event_fileMenuStateChanged
 
     private void pcModelRefreshButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pcModelRefreshButtonActionPerformed
         loadPCModels();
@@ -1420,12 +1509,8 @@ public class GUIManager extends javax.swing.JFrame {
                 + "('"+idLocation+"', '"+building+"', '"+department+"', '"+address1+"', '"+address2+"', '"+town+"', '"+rc+"');";
         
         DatabaseAccess.executeQuery(query);
-        System.out.println(query);
+        //System.out.println(query);
     }//GEN-LAST:event_addLocationButtonActionPerformed
-
-    private void addLocationDialogWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_addLocationDialogWindowActivated
-
-    }//GEN-LAST:event_addLocationDialogWindowActivated
 
     private void openLocationDialogActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openLocationDialogActionPerformed
         addLocationDialog.setLocation(jMenuBar1.getLocationOnScreen());
@@ -1442,6 +1527,33 @@ public class GUIManager extends javax.swing.JFrame {
         addLocationRCField.setText("");
         addLocationDialog.setVisible(false);
     }//GEN-LAST:event_addLocationCancelButtonActionPerformed
+
+    private void addPCModelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addPCModelButtonActionPerformed
+        addPCModelDialog.setLocation(jMenuBar1.getLocationOnScreen());
+        addPCModelDialog.setVisible(true);
+    }//GEN-LAST:event_addPCModelButtonActionPerformed
+
+    private void savePCModelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_savePCModelButtonActionPerformed
+        String idPCModel = DatabaseAccess.getMaxPCModel();
+        String make = addPCModelMakeField.getText();
+        String model = addPCModelModelField.getText();
+        String subModel = addPCModelSubModelField.getText();
+        
+        String query = "INSERT INTO `assetdb`.`pcmodel` (`idPCModel`, `Make`, `Model`, `SubModel`) VALUES ('"+idPCModel+"', '"+make+"', '"+model+"', '"+subModel+"');";
+        
+        System.out.println(query);
+        DatabaseAccess.executeQuery(query);
+        
+        this.loadPCModels();
+    }//GEN-LAST:event_savePCModelButtonActionPerformed
+
+    private void addPCModelCancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addPCModelCancelButtonActionPerformed
+        addPCModelMakeField.setText("");
+        addPCModelModelField.setText("");
+        addPCModelSubModelField.setText("");
+        
+        addPCModelDialog.setVisible(false);
+    }//GEN-LAST:event_addPCModelCancelButtonActionPerformed
 // </editor-fold>
     // <editor-fold defaultstate="collapsed" desc="Main"> 
 
@@ -1506,6 +1618,12 @@ public class GUIManager extends javax.swing.JFrame {
     private javax.swing.JButton addMonitorModelSave;
     private javax.swing.JLabel addMonitorModelTitle;
     private javax.swing.JButton addMonitorSaveButton;
+    private javax.swing.JButton addPCModelButton;
+    private javax.swing.JButton addPCModelCancelButton;
+    private javax.swing.JDialog addPCModelDialog;
+    private javax.swing.JTextField addPCModelMakeField;
+    private javax.swing.JTextField addPCModelModelField;
+    private javax.swing.JTextField addPCModelSubModelField;
     private javax.swing.JTextField assetNumberField;
     private javax.swing.JTextField commonUsersField;
     private javax.swing.JCheckBoxMenuItem decommissionCheck;
@@ -1540,8 +1658,12 @@ public class GUIManager extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
@@ -1584,6 +1706,7 @@ public class GUIManager extends javax.swing.JFrame {
     private javax.swing.JTextField pcSearchTextField;
     private javax.swing.JTextField replaceDateField;
     private javax.swing.JTable resultsTable;
+    private javax.swing.JButton savePCModelButton;
     private javax.swing.JTextField serialNumberField;
     private javax.swing.JComboBox statusCombo;
     private javax.swing.JComboBox statusComboBox;
