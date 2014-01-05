@@ -36,25 +36,19 @@ public class GUIManager extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        aboutDialog = new javax.swing.JDialog();
+        aboutScreenDialog = new javax.swing.JDialog();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jButton7 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        userDialog = new javax.swing.JDialog();
+        userHistoryDialog = new javax.swing.JDialog();
         jLabel5 = new javax.swing.JLabel();
         userLabel = new javax.swing.JLabel();
         jScrollPane7 = new javax.swing.JScrollPane();
         userHistoryTable = new javax.swing.JTable();
         jButton9 = new javax.swing.JButton();
         jInternalFrame1 = new javax.swing.JInternalFrame();
-        loginScreen = new javax.swing.JDialog();
-        jLabel6 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jPasswordField1 = new javax.swing.JPasswordField();
-        jButton11 = new javax.swing.JButton();
-        jButton12 = new javax.swing.JButton();
         pcEditDialog = new javax.swing.JDialog();
         pcNameLabel = new javax.swing.JLabel();
         serialNumberField = new javax.swing.JTextField();
@@ -89,51 +83,77 @@ public class GUIManager extends javax.swing.JFrame {
         jLabel23 = new javax.swing.JLabel();
         jTextField8 = new javax.swing.JTextField();
         jButton13 = new javax.swing.JButton();
-        jButton14 = new javax.swing.JButton();
+        addMonitorSaveButton = new javax.swing.JButton();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
         modelSelect = new javax.swing.JComboBox();
         statusComboBox = new javax.swing.JComboBox();
+        addMonitorModelDialog = new javax.swing.JDialog();
+        addMonitorModelTitle = new javax.swing.JLabel();
+        addMonitorModelMakeLabel = new javax.swing.JLabel();
+        addMonitorModelLabel = new javax.swing.JLabel();
+        addMonitorMakeField = new javax.swing.JTextField();
+        addMonitorModelField = new javax.swing.JTextField();
+        addMonitorModelSave = new javax.swing.JButton();
+        addMonitorModelCancel = new javax.swing.JButton();
+        addLocationDialog = new javax.swing.JDialog();
+        jLabel25 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+        jLabel27 = new javax.swing.JLabel();
+        jLabel28 = new javax.swing.JLabel();
+        jLabel29 = new javax.swing.JLabel();
+        jLabel30 = new javax.swing.JLabel();
+        addLocationBuildingField = new javax.swing.JTextField();
+        addLocationDepartmentField = new javax.swing.JTextField();
+        addLocationA1Field = new javax.swing.JTextField();
+        addLocationA2Field = new javax.swing.JTextField();
+        addLocationTownField = new javax.swing.JTextField();
+        addLocationRCField = new javax.swing.JTextField();
+        addLocationButton = new javax.swing.JButton();
+        addLocationCancelButton = new javax.swing.JButton();
         jTab = new javax.swing.JTabbedPane();
-        jPanel1 = new javax.swing.JPanel();
+        pcPanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         resultsTable = new javax.swing.JTable();
-        jButton2 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
-        jButton8 = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
+        pcRefreshButton = new javax.swing.JButton();
+        pcSearchTextField = new javax.swing.JTextField();
+        findPcButton = new javax.swing.JButton();
+        monitorPanel = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
         monitorTable = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
-        jButton15 = new javax.swing.JButton();
-        jPanel3 = new javax.swing.JPanel();
+        monitorRefreshButton = new javax.swing.JButton();
+        addMonitorButton = new javax.swing.JButton();
+        monitorModelPanel = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         monitorModelTable = new javax.swing.JTable();
-        jButton3 = new javax.swing.JButton();
-        jPanel4 = new javax.swing.JPanel();
+        monitorModelRefreshButton = new javax.swing.JButton();
+        addMonitorModelButton = new javax.swing.JButton();
+        locationPanel = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         locationTable = new javax.swing.JTable();
-        jButton4 = new javax.swing.JButton();
-        jPanel5 = new javax.swing.JPanel();
+        locationRefreshButton = new javax.swing.JButton();
+        openLocationDialog = new javax.swing.JButton();
+        pcModelPanel = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
         pcModelTable = new javax.swing.JTable();
-        jButton5 = new javax.swing.JButton();
-        jPanel6 = new javax.swing.JPanel();
+        pcModelRefreshButton = new javax.swing.JButton();
+        userHistoryPanel = new javax.swing.JPanel();
         jScrollPane6 = new javax.swing.JScrollPane();
         userTable = new javax.swing.JTable();
-        jButton6 = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
+        userHistoryRefreshButton = new javax.swing.JButton();
+        userHistoryViewButton = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
+        fileMenu = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         decommissionCheck = new javax.swing.JCheckBoxMenuItem();
-        jMenu2 = new javax.swing.JMenu();
+        aboutMenu = new javax.swing.JMenu();
 
-        aboutDialog.setTitle("About");
-        aboutDialog.setAlwaysOnTop(true);
-        aboutDialog.setForeground(new java.awt.Color(0, 153, 153));
-        aboutDialog.setLocationByPlatform(true);
-        aboutDialog.setMinimumSize(new java.awt.Dimension(340, 195));
-        aboutDialog.setResizable(false);
+        aboutScreenDialog.setTitle("About");
+        aboutScreenDialog.setAlwaysOnTop(true);
+        aboutScreenDialog.setForeground(new java.awt.Color(0, 153, 153));
+        aboutScreenDialog.setLocationByPlatform(true);
+        aboutScreenDialog.setMinimumSize(new java.awt.Dimension(340, 195));
+        aboutScreenDialog.setResizable(false);
 
         jLabel1.setText("Made by Jesse Voight");
 
@@ -152,47 +172,49 @@ public class GUIManager extends javax.swing.JFrame {
 
         jLabel4.setText("Database by Dave King");
 
-        javax.swing.GroupLayout aboutDialogLayout = new javax.swing.GroupLayout(aboutDialog.getContentPane());
-        aboutDialog.getContentPane().setLayout(aboutDialogLayout);
-        aboutDialogLayout.setHorizontalGroup(
-            aboutDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(aboutDialogLayout.createSequentialGroup()
+        javax.swing.GroupLayout aboutScreenDialogLayout = new javax.swing.GroupLayout(aboutScreenDialog.getContentPane());
+        aboutScreenDialog.getContentPane().setLayout(aboutScreenDialogLayout);
+        aboutScreenDialogLayout.setHorizontalGroup(
+            aboutScreenDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(aboutScreenDialogLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(aboutDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(aboutDialogLayout.createSequentialGroup()
-                        .addGroup(aboutDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(aboutScreenDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(aboutScreenDialogLayout.createSequentialGroup()
+                        .addGroup(aboutScreenDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4)
                             .addComponent(jLabel1))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton7))
-                    .addGroup(aboutDialogLayout.createSequentialGroup()
-                        .addGroup(aboutDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(aboutScreenDialogLayout.createSequentialGroup()
+                        .addGroup(aboutScreenDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
                             .addComponent(jLabel3))
                         .addGap(0, 29, Short.MAX_VALUE)))
                 .addContainerGap())
         );
-        aboutDialogLayout.setVerticalGroup(
-            aboutDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, aboutDialogLayout.createSequentialGroup()
+        aboutScreenDialogLayout.setVerticalGroup(
+            aboutScreenDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, aboutScreenDialogLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
-                .addGroup(aboutDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(aboutScreenDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jButton7)
-                    .addGroup(aboutDialogLayout.createSequentialGroup()
+                    .addGroup(aboutScreenDialogLayout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel4)))
                 .addContainerGap())
         );
 
-        userDialog.setMinimumSize(new java.awt.Dimension(440, 430));
-        userDialog.addWindowListener(new java.awt.event.WindowAdapter() {
+        userHistoryDialog.setTitle("User History");
+        userHistoryDialog.setAlwaysOnTop(true);
+        userHistoryDialog.setMinimumSize(new java.awt.Dimension(440, 430));
+        userHistoryDialog.addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
-                userDialogWindowActivated(evt);
+                userHistoryDialogWindowActivated(evt);
             }
         });
 
@@ -219,26 +241,26 @@ public class GUIManager extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout userDialogLayout = new javax.swing.GroupLayout(userDialog.getContentPane());
-        userDialog.getContentPane().setLayout(userDialogLayout);
-        userDialogLayout.setHorizontalGroup(
-            userDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(userDialogLayout.createSequentialGroup()
+        javax.swing.GroupLayout userHistoryDialogLayout = new javax.swing.GroupLayout(userHistoryDialog.getContentPane());
+        userHistoryDialog.getContentPane().setLayout(userHistoryDialogLayout);
+        userHistoryDialogLayout.setHorizontalGroup(
+            userHistoryDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(userHistoryDialogLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(userDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(userHistoryDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jButton9)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, userDialogLayout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, userHistoryDialogLayout.createSequentialGroup()
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(userLabel))
                     .addComponent(jScrollPane7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 420, Short.MAX_VALUE))
                 .addContainerGap())
         );
-        userDialogLayout.setVerticalGroup(
-            userDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(userDialogLayout.createSequentialGroup()
+        userHistoryDialogLayout.setVerticalGroup(
+            userHistoryDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(userHistoryDialogLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(userDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(userHistoryDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(userLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -263,62 +285,8 @@ public class GUIManager extends javax.swing.JFrame {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        loginScreen.setMinimumSize(new java.awt.Dimension(310, 170));
-        loginScreen.addWindowFocusListener(new java.awt.event.WindowFocusListener() {
-            public void windowGainedFocus(java.awt.event.WindowEvent evt) {
-            }
-            public void windowLostFocus(java.awt.event.WindowEvent evt) {
-                loginScreenWindowLostFocus(evt);
-            }
-        });
-
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 2, 24)); // NOI18N
-        jLabel6.setText("WDHB ICT Asset Login");
-
-        jTextField2.setText("Username");
-
-        jPasswordField1.setText("jPasswordField1");
-
-        jButton11.setText("Submit");
-
-        jButton12.setText("Cancel");
-
-        javax.swing.GroupLayout loginScreenLayout = new javax.swing.GroupLayout(loginScreen.getContentPane());
-        loginScreen.getContentPane().setLayout(loginScreenLayout);
-        loginScreenLayout.setHorizontalGroup(
-            loginScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(loginScreenLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(loginScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(loginScreenLayout.createSequentialGroup()
-                        .addComponent(jLabel6)
-                        .addContainerGap(69, Short.MAX_VALUE))
-                    .addGroup(loginScreenLayout.createSequentialGroup()
-                        .addGroup(loginScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton11)
-                            .addGroup(loginScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jTextField2, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jPasswordField1, javax.swing.GroupLayout.Alignment.LEADING)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton12)
-                        .addGap(48, 48, 48))))
-        );
-        loginScreenLayout.setVerticalGroup(
-            loginScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(loginScreenLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel6)
-                .addGap(30, 30, 30)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(loginScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton11)
-                    .addComponent(jButton12))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
+        pcEditDialog.setTitle("Edit PC Details");
+        pcEditDialog.setAlwaysOnTop(true);
         pcEditDialog.setMinimumSize(new java.awt.Dimension(530, 590));
         pcEditDialog.setResizable(false);
 
@@ -460,6 +428,8 @@ public class GUIManager extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        addMonitorDialog.setTitle("Add Monitor");
+        addMonitorDialog.setAlwaysOnTop(true);
         addMonitorDialog.setMaximumSize(new java.awt.Dimension(400, 370));
         addMonitorDialog.setMinimumSize(new java.awt.Dimension(400, 370));
         addMonitorDialog.setModal(true);
@@ -479,17 +449,11 @@ public class GUIManager extends javax.swing.JFrame {
 
         jLabel20.setText("Status:");
 
-        jTextField4.setText("Asset");
-
         jLabel21.setText("Serial No:");
-
-        jTextField6.setText("Serial No");
 
         jLabel22.setText("Date Installed:");
 
         jLabel23.setText("Notes:");
-
-        jTextField8.setText("Notes");
 
         jButton13.setText("Close ");
         jButton13.addActionListener(new java.awt.event.ActionListener() {
@@ -498,10 +462,10 @@ public class GUIManager extends javax.swing.JFrame {
             }
         });
 
-        jButton14.setText("Add");
-        jButton14.addActionListener(new java.awt.event.ActionListener() {
+        addMonitorSaveButton.setText("Add");
+        addMonitorSaveButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton14ActionPerformed(evt);
+                addMonitorSaveButtonActionPerformed(evt);
             }
         });
 
@@ -519,7 +483,7 @@ public class GUIManager extends javax.swing.JFrame {
                     .addGroup(addMonitorDialogLayout.createSequentialGroup()
                         .addComponent(jButton13)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton14))
+                        .addComponent(addMonitorSaveButton))
                     .addGroup(addMonitorDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, addMonitorDialogLayout.createSequentialGroup()
                             .addComponent(jLabel22)
@@ -579,8 +543,208 @@ public class GUIManager extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 125, Short.MAX_VALUE)
                 .addGroup(addMonitorDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton13)
-                    .addComponent(jButton14))
+                    .addComponent(addMonitorSaveButton))
                 .addContainerGap())
+        );
+
+        addMonitorModelDialog.setTitle("Add Monitor Model");
+        addMonitorModelDialog.setAlwaysOnTop(true);
+        addMonitorModelDialog.setMaximumSize(new java.awt.Dimension(340, 190));
+        addMonitorModelDialog.setMinimumSize(new java.awt.Dimension(340, 190));
+        addMonitorModelDialog.setPreferredSize(new java.awt.Dimension(340, 190));
+
+        addMonitorModelTitle.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        addMonitorModelTitle.setText("Add Monitor Model");
+
+        addMonitorModelMakeLabel.setText("Make:");
+
+        addMonitorModelLabel.setText("Model:");
+
+        addMonitorMakeField.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+
+        addMonitorModelField.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+
+        addMonitorModelSave.setText("Save");
+        addMonitorModelSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addMonitorModelSaveActionPerformed(evt);
+            }
+        });
+
+        addMonitorModelCancel.setText("Cancel");
+        addMonitorModelCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addMonitorModelCancelActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout addMonitorModelDialogLayout = new javax.swing.GroupLayout(addMonitorModelDialog.getContentPane());
+        addMonitorModelDialog.getContentPane().setLayout(addMonitorModelDialogLayout);
+        addMonitorModelDialogLayout.setHorizontalGroup(
+            addMonitorModelDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(addMonitorModelDialogLayout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addGroup(addMonitorModelDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(addMonitorModelTitle)
+                    .addGroup(addMonitorModelDialogLayout.createSequentialGroup()
+                        .addComponent(addMonitorModelMakeLabel)
+                        .addGap(21, 21, 21)
+                        .addComponent(addMonitorMakeField, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(addMonitorModelDialogLayout.createSequentialGroup()
+                        .addComponent(addMonitorModelLabel)
+                        .addGap(18, 18, 18)
+                        .addComponent(addMonitorModelField, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(addMonitorModelDialogLayout.createSequentialGroup()
+                        .addComponent(addMonitorModelCancel)
+                        .addGap(168, 168, 168)
+                        .addComponent(addMonitorModelSave))))
+        );
+        addMonitorModelDialogLayout.setVerticalGroup(
+            addMonitorModelDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(addMonitorModelDialogLayout.createSequentialGroup()
+                .addGap(6, 6, 6)
+                .addComponent(addMonitorModelTitle)
+                .addGap(11, 11, 11)
+                .addGroup(addMonitorModelDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(addMonitorModelDialogLayout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(addMonitorModelMakeLabel))
+                    .addComponent(addMonitorMakeField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(6, 6, 6)
+                .addGroup(addMonitorModelDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(addMonitorModelLabel)
+                    .addComponent(addMonitorModelField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(addMonitorModelDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(addMonitorModelCancel)
+                    .addComponent(addMonitorModelSave)))
+        );
+
+        addLocationDialog.setAlwaysOnTop(true);
+        addLocationDialog.setMaximumSize(new java.awt.Dimension(400, 315));
+        addLocationDialog.setMinimumSize(new java.awt.Dimension(400, 315));
+        addLocationDialog.setPreferredSize(new java.awt.Dimension(400, 315));
+        addLocationDialog.setResizable(false);
+        addLocationDialog.addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                addLocationDialogWindowActivated(evt);
+            }
+        });
+
+        jLabel25.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel25.setText("Add Location");
+
+        jLabel24.setText("Building:");
+
+        jLabel26.setText("Department:");
+
+        jLabel27.setText("Address1:");
+
+        jLabel28.setText("Address2:");
+
+        jLabel29.setText("Town:");
+
+        jLabel30.setText("RC Code:");
+
+        addLocationA2Field.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addLocationA2FieldActionPerformed(evt);
+            }
+        });
+
+        addLocationButton.setText("Save");
+        addLocationButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addLocationButtonActionPerformed(evt);
+            }
+        });
+
+        addLocationCancelButton.setText("Cancel");
+        addLocationCancelButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addLocationCancelButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout addLocationDialogLayout = new javax.swing.GroupLayout(addLocationDialog.getContentPane());
+        addLocationDialog.getContentPane().setLayout(addLocationDialogLayout);
+        addLocationDialogLayout.setHorizontalGroup(
+            addLocationDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(addLocationDialogLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(addLocationDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(addLocationDialogLayout.createSequentialGroup()
+                        .addGroup(addLocationDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel26)
+                            .addComponent(jLabel24))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(addLocationDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(addLocationBuildingField)
+                            .addComponent(addLocationDepartmentField))
+                        .addGap(10, 10, 10))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, addLocationDialogLayout.createSequentialGroup()
+                        .addGroup(addLocationDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, addLocationDialogLayout.createSequentialGroup()
+                                .addComponent(jLabel27)
+                                .addGap(18, 18, 18)
+                                .addComponent(addLocationA1Field))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, addLocationDialogLayout.createSequentialGroup()
+                                .addComponent(jLabel25)
+                                .addGap(0, 240, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, addLocationDialogLayout.createSequentialGroup()
+                                .addComponent(jLabel28)
+                                .addGap(18, 18, 18)
+                                .addComponent(addLocationA2Field))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, addLocationDialogLayout.createSequentialGroup()
+                                .addComponent(jLabel29)
+                                .addGap(37, 37, 37)
+                                .addComponent(addLocationTownField))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, addLocationDialogLayout.createSequentialGroup()
+                                .addComponent(jLabel30)
+                                .addGap(18, 18, 18)
+                                .addComponent(addLocationRCField)))
+                        .addContainerGap())))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addLocationDialogLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(addLocationCancelButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(addLocationButton)
+                .addContainerGap())
+        );
+        addLocationDialogLayout.setVerticalGroup(
+            addLocationDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(addLocationDialogLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel25)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(addLocationDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel24)
+                    .addComponent(addLocationBuildingField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(addLocationDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel26)
+                    .addComponent(addLocationDepartmentField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(addLocationDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel27)
+                    .addComponent(addLocationA1Field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(addLocationDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel28)
+                    .addComponent(addLocationA2Field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(addLocationDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel29)
+                    .addComponent(addLocationTownField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(addLocationDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel30)
+                    .addComponent(addLocationRCField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(addLocationDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(addLocationButton)
+                    .addComponent(addLocationCancelButton))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -617,67 +781,67 @@ public class GUIManager extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(resultsTable);
 
-        jButton2.setText("Refresh");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        pcRefreshButton.setText("Refresh");
+        pcRefreshButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                pcRefreshButtonActionPerformed(evt);
             }
         });
 
-        jTextField1.setText("Enter Text Here");
-        jTextField1.addFocusListener(new java.awt.event.FocusAdapter() {
+        pcSearchTextField.setText("Enter Text Here");
+        pcSearchTextField.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                jTextField1FocusGained(evt);
+                pcSearchTextFieldFocusGained(evt);
             }
         });
-        jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
+        pcSearchTextField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                jTextField1KeyPressed(evt);
+                pcSearchTextFieldKeyPressed(evt);
             }
         });
 
-        jButton8.setText("Find Value");
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
+        findPcButton.setText("Find Value");
+        findPcButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
+                findPcButtonActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout pcPanelLayout = new javax.swing.GroupLayout(pcPanel);
+        pcPanel.setLayout(pcPanelLayout);
+        pcPanelLayout.setHorizontalGroup(
+            pcPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pcPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pcRefreshButton, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 492, Short.MAX_VALUE)
-                .addComponent(jButton8)
+                .addComponent(findPcButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pcSearchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(pcPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pcPanelLayout.createSequentialGroup()
                     .addContainerGap()
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 886, Short.MAX_VALUE)
                     .addContainerGap()))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+        pcPanelLayout.setVerticalGroup(
+            pcPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pcPanelLayout.createSequentialGroup()
                 .addContainerGap(558, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton8))
+                .addGroup(pcPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(pcRefreshButton)
+                    .addComponent(pcSearchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(findPcButton))
                 .addContainerGap())
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(pcPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pcPanelLayout.createSequentialGroup()
                     .addContainerGap()
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 522, Short.MAX_VALUE)
                     .addGap(59, 59, 59)))
         );
 
-        jTab.addTab("PC's", jPanel1);
+        jTab.addTab("PC's", pcPanel);
 
         monitorTable.setAutoCreateRowSorter(true);
         monitorTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -699,49 +863,54 @@ public class GUIManager extends javax.swing.JFrame {
         monitorTable.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jScrollPane4.setViewportView(monitorTable);
 
-        jButton1.setText("Refresh");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        monitorRefreshButton.setText("Refresh");
+        monitorRefreshButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                monitorRefreshButtonActionPerformed(evt);
             }
         });
 
-        jButton15.setText("Add Monitor");
-        jButton15.addMouseListener(new java.awt.event.MouseAdapter() {
+        addMonitorButton.setText("Add Monitor");
+        addMonitorButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton15MouseClicked(evt);
+                addMonitorButtonMouseClicked(evt);
+            }
+        });
+        addMonitorButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addMonitorButtonActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        javax.swing.GroupLayout monitorPanelLayout = new javax.swing.GroupLayout(monitorPanel);
+        monitorPanel.setLayout(monitorPanelLayout);
+        monitorPanelLayout.setHorizontalGroup(
+            monitorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(monitorPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(monitorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(monitorPanelLayout.createSequentialGroup()
                         .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 886, Short.MAX_VALUE)
                         .addContainerGap())
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jButton1)
+                    .addGroup(monitorPanelLayout.createSequentialGroup()
+                        .addComponent(monitorRefreshButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton15)
+                        .addComponent(addMonitorButton)
                         .addGap(18, 18, 18))))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        monitorPanelLayout.setVerticalGroup(
+            monitorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(monitorPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 536, Short.MAX_VALUE)
                 .addGap(11, 11, 11)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton15))
+                .addGroup(monitorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(monitorRefreshButton)
+                    .addComponent(addMonitorButton))
                 .addContainerGap())
         );
 
-        jTab.addTab("Monitors", jPanel2);
+        jTab.addTab("Monitors", monitorPanel);
 
         monitorModelTable.setAutoCreateRowSorter(true);
         monitorModelTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -763,37 +932,47 @@ public class GUIManager extends javax.swing.JFrame {
         monitorModelTable.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jScrollPane2.setViewportView(monitorModelTable);
 
-        jButton3.setText("Refresh");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        monitorModelRefreshButton.setText("Refresh");
+        monitorModelRefreshButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                monitorModelRefreshButtonActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+        addMonitorModelButton.setText("Add Monitor Model");
+        addMonitorModelButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addMonitorModelButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout monitorModelPanelLayout = new javax.swing.GroupLayout(monitorModelPanel);
+        monitorModelPanel.setLayout(monitorModelPanelLayout);
+        monitorModelPanelLayout.setHorizontalGroup(
+            monitorModelPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(monitorModelPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(monitorModelPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 886, Short.MAX_VALUE)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jButton3)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                    .addGroup(monitorModelPanelLayout.createSequentialGroup()
+                        .addComponent(monitorModelRefreshButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(addMonitorModelButton)))
                 .addContainerGap())
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+        monitorModelPanelLayout.setVerticalGroup(
+            monitorModelPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(monitorModelPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 536, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton3)
+                .addGroup(monitorModelPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(monitorModelRefreshButton)
+                    .addComponent(addMonitorModelButton))
                 .addContainerGap())
         );
 
-        jTab.addTab("Monitor Models", jPanel3);
+        jTab.addTab("Monitor Models", monitorModelPanel);
 
         locationTable.setAutoCreateRowSorter(true);
         locationTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -815,37 +994,47 @@ public class GUIManager extends javax.swing.JFrame {
         locationTable.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jScrollPane3.setViewportView(locationTable);
 
-        jButton4.setText("Refresh");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        locationRefreshButton.setText("Refresh");
+        locationRefreshButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                locationRefreshButtonActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
+        openLocationDialog.setText("Add Location");
+        openLocationDialog.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                openLocationDialogActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout locationPanelLayout = new javax.swing.GroupLayout(locationPanel);
+        locationPanel.setLayout(locationPanelLayout);
+        locationPanelLayout.setHorizontalGroup(
+            locationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(locationPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(locationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 886, Short.MAX_VALUE)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jButton4)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                    .addGroup(locationPanelLayout.createSequentialGroup()
+                        .addComponent(locationRefreshButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(openLocationDialog)))
                 .addContainerGap())
         );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
+        locationPanelLayout.setVerticalGroup(
+            locationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(locationPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 536, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton4)
+                .addGroup(locationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(locationRefreshButton)
+                    .addComponent(openLocationDialog))
                 .addContainerGap())
         );
 
-        jTab.addTab("Locations", jPanel4);
+        jTab.addTab("Locations", locationPanel);
 
         pcModelTable.setAutoCreateRowSorter(true);
         pcModelTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -867,37 +1056,37 @@ public class GUIManager extends javax.swing.JFrame {
         pcModelTable.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jScrollPane5.setViewportView(pcModelTable);
 
-        jButton5.setText("Refresh");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        pcModelRefreshButton.setText("Refresh");
+        pcModelRefreshButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                pcModelRefreshButtonActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
+        javax.swing.GroupLayout pcModelPanelLayout = new javax.swing.GroupLayout(pcModelPanel);
+        pcModelPanel.setLayout(pcModelPanelLayout);
+        pcModelPanelLayout.setHorizontalGroup(
+            pcModelPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pcModelPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pcModelPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 886, Short.MAX_VALUE)
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(jButton5)
+                    .addGroup(pcModelPanelLayout.createSequentialGroup()
+                        .addComponent(pcModelRefreshButton)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
+        pcModelPanelLayout.setVerticalGroup(
+            pcModelPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pcModelPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 536, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton5)
+                .addComponent(pcModelRefreshButton)
                 .addContainerGap())
         );
 
-        jTab.addTab("PC Model", jPanel5);
+        jTab.addTab("PC Model", pcModelPanel);
 
         userTable.setAutoCreateRowSorter(true);
         userTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -917,52 +1106,52 @@ public class GUIManager extends javax.swing.JFrame {
         });
         jScrollPane6.setViewportView(userTable);
 
-        jButton6.setText("Refresh");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        userHistoryRefreshButton.setText("Refresh");
+        userHistoryRefreshButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                userHistoryRefreshButtonActionPerformed(evt);
             }
         });
 
-        jButton10.setText("View Details");
-        jButton10.addActionListener(new java.awt.event.ActionListener() {
+        userHistoryViewButton.setText("View Details");
+        userHistoryViewButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton10ActionPerformed(evt);
+                userHistoryViewButtonActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
+        javax.swing.GroupLayout userHistoryPanelLayout = new javax.swing.GroupLayout(userHistoryPanel);
+        userHistoryPanel.setLayout(userHistoryPanelLayout);
+        userHistoryPanelLayout.setHorizontalGroup(
+            userHistoryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(userHistoryPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(userHistoryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 886, Short.MAX_VALUE)
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addComponent(jButton6)
+                    .addGroup(userHistoryPanelLayout.createSequentialGroup()
+                        .addComponent(userHistoryRefreshButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton10)))
+                        .addComponent(userHistoryViewButton)))
                 .addContainerGap())
         );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
+        userHistoryPanelLayout.setVerticalGroup(
+            userHistoryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(userHistoryPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 536, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton6)
-                    .addComponent(jButton10))
+                .addGroup(userHistoryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(userHistoryRefreshButton)
+                    .addComponent(userHistoryViewButton))
                 .addContainerGap())
         );
 
-        jTab.addTab("User History", jPanel6);
+        jTab.addTab("User History", userHistoryPanel);
 
-        jMenu1.setText("File");
-        jMenu1.addChangeListener(new javax.swing.event.ChangeListener() {
+        fileMenu.setText("File");
+        fileMenu.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                jMenu1StateChanged(evt);
+                fileMenuStateChanged(evt);
             }
         });
 
@@ -972,7 +1161,7 @@ public class GUIManager extends javax.swing.JFrame {
                 jMenuItem1ActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem1);
+        fileMenu.add(jMenuItem1);
 
         decommissionCheck.setText("Show Decommissioned PCs");
         decommissionCheck.addItemListener(new java.awt.event.ItemListener() {
@@ -980,17 +1169,17 @@ public class GUIManager extends javax.swing.JFrame {
                 decommissionCheckItemStateChanged(evt);
             }
         });
-        jMenu1.add(decommissionCheck);
+        fileMenu.add(decommissionCheck);
 
-        jMenuBar1.add(jMenu1);
+        jMenuBar1.add(fileMenu);
 
-        jMenu2.setText("About");
-        jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
+        aboutMenu.setText("About");
+        aboutMenu.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu2MouseClicked(evt);
+                aboutMenuMouseClicked(evt);
             }
         });
-        jMenuBar1.add(jMenu2);
+        jMenuBar1.add(aboutMenu);
 
         setJMenuBar(jMenuBar1);
 
@@ -1010,47 +1199,47 @@ public class GUIManager extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     // <editor-fold defaultstate="collapsed" desc="Button Action Listeners"> 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void pcRefreshButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pcRefreshButtonActionPerformed
         loadPCs();
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_pcRefreshButtonActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void monitorRefreshButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_monitorRefreshButtonActionPerformed
         loadMonitors();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_monitorRefreshButtonActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         System.exit(0);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void monitorModelRefreshButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_monitorModelRefreshButtonActionPerformed
         loadMonitorModel();
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_monitorModelRefreshButtonActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void locationRefreshButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_locationRefreshButtonActionPerformed
         loadLocations();
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_locationRefreshButtonActionPerformed
 
-    private void jMenu1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jMenu1StateChanged
+    private void fileMenuStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_fileMenuStateChanged
         //loadPCs();
-    }//GEN-LAST:event_jMenu1StateChanged
+    }//GEN-LAST:event_fileMenuStateChanged
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void pcModelRefreshButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pcModelRefreshButtonActionPerformed
         loadPCModels();
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_pcModelRefreshButtonActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void userHistoryRefreshButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userHistoryRefreshButtonActionPerformed
         loadUsers();
-    }//GEN-LAST:event_jButton6ActionPerformed
+    }//GEN-LAST:event_userHistoryRefreshButtonActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        aboutDialog.setVisible(false);
+        aboutScreenDialog.setVisible(false);
     }//GEN-LAST:event_jButton7ActionPerformed
 
-    private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseClicked
+    private void aboutMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aboutMenuMouseClicked
         //jDialog1.setSize(500, 500);
-        aboutDialog.setLocation(jMenuBar1.getLocationOnScreen());
-        aboutDialog.setVisible(true);// TODO add your handling code here:
-    }//GEN-LAST:event_jMenu2MouseClicked
+        aboutScreenDialog.setLocation(jMenuBar1.getLocationOnScreen());
+        aboutScreenDialog.setVisible(true);// TODO add your handling code here:
+    }//GEN-LAST:event_aboutMenuMouseClicked
 
     private void decommissionCheckItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_decommissionCheckItemStateChanged
         loadPCs();// TODO add your handling code here:
@@ -1064,51 +1253,47 @@ public class GUIManager extends javax.swing.JFrame {
         loadAll();// TODO add your handling code here: window opened
     }//GEN-LAST:event_formWindowOpened
 
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+    private void findPcButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_findPcButtonActionPerformed
         findPC();
-    }//GEN-LAST:event_jButton8ActionPerformed
+    }//GEN-LAST:event_findPcButtonActionPerformed
 
-    private void jTextField1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField1FocusGained
-        jTextField1.setText("");// TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1FocusGained
+    private void pcSearchTextFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_pcSearchTextFieldFocusGained
+        pcSearchTextField.setText("");// TODO add your handling code here:
+    }//GEN-LAST:event_pcSearchTextFieldFocusGained
 
-    private void jTextField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyPressed
+    private void pcSearchTextFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_pcSearchTextFieldKeyPressed
         int key = evt.getKeyCode();
         if (key == KeyEvent.VK_ENTER) {
             findPC();
         }
-    }//GEN-LAST:event_jTextField1KeyPressed
+    }//GEN-LAST:event_pcSearchTextFieldKeyPressed
 
-    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+    private void userHistoryViewButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userHistoryViewButtonActionPerformed
         if (userTable.getSelectedRow() != -1) {
-            userDialog.setVisible(true);
-            userDialog.setLocation(jMenuBar1.getLocationOnScreen());
+            userHistoryDialog.setVisible(true);
+            userHistoryDialog.setLocation(jMenuBar1.getLocationOnScreen());
             String userTemp = (String) userTable.getModel().getValueAt(userTable.getSelectedRow(), 0);
 
             System.out.println(userTemp.toString());
             userLabel.setText(userTemp);
         } else {
-            JOptionPane.showMessageDialog(null, "NO USER SELECTED!!!!!!", "Error", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "No User Selected!", "Error", JOptionPane.WARNING_MESSAGE);
         }
-    }//GEN-LAST:event_jButton10ActionPerformed
+    }//GEN-LAST:event_userHistoryViewButtonActionPerformed
 
-    private void userDialogWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_userDialogWindowActivated
+    private void userHistoryDialogWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_userHistoryDialogWindowActivated
         loadUserDetails();
-    }//GEN-LAST:event_userDialogWindowActivated
+    }//GEN-LAST:event_userHistoryDialogWindowActivated
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        userDialog.setVisible(false);
+        userHistoryDialog.setVisible(false);
     }//GEN-LAST:event_jButton9ActionPerformed
-
-    private void loginScreenWindowLostFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_loginScreenWindowLostFocus
-        // TODO add your handling code here:
-    }//GEN-LAST:event_loginScreenWindowLostFocus
 
     private void userTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userTableMouseClicked
         if (evt.getClickCount() == 2) {
             userHistoryTable.setModel(new DefaultTableModel());
-            userDialog.setVisible(true);
-            userDialog.setLocation(jMenuBar1.getLocationOnScreen());
+            userHistoryDialog.setVisible(true);
+            userHistoryDialog.setLocation(jMenuBar1.getLocationOnScreen());
             jScrollPane7.getViewport().setViewPosition(new Point(0, 0));
             String userTemp = (String) userTable.getModel().getValueAt(userTable.getSelectedRow(), 0);
 
@@ -1130,7 +1315,7 @@ public class GUIManager extends javax.swing.JFrame {
         addMonitorDialog.setVisible(false);
     }//GEN-LAST:event_jButton13ActionPerformed
 
-    private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
+    private void addMonitorSaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addMonitorSaveButtonActionPerformed
         //Save monitor data and send as insert query
         String idMonitor, idMonitorModel, serialNumber, assetNumber, status, notes;
 
@@ -1141,6 +1326,12 @@ public class GUIManager extends javax.swing.JFrame {
         status  = statusComboBox.getSelectedItem().toString();
         assetNumber = jTextField4.getText();
         notes = jTextField8.getText();
+        
+        if (idMonitorModel == null| serialNumber.equals("")| assetNumber.equals("") | notes.equals(""))
+        {
+            JOptionPane.showMessageDialog(null, "Please fill all fields", "Error", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
         long databaseTime;
         Date datePicked = jDateChooser1.getDate();
         if (datePicked == null){
@@ -1153,10 +1344,11 @@ public class GUIManager extends javax.swing.JFrame {
         String happy = String.valueOf(databaseTime / 1000);
         String query = ("INSERT INTO `assetdb`.`monitor` (`idMonitor`, `idMonitorModel`, `SerialNo`, `AssetNo`, `DateInstalled`, `Status`, `Notes`) VALUES ('"
                 + idMonitor + "', '" + idMonitorModel + "', '" + serialNumber + "', '" + assetNumber + "', '" + happy + "', '" + status + "', '" + notes + "');");
-        //DatabaseAccess.executeQuery(query);  //Database write
-        
-        System.out.println(query);
-    }//GEN-LAST:event_jButton14ActionPerformed
+        DatabaseAccess.executeQuery(query);  //Database write
+        //System.out.println(query);
+        this.loadMonitors();
+        addMonitorDialog.dispose();
+    }//GEN-LAST:event_addMonitorSaveButtonActionPerformed
 
     private void addMonitorDialogWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_addMonitorDialogWindowActivated
         DefaultComboBoxModel newMonitorComboModel = new DefaultComboBoxModel();
@@ -1164,9 +1356,10 @@ public class GUIManager extends javax.swing.JFrame {
         statusComboModel.addElement("A");
         statusComboModel.addElement("I");
         statusComboBox.setModel(statusComboModel);
+
+        jDateChooser1.setDate(new Date());
         
         ArrayList<String[]> loadMonitorComboBox = DatabaseAccess.loadMonitorModels();
-        
         for (Object monitorObject : loadMonitorComboBox) {
             String[] stringArray = (String[]) monitorObject;
             ComboObject temp = new ComboObject();
@@ -1176,12 +1369,79 @@ public class GUIManager extends javax.swing.JFrame {
             //System.out.println(temp.toString());
         }
         modelSelect.setModel(newMonitorComboModel);
+        modelSelect.setSelectedIndex(-1);
     }//GEN-LAST:event_addMonitorDialogWindowActivated
 
-    private void jButton15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton15MouseClicked
+    private void addMonitorButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addMonitorButtonMouseClicked
+        /*addMonitorDialog.setLocation(jMenuBar1.getLocationOnScreen());
+        addMonitorDialog.setVisible(true);*/
+    }//GEN-LAST:event_addMonitorButtonMouseClicked
+
+    private void addMonitorModelSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addMonitorModelSaveActionPerformed
+        String monitorMake = addMonitorMakeField.getText();
+        String monitorModel = addMonitorModelField.getText();
+        String monitorModelID = DatabaseAccess.getMaxMonitorModel();
+        String query = "INSERT INTO `assetdb`.`monitormodel` (`idMonitorModel`, `Make`, `Model`) VALUES ('" +monitorModelID+ "', '"+monitorMake+"', '"+monitorModel+"');";
+        //System.out.println(query);
+        DatabaseAccess.executeQuery(query);
+        addMonitorMakeField.setText("");
+        addMonitorModelField.setText("");
+        this.loadMonitorModel();
+    }//GEN-LAST:event_addMonitorModelSaveActionPerformed
+
+    private void addMonitorModelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addMonitorModelButtonActionPerformed
+        addMonitorModelDialog.setLocation(jMenuBar1.getLocationOnScreen());
+        addMonitorModelDialog.setVisible(true);
+    }//GEN-LAST:event_addMonitorModelButtonActionPerformed
+
+    private void addMonitorModelCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addMonitorModelCancelActionPerformed
+        addMonitorModelDialog.setVisible(false);
+    }//GEN-LAST:event_addMonitorModelCancelActionPerformed
+
+    private void addMonitorButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addMonitorButtonActionPerformed
         addMonitorDialog.setLocation(jMenuBar1.getLocationOnScreen());
         addMonitorDialog.setVisible(true);
-    }//GEN-LAST:event_jButton15MouseClicked
+    }//GEN-LAST:event_addMonitorButtonActionPerformed
+
+    private void addLocationA2FieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addLocationA2FieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_addLocationA2FieldActionPerformed
+
+    private void addLocationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addLocationButtonActionPerformed
+        String idLocation = DatabaseAccess.getMaxLocation();
+        String building = addLocationBuildingField.getText();
+        String department = addLocationDepartmentField.getText();
+        String address1 = addLocationA1Field.getText();
+        String address2 = addLocationA2Field.getText();
+        String town = addLocationTownField.getText();
+        String rc = addLocationRCField.getText();
+        
+        String query = "INSERT INTO `assetdb`.`location` (`idLocation`, `Building`, `Department`, `Address1`, `Address2`, `Town`, `RC`) VALUES "
+                + "('"+idLocation+"', '"+building+"', '"+department+"', '"+address1+"', '"+address2+"', '"+town+"', '"+rc+"');";
+        
+        DatabaseAccess.executeQuery(query);
+        System.out.println(query);
+    }//GEN-LAST:event_addLocationButtonActionPerformed
+
+    private void addLocationDialogWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_addLocationDialogWindowActivated
+
+    }//GEN-LAST:event_addLocationDialogWindowActivated
+
+    private void openLocationDialogActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openLocationDialogActionPerformed
+        addLocationDialog.setLocation(jMenuBar1.getLocationOnScreen());
+        addLocationDialog.setVisible(true);
+    }//GEN-LAST:event_openLocationDialogActionPerformed
+
+    private void addLocationCancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addLocationCancelButtonActionPerformed
+
+        addLocationBuildingField.setText("");
+        addLocationDepartmentField.setText("");
+        addLocationA1Field.setText("");
+        addLocationA2Field.setText("");
+        addLocationTownField.setText("");
+        addLocationRCField.setText("");
+        addLocationDialog.setVisible(false);
+    }//GEN-LAST:event_addLocationCancelButtonActionPerformed
 // </editor-fold>
     // <editor-fold defaultstate="collapsed" desc="Main"> 
 
@@ -1223,25 +1483,36 @@ public class GUIManager extends javax.swing.JFrame {
 // </editor-fold>
     // <editor-fold defaultstate="collapsed" desc="Generated Variables">     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JDialog aboutDialog;
+    private javax.swing.JMenu aboutMenu;
+    private javax.swing.JDialog aboutScreenDialog;
+    private javax.swing.JTextField addLocationA1Field;
+    private javax.swing.JTextField addLocationA2Field;
+    private javax.swing.JTextField addLocationBuildingField;
+    private javax.swing.JButton addLocationButton;
+    private javax.swing.JButton addLocationCancelButton;
+    private javax.swing.JTextField addLocationDepartmentField;
+    private javax.swing.JDialog addLocationDialog;
+    private javax.swing.JTextField addLocationRCField;
+    private javax.swing.JTextField addLocationTownField;
+    private javax.swing.JButton addMonitorButton;
     private javax.swing.JDialog addMonitorDialog;
+    private javax.swing.JTextField addMonitorMakeField;
+    private javax.swing.JButton addMonitorModelButton;
+    private javax.swing.JButton addMonitorModelCancel;
+    private javax.swing.JDialog addMonitorModelDialog;
+    private javax.swing.JTextField addMonitorModelField;
+    private javax.swing.JLabel addMonitorModelLabel;
+    private javax.swing.JLabel addMonitorModelMakeLabel;
+    private javax.swing.JButton addMonitorModelSave;
+    private javax.swing.JLabel addMonitorModelTitle;
+    private javax.swing.JButton addMonitorSaveButton;
     private javax.swing.JTextField assetNumberField;
     private javax.swing.JTextField commonUsersField;
     private javax.swing.JCheckBoxMenuItem decommissionCheck;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton12;
+    private javax.swing.JMenu fileMenu;
+    private javax.swing.JButton findPcButton;
     private javax.swing.JButton jButton13;
-    private javax.swing.JButton jButton14;
-    private javax.swing.JButton jButton15;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JInternalFrame jInternalFrame1;
@@ -1261,24 +1532,21 @@ public class GUIManager extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
-    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -1287,31 +1555,43 @@ public class GUIManager extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JTabbedPane jTab;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField8;
     private javax.swing.JComboBox locationCombo;
+    private javax.swing.JPanel locationPanel;
+    private javax.swing.JButton locationRefreshButton;
     private javax.swing.JTable locationTable;
-    private javax.swing.JDialog loginScreen;
     private javax.swing.JComboBox modelSelect;
     private javax.swing.JComboBox monitorCombo1;
     private javax.swing.JComboBox monitorCombo2;
+    private javax.swing.JPanel monitorModelPanel;
+    private javax.swing.JButton monitorModelRefreshButton;
     private javax.swing.JTable monitorModelTable;
+    private javax.swing.JPanel monitorPanel;
+    private javax.swing.JButton monitorRefreshButton;
     private javax.swing.JTable monitorTable;
     private javax.swing.JTextField notesField;
+    private javax.swing.JButton openLocationDialog;
     private javax.swing.JDialog pcEditDialog;
     private javax.swing.JComboBox pcModelCombo;
+    private javax.swing.JPanel pcModelPanel;
+    private javax.swing.JButton pcModelRefreshButton;
     private javax.swing.JTable pcModelTable;
     private javax.swing.JLabel pcNameLabel;
+    private javax.swing.JPanel pcPanel;
+    private javax.swing.JButton pcRefreshButton;
+    private javax.swing.JTextField pcSearchTextField;
     private javax.swing.JTextField replaceDateField;
     private javax.swing.JTable resultsTable;
     private javax.swing.JTextField serialNumberField;
     private javax.swing.JComboBox statusCombo;
     private javax.swing.JComboBox statusComboBox;
-    private javax.swing.JDialog userDialog;
+    private javax.swing.JDialog userHistoryDialog;
+    private javax.swing.JPanel userHistoryPanel;
+    private javax.swing.JButton userHistoryRefreshButton;
     private javax.swing.JTable userHistoryTable;
+    private javax.swing.JButton userHistoryViewButton;
     private javax.swing.JLabel userLabel;
     private javax.swing.JTable userTable;
     // End of variables declaration//GEN-END:variables
@@ -1384,6 +1664,7 @@ public class GUIManager extends javax.swing.JFrame {
                 monitorComboModel2.addElement(temp);
             }
             locationCombo.setModel(locationComboModel);
+            //locationCombo.getModel();
             statusCombo.setModel(new DefaultComboBoxModel(new String[]{"A", "D", "I", "S"}));
             monitorCombo1.setModel(monitorComboModel1);
             monitorCombo2.setModel(monitorComboModel2);
@@ -1394,6 +1675,7 @@ public class GUIManager extends javax.swing.JFrame {
             assetNumberField.setText(pcData[5]);
             replaceDateField.setText(pcData[9]);
             notesField.setText(pcData[7]);
+            commonUsersField.setText(pcData[12]);
             for (int i = 1; i < locationCombo.getModel().getSize(); i++) {
                 ComboObject temp = (ComboObject) locationCombo.getModel().getElementAt(i);
                 if (temp.getID().equals(pcData[10])) {
@@ -1433,7 +1715,7 @@ public class GUIManager extends javax.swing.JFrame {
                 }
             }
         } else {
-            JOptionPane.showMessageDialog(null, "NO PC SELECTED!!!!!!", "Error", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "No PC Selected", "Error", JOptionPane.WARNING_MESSAGE);
         }
 
     }
@@ -1454,7 +1736,7 @@ public class GUIManager extends javax.swing.JFrame {
     }
 
     private void findPC() {
-        String toFind = jTextField1.getText();// TODO add your handling code here
+        String toFind = pcSearchTextField.getText();// TODO add your handling code here
         for (int x = 0; x < resultsTable.getRowCount(); x++) {
             for (int y = 0; y < resultsTable.getColumnCount(); y++) {
                 String tempValue = (String) resultsTable.getValueAt(x, y);
@@ -1530,7 +1812,7 @@ public class GUIManager extends javax.swing.JFrame {
         ArrayList<String[]> qResult = DatabaseAccess.loadPCs(loadDecom);
         resultsTable.setModel(dtm);
         for (int i = 0; i < qResult.size(); i++) {
-            dtm.addRow(new String[5]);
+            dtm.addRow(new String[13]);
             resultsTable.getModel().setValueAt(qResult.get(i)[0], i, 0);
             resultsTable.getModel().setValueAt(qResult.get(i)[1], i, 1);
             resultsTable.getModel().setValueAt(qResult.get(i)[2], i, 2);
@@ -1543,6 +1825,7 @@ public class GUIManager extends javax.swing.JFrame {
             resultsTable.getModel().setValueAt(qResult.get(i)[9], i, 9);
             resultsTable.getModel().setValueAt(qResult.get(i)[10], i, 10);
             resultsTable.getModel().setValueAt(qResult.get(i)[11], i, 11);
+            
         }
         resultsTable.getColumnModel().removeColumn(resultsTable.getColumnModel().getColumn(0));
     }
