@@ -7,9 +7,13 @@ package wdhb.gui;
 
 import java.awt.Point;
 import java.awt.event.KeyEvent;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import wdhb.util.DatabaseAccess;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -51,16 +55,15 @@ public class GUIManager extends javax.swing.JFrame {
         jInternalFrame1 = new javax.swing.JInternalFrame();
         pcEditDialog = new javax.swing.JDialog();
         pcNameLabel = new javax.swing.JLabel();
-        serialNumberField = new javax.swing.JTextField();
-        assetNumberField = new javax.swing.JTextField();
-        notesField = new javax.swing.JTextField();
-        commonUsersField = new javax.swing.JTextField();
-        replaceDateField = new javax.swing.JTextField();
-        locationCombo = new javax.swing.JComboBox();
-        pcModelCombo = new javax.swing.JComboBox();
-        monitorCombo1 = new javax.swing.JComboBox();
-        monitorCombo2 = new javax.swing.JComboBox();
-        statusCombo = new javax.swing.JComboBox();
+        editPCSerialNumberField = new javax.swing.JTextField();
+        editPCAssetNumberField = new javax.swing.JTextField();
+        editPCNotesField = new javax.swing.JTextField();
+        editPCCommonUsersField = new javax.swing.JTextField();
+        editPCLocationCombo = new javax.swing.JComboBox();
+        editPCModelCombo = new javax.swing.JComboBox();
+        editPCMonitorCombo1 = new javax.swing.JComboBox();
+        editPCMonitorCombo2 = new javax.swing.JComboBox();
+        editPCStatusCombo = new javax.swing.JComboBox();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -71,6 +74,9 @@ public class GUIManager extends javax.swing.JFrame {
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
+        editPCSaveButton = new javax.swing.JButton();
+        editPCCancelButton = new javax.swing.JButton();
+        editPCReplacementDateChooser = new com.toedter.calendar.JDateChooser();
         addMonitorDialog = new javax.swing.JDialog();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
@@ -298,36 +304,36 @@ public class GUIManager extends javax.swing.JFrame {
 
         pcEditDialog.setTitle("Edit PC Details");
         pcEditDialog.setAlwaysOnTop(true);
-        pcEditDialog.setMinimumSize(new java.awt.Dimension(530, 590));
+        pcEditDialog.setMaximumSize(new java.awt.Dimension(500, 405));
+        pcEditDialog.setMinimumSize(new java.awt.Dimension(500, 405));
+        pcEditDialog.setPreferredSize(new java.awt.Dimension(500, 405));
         pcEditDialog.setResizable(false);
 
         pcNameLabel.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         pcNameLabel.setText("Asset");
 
-        serialNumberField.setText("Serial Number");
+        editPCSerialNumberField.setText("Serial Number");
 
-        assetNumberField.setText("Asset Number");
+        editPCAssetNumberField.setText("Asset Number");
 
-        notesField.setText("Notes");
+        editPCNotesField.setText("Notes");
 
-        commonUsersField.setText("Common Users");
+        editPCCommonUsersField.setText("Common Users");
 
-        replaceDateField.setText("Replace Date");
+        editPCLocationCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        editPCLocationCombo.setLightWeightPopupEnabled(false);
+        editPCLocationCombo.setMaximumSize(new java.awt.Dimension(350, 24));
+        editPCLocationCombo.setMinimumSize(new java.awt.Dimension(350, 24));
+        editPCLocationCombo.setName(""); // NOI18N
+        editPCLocationCombo.setPreferredSize(new java.awt.Dimension(350, 20));
 
-        locationCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        locationCombo.setLightWeightPopupEnabled(false);
-        locationCombo.setMaximumSize(new java.awt.Dimension(350, 24));
-        locationCombo.setMinimumSize(new java.awt.Dimension(350, 24));
-        locationCombo.setName(""); // NOI18N
-        locationCombo.setPreferredSize(new java.awt.Dimension(350, 20));
+        editPCModelCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        pcModelCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        editPCMonitorCombo1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        monitorCombo1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        editPCMonitorCombo2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        monitorCombo2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        statusCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        editPCStatusCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel7.setText("Location");
 
@@ -349,47 +355,66 @@ public class GUIManager extends javax.swing.JFrame {
 
         jLabel16.setText("Replacement Date");
 
+        editPCSaveButton.setText("Save");
+        editPCSaveButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editPCSaveButtonActionPerformed(evt);
+            }
+        });
+
+        editPCCancelButton.setText("Cancel");
+        editPCCancelButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editPCCancelButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout pcEditDialogLayout = new javax.swing.GroupLayout(pcEditDialog.getContentPane());
         pcEditDialog.getContentPane().setLayout(pcEditDialogLayout);
         pcEditDialogLayout.setHorizontalGroup(
             pcEditDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pcEditDialogLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(pcEditDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pcEditDialogLayout.createSequentialGroup()
-                        .addComponent(pcNameLabel)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                .addGroup(pcEditDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(pcEditDialogLayout.createSequentialGroup()
                         .addGroup(pcEditDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel8)
+                            .addComponent(jLabel7))
+                        .addGap(78, 78, 78)
+                        .addGroup(pcEditDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(editPCModelCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(editPCLocationCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(pcEditDialogLayout.createSequentialGroup()
+                        .addGroup(pcEditDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel9)
+                            .addComponent(jLabel10)
+                            .addComponent(jLabel11)
+                            .addComponent(jLabel12)
+                            .addComponent(jLabel13)
+                            .addComponent(jLabel14)
+                            .addComponent(jLabel15)
+                            .addComponent(jLabel16))
+                        .addGap(34, 34, 34)
+                        .addGroup(pcEditDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(editPCMonitorCombo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(editPCSerialNumberField, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(editPCMonitorCombo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(editPCAssetNumberField, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(editPCNotesField, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(editPCStatusCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(editPCCommonUsersField, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(pcEditDialogLayout.createSequentialGroup()
                                 .addGroup(pcEditDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel8)
-                                    .addComponent(jLabel7))
-                                .addGap(78, 78, 78)
-                                .addGroup(pcEditDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(pcModelCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(locationCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(pcEditDialogLayout.createSequentialGroup()
-                                .addGroup(pcEditDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel9)
-                                    .addComponent(jLabel10)
-                                    .addComponent(jLabel11)
-                                    .addComponent(jLabel12)
-                                    .addComponent(jLabel13)
-                                    .addComponent(jLabel14)
-                                    .addComponent(jLabel15)
-                                    .addComponent(jLabel16))
-                                .addGap(34, 34, 34)
-                                .addGroup(pcEditDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(monitorCombo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(serialNumberField, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(monitorCombo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(assetNumberField, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(notesField, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(statusCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(commonUsersField, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(replaceDateField, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                    .addGroup(pcEditDialogLayout.createSequentialGroup()
+                                        .addComponent(editPCReplacementDateChooser, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, Short.MAX_VALUE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pcEditDialogLayout.createSequentialGroup()
+                                        .addGap(0, 0, Short.MAX_VALUE)
+                                        .addComponent(editPCCancelButton)))
+                                .addGap(18, 18, 18)
+                                .addComponent(editPCSaveButton))))
+                    .addComponent(pcNameLabel))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pcEditDialogLayout.setVerticalGroup(
             pcEditDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -399,44 +424,52 @@ public class GUIManager extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pcEditDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel7)
-                    .addComponent(locationCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(editPCLocationCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pcEditDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(pcModelCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(editPCModelCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pcEditDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(serialNumberField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(editPCSerialNumberField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pcEditDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(monitorCombo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(editPCMonitorCombo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel10))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pcEditDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(monitorCombo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(editPCMonitorCombo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel11))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pcEditDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(assetNumberField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(editPCAssetNumberField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel12))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pcEditDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(notesField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(editPCNotesField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel13))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pcEditDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(statusCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(editPCStatusCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel14))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pcEditDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(commonUsersField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(editPCCommonUsersField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel15))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pcEditDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(replaceDateField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel16))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(pcEditDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pcEditDialogLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(pcEditDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel16)
+                            .addComponent(editPCReplacementDateChooser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pcEditDialogLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87, Short.MAX_VALUE)
+                        .addGroup(pcEditDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(editPCCancelButton)
+                            .addComponent(editPCSaveButton))
+                        .addContainerGap())))
         );
 
         addMonitorDialog.setTitle("Add Monitor");
@@ -1554,6 +1587,67 @@ public class GUIManager extends javax.swing.JFrame {
         
         addPCModelDialog.setVisible(false);
     }//GEN-LAST:event_addPCModelCancelButtonActionPerformed
+
+    private void editPCCancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editPCCancelButtonActionPerformed
+        pcEditDialog.setVisible(false);
+    }//GEN-LAST:event_editPCCancelButtonActionPerformed
+
+    private void editPCSaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editPCSaveButtonActionPerformed
+        String idPC = (String)resultsTable.getModel().getValueAt(resultsTable.getSelectedRow(), 0);
+        String location = ((ComboObject)editPCLocationCombo.getSelectedItem()).getID();
+        String pcModel = ((ComboObject)editPCModelCombo.getSelectedItem()).getID();
+        String serialNumber;
+        if (editPCSerialNumberField.getText() == null){
+            serialNumber = "";
+        }
+        else{
+            serialNumber = editPCSerialNumberField.getText();
+        }
+        //-----------------------------------------------------------------------------------
+        String monitor1;
+        if(((ComboObject)editPCMonitorCombo1.getSelectedItem()) == null){
+            monitor1 = "0";
+        }
+        else{
+            monitor1 = ((ComboObject)editPCMonitorCombo1.getSelectedItem()).toString();
+        }
+        String monitor2;
+        if(((ComboObject)editPCMonitorCombo2.getSelectedItem()) == null){
+            monitor2 = "0";
+        }
+        else{
+            monitor2 = ((ComboObject)editPCMonitorCombo2.getSelectedItem()).toString();
+        }
+        String assetNumber = editPCAssetNumberField.getText();
+        String notes;
+        if(editPCNotesField.getText() == null){
+            notes = "";
+        }
+        else{
+            notes = editPCNotesField.getText();
+            notes.replace("'", "''");
+        }
+        //-------------------------------------------------------
+        String status = editPCStatusCombo.getSelectedItem().toString();
+        //=======================================================
+        String commonUsers;
+        if (editPCCommonUsersField.getText() == null){
+            commonUsers = "";
+        }
+        else{
+            commonUsers = editPCCommonUsersField.getText();
+        }
+        
+        Date tempReplacementDate = editPCReplacementDateChooser.getDate();
+        long dateTransformed = tempReplacementDate.getTime()/1000;
+        String replacementDate = String.valueOf(dateTransformed);
+        
+        
+        String query = "UPDATE pc SET idLocation = '"+location+"', idPCModel = '"+pcModel+"', SerialNo = '"+serialNumber+"', Monitor1 = '"+monitor1+"', Monitor2 = '"+monitor2+"', AssetNo = '"+assetNumber+"', " + 
+                        "Notes = '"+notes+"', Status = '"+status+"', CommUsers = '"+commonUsers+"', RepDate = '"+replacementDate+"' WHERE idPC = '"+idPC+"';";
+        System.out.println(query);
+        DatabaseAccess.executeQuery(query);
+    }//GEN-LAST:event_editPCSaveButtonActionPerformed
 // </editor-fold>
     // <editor-fold defaultstate="collapsed" desc="Main"> 
 
@@ -1624,9 +1718,19 @@ public class GUIManager extends javax.swing.JFrame {
     private javax.swing.JTextField addPCModelMakeField;
     private javax.swing.JTextField addPCModelModelField;
     private javax.swing.JTextField addPCModelSubModelField;
-    private javax.swing.JTextField assetNumberField;
-    private javax.swing.JTextField commonUsersField;
     private javax.swing.JCheckBoxMenuItem decommissionCheck;
+    private javax.swing.JTextField editPCAssetNumberField;
+    private javax.swing.JButton editPCCancelButton;
+    private javax.swing.JTextField editPCCommonUsersField;
+    private javax.swing.JComboBox editPCLocationCombo;
+    private javax.swing.JComboBox editPCModelCombo;
+    private javax.swing.JComboBox editPCMonitorCombo1;
+    private javax.swing.JComboBox editPCMonitorCombo2;
+    private javax.swing.JTextField editPCNotesField;
+    private com.toedter.calendar.JDateChooser editPCReplacementDateChooser;
+    private javax.swing.JButton editPCSaveButton;
+    private javax.swing.JTextField editPCSerialNumberField;
+    private javax.swing.JComboBox editPCStatusCombo;
     private javax.swing.JMenu fileMenu;
     private javax.swing.JButton findPcButton;
     private javax.swing.JButton jButton13;
@@ -1680,23 +1784,18 @@ public class GUIManager extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField8;
-    private javax.swing.JComboBox locationCombo;
     private javax.swing.JPanel locationPanel;
     private javax.swing.JButton locationRefreshButton;
     private javax.swing.JTable locationTable;
     private javax.swing.JComboBox modelSelect;
-    private javax.swing.JComboBox monitorCombo1;
-    private javax.swing.JComboBox monitorCombo2;
     private javax.swing.JPanel monitorModelPanel;
     private javax.swing.JButton monitorModelRefreshButton;
     private javax.swing.JTable monitorModelTable;
     private javax.swing.JPanel monitorPanel;
     private javax.swing.JButton monitorRefreshButton;
     private javax.swing.JTable monitorTable;
-    private javax.swing.JTextField notesField;
     private javax.swing.JButton openLocationDialog;
     private javax.swing.JDialog pcEditDialog;
-    private javax.swing.JComboBox pcModelCombo;
     private javax.swing.JPanel pcModelPanel;
     private javax.swing.JButton pcModelRefreshButton;
     private javax.swing.JTable pcModelTable;
@@ -1704,11 +1803,8 @@ public class GUIManager extends javax.swing.JFrame {
     private javax.swing.JPanel pcPanel;
     private javax.swing.JButton pcRefreshButton;
     private javax.swing.JTextField pcSearchTextField;
-    private javax.swing.JTextField replaceDateField;
     private javax.swing.JTable resultsTable;
     private javax.swing.JButton savePCModelButton;
-    private javax.swing.JTextField serialNumberField;
-    private javax.swing.JComboBox statusCombo;
     private javax.swing.JComboBox statusComboBox;
     private javax.swing.JDialog userHistoryDialog;
     private javax.swing.JPanel userHistoryPanel;
@@ -1786,55 +1882,75 @@ public class GUIManager extends javax.swing.JFrame {
                 monitorComboModel1.addElement(temp);
                 monitorComboModel2.addElement(temp);
             }
-            locationCombo.setModel(locationComboModel);
+            editPCLocationCombo.setModel(locationComboModel);
             //locationCombo.getModel();
-            statusCombo.setModel(new DefaultComboBoxModel(new String[]{"A", "D", "I", "S"}));
-            monitorCombo1.setModel(monitorComboModel1);
-            monitorCombo2.setModel(monitorComboModel2);
-            pcModelCombo.setModel(pcModelComboModel);
+            editPCStatusCombo.setModel(new DefaultComboBoxModel(new String[]{"A", "D", "I", "S"}));
+            editPCMonitorCombo1.setModel(monitorComboModel1);
+            editPCMonitorCombo2.setModel(monitorComboModel2);
+            editPCModelCombo.setModel(pcModelComboModel);
             String pcDataTemp = (String) resultsTable.getModel().getValueAt(resultsTable.getSelectedRow(), 0);
             String[] pcData = DatabaseAccess.loadPCData(pcDataTemp);
-            serialNumberField.setText(pcData[2]);
-            assetNumberField.setText(pcData[5]);
-            replaceDateField.setText(pcData[9]);
-            notesField.setText(pcData[7]);
-            commonUsersField.setText(pcData[12]);
-            for (int i = 1; i < locationCombo.getModel().getSize(); i++) {
-                ComboObject temp = (ComboObject) locationCombo.getModel().getElementAt(i);
+            editPCSerialNumberField.setText(pcData[2]);
+            editPCAssetNumberField.setText(pcData[5]);
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            try {
+                Date convertedDate = sdf.parse(pcData[9]);
+                editPCReplacementDateChooser.setDate(convertedDate);
+            } catch (ParseException ex) {
+                Logger.getLogger(GUIManager.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            editPCNotesField.setText(pcData[7]);
+            editPCCommonUsersField.setText(pcData[12]);
+            Boolean foundLocation = false;
+            for (int i = 1; i < editPCLocationCombo.getModel().getSize(); i++) {
+                ComboObject temp = (ComboObject) editPCLocationCombo.getModel().getElementAt(i);
                 if (temp.getID().equals(pcData[10])) {
-                    locationCombo.setSelectedItem(temp);
+                    editPCLocationCombo.setSelectedItem(temp);
+                    foundLocation = true;
+                    System.out.println("found location");
                 }
             }
-            for (int i = 1; i < pcModelCombo.getModel().getSize(); i++) {
-                ComboObject temp = (ComboObject) pcModelCombo.getModel().getElementAt(i);
+            if(foundLocation == false){
+                editPCLocationCombo.setSelectedIndex(-1);
+            }
+            for (int i = 1; i < editPCModelCombo.getModel().getSize(); i++) {
+                ComboObject temp = (ComboObject) editPCModelCombo.getModel().getElementAt(i);
 
                 if (temp.getID().equals(pcData[11])) {
-                    pcModelCombo.setSelectedItem(temp);
+                    editPCModelCombo.setSelectedItem(temp);
                 }
             }
-            for (int i = 0; i < monitorCombo1.getModel().getSize(); i++) {
-                ComboObject temp = (ComboObject) monitorCombo1.getModel().getElementAt(i);
+            for (int i = 0; i < editPCMonitorCombo1.getModel().getSize(); i++) {
+                ComboObject temp = (ComboObject) editPCMonitorCombo1.getModel().getElementAt(i);
 
                 if (temp.toString().equals(pcData[3])) {
-                    monitorCombo1.setSelectedItem(temp);
+                    editPCMonitorCombo1.setSelectedItem(temp);
                     break;
                 }
-                if (i == monitorCombo1.getModel().getSize() - 1) {
-                    monitorCombo1.getModel().setSelectedItem(null);
+                if (i == editPCMonitorCombo1.getModel().getSize() - 1) {
+                    editPCMonitorCombo1.getModel().setSelectedItem(null);
                 }
 
             }
-            for (int i = 0; i < monitorCombo2.getModel().getSize(); i++) {
-                ComboObject temp = (ComboObject) monitorCombo2.getModel().getElementAt(i);
+            for (int i = 0; i < editPCMonitorCombo2.getModel().getSize(); i++) {
+                ComboObject temp = (ComboObject) editPCMonitorCombo2.getModel().getElementAt(i);
 
                 if (temp.toString().equals(pcData[4])) {
-                    monitorCombo2.setSelectedItem(temp);
+                    editPCMonitorCombo2.setSelectedItem(temp);
                     //System.out.println("Found: " + temp.toString() + " ID: "+ temp.getID());
                     break;
                 }
-                if (i == monitorCombo2.getModel().getSize() - 1) {
+                if (i == editPCMonitorCombo2.getModel().getSize() - 1) {
                     //System.out.println("No monitor bro");
-                    monitorCombo2.getModel().setSelectedItem(null);
+                    editPCMonitorCombo2.getModel().setSelectedItem(null);
+                }
+            }
+            for (int i = 0; i < editPCStatusCombo.getModel().getSize(); i++){
+                Object temp = editPCStatusCombo.getModel().getElementAt(i);
+                
+                if (temp.toString().equals(pcData[8])){
+                    editPCStatusCombo.getModel().setSelectedItem(temp);
                 }
             }
         } else {
@@ -1870,9 +1986,11 @@ public class GUIManager extends javax.swing.JFrame {
                         jScrollPane1.getViewport().setViewPosition(new Point(0, x * resultsTable.getRowHeight()));
                         return;
                     }
+                   
                 }
             }
         }
+        JOptionPane.showMessageDialog(null, "No Result Found", "No Match", JOptionPane.WARNING_MESSAGE);
     }
 
     private void loadLocations() {
@@ -1960,10 +2078,10 @@ public class GUIManager extends javax.swing.JFrame {
         loadMonitors();
         loadPCModels();
         loadUsers();
-        TableColumn col = resultsTable.getColumnModel().getColumn(10);
-        col.setMaxWidth(45);
-        col.setMinWidth(45);
-        col.setPreferredWidth(10);
+        //TableColumn col = resultsTable.getColumnModel().getColumn(10);
+        //col.setMaxWidth(45);
+        //col.setMinWidth(45);
+        //col.setPreferredWidth(10);
     }
 // </editor-fold> 
 }
