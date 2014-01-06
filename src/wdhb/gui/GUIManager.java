@@ -135,7 +135,6 @@ public class GUIManager extends javax.swing.JFrame {
         resultsTable = new javax.swing.JTable();
         pcRefreshButton = new javax.swing.JButton();
         pcSearchTextField = new javax.swing.JTextField();
-        findPcButton = new javax.swing.JButton();
         monitorPanel = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
         monitorTable = new javax.swing.JTable();
@@ -178,7 +177,7 @@ public class GUIManager extends javax.swing.JFrame {
         jLabel1.setText("Made by Jesse Voight");
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel2.setText("Version 0.9");
+        jLabel2.setText("Version 1.0");
 
         jButton7.setText("Close");
         jButton7.addActionListener(new java.awt.event.ActionListener() {
@@ -919,15 +918,8 @@ public class GUIManager extends javax.swing.JFrame {
             }
         });
         pcSearchTextField.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                pcSearchTextFieldKeyPressed(evt);
-            }
-        });
-
-        findPcButton.setText("Find Value");
-        findPcButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                findPcButtonActionPerformed(evt);
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                pcSearchTextFieldKeyReleased(evt);
             }
         });
 
@@ -938,9 +930,7 @@ public class GUIManager extends javax.swing.JFrame {
             .addGroup(pcPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(pcRefreshButton, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 492, Short.MAX_VALUE)
-                .addComponent(findPcButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 583, Short.MAX_VALUE)
                 .addComponent(pcSearchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addGroup(pcPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -951,18 +941,20 @@ public class GUIManager extends javax.swing.JFrame {
         );
         pcPanelLayout.setVerticalGroup(
             pcPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pcPanelLayout.createSequentialGroup()
-                .addContainerGap(558, Short.MAX_VALUE)
-                .addGroup(pcPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(pcRefreshButton)
-                    .addComponent(pcSearchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(findPcButton))
-                .addContainerGap())
+            .addGroup(pcPanelLayout.createSequentialGroup()
+                .addContainerGap(539, Short.MAX_VALUE)
+                .addGroup(pcPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pcPanelLayout.createSequentialGroup()
+                        .addComponent(pcSearchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pcPanelLayout.createSequentialGroup()
+                        .addComponent(pcRefreshButton)
+                        .addContainerGap())))
             .addGroup(pcPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(pcPanelLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 522, Short.MAX_VALUE)
-                    .addGap(59, 59, 59)))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 516, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(46, Short.MAX_VALUE)))
         );
 
         jTab.addTab("PC's", pcPanel);
@@ -1026,7 +1018,7 @@ public class GUIManager extends javax.swing.JFrame {
             monitorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(monitorPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 536, Short.MAX_VALUE)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 517, Short.MAX_VALUE)
                 .addGap(11, 11, 11)
                 .addGroup(monitorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(monitorRefreshButton)
@@ -1088,7 +1080,7 @@ public class GUIManager extends javax.swing.JFrame {
             monitorModelPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(monitorModelPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 536, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 517, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(monitorModelPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(monitorModelRefreshButton)
@@ -1150,7 +1142,7 @@ public class GUIManager extends javax.swing.JFrame {
             locationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(locationPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 536, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 517, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(locationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(locationRefreshButton)
@@ -1212,7 +1204,7 @@ public class GUIManager extends javax.swing.JFrame {
             pcModelPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pcModelPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 536, Short.MAX_VALUE)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 517, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pcModelPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(pcModelRefreshButton)
@@ -1290,7 +1282,7 @@ public class GUIManager extends javax.swing.JFrame {
             userHistoryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(userHistoryPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 536, Short.MAX_VALUE)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 517, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(userHistoryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(userHistoryRefreshButton)
@@ -1397,20 +1389,9 @@ public class GUIManager extends javax.swing.JFrame {
         loadAll();// TODO add your handling code here: window opened
     }//GEN-LAST:event_formWindowOpened
 
-    private void findPcButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_findPcButtonActionPerformed
-        findPC();
-    }//GEN-LAST:event_findPcButtonActionPerformed
-
     private void pcSearchTextFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_pcSearchTextFieldFocusGained
         pcSearchTextField.setText("");// TODO add your handling code here:
     }//GEN-LAST:event_pcSearchTextFieldFocusGained
-
-    private void pcSearchTextFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_pcSearchTextFieldKeyPressed
-        int key = evt.getKeyCode();
-        if (key == KeyEvent.VK_ENTER) {
-            findPC();
-        }
-    }//GEN-LAST:event_pcSearchTextFieldKeyPressed
 
     private void userHistoryViewButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userHistoryViewButtonActionPerformed
         if (userTable.getSelectedRow() != -1) {
@@ -1486,7 +1467,7 @@ public class GUIManager extends javax.swing.JFrame {
             databaseTime = datePicked.getTime();
         }
         String happy = String.valueOf(databaseTime / 1000);
-        String query = ("INSERT INTO `assetdb`.`monitor` (`idMonitor`, `idMonitorModel`, `SerialNo`, `AssetNo`, `DateInstalled`, `Status`, `Notes`) VALUES ('"
+        String query = ("INSERT INTO `assetDB`.`Monitor` (`idMonitor`, `idMonitorModel`, `SerialNo`, `AssetNo`, `DateInstalled`, `Status`, `Notes`) VALUES ('"
                 + idMonitor + "', '" + idMonitorModel + "', '" + serialNumber + "', '" + assetNumber + "', '" + happy + "', '" + status + "', '" + notes + "');");
         DatabaseAccess.executeQuery(query);  //Database write
         //System.out.println(query);
@@ -1525,7 +1506,7 @@ public class GUIManager extends javax.swing.JFrame {
         String monitorMake = addMonitorMakeField.getText();
         String monitorModel = addMonitorModelField.getText();
         String monitorModelID = DatabaseAccess.getMaxMonitorModel();
-        String query = "INSERT INTO `assetdb`.`monitormodel` (`idMonitorModel`, `Make`, `Model`) VALUES ('" +monitorModelID+ "', '"+monitorMake+"', '"+monitorModel+"');";
+        String query = "INSERT INTO `assetDB`.`MonitorModel` (`idMonitorModel`, `Make`, `Model`) VALUES ('" +monitorModelID+ "', '"+monitorMake+"', '"+monitorModel+"');";
         //System.out.println(query);
         DatabaseAccess.executeQuery(query);
         addMonitorMakeField.setText("");
@@ -1560,11 +1541,12 @@ public class GUIManager extends javax.swing.JFrame {
         String town = addLocationTownField.getText();
         String rc = addLocationRCField.getText();
         
-        String query = "INSERT INTO `assetdb`.`location` (`idLocation`, `Building`, `Department`, `Address1`, `Address2`, `Town`, `RC`) VALUES "
+        String query = "INSERT INTO `assetDB`.`Location` (`idLocation`, `Building`, `Department`, `Address1`, `Address2`, `Town`, `RC`) VALUES "
                 + "('"+idLocation+"', '"+building+"', '"+department+"', '"+address1+"', '"+address2+"', '"+town+"', '"+rc+"');";
         
         DatabaseAccess.executeQuery(query);
         //System.out.println(query);
+        this.loadLocations();
     }//GEN-LAST:event_addLocationButtonActionPerformed
 
     private void openLocationDialogActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openLocationDialogActionPerformed
@@ -1594,7 +1576,7 @@ public class GUIManager extends javax.swing.JFrame {
         String model = addPCModelModelField.getText();
         String subModel = addPCModelSubModelField.getText();
         
-        String query = "INSERT INTO `assetdb`.`pcmodel` (`idPCModel`, `Make`, `Model`, `SubModel`) VALUES ('"+idPCModel+"', '"+make+"', '"+model+"', '"+subModel+"');";
+        String query = "INSERT INTO `assetDB`.`PCModel` (`idPCModel`, `Make`, `Model`, `SubModel`) VALUES ('"+idPCModel+"', '"+make+"', '"+model+"', '"+subModel+"');";
         
         System.out.println(query);
         DatabaseAccess.executeQuery(query);
@@ -1665,7 +1647,7 @@ public class GUIManager extends javax.swing.JFrame {
         String replacementDate = String.valueOf(dateTransformed);
         
         
-        String query = "UPDATE pc SET idLocation = '"+location+"', idPCModel = '"+pcModel+"', SerialNo = '"+serialNumber+"', Monitor1 = '"+monitor1+"', Monitor2 = '"+monitor2+"', AssetNo = '"+assetNumber+"', " + 
+        String query = "UPDATE PC SET idLocation = '"+location+"', idPCModel = '"+pcModel+"', SerialNo = '"+serialNumber+"', Monitor1 = '"+monitor1+"', Monitor2 = '"+monitor2+"', AssetNo = '"+assetNumber+"', " + 
                         "Notes = '"+notes+"', Status = '"+status+"', CommUsers = '"+commonUsers+"', RepDate = '"+replacementDate+"' WHERE idPC = '"+idPC+"';";
         System.out.println(query);
         try{
@@ -1701,6 +1683,10 @@ public class GUIManager extends javax.swing.JFrame {
         System.out.println(s);
         userHistorySearchField.setText(s);
     }//GEN-LAST:event_userTableKeyTyped
+
+    private void pcSearchTextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_pcSearchTextFieldKeyReleased
+        newFindPC();
+    }//GEN-LAST:event_pcSearchTextFieldKeyReleased
 // </editor-fold>
     // <editor-fold defaultstate="collapsed" desc="Main"> 
 
@@ -1785,7 +1771,6 @@ public class GUIManager extends javax.swing.JFrame {
     private javax.swing.JTextField editPCSerialNumberField;
     private javax.swing.JComboBox editPCStatusCombo;
     private javax.swing.JMenu fileMenu;
-    private javax.swing.JButton findPcButton;
     private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton9;
@@ -2046,7 +2031,36 @@ public class GUIManager extends javax.swing.JFrame {
         }
         JOptionPane.showMessageDialog(null, "No Result Found", "No Match", JOptionPane.WARNING_MESSAGE);
     }
-
+    private void newFindPC() {
+        String searchWord = pcSearchTextField.getText();
+        for (int x = 0; x < resultsTable.getRowCount(); x++) {
+            for (int y = 0; y < resultsTable.getColumnCount(); y++) {
+                if(resultsTable.getValueAt(x,y) != null){
+                String tempValue = (String) resultsTable.getValueAt(x, y);
+                if(tempValue.toLowerCase().contains(searchWord.toLowerCase())){
+                    System.out.println("Found item");
+                    resultsTable.setRowSelectionInterval(x,x);
+                    jScrollPane1.getViewport().setViewPosition(new Point(0, x * resultsTable.getRowHeight()));
+                    return;
+                }
+                }
+            }
+        }
+    }
+    private void newnewFindPC(){
+        String searchWord = pcSearchTextField.getText();
+        System.out.println(searchWord);
+        for(int i = 0; i < resultsTable.getModel().getRowCount(); i++){
+            String temp = (String)resultsTable.getModel().getValueAt(i, 1);
+            if (temp.toLowerCase().contains(searchWord.toLowerCase())){
+                //System.out.println(temp + " "+ searchWord);
+                resultsTable.setRowSelectionInterval(i, i);
+                jScrollPane1.getViewport().setViewPosition(new Point(0, i * resultsTable.getRowHeight()));
+                return;
+            }
+        }
+    }     
+    
     private void loadLocations() {
         String colNames[] = {"idLocation", "Building", "Department", "Address1", "Address2", "Town", "RCode"};
         BetterTableModel dtm = new BetterTableModel();

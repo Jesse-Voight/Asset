@@ -6,6 +6,8 @@
 
 package wdhb.gui;
 
+import javax.swing.KeyStroke;
+
 /**
  *
  * @author JessVoig
@@ -48,6 +50,11 @@ public class LoginPage extends javax.swing.JFrame {
         passwordField.setText("jPasswordField1");
         passwordField.setMaximumSize(new java.awt.Dimension(336, 49));
         passwordField.setMinimumSize(new java.awt.Dimension(336, 49));
+        passwordField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                passwordFieldActionPerformed(evt);
+            }
+        });
         passwordField.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 passwordFieldFocusGained(evt);
@@ -102,10 +109,15 @@ public class LoginPage extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void passwordFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_passwordFieldKeyPressed
-        // TODO add your handling code here:
+        if(evt.getKeyCode() == KeyStroke.getKeyStroke("ENTER").getKeyCode()){
+            login();
+        }  
     }//GEN-LAST:event_passwordFieldKeyPressed
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
+        login();
+    }//GEN-LAST:event_loginButtonActionPerformed
+    private void login(){
         char[] pass = passwordField.getPassword();
         String password = String.valueOf(pass);
         if (password.equals("qq")){
@@ -119,11 +131,14 @@ public class LoginPage extends javax.swing.JFrame {
                 System.exit(0);
             }
         }
-    }//GEN-LAST:event_loginButtonActionPerformed
-
+    }
     private void passwordFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_passwordFieldFocusGained
         passwordField.setText("");
     }//GEN-LAST:event_passwordFieldFocusGained
+
+    private void passwordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordFieldActionPerformed
+        
+    }//GEN-LAST:event_passwordFieldActionPerformed
 
     /**
      * @param args the command line arguments

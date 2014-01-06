@@ -16,7 +16,7 @@ public class DatabaseAccess {
 
     public static ArrayList loadPCs(Boolean loadDecommision) {
 
-        String url = "jdbc:mysql://wsc267:3306/";
+        String url = "jdbc:mysql://websrv:3306/";
         String dbName = "assetDB";
         String driver = "com.mysql.jdbc.Driver";
         String userName = "jessvoig";
@@ -30,12 +30,12 @@ public class DatabaseAccess {
             try (Connection conn = DriverManager.getConnection(url + dbName, userName, password)) {
                 Statement st = conn.createStatement();
 
-                ResultSet locationResult = st.executeQuery("Select * FROM location");
+                ResultSet locationResult = st.executeQuery("Select * FROM Location");
                 while (locationResult.next()) {                                                             //location foreign key connection
                     locationMap.put(locationResult.getString(1), (locationResult.getString(2) + " " + locationResult.getString(3)));
                 }
 
-                ResultSet pcModelResult = st.executeQuery("Select * FROM pcmodel");
+                ResultSet pcModelResult = st.executeQuery("Select * FROM PCModel");
                 while (pcModelResult.next()) {                                                             //location foreign key connection
                     pcModelMap.put(pcModelResult.getString(1), (pcModelResult.getString(2) + " " + pcModelResult.getString(3)));
                 }
@@ -87,7 +87,7 @@ public class DatabaseAccess {
     }
 
     public static String[] loadPCData(String pcID) {
-        String url = "jdbc:mysql://wsc267:3306/";
+        String url = "jdbc:mysql://websrv:3306/";
         String dbName = "assetDB";
         String driver = "com.mysql.jdbc.Driver";
         String userName = "jessvoig";
@@ -98,7 +98,7 @@ public class DatabaseAccess {
             try (Connection conn = DriverManager.getConnection(url + dbName, userName, password)) {
                 Statement st = conn.createStatement();
 
-                ResultSet res = st.executeQuery("Select * FROM pc Where idPC = '" + pcID + "'");
+                ResultSet res = st.executeQuery("Select * FROM PC Where idPC = '" + pcID + "'");
 
                 while (res.next()) {
                     String id = res.getString("idPC");
@@ -139,7 +139,7 @@ public class DatabaseAccess {
     }
 
     public static String getMaxMonitor() {
-        String url = "jdbc:mysql://wsc267:3306/";
+        String url = "jdbc:mysql://websrv:3306/";
         String dbName = "assetDB";
         String driver = "com.mysql.jdbc.Driver";
         String userName = "jessvoig";
@@ -151,7 +151,7 @@ public class DatabaseAccess {
             try (Connection conn = DriverManager.getConnection(url + dbName, userName, password)) {
                 Statement querier = conn.createStatement();
                 
-                ResultSet monitorIDResult = querier.executeQuery("select max(idMonitor) from monitor");
+                ResultSet monitorIDResult = querier.executeQuery("select max(idMonitor) from Monitor");
                 
                 while(monitorIDResult.next()){
                     int maxPlusOne = monitorIDResult.getInt("max(idMonitor)") + 1;
@@ -168,7 +168,7 @@ public class DatabaseAccess {
     }
     
     public static String getMaxMonitorModel() {
-        String url = "jdbc:mysql://wsc267:3306/";
+        String url = "jdbc:mysql://websrv:3306/";
         String dbName = "assetDB";
         String driver = "com.mysql.jdbc.Driver";
         String userName = "jessvoig";
@@ -180,7 +180,7 @@ public class DatabaseAccess {
             try (Connection conn = DriverManager.getConnection(url + dbName, userName, password)) {
                 Statement querier = conn.createStatement();
                 
-                ResultSet monitorIDResult = querier.executeQuery("select max(idMonitorModel) from monitormodel");
+                ResultSet monitorIDResult = querier.executeQuery("select max(idMonitorModel) from MonitorModel");
                 
                 while(monitorIDResult.next()){
                     int maxPlusOne = monitorIDResult.getInt("max(idMonitorModel)") + 1;
@@ -197,7 +197,7 @@ public class DatabaseAccess {
     }
     
     public static String getMaxLocation() {
-        String url = "jdbc:mysql://wsc267:3306/";
+        String url = "jdbc:mysql://websrv:3306/";
         String dbName = "assetDB";
         String driver = "com.mysql.jdbc.Driver";
         String userName = "jessvoig";
@@ -209,7 +209,7 @@ public class DatabaseAccess {
             try (Connection conn = DriverManager.getConnection(url + dbName, userName, password)) {
                 Statement querier = conn.createStatement();
                 
-                ResultSet monitorIDResult = querier.executeQuery("select max(idLocation) from location");
+                ResultSet monitorIDResult = querier.executeQuery("select max(idLocation) from Location");
                 
                 while(monitorIDResult.next()){
                     int maxPlusOne = monitorIDResult.getInt("max(idLocation)") + 1;
@@ -227,7 +227,7 @@ public class DatabaseAccess {
     
     
     public static String getMaxPCModel() {
-        String url = "jdbc:mysql://wsc267:3306/";
+        String url = "jdbc:mysql://websrv:3306/";
         String dbName = "assetDB";
         String driver = "com.mysql.jdbc.Driver";
         String userName = "jessvoig";
@@ -239,7 +239,7 @@ public class DatabaseAccess {
             try (Connection conn = DriverManager.getConnection(url + dbName, userName, password)) {
                 Statement querier = conn.createStatement();
                 
-                ResultSet monitorIDResult = querier.executeQuery("select max(idPCModel) from pcmodel");
+                ResultSet monitorIDResult = querier.executeQuery("select max(idPCModel) from PCModel");
                 
                 while(monitorIDResult.next()){
                     int maxPlusOne = monitorIDResult.getInt("max(idPCModel)") + 1;
@@ -256,7 +256,7 @@ public class DatabaseAccess {
     }
 
     public static ArrayList loadUserInfo(String user) {
-        String url = "jdbc:mysql://wsc267:3306/";
+        String url = "jdbc:mysql://websrv:3306/";
         String dbName = "assetDB";
         String driver = "com.mysql.jdbc.Driver";
         String userName = "jessvoig";
@@ -269,12 +269,12 @@ public class DatabaseAccess {
             try (Connection conn = DriverManager.getConnection(url + dbName, userName, password)) {
                 Statement querier = conn.createStatement();
 
-                ResultSet res = querier.executeQuery("select * from pc");
+                ResultSet res = querier.executeQuery("select * from PC");
                 while (res.next()) {
                     pcMap.put(res.getString(1), res.getString(2));
                 }
 
-                ResultSet userResult = querier.executeQuery("select * from userhistory where Name ='" + user + "'" + " order by Date desc");
+                ResultSet userResult = querier.executeQuery("select * from UserHistory where Name ='" + user + "'" + " order by Date desc");
 
                 while (userResult.next()) {
                     String pcId = (String) pcMap.get(userResult.getString("idPC"));
@@ -296,7 +296,7 @@ public class DatabaseAccess {
     }
 
     public static ArrayList loadMonitors() {
-        String url = "jdbc:mysql://wsc267:3306/";
+        String url = "jdbc:mysql://websrv:3306/";
         String dbName = "assetDB";
         String driver = "com.mysql.jdbc.Driver";
         String userName = "jessvoig";
@@ -309,12 +309,12 @@ public class DatabaseAccess {
             try (Connection conn = DriverManager.getConnection(url + dbName, userName, password)) {
                 Statement querier = conn.createStatement();
 
-                ResultSet monitorModelResult = querier.executeQuery("Select * FROM monitormodel");
+                ResultSet monitorModelResult = querier.executeQuery("Select * FROM MonitorModel");
                 while (monitorModelResult.next()) {                                                             //monitormodel foreign key connection
                     monitorModelMap.put(monitorModelResult.getString(1), monitorModelResult.getString(2) + " " + monitorModelResult.getString(3));
                 }
 
-                ResultSet res = querier.executeQuery("Select * FROM monitor order by idMonitor");
+                ResultSet res = querier.executeQuery("Select * FROM Monitor order by idMonitor");
                 /*ResultSetMetaData columnNames = res.getMetaData();
                  for (int i = 1; i < columnNames.getColumnCount() + 1; i++) {
                  //System.out.println(columnNames.getColumnName(i));           //Test for dynamic column creation
@@ -345,7 +345,7 @@ public class DatabaseAccess {
     }
 
     public static ArrayList loadMonitorModels() {
-        String url = "jdbc:mysql://wsc267:3306/";
+        String url = "jdbc:mysql://websrv:3306/";
         String dbName = "assetDB";
         String driver = "com.mysql.jdbc.Driver";
         String userName = "jessvoig";
@@ -357,7 +357,7 @@ public class DatabaseAccess {
             try (Connection conn = DriverManager.getConnection(url + dbName, userName, password)) {
                 Statement st = conn.createStatement();
 
-                ResultSet res = st.executeQuery("Select * FROM monitormodel order by idMonitorModel asc");
+                ResultSet res = st.executeQuery("Select * FROM MonitorModel order by idMonitorModel asc");
 
                 while (res.next()) {
                     String idMonitor = res.getString("idMonitorModel");
@@ -375,7 +375,7 @@ public class DatabaseAccess {
         return resultList;
     }
     public static void executeQuery(String inputQuery){
-        String url = "jdbc:mysql://wsc267:3306/";
+        String url = "jdbc:mysql://websrv:3306/";
         String dbName = "assetDB";
         String driver = "com.mysql.jdbc.Driver";
         String userName = "jessvoig";
@@ -389,12 +389,12 @@ public class DatabaseAccess {
                 conn.close();
             }
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | SQLException e) {
-            //e.printStackTrace();
+            e.printStackTrace();
         }
         
     }
     public static ArrayList loadPCModels() {
-        String url = "jdbc:mysql://wsc267:3306/";
+        String url = "jdbc:mysql://websrv:3306/";
         String dbName = "assetDB";
         String driver = "com.mysql.jdbc.Driver";
         String userName = "jessvoig";
@@ -405,7 +405,7 @@ public class DatabaseAccess {
             Class.forName(driver).newInstance();
             try (Connection conn = DriverManager.getConnection(url + dbName, userName, password)) {
                 Statement st = conn.createStatement();
-                ResultSet res = st.executeQuery("Select * FROM pcmodel order by idPCModel asc");
+                ResultSet res = st.executeQuery("Select * FROM PCModel order by idPCModel asc");
 
                 while (res.next()) {
                     String idPCModel = res.getString("idPCModel");
@@ -426,7 +426,7 @@ public class DatabaseAccess {
     }
 
     public static ArrayList loadLocations() {
-        String url = "jdbc:mysql://wsc267:3306/";
+        String url = "jdbc:mysql://websrv:3306/";
         String dbName = "assetDB";
         String driver = "com.mysql.jdbc.Driver";
         String userName = "jessvoig";
@@ -438,7 +438,7 @@ public class DatabaseAccess {
             try (Connection conn = DriverManager.getConnection(url + dbName, userName, password)) {
                 Statement st = conn.createStatement();
 
-                ResultSet res = st.executeQuery("Select * FROM location order by idLocation asc");
+                ResultSet res = st.executeQuery("Select * FROM Location order by idLocation asc");
 
                 while (res.next()) {
                     String idLocation = res.getString("idLocation");
@@ -461,7 +461,7 @@ public class DatabaseAccess {
     }
 
     public static ArrayList loadUsers() {
-        String url = "jdbc:mysql://wsc267:3306/";
+        String url = "jdbc:mysql://websrv:3306/";
         String dbName = "assetDB";
         String driver = "com.mysql.jdbc.Driver";
         String userName = "jessvoig";
@@ -472,7 +472,7 @@ public class DatabaseAccess {
             Class.forName(driver).newInstance();
             try (Connection conn = DriverManager.getConnection(url + dbName, userName, password)) {
                 Statement st = conn.createStatement();
-                ResultSet res = st.executeQuery("Select idPC, Name, max(Date) FROM userhistory group by Name");
+                ResultSet res = st.executeQuery("Select idPC, Name, max(Date) FROM UserHistory group by Name");
 
                 while (res.next()) {
                     String name = res.getString("Name");
