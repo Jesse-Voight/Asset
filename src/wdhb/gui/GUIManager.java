@@ -7,6 +7,8 @@ package wdhb.gui;
 
 import java.awt.Point;
 import java.awt.event.KeyEvent;
+import java.sql.BatchUpdateException;
+import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import wdhb.util.DatabaseAccess;
@@ -159,6 +161,7 @@ public class GUIManager extends javax.swing.JFrame {
         userTable = new javax.swing.JTable();
         userHistoryRefreshButton = new javax.swing.JButton();
         userHistoryViewButton = new javax.swing.JButton();
+        userHistorySearchField = new javax.swing.JTextField();
         jMenuBar1 = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -175,7 +178,7 @@ public class GUIManager extends javax.swing.JFrame {
         jLabel1.setText("Made by Jesse Voight");
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel2.setText("Version 0.11");
+        jLabel2.setText("Version 0.9");
 
         jButton7.setText("Close");
         jButton7.addActionListener(new java.awt.event.ActionListener() {
@@ -1235,6 +1238,11 @@ public class GUIManager extends javax.swing.JFrame {
                 userTableMouseClicked(evt);
             }
         });
+        userTable.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                userTableKeyTyped(evt);
+            }
+        });
         jScrollPane6.setViewportView(userTable);
 
         userHistoryRefreshButton.setText("Refresh");
@@ -1251,6 +1259,17 @@ public class GUIManager extends javax.swing.JFrame {
             }
         });
 
+        userHistorySearchField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                userHistorySearchFieldFocusGained(evt);
+            }
+        });
+        userHistorySearchField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                userHistorySearchFieldKeyReleased(evt);
+            }
+        });
+
         javax.swing.GroupLayout userHistoryPanelLayout = new javax.swing.GroupLayout(userHistoryPanel);
         userHistoryPanel.setLayout(userHistoryPanelLayout);
         userHistoryPanelLayout.setHorizontalGroup(
@@ -1262,6 +1281,8 @@ public class GUIManager extends javax.swing.JFrame {
                     .addGroup(userHistoryPanelLayout.createSequentialGroup()
                         .addComponent(userHistoryRefreshButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(userHistorySearchField, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(userHistoryViewButton)))
                 .addContainerGap())
         );
@@ -1273,7 +1294,8 @@ public class GUIManager extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(userHistoryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(userHistoryRefreshButton)
-                    .addComponent(userHistoryViewButton))
+                    .addComponent(userHistoryViewButton)
+                    .addComponent(userHistorySearchField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -1646,8 +1668,39 @@ public class GUIManager extends javax.swing.JFrame {
         String query = "UPDATE pc SET idLocation = '"+location+"', idPCModel = '"+pcModel+"', SerialNo = '"+serialNumber+"', Monitor1 = '"+monitor1+"', Monitor2 = '"+monitor2+"', AssetNo = '"+assetNumber+"', " + 
                         "Notes = '"+notes+"', Status = '"+status+"', CommUsers = '"+commonUsers+"', RepDate = '"+replacementDate+"' WHERE idPC = '"+idPC+"';";
         System.out.println(query);
+        try{
         DatabaseAccess.executeQuery(query);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
     }//GEN-LAST:event_editPCSaveButtonActionPerformed
+
+    private void userHistorySearchFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_userHistorySearchFieldKeyReleased
+        
+        String searchWord = userHistorySearchField.getText();
+        System.out.println(searchWord);
+        for(int i = 0; i < userTable.getModel().getRowCount(); i++){
+            String temp = (String)userTable.getModel().getValueAt(i, 0);
+            if (temp.toLowerCase().contains(searchWord.toLowerCase())){
+                //System.out.println(temp + " "+ searchWord);
+                userTable.setRowSelectionInterval(i, i);
+                jScrollPane6.getViewport().setViewPosition(new Point(0, i * userTable.getRowHeight()));
+                return;
+            }
+        }
+    }//GEN-LAST:event_userHistorySearchFieldKeyReleased
+
+    private void userHistorySearchFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_userHistorySearchFieldFocusGained
+        //userHistorySearchField.setText("");
+    }//GEN-LAST:event_userHistorySearchFieldFocusGained
+
+    private void userTableKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_userTableKeyTyped
+        userHistorySearchField.requestFocus();
+        String s = String.valueOf(evt.getKeyChar());
+        System.out.println(s);
+        userHistorySearchField.setText(s);
+    }//GEN-LAST:event_userTableKeyTyped
 // </editor-fold>
     // <editor-fold defaultstate="collapsed" desc="Main"> 
 
@@ -1809,6 +1862,7 @@ public class GUIManager extends javax.swing.JFrame {
     private javax.swing.JDialog userHistoryDialog;
     private javax.swing.JPanel userHistoryPanel;
     private javax.swing.JButton userHistoryRefreshButton;
+    private javax.swing.JTextField userHistorySearchField;
     private javax.swing.JTable userHistoryTable;
     private javax.swing.JButton userHistoryViewButton;
     private javax.swing.JLabel userLabel;

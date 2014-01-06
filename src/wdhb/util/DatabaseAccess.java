@@ -389,7 +389,7 @@ public class DatabaseAccess {
                 conn.close();
             }
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | SQLException e) {
-            e.printStackTrace();
+            //e.printStackTrace();
         }
         
     }

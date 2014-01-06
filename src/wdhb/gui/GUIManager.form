@@ -74,7 +74,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="24" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Version 0.11"/>
+            <Property name="text" type="java.lang.String" value="Version 0.9"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="jButton7">
@@ -1945,6 +1945,8 @@
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="userHistoryRefreshButton" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
+                              <Component id="userHistorySearchField" min="-2" pref="107" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                               <Component id="userHistoryViewButton" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -1961,6 +1963,7 @@
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="userHistoryRefreshButton" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="userHistoryViewButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="userHistorySearchField" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -2010,6 +2013,7 @@
                   </Properties>
                   <Events>
                     <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="userTableMouseClicked"/>
+                    <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="userTableKeyTyped"/>
                   </Events>
                 </Component>
               </SubComponents>
@@ -2028,6 +2032,12 @@
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="userHistoryViewButtonActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JTextField" name="userHistorySearchField">
+              <Events>
+                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="userHistorySearchFieldFocusGained"/>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="userHistorySearchFieldKeyReleased"/>
               </Events>
             </Component>
           </SubComponents>
