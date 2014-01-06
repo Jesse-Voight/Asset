@@ -944,17 +944,14 @@ public class GUIManager extends javax.swing.JFrame {
             .addGroup(pcPanelLayout.createSequentialGroup()
                 .addContainerGap(539, Short.MAX_VALUE)
                 .addGroup(pcPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pcPanelLayout.createSequentialGroup()
-                        .addComponent(pcSearchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pcPanelLayout.createSequentialGroup()
-                        .addComponent(pcRefreshButton)
-                        .addContainerGap())))
+                    .addComponent(pcSearchTextField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pcRefreshButton, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addContainerGap())
             .addGroup(pcPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(pcPanelLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 516, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(46, Short.MAX_VALUE)))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 516, Short.MAX_VALUE)
+                    .addGap(46, 46, 46)))
         );
 
         jTab.addTab("PC's", pcPanel);
