@@ -123,7 +123,7 @@ public class DatabaseAccess {
                     int repDateCode = res.getInt("RepDate");
                     Date repDateFormatted = new Date((long) repDateCode * 1000);          //Date conversion from 10 digit unix number to correct date FML
                     String repDate = repDateFormatted.toString();
-                    
+
                     String commUsers = res.getString("CommUsers");
 
                     String colNames[] = {id, name, serialNumber, monitor1, monitor2, assetNum, lastLogin,
@@ -150,12 +150,12 @@ public class DatabaseAccess {
             Class.forName(driver).newInstance();
             try (Connection conn = DriverManager.getConnection(url + dbName, userName, password)) {
                 Statement querier = conn.createStatement();
-                
+
                 ResultSet monitorIDResult = querier.executeQuery("select max(idMonitor) from Monitor");
-                
-                while(monitorIDResult.next()){
+
+                while (monitorIDResult.next()) {
                     int maxPlusOne = monitorIDResult.getInt("max(idMonitor)") + 1;
-                    result = String.valueOf(maxPlusOne);  
+                    result = String.valueOf(maxPlusOne);
                     //System.out.println(" " + result);
                 }
 
@@ -166,7 +166,7 @@ public class DatabaseAccess {
         }
         return result;
     }
-    
+
     public static String getMaxMonitorModel() {
         String url = "jdbc:mysql://websrv:3306/";
         String dbName = "assetDB";
@@ -179,12 +179,12 @@ public class DatabaseAccess {
             Class.forName(driver).newInstance();
             try (Connection conn = DriverManager.getConnection(url + dbName, userName, password)) {
                 Statement querier = conn.createStatement();
-                
+
                 ResultSet monitorIDResult = querier.executeQuery("select max(idMonitorModel) from MonitorModel");
-                
-                while(monitorIDResult.next()){
+
+                while (monitorIDResult.next()) {
                     int maxPlusOne = monitorIDResult.getInt("max(idMonitorModel)") + 1;
-                    result = String.valueOf(maxPlusOne);  
+                    result = String.valueOf(maxPlusOne);
                     //System.out.println(" " + result);
                 }
 
@@ -195,7 +195,7 @@ public class DatabaseAccess {
         }
         return result;
     }
-    
+
     public static String getMaxLocation() {
         String url = "jdbc:mysql://websrv:3306/";
         String dbName = "assetDB";
@@ -208,12 +208,12 @@ public class DatabaseAccess {
             Class.forName(driver).newInstance();
             try (Connection conn = DriverManager.getConnection(url + dbName, userName, password)) {
                 Statement querier = conn.createStatement();
-                
+
                 ResultSet monitorIDResult = querier.executeQuery("select max(idLocation) from Location");
-                
-                while(monitorIDResult.next()){
+
+                while (monitorIDResult.next()) {
                     int maxPlusOne = monitorIDResult.getInt("max(idLocation)") + 1;
-                    result = String.valueOf(maxPlusOne);  
+                    result = String.valueOf(maxPlusOne);
                     //System.out.println(" " + result);
                 }
 
@@ -224,8 +224,7 @@ public class DatabaseAccess {
         }
         return result;
     }
-    
-    
+
     public static String getMaxPCModel() {
         String url = "jdbc:mysql://websrv:3306/";
         String dbName = "assetDB";
@@ -238,12 +237,12 @@ public class DatabaseAccess {
             Class.forName(driver).newInstance();
             try (Connection conn = DriverManager.getConnection(url + dbName, userName, password)) {
                 Statement querier = conn.createStatement();
-                
+
                 ResultSet monitorIDResult = querier.executeQuery("select max(idPCModel) from PCModel");
-                
-                while(monitorIDResult.next()){
+
+                while (monitorIDResult.next()) {
                     int maxPlusOne = monitorIDResult.getInt("max(idPCModel)") + 1;
-                    result = String.valueOf(maxPlusOne);  
+                    result = String.valueOf(maxPlusOne);
                     //System.out.println(" " + result);
                 }
 
@@ -374,7 +373,8 @@ public class DatabaseAccess {
         }
         return resultList;
     }
-    public static void executeQuery(String inputQuery){
+
+    public static void executeQuery(String inputQuery) {
         String url = "jdbc:mysql://websrv:3306/";
         String dbName = "assetDB";
         String driver = "com.mysql.jdbc.Driver";
@@ -391,8 +391,9 @@ public class DatabaseAccess {
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | SQLException e) {
             e.printStackTrace();
         }
-        
+
     }
+
     public static ArrayList loadPCModels() {
         String url = "jdbc:mysql://websrv:3306/";
         String dbName = "assetDB";

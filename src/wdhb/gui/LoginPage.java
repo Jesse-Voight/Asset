@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package wdhb.gui;
 
 import javax.swing.KeyStroke;
@@ -13,7 +12,7 @@ import javax.swing.KeyStroke;
  * @author JessVoig
  */
 public class LoginPage extends javax.swing.JFrame {
-    
+
     /**
      * Creates new form Logintest
      */
@@ -21,6 +20,7 @@ public class LoginPage extends javax.swing.JFrame {
         initComponents();
     }
     private int tries = 0;
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -86,10 +86,8 @@ public class LoginPage extends javax.swing.JFrame {
                             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(loginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(statusLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                    .addComponent(statusLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -109,25 +107,24 @@ public class LoginPage extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void passwordFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_passwordFieldKeyPressed
-        if(evt.getKeyCode() == KeyStroke.getKeyStroke("ENTER").getKeyCode()){
+        if (evt.getKeyCode() == KeyStroke.getKeyStroke("ENTER").getKeyCode()) {
             login();
-        }  
+        }
     }//GEN-LAST:event_passwordFieldKeyPressed
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
         login();
     }//GEN-LAST:event_loginButtonActionPerformed
-    private void login(){
+    private void login() {
         char[] pass = passwordField.getPassword();
         String password = String.valueOf(pass);
-        if (password.equals("qq")){
+        if (password.equals("qq")) {
             GUIManager.main(null);
             this.setVisible(false);
-        }
-        else{
+        } else {
             statusLabel.setText("Wrong Password");
-            tries+=1;
-            if (tries > 2){
+            tries += 1;
+            if (tries > 2) {
                 System.exit(0);
             }
         }
@@ -137,7 +134,7 @@ public class LoginPage extends javax.swing.JFrame {
     }//GEN-LAST:event_passwordFieldFocusGained
 
     private void passwordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordFieldActionPerformed
-        
+
     }//GEN-LAST:event_passwordFieldActionPerformed
 
     /**

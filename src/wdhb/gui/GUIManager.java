@@ -1445,22 +1445,20 @@ public class GUIManager extends javax.swing.JFrame {
         ComboObject idTempMonitorModel = (ComboObject) modelSelect.getSelectedItem();
         idMonitorModel = idTempMonitorModel.getID();
         serialNumber = jTextField6.getText();
-        status  = statusComboBox.getSelectedItem().toString();
+        status = statusComboBox.getSelectedItem().toString();
         assetNumber = jTextField4.getText();
         notes = jTextField8.getText();
-        
-        if (idMonitorModel == null| serialNumber.equals("")| assetNumber.equals("") | notes.equals(""))
-        {
+
+        if (idMonitorModel == null | serialNumber.equals("") | assetNumber.equals("") | notes.equals("")) {
             JOptionPane.showMessageDialog(null, "Please fill all fields", "Error", JOptionPane.WARNING_MESSAGE);
             return;
         }
         long databaseTime;
         Date datePicked = jDateChooser1.getDate();
-        if (datePicked == null){
+        if (datePicked == null) {
             Date dateTemp = new Date();
             databaseTime = (dateTemp.getTime() / 1000);
-        }
-        else{
+        } else {
             databaseTime = datePicked.getTime();
         }
         String happy = String.valueOf(databaseTime / 1000);
@@ -1480,7 +1478,7 @@ public class GUIManager extends javax.swing.JFrame {
         statusComboBox.setModel(statusComboModel);
 
         jDateChooser1.setDate(new Date());
-        
+
         ArrayList<String[]> loadMonitorComboBox = DatabaseAccess.loadMonitorModels();
         for (Object monitorObject : loadMonitorComboBox) {
             String[] stringArray = (String[]) monitorObject;
@@ -1496,14 +1494,14 @@ public class GUIManager extends javax.swing.JFrame {
 
     private void addMonitorButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addMonitorButtonMouseClicked
         /*addMonitorDialog.setLocation(jMenuBar1.getLocationOnScreen());
-        addMonitorDialog.setVisible(true);*/
+         addMonitorDialog.setVisible(true);*/
     }//GEN-LAST:event_addMonitorButtonMouseClicked
 
     private void addMonitorModelSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addMonitorModelSaveActionPerformed
         String monitorMake = addMonitorMakeField.getText();
         String monitorModel = addMonitorModelField.getText();
         String monitorModelID = DatabaseAccess.getMaxMonitorModel();
-        String query = "INSERT INTO `assetDB`.`MonitorModel` (`idMonitorModel`, `Make`, `Model`) VALUES ('" +monitorModelID+ "', '"+monitorMake+"', '"+monitorModel+"');";
+        String query = "INSERT INTO `assetDB`.`MonitorModel` (`idMonitorModel`, `Make`, `Model`) VALUES ('" + monitorModelID + "', '" + monitorMake + "', '" + monitorModel + "');";
         //System.out.println(query);
         DatabaseAccess.executeQuery(query);
         addMonitorMakeField.setText("");
@@ -1537,10 +1535,10 @@ public class GUIManager extends javax.swing.JFrame {
         String address2 = addLocationA2Field.getText();
         String town = addLocationTownField.getText();
         String rc = addLocationRCField.getText();
-        
+
         String query = "INSERT INTO `assetDB`.`Location` (`idLocation`, `Building`, `Department`, `Address1`, `Address2`, `Town`, `RC`) VALUES "
-                + "('"+idLocation+"', '"+building+"', '"+department+"', '"+address1+"', '"+address2+"', '"+town+"', '"+rc+"');";
-        
+                + "('" + idLocation + "', '" + building + "', '" + department + "', '" + address1 + "', '" + address2 + "', '" + town + "', '" + rc + "');";
+
         DatabaseAccess.executeQuery(query);
         //System.out.println(query);
         this.loadLocations();
@@ -1572,12 +1570,12 @@ public class GUIManager extends javax.swing.JFrame {
         String make = addPCModelMakeField.getText();
         String model = addPCModelModelField.getText();
         String subModel = addPCModelSubModelField.getText();
-        
-        String query = "INSERT INTO `assetDB`.`PCModel` (`idPCModel`, `Make`, `Model`, `SubModel`) VALUES ('"+idPCModel+"', '"+make+"', '"+model+"', '"+subModel+"');";
-        
+
+        String query = "INSERT INTO `assetDB`.`PCModel` (`idPCModel`, `Make`, `Model`, `SubModel`) VALUES ('" + idPCModel + "', '" + make + "', '" + model + "', '" + subModel + "');";
+
         System.out.println(query);
         DatabaseAccess.executeQuery(query);
-        
+
         this.loadPCModels();
     }//GEN-LAST:event_savePCModelButtonActionPerformed
 
@@ -1585,7 +1583,7 @@ public class GUIManager extends javax.swing.JFrame {
         addPCModelMakeField.setText("");
         addPCModelModelField.setText("");
         addPCModelSubModelField.setText("");
-        
+
         addPCModelDialog.setVisible(false);
     }//GEN-LAST:event_addPCModelCancelButtonActionPerformed
 
@@ -1594,37 +1592,33 @@ public class GUIManager extends javax.swing.JFrame {
     }//GEN-LAST:event_editPCCancelButtonActionPerformed
 
     private void editPCSaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editPCSaveButtonActionPerformed
-        String idPC = (String)resultsTable.getModel().getValueAt(resultsTable.getSelectedRow(), 0);
-        String location = ((ComboObject)editPCLocationCombo.getSelectedItem()).getID();
-        String pcModel = ((ComboObject)editPCModelCombo.getSelectedItem()).getID();
+        String idPC = (String) resultsTable.getModel().getValueAt(resultsTable.getSelectedRow(), 0);
+        String location = ((ComboObject) editPCLocationCombo.getSelectedItem()).getID();
+        String pcModel = ((ComboObject) editPCModelCombo.getSelectedItem()).getID();
         String serialNumber;
-        if (editPCSerialNumberField.getText() == null){
+        if (editPCSerialNumberField.getText() == null) {
             serialNumber = "";
-        }
-        else{
+        } else {
             serialNumber = editPCSerialNumberField.getText();
         }
         //-----------------------------------------------------------------------------------
         String monitor1;
-        if(((ComboObject)editPCMonitorCombo1.getSelectedItem()) == null){
+        if (((ComboObject) editPCMonitorCombo1.getSelectedItem()) == null) {
             monitor1 = "0";
-        }
-        else{
-            monitor1 = ((ComboObject)editPCMonitorCombo1.getSelectedItem()).toString();
+        } else {
+            monitor1 = ((ComboObject) editPCMonitorCombo1.getSelectedItem()).toString();
         }
         String monitor2;
-        if(((ComboObject)editPCMonitorCombo2.getSelectedItem()) == null){
+        if (((ComboObject) editPCMonitorCombo2.getSelectedItem()) == null) {
             monitor2 = "0";
-        }
-        else{
-            monitor2 = ((ComboObject)editPCMonitorCombo2.getSelectedItem()).toString();
+        } else {
+            monitor2 = ((ComboObject) editPCMonitorCombo2.getSelectedItem()).toString();
         }
         String assetNumber = editPCAssetNumberField.getText();
         String notes;
-        if(editPCNotesField.getText() == null){
+        if (editPCNotesField.getText() == null) {
             notes = "";
-        }
-        else{
+        } else {
             notes = editPCNotesField.getText();
             notes.replace("'", "''");
         }
@@ -1632,36 +1626,34 @@ public class GUIManager extends javax.swing.JFrame {
         String status = editPCStatusCombo.getSelectedItem().toString();
         //=======================================================
         String commonUsers;
-        if (editPCCommonUsersField.getText() == null){
+        if (editPCCommonUsersField.getText() == null) {
             commonUsers = "";
-        }
-        else{
+        } else {
             commonUsers = editPCCommonUsersField.getText();
         }
-        
+
         Date tempReplacementDate = editPCReplacementDateChooser.getDate();
-        long dateTransformed = tempReplacementDate.getTime()/1000;
+        long dateTransformed = tempReplacementDate.getTime() / 1000;
         String replacementDate = String.valueOf(dateTransformed);
-        
-        
-        String query = "UPDATE PC SET idLocation = '"+location+"', idPCModel = '"+pcModel+"', SerialNo = '"+serialNumber+"', Monitor1 = '"+monitor1+"', Monitor2 = '"+monitor2+"', AssetNo = '"+assetNumber+"', " + 
-                        "Notes = '"+notes+"', Status = '"+status+"', CommUsers = '"+commonUsers+"', RepDate = '"+replacementDate+"' WHERE idPC = '"+idPC+"';";
+
+        String query = "UPDATE PC SET idLocation = '" + location + "', idPCModel = '" + pcModel + "', SerialNo = '" + serialNumber + "', Monitor1 = '" + monitor1 + "', Monitor2 = '" + monitor2 + "', AssetNo = '" + assetNumber + "', "
+                + "Notes = '" + notes + "', Status = '" + status + "', CommUsers = '" + commonUsers + "', RepDate = '" + replacementDate + "' WHERE idPC = '" + idPC + "';";
         System.out.println(query);
-        try{
-        DatabaseAccess.executeQuery(query);
-        }
-        catch (Exception e){
+        try {
+            DatabaseAccess.executeQuery(query);
+        } catch (Exception e) {
             e.printStackTrace();
         }
+        this.loadPCs();
     }//GEN-LAST:event_editPCSaveButtonActionPerformed
 
     private void userHistorySearchFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_userHistorySearchFieldKeyReleased
-        
+
         String searchWord = userHistorySearchField.getText();
         System.out.println(searchWord);
-        for(int i = 0; i < userTable.getModel().getRowCount(); i++){
-            String temp = (String)userTable.getModel().getValueAt(i, 0);
-            if (temp.toLowerCase().contains(searchWord.toLowerCase())){
+        for (int i = 0; i < userTable.getModel().getRowCount(); i++) {
+            String temp = (String) userTable.getModel().getValueAt(i, 0);
+            if (temp.toLowerCase().contains(searchWord.toLowerCase())) {
                 //System.out.println(temp + " "+ searchWord);
                 userTable.setRowSelectionInterval(i, i);
                 jScrollPane6.getViewport().setViewPosition(new Point(0, i * userTable.getRowHeight()));
@@ -1865,7 +1857,7 @@ public class GUIManager extends javax.swing.JFrame {
             userTable.getModel().setValueAt(qResult.get(i)[1], i, 1);
         }
     }
-    
+
     private void loadUserDetails() {
         String colNames[] = {"PC", "Name", "Date"};
         ArrayList<String[]> userDetes = DatabaseAccess.loadUserInfo(userLabel.getText());
@@ -1935,7 +1927,7 @@ public class GUIManager extends javax.swing.JFrame {
             } catch (ParseException ex) {
                 Logger.getLogger(GUIManager.class.getName()).log(Level.SEVERE, null, ex);
             }
-            
+
             editPCNotesField.setText(pcData[7]);
             editPCCommonUsersField.setText(pcData[12]);
             Boolean foundLocation = false;
@@ -1947,7 +1939,7 @@ public class GUIManager extends javax.swing.JFrame {
                     System.out.println("found location");
                 }
             }
-            if(foundLocation == false){
+            if (foundLocation == false) {
                 editPCLocationCombo.setSelectedIndex(-1);
             }
             for (int i = 1; i < editPCModelCombo.getModel().getSize(); i++) {
@@ -1982,10 +1974,10 @@ public class GUIManager extends javax.swing.JFrame {
                     editPCMonitorCombo2.getModel().setSelectedItem(null);
                 }
             }
-            for (int i = 0; i < editPCStatusCombo.getModel().getSize(); i++){
+            for (int i = 0; i < editPCStatusCombo.getModel().getSize(); i++) {
                 Object temp = editPCStatusCombo.getModel().getElementAt(i);
-                
-                if (temp.toString().equals(pcData[8])){
+
+                if (temp.toString().equals(pcData[8])) {
                     editPCStatusCombo.getModel().setSelectedItem(temp);
                 }
             }
@@ -2022,42 +2014,45 @@ public class GUIManager extends javax.swing.JFrame {
                         jScrollPane1.getViewport().setViewPosition(new Point(0, x * resultsTable.getRowHeight()));
                         return;
                     }
-                   
+
                 }
             }
         }
         JOptionPane.showMessageDialog(null, "No Result Found", "No Match", JOptionPane.WARNING_MESSAGE);
     }
+
     private void newFindPC() {
+        int count = 0;
         String searchWord = pcSearchTextField.getText();
         for (int x = 0; x < resultsTable.getRowCount(); x++) {
             for (int y = 0; y < resultsTable.getColumnCount(); y++) {
-                if(resultsTable.getValueAt(x,y) != null){
-                String tempValue = (String) resultsTable.getValueAt(x, y);
-                if(tempValue.toLowerCase().contains(searchWord.toLowerCase())){
-                    System.out.println("Found item");
-                    resultsTable.setRowSelectionInterval(x,x);
-                    jScrollPane1.getViewport().setViewPosition(new Point(0, x * resultsTable.getRowHeight()));
-                    return;
-                }
+                if (resultsTable.getValueAt(x, y) != null) {
+                    String tempValue = (String) resultsTable.getValueAt(x, y);
+                    if (tempValue.toLowerCase().contains(searchWord.toLowerCase())) {
+                        System.out.println("Found item");
+                        resultsTable.setRowSelectionInterval(x, x);
+                        jScrollPane1.getViewport().setViewPosition(new Point(0, x * resultsTable.getRowHeight()));
+                        return;
+                    }
                 }
             }
         }
     }
-    private void newnewFindPC(){
+
+    private void newnewFindPC() {
         String searchWord = pcSearchTextField.getText();
         System.out.println(searchWord);
-        for(int i = 0; i < resultsTable.getModel().getRowCount(); i++){
-            String temp = (String)resultsTable.getModel().getValueAt(i, 1);
-            if (temp.toLowerCase().contains(searchWord.toLowerCase())){
+        for (int i = 0; i < resultsTable.getModel().getRowCount(); i++) {
+            String temp = (String) resultsTable.getModel().getValueAt(i, 1);
+            if (temp.toLowerCase().contains(searchWord.toLowerCase())) {
                 //System.out.println(temp + " "+ searchWord);
                 resultsTable.setRowSelectionInterval(i, i);
                 jScrollPane1.getViewport().setViewPosition(new Point(0, i * resultsTable.getRowHeight()));
                 return;
             }
         }
-    }     
-    
+    }
+
     private void loadLocations() {
         String colNames[] = {"idLocation", "Building", "Department", "Address1", "Address2", "Town", "RCode"};
         BetterTableModel dtm = new BetterTableModel();
@@ -2131,7 +2126,7 @@ public class GUIManager extends javax.swing.JFrame {
             resultsTable.getModel().setValueAt(qResult.get(i)[9], i, 9);
             resultsTable.getModel().setValueAt(qResult.get(i)[10], i, 10);
             resultsTable.getModel().setValueAt(qResult.get(i)[11], i, 11);
-            
+
         }
         resultsTable.getColumnModel().removeColumn(resultsTable.getColumnModel().getColumn(0));
     }
