@@ -6,9 +6,6 @@
 package wdhb.gui;
 
 import java.awt.Point;
-import java.awt.event.KeyEvent;
-import java.sql.BatchUpdateException;
-import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import wdhb.util.DatabaseAccess;
@@ -19,7 +16,6 @@ import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
 import wdhb.util.BetterTableModel;
 import wdhb.util.ComboObject;
 
@@ -306,9 +302,7 @@ public class GUIManager extends javax.swing.JFrame {
 
         pcEditDialog.setTitle("Edit PC Details");
         pcEditDialog.setAlwaysOnTop(true);
-        pcEditDialog.setMaximumSize(new java.awt.Dimension(500, 405));
         pcEditDialog.setMinimumSize(new java.awt.Dimension(500, 405));
-        pcEditDialog.setPreferredSize(new java.awt.Dimension(500, 405));
         pcEditDialog.setResizable(false);
 
         pcNameLabel.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
@@ -476,10 +470,8 @@ public class GUIManager extends javax.swing.JFrame {
 
         addMonitorDialog.setTitle("Add Monitor");
         addMonitorDialog.setAlwaysOnTop(true);
-        addMonitorDialog.setMaximumSize(new java.awt.Dimension(400, 370));
         addMonitorDialog.setMinimumSize(new java.awt.Dimension(400, 370));
         addMonitorDialog.setModal(true);
-        addMonitorDialog.setPreferredSize(new java.awt.Dimension(400, 370));
         addMonitorDialog.addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
                 addMonitorDialogWindowActivated(evt);
@@ -595,9 +587,7 @@ public class GUIManager extends javax.swing.JFrame {
 
         addMonitorModelDialog.setTitle("Add Monitor Model");
         addMonitorModelDialog.setAlwaysOnTop(true);
-        addMonitorModelDialog.setMaximumSize(new java.awt.Dimension(340, 190));
         addMonitorModelDialog.setMinimumSize(new java.awt.Dimension(340, 190));
-        addMonitorModelDialog.setPreferredSize(new java.awt.Dimension(340, 190));
 
         addMonitorModelTitle.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         addMonitorModelTitle.setText("Add Monitor Model");
@@ -686,12 +676,6 @@ public class GUIManager extends javax.swing.JFrame {
         jLabel29.setText("Town:");
 
         jLabel30.setText("RC Code:");
-
-        addLocationA2Field.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addLocationA2FieldActionPerformed(evt);
-            }
-        });
 
         addLocationButton.setText("Save");
         addLocationButton.addActionListener(new java.awt.event.ActionListener() {
@@ -788,9 +772,7 @@ public class GUIManager extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        addPCModelDialog.setMaximumSize(new java.awt.Dimension(300, 220));
         addPCModelDialog.setMinimumSize(new java.awt.Dimension(300, 220));
-        addPCModelDialog.setPreferredSize(new java.awt.Dimension(300, 220));
         addPCModelDialog.setResizable(false);
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
@@ -1523,10 +1505,6 @@ public class GUIManager extends javax.swing.JFrame {
         addMonitorDialog.setVisible(true);
     }//GEN-LAST:event_addMonitorButtonActionPerformed
 
-    private void addLocationA2FieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addLocationA2FieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_addLocationA2FieldActionPerformed
-
     private void addLocationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addLocationButtonActionPerformed
         String idLocation = DatabaseAccess.getMaxLocation();
         String building = addLocationBuildingField.getText();
@@ -2004,7 +1982,7 @@ public class GUIManager extends javax.swing.JFrame {
         }
     }
 
-    private void findPC() {
+/*    private void findPC() {
         String toFind = pcSearchTextField.getText();// TODO add your handling code here
         for (int x = 0; x < resultsTable.getRowCount(); x++) {
             for (int y = 0; y < resultsTable.getColumnCount(); y++) {
@@ -2021,7 +1999,7 @@ public class GUIManager extends javax.swing.JFrame {
             }
         }
         JOptionPane.showMessageDialog(null, "No Result Found", "No Match", JOptionPane.WARNING_MESSAGE);
-    }
+    }*/
 
     private void newFindPC() {
         int count = 0;
@@ -2040,7 +2018,7 @@ public class GUIManager extends javax.swing.JFrame {
             }
         }
     }
-
+    /*
     private void newnewFindPC() {
         String searchWord = pcSearchTextField.getText();
         System.out.println(searchWord);
@@ -2054,7 +2032,7 @@ public class GUIManager extends javax.swing.JFrame {
             }
         }
     }
-
+    */
     private void loadLocations() {
         String colNames[] = {"idLocation", "Building", "Department", "Address1", "Address2", "Town", "RCode"};
         BetterTableModel dtm = new BetterTableModel();
