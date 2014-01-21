@@ -393,7 +393,37 @@ public class DatabaseAccess {
         }
 
     }
+    public static void editPCDetails(String location, String idPCModel, String serialNo, String monitor1, String monitor2, String assetNumber,
+                String notes, String status, String commonUsers, String replacementDate, String idPC){
+        String url = "jdbc:mysql://websrv:3306/";
+        String dbName = "assetDB";
+        String driver = "com.mysql.jdbc.Driver";
+        String userName = "jessvoig";
+        String password = "qzpm9876";
+        try {
+            Class.forName(driver).newInstance();
+            try (Connection conn = DriverManager.getConnection(url + dbName, userName, password)) {
+                PreparedStatement st = conn.prepareStatement("UPDATE PC SET `idLocation` = ?, `idPCModel` = ?, `SerialNo` = ?, `Monitor1` = ?, `Monitor2` = ?, `AssetNo` = ?, `Notes` = ?, `Status` = ?, `CommUsers` = ?, `RepDate` = ? WHERE `idPC` = ?");
+                st.setString(1, location);
+                st.setString(2, idPCModel);
+                st.setString(3, serialNo);
+                st.setString(4, monitor1);
+                st.setString(5, monitor2);
+                st.setString(6, assetNumber);
+                st.setString(7, notes);
+                st.setString(8, status);
+                st.setString(9, commonUsers);
+                st.setString(10, replacementDate);
+                st.setString(11, idPC);
+                st.executeUpdate();
+                conn.close();
+            }
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | SQLException e) {
+            e.printStackTrace();
+        }
 
+    }
+    
     public static ArrayList loadPCModels() {
         String url = "jdbc:mysql://websrv:3306/";
         String dbName = "assetDB";

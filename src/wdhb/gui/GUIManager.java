@@ -1640,7 +1640,9 @@ public class GUIManager extends javax.swing.JFrame {
                 + "Notes = '" + notes + "', Status = '" + status + "', CommUsers = '" + commonUsers + "', RepDate = '" + replacementDate + "' WHERE idPC = '" + idPC + "';";
         System.out.println(query);
         try {
-            DatabaseAccess.executeQuery(query);
+            //DatabaseAccess.executeQuery(query);
+            DatabaseAccess.editPCDetails(location, pcModel, serialNumber, monitor1, monitor2, assetNumber, notes, status, commonUsers, replacementDate, idPC);
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -2104,6 +2106,10 @@ public class GUIManager extends javax.swing.JFrame {
     }
 
     private void loadPCs() {
+        int selectedRow = -1;
+        if(resultsTable.getSelectedRow() != -1){
+            selectedRow = resultsTable.getSelectedRow();
+        }
         Boolean loadDecom = decommissionCheck.isSelected();
         String colNames[] = {"Id", "Name", "Location", "PCModel", "SerialNumber", "Monitor1", "Monitor2", "AssetNum", "LastLogin",
             "Notes", "Status", "RepDate"};
@@ -2129,6 +2135,9 @@ public class GUIManager extends javax.swing.JFrame {
 
         }
         resultsTable.getColumnModel().removeColumn(resultsTable.getColumnModel().getColumn(0));
+        if(selectedRow != -1){
+        resultsTable.setRowSelectionInterval(selectedRow, selectedRow);
+        }
     }
 
     private void loadAll() {
