@@ -18,6 +18,7 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import wdhb.util.BetterTableModel;
 import wdhb.util.ComboObject;
+import wdhb.util.ExecuteVNC;
 
 /**
  *
@@ -131,6 +132,8 @@ public class GUIManager extends javax.swing.JFrame {
         resultsTable = new javax.swing.JTable();
         pcRefreshButton = new javax.swing.JButton();
         pcSearchTextField = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         monitorPanel = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
         monitorTable = new javax.swing.JTable();
@@ -657,9 +660,7 @@ public class GUIManager extends javax.swing.JFrame {
         );
 
         addLocationDialog.setAlwaysOnTop(true);
-        addLocationDialog.setMaximumSize(new java.awt.Dimension(400, 315));
         addLocationDialog.setMinimumSize(new java.awt.Dimension(400, 315));
-        addLocationDialog.setPreferredSize(new java.awt.Dimension(400, 315));
         addLocationDialog.setResizable(false);
 
         jLabel25.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
@@ -905,6 +906,20 @@ public class GUIManager extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("OpenVNC");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("Open C Drive");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout pcPanelLayout = new javax.swing.GroupLayout(pcPanel);
         pcPanel.setLayout(pcPanelLayout);
         pcPanelLayout.setHorizontalGroup(
@@ -912,7 +927,11 @@ public class GUIManager extends javax.swing.JFrame {
             .addGroup(pcPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(pcRefreshButton, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 583, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 395, Short.MAX_VALUE)
                 .addComponent(pcSearchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addGroup(pcPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -927,7 +946,10 @@ public class GUIManager extends javax.swing.JFrame {
                 .addContainerGap(539, Short.MAX_VALUE)
                 .addGroup(pcPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(pcSearchTextField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pcRefreshButton, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pcPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(pcRefreshButton)
+                        .addComponent(jButton1)
+                        .addComponent(jButton2)))
                 .addContainerGap())
             .addGroup(pcPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(pcPanelLayout.createSequentialGroup()
@@ -1656,6 +1678,28 @@ public class GUIManager extends javax.swing.JFrame {
     private void pcSearchTextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_pcSearchTextFieldKeyReleased
         newFindPC();
     }//GEN-LAST:event_pcSearchTextFieldKeyReleased
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        if (resultsTable.getSelectedRow() != -1) {
+            String workstationName = (String) resultsTable.getModel().getValueAt(resultsTable.getSelectedRow(), 1);
+            try {
+                ExecuteVNC.vncStart(workstationName);
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        if(resultsTable.getSelectedRow() != -1){
+            String workstationName = (String) resultsTable.getModel().getValueAt(resultsTable.getSelectedRow(), 1);
+            try {
+                ExecuteVNC.cDriveStart(workstationName);
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
 // </editor-fold>
     // <editor-fold defaultstate="collapsed" desc="Main"> 
 
@@ -1740,7 +1784,9 @@ public class GUIManager extends javax.swing.JFrame {
     private javax.swing.JTextField editPCSerialNumberField;
     private javax.swing.JComboBox editPCStatusCombo;
     private javax.swing.JMenu fileMenu;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton13;
+    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton9;
     private com.toedter.calendar.JDateChooser jDateChooser1;
