@@ -1957,9 +1957,10 @@ public class GUIManager extends javax.swing.JFrame {
             editPCNotesField.setText(pcData[7]);
             editPCCommonUsersField.setText(pcData[12]);
             Boolean foundLocation = false;
-            for (int i = 1; i < editPCLocationCombo.getModel().getSize(); i++) {
+            for (int i = 0; i < editPCLocationCombo.getModel().getSize(); i++) {
                 ComboObject temp = (ComboObject) editPCLocationCombo.getModel().getElementAt(i);
                 if (temp.getID().equals(pcData[10])) {
+                    System.out.println(temp.getID()+" "+ pcData[10]);
                     editPCLocationCombo.setSelectedItem(temp);
                     foundLocation = true;
                     System.out.println("found location");
