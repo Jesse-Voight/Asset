@@ -17,7 +17,8 @@ import java.util.logging.Logger;
 public  class ExecuteVNC {
     public static void vncStart(String workstation){
         try {
-            Runtime.getRuntime().exec("O:/UltraVNCWIN7/Files/UltraVNC/vncviewer.exe connect "+workstation+":7000");
+            //Runtime.getRuntime().exec("O:/UltraVNCWIN7/Files/UltraVNC/vncviewer.exe connect "+workstation+":7000");
+            Runtime.getRuntime().exec("//fs1/apps$/apps/UltraVNCWIN7/Files/UltraVNC/vncviewer.exe connect "+workstation+":7000");
         } catch (IOException ex) {
             Logger.getLogger(ExecuteVNC.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -25,6 +26,13 @@ public  class ExecuteVNC {
     public static void cDriveStart(String workstation){
         try {
             Runtime.getRuntime().exec("explorer.exe \\\\"+workstation+"\\c$");
+        } catch (IOException ex) {
+            Logger.getLogger(ExecuteVNC.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    public static void compMgmt(String workstation){
+        try {
+            Runtime.getRuntime().exec("mmc.exe compmgmt.msc /computer:"+workstation);
         } catch (IOException ex) {
             Logger.getLogger(ExecuteVNC.class.getName()).log(Level.SEVERE, null, ex);
         }
