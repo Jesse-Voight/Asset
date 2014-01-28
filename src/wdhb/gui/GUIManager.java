@@ -18,7 +18,7 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import wdhb.util.BetterTableModel;
 import wdhb.util.ComboObject;
-import wdhb.util.ExecuteVNC;
+import wdhb.util.ExecuteExternal;
 
 /**
  *
@@ -1384,13 +1384,12 @@ public class GUIManager extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void aboutMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aboutMenuMouseClicked
-        //jDialog1.setSize(500, 500);
         aboutScreenDialog.setLocation(jMenuBar1.getLocationOnScreen());
         aboutScreenDialog.setVisible(true);// TODO add your handling code here:
     }//GEN-LAST:event_aboutMenuMouseClicked
 
     private void decommissionCheckItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_decommissionCheckItemStateChanged
-        loadPCs();// TODO add your handling code here:
+        loadPCs();
     }//GEN-LAST:event_decommissionCheckItemStateChanged
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
@@ -1398,11 +1397,11 @@ public class GUIManager extends javax.swing.JFrame {
         //loginScreen.setVisible(true);
         //loginScreen.setModal(true);
         //jTab.setVisible(false);
-        loadAll();// TODO add your handling code here: window opened
+        loadAll();
     }//GEN-LAST:event_formWindowOpened
 
     private void pcSearchTextFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_pcSearchTextFieldFocusGained
-        pcSearchTextField.setText("");// TODO add your handling code here:
+        pcSearchTextField.setText("");
     }//GEN-LAST:event_pcSearchTextFieldFocusGained
 
     private void userHistoryViewButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userHistoryViewButtonActionPerformed
@@ -1411,7 +1410,6 @@ public class GUIManager extends javax.swing.JFrame {
             userHistoryDialog.setLocation(jMenuBar1.getLocationOnScreen());
             String userTemp = (String) userTable.getModel().getValueAt(userTable.getSelectedRow(), 0);
 
-            System.out.println(userTemp.toString());
             userLabel.setText(userTemp);
         } else {
             JOptionPane.showMessageDialog(null, "No User Selected!", "Error", JOptionPane.WARNING_MESSAGE);
@@ -1434,17 +1432,21 @@ public class GUIManager extends javax.swing.JFrame {
             jScrollPane7.getViewport().setViewPosition(new Point(0, 0));
             String userTemp = (String) userTable.getModel().getValueAt(userTable.getSelectedRow(), 0);
 
-            System.out.println(userTemp.toString());
             userLabel.setText(userTemp);
         }
     }//GEN-LAST:event_userTableMouseClicked
 
     private void resultsTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_resultsTableMouseClicked
         if (evt.getClickCount() == 2) {
-            //Primariliy for displaying all data for editing
             pcEditDialog.setVisible(true);
             pcEditDialog.setLocation(jMenuBar1.getLocationOnScreen());
             loadPCDetails();
+        } else {
+
+            //String selectedName = (String) resultsTable.getModel().getValueAt(resultsTable.getSelectedRow(), 1);
+            //System.out.println(selectedName);
+            //Boolean isUp = ExecuteExternal.checkPC(selectedName);
+            //System.out.println(isUp);
         }
     }//GEN-LAST:event_resultsTableMouseClicked
 
@@ -1479,8 +1481,8 @@ public class GUIManager extends javax.swing.JFrame {
         String happy = String.valueOf(databaseTime / 1000);
         String query = ("INSERT INTO `assetDB`.`Monitor` (`idMonitor`, `idMonitorModel`, `SerialNo`, `AssetNo`, `DateInstalled`, `Status`, `Notes`) VALUES ('"
                 + idMonitor + "', '" + idMonitorModel + "', '" + serialNumber + "', '" + assetNumber + "', '" + happy + "', '" + status + "', '" + notes + "');");
-        DatabaseAccess.executeQuery(query);  //Database write
-        //System.out.println(query);
+        DatabaseAccess.executeQuery(query);  
+
         this.loadMonitors();
         addMonitorDialog.dispose();
     }//GEN-LAST:event_addMonitorSaveButtonActionPerformed
@@ -1501,15 +1503,13 @@ public class GUIManager extends javax.swing.JFrame {
             temp.setDescription(stringArray[1] + " " + stringArray[2]);
             temp.setID(stringArray[0]);
             newMonitorComboModel.addElement(temp);
-            //System.out.println(temp.toString());
         }
         modelSelect.setModel(newMonitorComboModel);
         modelSelect.setSelectedIndex(-1);
     }//GEN-LAST:event_addMonitorDialogWindowActivated
 
     private void addMonitorButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addMonitorButtonMouseClicked
-        /*addMonitorDialog.setLocation(jMenuBar1.getLocationOnScreen());
-         addMonitorDialog.setVisible(true);*/
+
     }//GEN-LAST:event_addMonitorButtonMouseClicked
 
     private void addMonitorModelSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addMonitorModelSaveActionPerformed
@@ -1517,7 +1517,6 @@ public class GUIManager extends javax.swing.JFrame {
         String monitorModel = addMonitorModelField.getText();
         String monitorModelID = DatabaseAccess.getMaxMonitorModel();
         String query = "INSERT INTO `assetDB`.`MonitorModel` (`idMonitorModel`, `Make`, `Model`) VALUES ('" + monitorModelID + "', '" + monitorMake + "', '" + monitorModel + "');";
-        //System.out.println(query);
         DatabaseAccess.executeQuery(query);
         addMonitorMakeField.setText("");
         addMonitorModelField.setText("");
@@ -1551,7 +1550,7 @@ public class GUIManager extends javax.swing.JFrame {
                 + "('" + idLocation + "', '" + building + "', '" + department + "', '" + address1 + "', '" + address2 + "', '" + town + "', '" + rc + "');";
 
         DatabaseAccess.executeQuery(query);
-        //System.out.println(query);
+
         this.loadLocations();
     }//GEN-LAST:event_addLocationButtonActionPerformed
 
@@ -1584,7 +1583,6 @@ public class GUIManager extends javax.swing.JFrame {
 
         String query = "INSERT INTO `assetDB`.`PCModel` (`idPCModel`, `Make`, `Model`, `SubModel`) VALUES ('" + idPCModel + "', '" + make + "', '" + model + "', '" + subModel + "');";
 
-        System.out.println(query);
         DatabaseAccess.executeQuery(query);
 
         this.loadPCModels();
@@ -1612,7 +1610,7 @@ public class GUIManager extends javax.swing.JFrame {
         } else {
             serialNumber = editPCSerialNumberField.getText();
         }
-        //-----------------------------------------------------------------------------------
+
         String monitor1;
         if (((ComboObject) editPCMonitorCombo1.getSelectedItem()) == null) {
             monitor1 = "0";
@@ -1633,9 +1631,9 @@ public class GUIManager extends javax.swing.JFrame {
             notes = editPCNotesField.getText();
             notes.replace("'", "''");
         }
-        //-------------------------------------------------------
+
         String status = editPCStatusCombo.getSelectedItem().toString();
-        //=======================================================
+        
         String commonUsers;
         if (editPCCommonUsersField.getText() == null) {
             commonUsers = "";
@@ -1646,12 +1644,8 @@ public class GUIManager extends javax.swing.JFrame {
         Date tempReplacementDate = editPCReplacementDateChooser.getDate();
         long dateTransformed = tempReplacementDate.getTime() / 1000;
         String replacementDate = String.valueOf(dateTransformed);
-
-        String query = "UPDATE PC SET idLocation = '" + location + "', idPCModel = '" + pcModel + "', SerialNo = '" + serialNumber + "', Monitor1 = '" + monitor1 + "', Monitor2 = '" + monitor2 + "', AssetNo = '" + assetNumber + "', "
-                + "Notes = '" + notes + "', Status = '" + status + "', CommUsers = '" + commonUsers + "', RepDate = '" + replacementDate + "' WHERE idPC = '" + idPC + "';";
-        System.out.println(query);
+        
         try {
-            //DatabaseAccess.executeQuery(query);
             DatabaseAccess.editPCDetails(location, pcModel, serialNumber, monitor1, monitor2, assetNumber, notes, status, commonUsers, replacementDate, idPC);
 
         } catch (Exception e) {
@@ -1663,11 +1657,9 @@ public class GUIManager extends javax.swing.JFrame {
     private void userHistorySearchFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_userHistorySearchFieldKeyReleased
 
         String searchWord = userHistorySearchField.getText();
-        System.out.println(searchWord);
         for (int i = 0; i < userTable.getModel().getRowCount(); i++) {
             String temp = (String) userTable.getModel().getValueAt(i, 0);
             if (temp.toLowerCase().contains(searchWord.toLowerCase())) {
-                //System.out.println(temp + " "+ searchWord);
                 userTable.setRowSelectionInterval(i, i);
                 jScrollPane6.getViewport().setViewPosition(new Point(0, i * userTable.getRowHeight()));
                 return;
@@ -1682,7 +1674,6 @@ public class GUIManager extends javax.swing.JFrame {
     private void userTableKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_userTableKeyTyped
         userHistorySearchField.requestFocus();
         String s = String.valueOf(evt.getKeyChar());
-        System.out.println(s);
         userHistorySearchField.setText(s);
     }//GEN-LAST:event_userTableKeyTyped
 
@@ -1694,37 +1685,37 @@ public class GUIManager extends javax.swing.JFrame {
         if (resultsTable.getSelectedRow() != -1) {
             String workstationName = (String) resultsTable.getModel().getValueAt(resultsTable.getSelectedRow(), 1);
             try {
-                ExecuteVNC.vncStart(workstationName);
+                ExecuteExternal.vncStart(workstationName);
             } catch (Exception e) {
-                System.out.println(e);
+                e.printStackTrace();
             }
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        if(resultsTable.getSelectedRow() != -1){
+        if (resultsTable.getSelectedRow() != -1) {
             String workstationName = (String) resultsTable.getModel().getValueAt(resultsTable.getSelectedRow(), 1);
             try {
-                ExecuteVNC.cDriveStart(workstationName);
+                ExecuteExternal.cDriveStart(workstationName);
             } catch (Exception e) {
-                System.out.println(e);
+                e.printStackTrace();
             }
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        if(resultsTable.getSelectedRow() != -1){
+        if (resultsTable.getSelectedRow() != -1) {
             String workstationName = (String) resultsTable.getModel().getValueAt(resultsTable.getSelectedRow(), 1);
             try {
-                ExecuteVNC.compMgmt(workstationName);
+                ExecuteExternal.compMgmt(workstationName);
             } catch (Exception e) {
-                System.out.println(e);
+                e.printStackTrace();
             }
         }
     }//GEN-LAST:event_jButton3ActionPerformed
+
 // </editor-fold>
     // <editor-fold defaultstate="collapsed" desc="Main"> 
-
     /**
      * @param args the command line arguments
      */
@@ -1893,6 +1884,7 @@ public class GUIManager extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 // </editor-fold>     
     // <editor-fold defaultstate="collapsed" desc="Big Functions">     
+
     private void loadUsers() {
         // Tricky one to show all users
         String colNames[] = {"UserName", "Last Login"};
@@ -1925,7 +1917,6 @@ public class GUIManager extends javax.swing.JFrame {
         if (resultsTable.getSelectedRow() != -1) {
             String assetTemp = (String) resultsTable.getModel().getValueAt(resultsTable.getSelectedRow(), 1);
 
-            //System.out.println(assetTemp); print pc name
             pcNameLabel.setText(assetTemp);
             DefaultComboBoxModel locationComboModel = new DefaultComboBoxModel();    //create combobox models before laoding
             DefaultComboBoxModel pcModelComboModel = new DefaultComboBoxModel();
@@ -1983,10 +1974,8 @@ public class GUIManager extends javax.swing.JFrame {
             for (int i = 0; i < editPCLocationCombo.getModel().getSize(); i++) {
                 ComboObject temp = (ComboObject) editPCLocationCombo.getModel().getElementAt(i);
                 if (temp.getID().equals(pcData[10])) {
-                    System.out.println(temp.getID()+" "+ pcData[10]);
                     editPCLocationCombo.setSelectedItem(temp);
                     foundLocation = true;
-                    System.out.println("found location");
                 }
             }
             if (foundLocation == false) {
@@ -2016,11 +2005,9 @@ public class GUIManager extends javax.swing.JFrame {
 
                 if (temp.toString().equals(pcData[4])) {
                     editPCMonitorCombo2.setSelectedItem(temp);
-                    //System.out.println("Found: " + temp.toString() + " ID: "+ temp.getID());
                     break;
                 }
                 if (i == editPCMonitorCombo2.getModel().getSize() - 1) {
-                    //System.out.println("No monitor bro");
                     editPCMonitorCombo2.getModel().setSelectedItem(null);
                 }
             }
@@ -2052,25 +2039,6 @@ public class GUIManager extends javax.swing.JFrame {
         }
     }
 
-/*    private void findPC() {
-        String toFind = pcSearchTextField.getText();// TODO add your handling code here
-        for (int x = 0; x < resultsTable.getRowCount(); x++) {
-            for (int y = 0; y < resultsTable.getColumnCount(); y++) {
-                String tempValue = (String) resultsTable.getValueAt(x, y);
-                if (tempValue != null) {
-                    if (tempValue.toLowerCase().equals(toFind.toLowerCase())) {
-                        System.out.println(tempValue);
-                        resultsTable.setRowSelectionInterval(x, x);
-                        jScrollPane1.getViewport().setViewPosition(new Point(0, x * resultsTable.getRowHeight()));
-                        return;
-                    }
-
-                }
-            }
-        }
-        JOptionPane.showMessageDialog(null, "No Result Found", "No Match", JOptionPane.WARNING_MESSAGE);
-    }*/
-
     private void newFindPC() {
         int count = 0;
         String searchWord = pcSearchTextField.getText();
@@ -2079,7 +2047,6 @@ public class GUIManager extends javax.swing.JFrame {
                 if (resultsTable.getValueAt(x, y) != null) {
                     String tempValue = (String) resultsTable.getValueAt(x, y);
                     if (tempValue.toLowerCase().contains(searchWord.toLowerCase())) {
-                        System.out.println("Found item");
                         resultsTable.setRowSelectionInterval(x, x);
                         jScrollPane1.getViewport().setViewPosition(new Point(0, x * resultsTable.getRowHeight()));
                         return;
@@ -2088,21 +2055,7 @@ public class GUIManager extends javax.swing.JFrame {
             }
         }
     }
-    /*
-    private void newnewFindPC() {
-        String searchWord = pcSearchTextField.getText();
-        System.out.println(searchWord);
-        for (int i = 0; i < resultsTable.getModel().getRowCount(); i++) {
-            String temp = (String) resultsTable.getModel().getValueAt(i, 1);
-            if (temp.toLowerCase().contains(searchWord.toLowerCase())) {
-                //System.out.println(temp + " "+ searchWord);
-                resultsTable.setRowSelectionInterval(i, i);
-                jScrollPane1.getViewport().setViewPosition(new Point(0, i * resultsTable.getRowHeight()));
-                return;
-            }
-        }
-    }
-    */
+
     private void loadLocations() {
         String colNames[] = {"idLocation", "Building", "Department", "Address1", "Address2", "Town", "RCode"};
         BetterTableModel dtm = new BetterTableModel();
@@ -2155,7 +2108,7 @@ public class GUIManager extends javax.swing.JFrame {
 
     private void loadPCs() {
         int selectedRow = -1;
-        if(resultsTable.getSelectedRow() != -1){
+        if (resultsTable.getSelectedRow() != -1) {
             selectedRow = resultsTable.getSelectedRow();
         }
         Boolean loadDecom = decommissionCheck.isSelected();
@@ -2180,11 +2133,10 @@ public class GUIManager extends javax.swing.JFrame {
             resultsTable.getModel().setValueAt(qResult.get(i)[9], i, 9);
             resultsTable.getModel().setValueAt(qResult.get(i)[10], i, 10);
             resultsTable.getModel().setValueAt(qResult.get(i)[11], i, 11);
-
         }
         resultsTable.getColumnModel().removeColumn(resultsTable.getColumnModel().getColumn(0));
-        if(selectedRow != -1){
-        resultsTable.setRowSelectionInterval(selectedRow, selectedRow);
+        if (selectedRow != -1) {
+            resultsTable.setRowSelectionInterval(selectedRow, selectedRow);
         }
     }
 
