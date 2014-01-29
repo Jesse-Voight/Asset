@@ -1549,7 +1549,7 @@ public class GUIManager extends javax.swing.JFrame {
             userHistoryDialog.setVisible(true);
             userHistoryDialog.setLocation(jMenuBar1.getLocationOnScreen());
             jScrollPane7.getViewport().setViewPosition(new Point(0, 0));
-            String userTemp = (String) userTable.getModel().getValueAt(userTable.getSelectedRow(), 0);
+            String userTemp = (String) userTable.getValueAt(userTable.getSelectedRow(), 0);
 
             userLabel.setText(userTemp);
         }
