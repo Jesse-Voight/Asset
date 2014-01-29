@@ -86,7 +86,7 @@ public class DatabaseAccess {
         return resultList;
     }
 
-    public static String[] loadPCData(String pcID) {
+    public static String[] loadPCData(String named) {
         String url = "jdbc:mysql://websrv:3306/";
         String dbName = "assetDB";
         String driver = "com.mysql.jdbc.Driver";
@@ -98,7 +98,7 @@ public class DatabaseAccess {
             try (Connection conn = DriverManager.getConnection(url + dbName, userName, password)) {
                 Statement st = conn.createStatement();
 
-                ResultSet res = st.executeQuery("Select * FROM PC Where idPC = '" + pcID + "'");
+                ResultSet res = st.executeQuery("Select * FROM PC Where Name = '" + named + "'");
 
                 while (res.next()) {
                     String id = res.getString("idPC");
@@ -284,6 +284,37 @@ public class DatabaseAccess {
                     String dateInstalled = dateFormatted.toString();
 
                     String tempData[] = {pcId, name, dateInstalled};
+                    resultList.add(tempData);
+                }
+                conn.close();
+            }
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | SQLException e) {
+            e.printStackTrace();
+        }
+        return resultList;
+    }
+    public static ArrayList loadPCUserDetails(String idPC){
+        String url = "jdbc:mysql://websrv:3306/";
+        String dbName = "assetDB";
+        String driver = "com.mysql.jdbc.Driver";
+        String userName = "jessvoig";
+        String password = "qzpm9876";
+        ArrayList resultList = new ArrayList();
+
+        try {
+            Class.forName(driver).newInstance();
+            try (Connection conn = DriverManager.getConnection(url + dbName, userName, password)) {
+                Statement querier = conn.createStatement();
+
+                ResultSet res = querier.executeQuery("Select * FROM UserHistory Where idPC = '"+idPC+"' order by Date DESC");
+                
+                while (res.next()) {
+                    String name = res.getString("Name");
+                    int dateCode = res.getInt("Date");
+                    Date dateFormatted = new Date((long) dateCode * 1000);          //Date conversion from 10 digit unix number to correct date FML
+                    String dateConv = dateFormatted.toString();
+
+                    String tempData[] = {name, dateConv};
                     resultList.add(tempData);
                 }
                 conn.close();
