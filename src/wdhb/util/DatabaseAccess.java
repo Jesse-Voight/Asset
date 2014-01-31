@@ -293,19 +293,22 @@ public class DatabaseAccess {
         }
         return resultList;
     }
-    public static ArrayList loadPCUserDetails(String idPC){
+    public static ArrayList loadPCUserDetails(String workstationNumber){
         String url = "jdbc:mysql://websrv:3306/";
         String dbName = "assetDB";
         String driver = "com.mysql.jdbc.Driver";
         String userName = "jessvoig";
         String password = "qzpm9876";
         ArrayList resultList = new ArrayList();
-
+        String idPC = "";
         try {
             Class.forName(driver).newInstance();
             try (Connection conn = DriverManager.getConnection(url + dbName, userName, password)) {
                 Statement querier = conn.createStatement();
-
+                ResultSet getID = querier.executeQuery("Select idPC from PC where Name = '"+workstationNumber+"'");
+                while (getID.next()){
+                    idPC = getID.getString("idPC");
+                }
                 ResultSet res = querier.executeQuery("Select * FROM UserHistory Where idPC = '"+idPC+"' order by Date DESC");
                 
                 while (res.next()) {
@@ -324,7 +327,34 @@ public class DatabaseAccess {
         }
         return resultList;
     }
+    public static String[] loadPCSpecs(String workstationNumber){
+        String url = "jdbc:mysql://websrv:3306/";
+        String dbName = "assetDB";
+        String driver = "com.mysql.jdbc.Driver";
+        String userName = "jessvoig";
+        String password = "qzpm9876";
+        String[] resultList = {};
 
+        try {
+            Class.forName(driver).newInstance();
+            try (Connection conn = DriverManager.getConnection(url + dbName, userName, password)) {
+                Statement querier = conn.createStatement();
+                String newone = "Select Nam";
+                ResultSet res = querier.executeQuery("Select * FROM PC Where idPC = '"+workstationNumber+"' order by Date DESC");
+                
+                while (res.next()) {
+                    String name = res.getString("Name");
+                    
+
+                    String[] tempList = {name};
+                }
+                conn.close();
+            }
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | SQLException e) {
+            e.printStackTrace();
+        }
+        return resultList;
+    }
     public static ArrayList loadMonitors() {
         String url = "jdbc:mysql://websrv:3306/";
         String dbName = "assetDB";

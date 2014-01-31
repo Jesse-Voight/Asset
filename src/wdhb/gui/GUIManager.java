@@ -45,6 +45,8 @@ public class GUIManager extends javax.swing.JFrame {
         jButton7 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        jLabel34 = new javax.swing.JLabel();
+        javaVersionLabel = new javax.swing.JLabel();
         userHistoryDialog = new javax.swing.JDialog();
         jLabel5 = new javax.swing.JLabel();
         userLabel = new javax.swing.JLabel();
@@ -201,6 +203,12 @@ public class GUIManager extends javax.swing.JFrame {
 
         jLabel4.setText("Database by Dave King");
 
+        jLabel34.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jLabel34.setText("Java Version:");
+
+        javaVersionLabel.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        javaVersionLabel.setText(" ");
+
         javax.swing.GroupLayout aboutScreenDialogLayout = new javax.swing.GroupLayout(aboutScreenDialog.getContentPane());
         aboutScreenDialog.getContentPane().setLayout(aboutScreenDialogLayout);
         aboutScreenDialogLayout.setHorizontalGroup(
@@ -217,7 +225,11 @@ public class GUIManager extends javax.swing.JFrame {
                     .addGroup(aboutScreenDialogLayout.createSequentialGroup()
                         .addGroup(aboutScreenDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
-                            .addComponent(jLabel3))
+                            .addComponent(jLabel3)
+                            .addGroup(aboutScreenDialogLayout.createSequentialGroup()
+                                .addComponent(jLabel34)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(javaVersionLabel)))
                         .addGap(0, 29, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -228,7 +240,11 @@ public class GUIManager extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(aboutScreenDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel34)
+                    .addComponent(javaVersionLabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
                 .addGroup(aboutScreenDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jButton7)
                     .addGroup(aboutScreenDialogLayout.createSequentialGroup()
@@ -894,7 +910,6 @@ public class GUIManager extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        pcUserDetailsDialog.setMaximumSize(new java.awt.Dimension(377, 466));
         pcUserDetailsDialog.setMinimumSize(new java.awt.Dimension(377, 466));
         pcUserDetailsDialog.addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
@@ -1497,6 +1512,9 @@ public class GUIManager extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void aboutMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aboutMenuMouseClicked
+        
+        String version = System.getProperty("java.version");
+        javaVersionLabel.setText(version);
         aboutScreenDialog.setLocation(jMenuBar1.getLocationOnScreen());
         aboutScreenDialog.setVisible(true);// TODO add your handling code here:
     }//GEN-LAST:event_aboutMenuMouseClicked
@@ -1835,8 +1853,10 @@ public class GUIManager extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void pcUserDetailsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pcUserDetailsButtonActionPerformed
+        if(resultsTable.getSelectedRow() != -1){
         pcUserDetailsDialog.setLocation(jMenuBar1.getLocationOnScreen());
         pcUserDetailsDialog.setVisible(true);
+        }
     }//GEN-LAST:event_pcUserDetailsButtonActionPerformed
 
     private void pcUserDetailsCloseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pcUserDetailsCloseButtonActionPerformed
@@ -1849,7 +1869,7 @@ public class GUIManager extends javax.swing.JFrame {
             String colNames[] = {"UserName", "Login Date"};
             BetterTableModel dtm = new BetterTableModel();
             dtm.setDataVector(null, colNames);
-            ArrayList<String[]> qResult = DatabaseAccess.loadPCUserDetails((String)resultsTable.getModel().getValueAt(resultsTable.getSelectedRow(), 0));
+            ArrayList<String[]> qResult = DatabaseAccess.loadPCUserDetails((String)resultsTable.getValueAt(resultsTable.getSelectedRow(), 0));
             pcUserDetailsTable.setModel(dtm);
             for (int i = 0; i < qResult.size(); i++) {
                 dtm.addRow(new String[2]);
@@ -1977,6 +1997,7 @@ public class GUIManager extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -1997,6 +2018,7 @@ public class GUIManager extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField8;
+    private javax.swing.JLabel javaVersionLabel;
     private javax.swing.JDialog loadingDialog;
     private javax.swing.JLabel loadingDialogLabel;
     private javax.swing.JProgressBar loadingDialogProgressBar;
