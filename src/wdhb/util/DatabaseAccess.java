@@ -339,14 +339,17 @@ public class DatabaseAccess {
             Class.forName(driver).newInstance();
             try (Connection conn = DriverManager.getConnection(url + dbName, userName, password)) {
                 Statement querier = conn.createStatement();
-                String newone = "Select Nam";
-                ResultSet res = querier.executeQuery("Select * FROM PC Where idPC = '"+workstationNumber+"' order by Date DESC");
+                ResultSet res = querier.executeQuery("Select * FROM PC Where Name = '"+workstationNumber+"'");
                 
                 while (res.next()) {
-                    String name = res.getString("Name");
+                    String memory = res.getString("Memory");
+                    String cpu = res.getString("CPU");
+                    String hdd = res.getString("HDD");
+                    String mac = res.getString("MAC");
                     
 
-                    String[] tempList = {name};
+                    String[] tempList = {memory,cpu,hdd,mac};
+                    resultList = tempList;
                 }
                 conn.close();
             }

@@ -137,6 +137,17 @@ public class GUIManager extends javax.swing.JFrame {
         jScrollPane8 = new javax.swing.JScrollPane();
         pcUserDetailsTable = new javax.swing.JTable();
         pcUserDetailsCloseButton = new javax.swing.JButton();
+        pcSpecsDialog = new javax.swing.JDialog();
+        jLabel35 = new javax.swing.JLabel();
+        pcSpecsLabel = new javax.swing.JLabel();
+        jLabel36 = new javax.swing.JLabel();
+        jLabel37 = new javax.swing.JLabel();
+        jLabel38 = new javax.swing.JLabel();
+        jLabel39 = new javax.swing.JLabel();
+        pcSpecsMemoryField = new javax.swing.JTextField();
+        pcSpecsCPUField = new javax.swing.JTextField();
+        pcSpecsHDDField = new javax.swing.JTextField();
+        pcSpecsMACField = new javax.swing.JTextField();
         jTab = new javax.swing.JTabbedPane();
         pcPanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -147,6 +158,7 @@ public class GUIManager extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         pcUserDetailsButton = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
         monitorPanel = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
         monitorTable = new javax.swing.JTable();
@@ -972,6 +984,108 @@ public class GUIManager extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        pcSpecsDialog.setMaximumSize(new java.awt.Dimension(296, 186));
+        pcSpecsDialog.setMinimumSize(new java.awt.Dimension(296, 186));
+        pcSpecsDialog.addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                pcSpecsDialogWindowActivated(evt);
+            }
+        });
+
+        jLabel35.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel35.setText("PC Specifications:");
+
+        pcSpecsLabel.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        pcSpecsLabel.setText(" ");
+
+        jLabel36.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jLabel36.setText("Memory (MB):");
+
+        jLabel37.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jLabel37.setText("CPU (MHZ):");
+
+        jLabel38.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jLabel38.setText("HDD (MB):");
+
+        jLabel39.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jLabel39.setText("MAC Address:");
+
+        pcSpecsMemoryField.setEditable(false);
+        pcSpecsMemoryField.setText(" ");
+        pcSpecsMemoryField.setFocusable(false);
+
+        pcSpecsCPUField.setEditable(false);
+        pcSpecsCPUField.setText(" ");
+        pcSpecsCPUField.setFocusable(false);
+
+        pcSpecsHDDField.setEditable(false);
+        pcSpecsHDDField.setText(" ");
+        pcSpecsHDDField.setFocusable(false);
+
+        pcSpecsMACField.setEditable(false);
+        pcSpecsMACField.setText(" ");
+        pcSpecsMACField.setFocusable(false);
+        pcSpecsMACField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pcSpecsMACFieldActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pcSpecsDialogLayout = new javax.swing.GroupLayout(pcSpecsDialog.getContentPane());
+        pcSpecsDialog.getContentPane().setLayout(pcSpecsDialogLayout);
+        pcSpecsDialogLayout.setHorizontalGroup(
+            pcSpecsDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pcSpecsDialogLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pcSpecsDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pcSpecsDialogLayout.createSequentialGroup()
+                        .addComponent(jLabel35)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(pcSpecsLabel))
+                    .addGroup(pcSpecsDialogLayout.createSequentialGroup()
+                        .addComponent(jLabel36)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(pcSpecsMemoryField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pcSpecsDialogLayout.createSequentialGroup()
+                        .addComponent(jLabel37)
+                        .addGap(18, 18, 18)
+                        .addComponent(pcSpecsCPUField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pcSpecsDialogLayout.createSequentialGroup()
+                        .addComponent(jLabel38)
+                        .addGap(18, 18, 18)
+                        .addComponent(pcSpecsHDDField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pcSpecsDialogLayout.createSequentialGroup()
+                        .addComponent(jLabel39)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(pcSpecsMACField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(87, Short.MAX_VALUE))
+        );
+        pcSpecsDialogLayout.setVerticalGroup(
+            pcSpecsDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pcSpecsDialogLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pcSpecsDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel35)
+                    .addComponent(pcSpecsLabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pcSpecsDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel36)
+                    .addComponent(pcSpecsMemoryField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pcSpecsDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel37)
+                    .addComponent(pcSpecsCPUField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pcSpecsDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel38)
+                    .addComponent(pcSpecsHDDField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pcSpecsDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel39)
+                    .addComponent(pcSpecsMACField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(39, Short.MAX_VALUE))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("ICT Asset Manager");
         setForeground(java.awt.Color.pink);
@@ -1025,21 +1139,21 @@ public class GUIManager extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("OpenVNC");
+        jButton1.setText("UVNC Remote");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Open C Drive");
+        jButton2.setText("Open C:/ Drive");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
 
-        jButton3.setText("Computer Mgmt");
+        jButton3.setText("Computer Management");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -1050,6 +1164,13 @@ public class GUIManager extends javax.swing.JFrame {
         pcUserDetailsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 pcUserDetailsButtonActionPerformed(evt);
+            }
+        });
+
+        jButton4.setText("PC Specs");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
             }
         });
 
@@ -1068,7 +1189,9 @@ public class GUIManager extends javax.swing.JFrame {
                 .addComponent(jButton3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pcUserDetailsButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 169, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
                 .addComponent(pcSearchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addGroup(pcPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1088,7 +1211,8 @@ public class GUIManager extends javax.swing.JFrame {
                         .addComponent(jButton1)
                         .addComponent(jButton2)
                         .addComponent(jButton3)
-                        .addComponent(pcUserDetailsButton)))
+                        .addComponent(pcUserDetailsButton)
+                        .addComponent(jButton4)))
                 .addContainerGap())
             .addGroup(pcPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(pcPanelLayout.createSequentialGroup()
@@ -1788,7 +1912,7 @@ public class GUIManager extends javax.swing.JFrame {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        this.loadPCs();
+        loadPCs();
     }//GEN-LAST:event_editPCSaveButtonActionPerformed
 
     private void userHistorySearchFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_userHistorySearchFieldKeyReleased
@@ -1879,6 +2003,29 @@ public class GUIManager extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_pcUserDetailsDialogWindowActivated
 
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        if(resultsTable.getSelectedRow() != -1){
+        pcSpecsDialog.setLocation(jMenuBar1.getLocationOnScreen());
+        pcSpecsDialog.setVisible(true);
+        }
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void pcSpecsMACFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pcSpecsMACFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pcSpecsMACFieldActionPerformed
+
+    private void pcSpecsDialogWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_pcSpecsDialogWindowActivated
+        if(resultsTable.getSelectedRow() != -1){
+            pcSpecsLabel.setText((String)resultsTable.getValueAt(resultsTable.getSelectedRow(), 0));
+            String[] queryResult = DatabaseAccess.loadPCSpecs((String)resultsTable.getValueAt(resultsTable.getSelectedRow(), 0));
+            pcSpecsMemoryField.setText(queryResult[0]);
+            pcSpecsCPUField.setText(queryResult[1]);
+            pcSpecsHDDField.setText(queryResult[2]);
+            pcSpecsMACField.setText(queryResult[3]);
+        }
+        
+    }//GEN-LAST:event_pcSpecsDialogWindowActivated
+
 // </editor-fold>
     // <editor-fold defaultstate="collapsed" desc="Main"> 
     /**
@@ -1966,6 +2113,7 @@ public class GUIManager extends javax.swing.JFrame {
     private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton9;
     private com.toedter.calendar.JDateChooser jDateChooser1;
@@ -1998,6 +2146,11 @@ public class GUIManager extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
+    private javax.swing.JLabel jLabel38;
+    private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -2041,6 +2194,12 @@ public class GUIManager extends javax.swing.JFrame {
     private javax.swing.JPanel pcPanel;
     private javax.swing.JButton pcRefreshButton;
     private javax.swing.JTextField pcSearchTextField;
+    private javax.swing.JTextField pcSpecsCPUField;
+    private javax.swing.JDialog pcSpecsDialog;
+    private javax.swing.JTextField pcSpecsHDDField;
+    private javax.swing.JLabel pcSpecsLabel;
+    private javax.swing.JTextField pcSpecsMACField;
+    private javax.swing.JTextField pcSpecsMemoryField;
     private javax.swing.JButton pcUserDetailsButton;
     private javax.swing.JButton pcUserDetailsCloseButton;
     private javax.swing.JDialog pcUserDetailsDialog;
