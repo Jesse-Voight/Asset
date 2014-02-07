@@ -6,6 +6,7 @@
 package wdhb.gui;
 
 import java.awt.Point;
+import java.awt.event.KeyEvent;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import wdhb.util.DatabaseAccess;
@@ -148,6 +149,20 @@ public class GUIManager extends javax.swing.JFrame {
         pcSpecsCPUField = new javax.swing.JTextField();
         pcSpecsHDDField = new javax.swing.JTextField();
         pcSpecsMACField = new javax.swing.JTextField();
+        monitorEditDialog = new javax.swing.JDialog();
+        monitorEditTitleLabel = new javax.swing.JLabel();
+        monitorEditAssetLabel = new javax.swing.JLabel();
+        monitorEditSerialNumberLabel = new javax.swing.JLabel();
+        monitorEditStatusLabel = new javax.swing.JLabel();
+        monitorEditNotesLabel = new javax.swing.JLabel();
+        monitorEditMonitorModelLabel = new javax.swing.JLabel();
+        monitorEditDateInstalledLabel = new javax.swing.JLabel();
+        monitorEditAssetField = new javax.swing.JTextField();
+        monitorEditSerialField = new javax.swing.JTextField();
+        monitorEditStatusField = new javax.swing.JTextField();
+        monitorEditNotesField = new javax.swing.JTextField();
+        monitorEditModelField = new javax.swing.JTextField();
+        monitorEditDateChooser = new com.toedter.calendar.JDateChooser();
         jTab = new javax.swing.JTabbedPane();
         pcPanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -984,7 +999,6 @@ public class GUIManager extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        pcSpecsDialog.setMaximumSize(new java.awt.Dimension(296, 186));
         pcSpecsDialog.setMinimumSize(new java.awt.Dimension(296, 186));
         pcSpecsDialog.addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
@@ -1084,6 +1098,100 @@ public class GUIManager extends javax.swing.JFrame {
                     .addComponent(jLabel39)
                     .addComponent(pcSpecsMACField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(39, Short.MAX_VALUE))
+        );
+
+        monitorEditDialog.setMaximumSize(new java.awt.Dimension(400, 300));
+        monitorEditDialog.setMinimumSize(new java.awt.Dimension(400, 300));
+
+        monitorEditTitleLabel.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        monitorEditTitleLabel.setText("Monitor Edit");
+
+        monitorEditAssetLabel.setText("Asset:");
+
+        monitorEditSerialNumberLabel.setText("Serial Number:");
+
+        monitorEditStatusLabel.setText("Status:");
+
+        monitorEditNotesLabel.setText("Notes:");
+
+        monitorEditMonitorModelLabel.setText("Monitor Model:");
+
+        monitorEditDateInstalledLabel.setText("Date Installed:");
+
+        monitorEditAssetField.setText("                ");
+
+        monitorEditSerialField.setText("                 ");
+
+        monitorEditStatusField.setText("                 ");
+
+        monitorEditNotesField.setText("                                                                                  ");
+
+        monitorEditModelField.setText("                 ");
+
+        javax.swing.GroupLayout monitorEditDialogLayout = new javax.swing.GroupLayout(monitorEditDialog.getContentPane());
+        monitorEditDialog.getContentPane().setLayout(monitorEditDialogLayout);
+        monitorEditDialogLayout.setHorizontalGroup(
+            monitorEditDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(monitorEditDialogLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(monitorEditDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(monitorEditTitleLabel)
+                    .addGroup(monitorEditDialogLayout.createSequentialGroup()
+                        .addComponent(monitorEditAssetLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(monitorEditAssetField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(monitorEditDialogLayout.createSequentialGroup()
+                        .addComponent(monitorEditSerialNumberLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(monitorEditSerialField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(monitorEditDialogLayout.createSequentialGroup()
+                        .addComponent(monitorEditStatusLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(monitorEditStatusField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(monitorEditDialogLayout.createSequentialGroup()
+                        .addComponent(monitorEditNotesLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(monitorEditNotesField, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(monitorEditDialogLayout.createSequentialGroup()
+                        .addComponent(monitorEditMonitorModelLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(monitorEditModelField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(monitorEditDialogLayout.createSequentialGroup()
+                        .addComponent(monitorEditDateInstalledLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(monitorEditDateChooser, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        monitorEditDialogLayout.setVerticalGroup(
+            monitorEditDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(monitorEditDialogLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(monitorEditTitleLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(monitorEditDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(monitorEditAssetLabel)
+                    .addComponent(monitorEditAssetField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(monitorEditDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(monitorEditSerialNumberLabel)
+                    .addComponent(monitorEditSerialField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(monitorEditDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(monitorEditStatusLabel)
+                    .addComponent(monitorEditStatusField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(monitorEditDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(monitorEditNotesLabel)
+                    .addComponent(monitorEditNotesField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(monitorEditDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(monitorEditMonitorModelLabel)
+                    .addComponent(monitorEditModelField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(monitorEditDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(monitorEditDateInstalledLabel)
+                    .addComponent(monitorEditDateChooser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -1241,6 +1349,11 @@ public class GUIManager extends javax.swing.JFrame {
             }
         });
         monitorTable.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        monitorTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                monitorTableMouseClicked(evt);
+            }
+        });
         jScrollPane4.setViewportView(monitorTable);
 
         monitorRefreshButton.setText("Refresh");
@@ -1985,6 +2098,7 @@ public class GUIManager extends javax.swing.JFrame {
 
     private void pcUserDetailsCloseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pcUserDetailsCloseButtonActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_pcUserDetailsCloseButtonActionPerformed
 
     private void pcUserDetailsDialogWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_pcUserDetailsDialogWindowActivated
@@ -2025,6 +2139,14 @@ public class GUIManager extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_pcSpecsDialogWindowActivated
+
+    private void monitorTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_monitorTableMouseClicked
+        if (evt.getClickCount() == 2) {
+            monitorEditDialog.setVisible(true);
+            monitorEditDialog.setLocation(jMenuBar1.getLocationOnScreen());
+            loadMonitorDetails();
+        }
+    }//GEN-LAST:event_monitorTableMouseClicked
 
 // </editor-fold>
     // <editor-fold defaultstate="collapsed" desc="Main"> 
@@ -2179,6 +2301,20 @@ public class GUIManager extends javax.swing.JFrame {
     private javax.swing.JButton locationRefreshButton;
     private javax.swing.JTable locationTable;
     private javax.swing.JComboBox modelSelect;
+    private javax.swing.JTextField monitorEditAssetField;
+    private javax.swing.JLabel monitorEditAssetLabel;
+    private com.toedter.calendar.JDateChooser monitorEditDateChooser;
+    private javax.swing.JLabel monitorEditDateInstalledLabel;
+    private javax.swing.JDialog monitorEditDialog;
+    private javax.swing.JTextField monitorEditModelField;
+    private javax.swing.JLabel monitorEditMonitorModelLabel;
+    private javax.swing.JTextField monitorEditNotesField;
+    private javax.swing.JLabel monitorEditNotesLabel;
+    private javax.swing.JTextField monitorEditSerialField;
+    private javax.swing.JLabel monitorEditSerialNumberLabel;
+    private javax.swing.JTextField monitorEditStatusField;
+    private javax.swing.JLabel monitorEditStatusLabel;
+    private javax.swing.JLabel monitorEditTitleLabel;
     private javax.swing.JPanel monitorModelPanel;
     private javax.swing.JButton monitorModelRefreshButton;
     private javax.swing.JTable monitorModelTable;
@@ -2301,6 +2437,8 @@ public class GUIManager extends javax.swing.JFrame {
                 Date convertedDate = sdf.parse(pcData[9]);
                 editPCReplacementDateChooser.setDate(convertedDate);
             } catch (ParseException ex) {
+                Date todayDate = new Date();
+                editPCReplacementDateChooser.setDate(todayDate);
                 Logger.getLogger(GUIManager.class.getName()).log(Level.SEVERE, null, ex);
             }
 
@@ -2420,7 +2558,7 @@ public class GUIManager extends javax.swing.JFrame {
     }
 
     private void loadMonitors() {
-        String colNames[] = {"Monitorid", "Asset", "Serial", "Status", "Notes", "IDMonitorModel", "DateInstalled"};
+        String colNames[] = {"Monitorid", "Asset No", "Serial No", "Status", "Notes", "Monitor Model", "Date Added"};
         BetterTableModel dtm = new BetterTableModel();
         dtm.setDataVector(null, colNames);
         ArrayList<String[]> qResult = DatabaseAccess.loadMonitors();
@@ -2434,6 +2572,19 @@ public class GUIManager extends javax.swing.JFrame {
             monitorTable.getModel().setValueAt(qResult.get(i)[4], i, 4);
             monitorTable.getModel().setValueAt(qResult.get(i)[5], i, 5);
             monitorTable.getModel().setValueAt(qResult.get(i)[6], i, 6);
+        }
+        monitorTable.getColumnModel().removeColumn(monitorTable.getColumnModel().getColumn(0));
+    }
+     // @todo have to do properly 
+    private void loadMonitorDetails(){
+        if (monitorTable.getSelectedRow() != -1){
+            String[] monitorDetails = DatabaseAccess.loadMonitorDetails((String)monitorTable.getValueAt(monitorTable.getSelectedRow(), 0));
+            monitorEditAssetField.setText(monitorDetails[0]);
+            monitorEditSerialField.setText(monitorDetails[1]);
+            monitorEditStatusField.setText(monitorDetails[2]);
+            monitorEditNotesField.setText(monitorDetails[3]);
+            monitorEditModelField.setText(monitorDetails[4]);
+            monitorEditDateChooser.setDate(new Date());
         }
     }
 
@@ -2484,6 +2635,8 @@ public class GUIManager extends javax.swing.JFrame {
     }
 
     private void loadAll() throws InterruptedException {
+        aboutMenu.setDisplayedMnemonicIndex(0);
+        fileMenu.setDisplayedMnemonicIndex(0);
         loadPCs();
         loadLocations();
         loadMonitorModel();

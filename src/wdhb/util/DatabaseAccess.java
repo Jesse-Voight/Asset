@@ -358,6 +358,7 @@ public class DatabaseAccess {
         }
         return resultList;
     }
+    
     public static ArrayList loadMonitors() {
         String url = "jdbc:mysql://websrv:3306/";
         String dbName = "assetDB";
@@ -398,6 +399,41 @@ public class DatabaseAccess {
 
                     String tempData[] = {monitorID, asset, serial, status, notes, idMonitorModel, dateInstalled};
                     resultList.add(tempData);
+                }
+                conn.close();
+            }
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | SQLException e) {
+            e.printStackTrace();
+        }
+        return resultList;
+    }
+    
+    public static String[] loadMonitorDetails(String assetNo){
+        String url = "jdbc:mysql://websrv:3306/";
+        String dbName = "assetDB";
+        String driver = "com.mysql.jdbc.Driver";
+        String userName = "jessvoig";
+        String password = "qzpm9876";
+        String[] resultList = {};
+
+        try {
+            Class.forName(driver).newInstance();
+            try (Connection conn = DriverManager.getConnection(url + dbName, userName, password)) {
+                Statement st = conn.createStatement();
+
+                ResultSet res = st.executeQuery("Select * FROM Monitor WHERE AssetNo = '"+assetNo+"' order by idMonitorModel asc");
+
+                while (res.next()) {
+                    //String idMonitor = res.getString("idMonitorModel");
+                    String assetNumber = res.getString("AssetNo");
+                    String serialNumber = res.getString("SerialNo");
+                    String status = res.getString("Status");
+                    String notes = res.getString("Notes");
+                    String modelMake = res.getString("Model");
+                    Date dateInstalled = Date.valueOf(res.getString("Date"));
+                    String colNames[] = {assetNumber,serialNumber,status,notes,modelMake,dateInstalled.toString()};
+                    //return colNames;
+
                 }
                 conn.close();
             }
