@@ -364,20 +364,27 @@ public class GUIManager extends javax.swing.JFrame {
 
         pcEditDialog.setTitle("Edit PC Details");
         pcEditDialog.setAlwaysOnTop(true);
-        pcEditDialog.setMaximumSize(new java.awt.Dimension(487, 481));
-        pcEditDialog.setMinimumSize(new java.awt.Dimension(487, 481));
+        pcEditDialog.setMaximumSize(new java.awt.Dimension(425, 453));
+        pcEditDialog.setMinimumSize(new java.awt.Dimension(425, 453));
+        pcEditDialog.setPreferredSize(new java.awt.Dimension(425, 453));
         pcEditDialog.setResizable(false);
+        pcEditDialog.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         pcNameLabel.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         pcNameLabel.setText("Asset");
+        pcEditDialog.getContentPane().add(pcNameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, -1, -1));
 
         editPCSerialNumberField.setText("Serial Number");
+        pcEditDialog.getContentPane().add(editPCSerialNumberField, new org.netbeans.lib.awtextra.AbsoluteConstraints(92, 106, 130, -1));
 
         editPCAssetNumberField.setText("Asset Number");
+        pcEditDialog.getContentPane().add(editPCAssetNumberField, new org.netbeans.lib.awtextra.AbsoluteConstraints(91, 204, 130, -1));
 
         editPCNotesField.setText("Notes");
+        pcEditDialog.getContentPane().add(editPCNotesField, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 238, 243, -1));
 
         editPCCommonUsersField.setText("Common Users");
+        pcEditDialog.getContentPane().add(editPCCommonUsersField, new org.netbeans.lib.awtextra.AbsoluteConstraints(101, 304, 161, -1));
 
         editPCLocationCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         editPCLocationCombo.setLightWeightPopupEnabled(false);
@@ -385,34 +392,49 @@ public class GUIManager extends javax.swing.JFrame {
         editPCLocationCombo.setMinimumSize(new java.awt.Dimension(350, 24));
         editPCLocationCombo.setName(""); // NOI18N
         editPCLocationCombo.setPreferredSize(new java.awt.Dimension(350, 20));
+        pcEditDialog.getContentPane().add(editPCLocationCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(65, 44, 316, 24));
 
         editPCModelCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        pcEditDialog.getContentPane().add(editPCModelCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(65, 74, -1, -1));
 
         editPCMonitorCombo1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        pcEditDialog.getContentPane().add(editPCMonitorCombo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(62, 140, -1, -1));
 
         editPCMonitorCombo2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        pcEditDialog.getContentPane().add(editPCMonitorCombo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(62, 172, -1, -1));
 
         editPCStatusCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        pcEditDialog.getContentPane().add(editPCStatusCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(47, 272, -1, -1));
 
         jLabel7.setText("Location");
+        pcEditDialog.getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 44, -1, -1));
 
         jLabel8.setText("PC Model");
+        pcEditDialog.getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 79, -1, -1));
 
         jLabel9.setText("Serial Number");
+        pcEditDialog.getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 112, -1, -1));
 
         jLabel10.setText("Monitor 1");
+        pcEditDialog.getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 145, -1, -1));
 
         jLabel11.setText("Monitor 2");
+        pcEditDialog.getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 177, -1, -1));
 
         jLabel12.setText("Asset Number");
+        pcEditDialog.getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 210, -1, -1));
 
         jLabel13.setText("Notes");
+        pcEditDialog.getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 244, -1, -1));
 
         jLabel14.setText("Status");
+        pcEditDialog.getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 277, -1, -1));
 
         jLabel15.setText("Common Users");
+        pcEditDialog.getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 310, -1, -1));
 
         jLabel16.setText("Replacement Date");
+        pcEditDialog.getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 338, -1, -1));
 
         editPCSaveButton.setText("Save");
         editPCSaveButton.addActionListener(new java.awt.event.ActionListener() {
@@ -420,6 +442,7 @@ public class GUIManager extends javax.swing.JFrame {
                 editPCSaveButtonActionPerformed(evt);
             }
         });
+        pcEditDialog.getContentPane().add(editPCSaveButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(344, 381, -1, -1));
 
         editPCCancelButton.setText("Cancel");
         editPCCancelButton.addActionListener(new java.awt.event.ActionListener() {
@@ -427,112 +450,12 @@ public class GUIManager extends javax.swing.JFrame {
                 editPCCancelButtonActionPerformed(evt);
             }
         });
+        pcEditDialog.getContentPane().add(editPCCancelButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(271, 381, -1, -1));
+        pcEditDialog.getContentPane().add(editPCReplacementDateChooser, new org.netbeans.lib.awtextra.AbsoluteConstraints(115, 338, 142, -1));
 
-        editStatusLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        editStatusLabel.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         editStatusLabel.setText("                ");
-
-        javax.swing.GroupLayout pcEditDialogLayout = new javax.swing.GroupLayout(pcEditDialog.getContentPane());
-        pcEditDialog.getContentPane().setLayout(pcEditDialogLayout);
-        pcEditDialogLayout.setHorizontalGroup(
-            pcEditDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pcEditDialogLayout.createSequentialGroup()
-                .addContainerGap(12, Short.MAX_VALUE)
-                .addGroup(pcEditDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pcEditDialogLayout.createSequentialGroup()
-                        .addComponent(pcNameLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(editStatusLabel)
-                        .addGap(147, 147, 147))
-                    .addGroup(pcEditDialogLayout.createSequentialGroup()
-                        .addGroup(pcEditDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(pcEditDialogLayout.createSequentialGroup()
-                                .addGroup(pcEditDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel9)
-                                    .addComponent(jLabel10)
-                                    .addComponent(jLabel11)
-                                    .addComponent(jLabel12)
-                                    .addComponent(jLabel13)
-                                    .addComponent(jLabel14)
-                                    .addComponent(jLabel15)
-                                    .addComponent(jLabel16))
-                                .addGap(22, 22, 22)
-                                .addGroup(pcEditDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(editPCMonitorCombo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(editPCSerialNumberField, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(editPCMonitorCombo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(editPCAssetNumberField, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(editPCStatusCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(editPCCommonUsersField, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(editPCReplacementDateChooser, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(pcEditDialogLayout.createSequentialGroup()
-                                        .addGroup(pcEditDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(editPCCancelButton)
-                                            .addComponent(editPCNotesField, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(editPCSaveButton))))
-                            .addGroup(pcEditDialogLayout.createSequentialGroup()
-                                .addGroup(pcEditDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel8)
-                                    .addComponent(jLabel7))
-                                .addGap(78, 78, 78)
-                                .addGroup(pcEditDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(editPCModelCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(editPCLocationCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(9, 9, 9))))
-        );
-        pcEditDialogLayout.setVerticalGroup(
-            pcEditDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pcEditDialogLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(pcEditDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(pcNameLabel)
-                    .addComponent(editStatusLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pcEditDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel7)
-                    .addComponent(editPCLocationCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pcEditDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(editPCModelCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pcEditDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(editPCSerialNumberField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pcEditDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(editPCMonitorCombo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel10))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pcEditDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(editPCMonitorCombo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel11))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pcEditDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(editPCAssetNumberField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel12))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pcEditDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(editPCNotesField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel13))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pcEditDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(editPCStatusCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel14))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pcEditDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(editPCCommonUsersField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel15))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pcEditDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel16)
-                    .addComponent(editPCReplacementDateChooser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(15, 15, 15)
-                .addGroup(pcEditDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(editPCCancelButton)
-                    .addComponent(editPCSaveButton))
-                .addContainerGap(51, Short.MAX_VALUE))
-        );
+        pcEditDialog.getContentPane().add(editStatusLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 380, -1, -1));
 
         addMonitorDialog.setTitle("Add Monitor");
         addMonitorDialog.setAlwaysOnTop(true);
