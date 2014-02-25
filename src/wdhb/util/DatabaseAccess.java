@@ -5,6 +5,7 @@
 package wdhb.util;
 
 import java.sql.*;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -281,7 +282,9 @@ public class DatabaseAccess {
 
                     int dateCode = userResult.getInt("Date");
                     Date dateFormatted = new Date((long) dateCode * 1000);          //Date conversion from 10 digit unix number to correct date FML
-                    String dateInstalled = dateFormatted.toString();
+                    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy kk:mm:ss");
+                    
+                    String dateInstalled = sdf.format(dateFormatted);
 
                     String tempData[] = {pcId, name, dateInstalled};
                     resultList.add(tempData);
@@ -414,7 +417,7 @@ public class DatabaseAccess {
         String driver = "com.mysql.jdbc.Driver";
         String userName = "jessvoig";
         String password = "qzpm9876";
-        String[] resultList = {};
+        String[] resultString = {};
 
         try {
             Class.forName(driver).newInstance();
@@ -429,18 +432,20 @@ public class DatabaseAccess {
                     String serialNumber = res.getString("SerialNo");
                     String status = res.getString("Status");
                     String notes = res.getString("Notes");
-                    String modelMake = res.getString("Model");
-                    Date dateInstalled = Date.valueOf(res.getString("Date"));
-                    String colNames[] = {assetNumber,serialNumber,status,notes,modelMake,dateInstalled.toString()};
-                    //return colNames;
-
+                    String modelMake = res.getString("idMonitorModel");
+                    int dateCode = res.getInt("DateInstalled");
+                    Date dateFormatted = new Date((long) dateCode * 1000);          //Date conversion from 10 digit unix number to correct date FML
+                    String dateInstalled = dateFormatted.toString();
+                    
+                    String[] colNames = {assetNumber, serialNumber, status, notes, modelMake, dateInstalled.toString()};
+                    resultString = colNames;
                 }
                 conn.close();
             }
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | SQLException e) {
             e.printStackTrace();
         }
-        return resultList;
+        return resultString;
     }
 
     public static ArrayList loadMonitorModels() {
@@ -493,7 +498,7 @@ public class DatabaseAccess {
         }
 
     }
-    public static void editPCDetails(String location, String idPCModel, String serialNo, String monitor1, String monitor2, String assetNumber,
+    public static Boolean editPCDetails(String location, String idPCModel, String serialNo, String monitor1, String monitor2, String assetNumber,
                 String notes, String status, String commonUsers, String replacementDate, String idPC){
         String url = "jdbc:mysql://websrv:3306/";
         String dbName = "assetDB";
@@ -517,9 +522,11 @@ public class DatabaseAccess {
                 st.setString(11, idPC);
                 st.executeUpdate();
                 conn.close();
+                return true;
             }
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | SQLException e) {
             e.printStackTrace();
+            return false;
         }
 
     }
