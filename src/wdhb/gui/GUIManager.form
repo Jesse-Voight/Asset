@@ -290,6 +290,9 @@
         </Property>
         <Property name="resizable" type="boolean" value="false"/>
       </Properties>
+      <Events>
+        <EventHandler event="windowDeactivated" listener="java.awt.event.WindowListener" parameters="java.awt.event.WindowEvent" handler="pcEditDialogWindowDeactivated"/>
+      </Events>
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
         <Property name="useNullLayout" type="boolean" value="false"/>

@@ -368,6 +368,11 @@ public class GUIManager extends javax.swing.JFrame {
         pcEditDialog.setMinimumSize(new java.awt.Dimension(425, 453));
         pcEditDialog.setPreferredSize(new java.awt.Dimension(425, 453));
         pcEditDialog.setResizable(false);
+        pcEditDialog.addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowDeactivated(java.awt.event.WindowEvent evt) {
+                pcEditDialogWindowDeactivated(evt);
+            }
+        });
         pcEditDialog.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         pcNameLabel.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
@@ -2062,6 +2067,7 @@ public class GUIManager extends javax.swing.JFrame {
     }//GEN-LAST:event_resultsTableKeyTyped
 
     private void editPCCancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editPCCancelButtonActionPerformed
+        
         pcEditDialog.setVisible(false);
     }//GEN-LAST:event_editPCCancelButtonActionPerformed
 
@@ -2125,6 +2131,11 @@ public class GUIManager extends javax.swing.JFrame {
         loadPCs();
 
     }//GEN-LAST:event_editPCSaveButtonActionPerformed
+
+    private void pcEditDialogWindowDeactivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_pcEditDialogWindowDeactivated
+        System.out.println("Window Closed");
+        editStatusLabel.setText(" ");        // TODO add your handling code here:
+    }//GEN-LAST:event_pcEditDialogWindowDeactivated
     /*try { backup lookandfeel
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -2634,7 +2645,7 @@ public class GUIManager extends javax.swing.JFrame {
     }
 
     private void loadAll() throws InterruptedException {
-        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        //this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         //aboutMenu.setDisplayedMnemonicIndex(0);
         //fileMenu.setDisplayedMnemonicIndex(0);
         loadPCs();

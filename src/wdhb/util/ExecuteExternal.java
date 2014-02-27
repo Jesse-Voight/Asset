@@ -19,11 +19,11 @@ import javax.swing.JOptionPane;
 public class ExecuteExternal {
 
     public static Boolean checkPC(String workstation) {
-
-        String ipstring = "";
+        //Not implemented, too slow - Needs Multithreading Ability
+        String ipString = "";
         try {
             InetAddress ia = InetAddress.getByName(workstation);
-            ipstring = ia.getHostAddress();
+            ipString = ia.getHostAddress();
             System.out.println("passed getbyname");
             try {
                 ia.isReachable(2000);
@@ -40,6 +40,7 @@ public class ExecuteExternal {
     }
 
     public static Boolean newCheck(String workstation) throws IOException {
+        //Not implemented, too slow - Needs Multithreading Ability
         InetAddress address = InetAddress.getByName(workstation);
 
         if (address == null) {
@@ -56,9 +57,8 @@ public class ExecuteExternal {
     }
 
     public static void vncStart(String workstation) {
-        
         try {
-            Runtime.getRuntime().exec("//fs1/apps$/apps/UltraVNCWIN7/Files/UltraVNC/vncviewer.exe connect " + workstation + ":7000 -user jessvoig -password lemonchiffoN1");
+            Runtime.getRuntime().exec("//fs1/apps$/apps/UltraVNCWIN7/Files/UltraVNC/vncviewer.exe connect " + workstation + ":7000 -user jessvoig -password lemonchiffoN2");
         } catch (IOException ex) {
             Logger.getLogger(ExecuteExternal.class.getName()).log(Level.SEVERE, null, ex);
         }
