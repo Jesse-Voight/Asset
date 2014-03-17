@@ -6,13 +6,11 @@
 package wdhb.gui;
 
 import java.awt.Point;
-import java.awt.event.KeyEvent;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import wdhb.util.DatabaseAccess;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Locale;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
@@ -218,7 +216,7 @@ public class GUIManager extends javax.swing.JFrame {
         aboutScreenDialog.setMinimumSize(new java.awt.Dimension(340, 195));
         aboutScreenDialog.setResizable(false);
 
-        jLabel1.setText("Made by Jesse Voight");
+        jLabel1.setText("Written by Jesse Voight");
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel2.setText("Version 1.0");
@@ -364,9 +362,7 @@ public class GUIManager extends javax.swing.JFrame {
 
         pcEditDialog.setTitle("Edit PC Details");
         pcEditDialog.setAlwaysOnTop(true);
-        pcEditDialog.setMaximumSize(new java.awt.Dimension(425, 453));
         pcEditDialog.setMinimumSize(new java.awt.Dimension(425, 453));
-        pcEditDialog.setPreferredSize(new java.awt.Dimension(425, 453));
         pcEditDialog.setResizable(false);
         pcEditDialog.addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowDeactivated(java.awt.event.WindowEvent evt) {
@@ -449,7 +445,7 @@ public class GUIManager extends javax.swing.JFrame {
         });
         pcEditDialog.getContentPane().add(editPCSaveButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(344, 381, -1, -1));
 
-        editPCCancelButton.setText("Cancel");
+        editPCCancelButton.setText("Close");
         editPCCancelButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 editPCCancelButtonActionPerformed(evt);
@@ -1170,7 +1166,7 @@ public class GUIManager extends javax.swing.JFrame {
                 {null, null, null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "IdPC", "Name", "IDLocation", "IDPCModel", "SerialNo", "Monitor1", "Monitor2", "AssetNo", "LastLogin", "Notes", "Status", "RepDate"
+                "IdPC", "Name", "Location", "PC Model", "SerialNo", "Monitor1", "Monitor2", "AssetNo", "LastLogin", "Notes", "Status", "Common User"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -1201,7 +1197,7 @@ public class GUIManager extends javax.swing.JFrame {
             }
         });
 
-        pcSearchTextField.setText("Enter Text Here");
+        pcSearchTextField.setText("Find String");
         pcSearchTextField.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 pcSearchTextFieldFocusGained(evt);
@@ -1265,8 +1261,8 @@ public class GUIManager extends javax.swing.JFrame {
                 .addComponent(pcUserDetailsButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
-                .addComponent(pcSearchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                .addComponent(pcSearchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addGroup(pcPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(pcPanelLayout.createSequentialGroup()
@@ -1278,15 +1274,14 @@ public class GUIManager extends javax.swing.JFrame {
             pcPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pcPanelLayout.createSequentialGroup()
                 .addContainerGap(560, Short.MAX_VALUE)
-                .addGroup(pcPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pcSearchTextField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pcPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(pcRefreshButton)
-                        .addComponent(jButton1)
-                        .addComponent(jButton2)
-                        .addComponent(jButton3)
-                        .addComponent(pcUserDetailsButton)
-                        .addComponent(jButton4)))
+                .addGroup(pcPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(pcRefreshButton)
+                    .addComponent(jButton1)
+                    .addComponent(jButton2)
+                    .addComponent(jButton3)
+                    .addComponent(pcUserDetailsButton)
+                    .addComponent(jButton4)
+                    .addComponent(pcSearchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
             .addGroup(pcPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(pcPanelLayout.createSequentialGroup()
@@ -2072,6 +2067,11 @@ public class GUIManager extends javax.swing.JFrame {
     }//GEN-LAST:event_editPCCancelButtonActionPerformed
 
     private void editPCSaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editPCSaveButtonActionPerformed
+        //todo: add better checks
+        if(editPCLocationCombo.getSelectedIndex() == -1 | editPCModelCombo.getSelectedIndex() == -1 | editPCSerialNumberField.getText() == "" | editPCAssetNumberField.getText() == ""){
+            JOptionPane.showMessageDialog(new JFrame(),"Empty Field Detected","Fatal Error",JOptionPane.ERROR_MESSAGE);
+            return;
+        }
         String idPC = (String) resultsTable.getModel().getValueAt(resultsTable.getSelectedRow(), 0);
         String location = ((ComboObject) editPCLocationCombo.getSelectedItem()).getID();
         String pcModel = ((ComboObject) editPCModelCombo.getSelectedItem()).getID();
@@ -2133,7 +2133,6 @@ public class GUIManager extends javax.swing.JFrame {
     }//GEN-LAST:event_editPCSaveButtonActionPerformed
 
     private void pcEditDialogWindowDeactivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_pcEditDialogWindowDeactivated
-        System.out.println("Window Closed");
         editStatusLabel.setText(" ");        // TODO add your handling code here:
     }//GEN-LAST:event_pcEditDialogWindowDeactivated
     /*try { backup lookandfeel
@@ -2604,8 +2603,8 @@ public class GUIManager extends javax.swing.JFrame {
             selectedRow = resultsTable.getSelectedRow();
         }
         Boolean loadDecom = decommissionCheck.isSelected();
-        String colNames[] = {"Id", "Name", "Location", "PCModel", "SerialNumber", "Monitor1", "Monitor2", "AssetNum", "LastLogin",
-            "Notes", "Status", "RepDate"};
+        String colNames[] = {"Id", "Name", "Location", "Model", "SerialNo.", "Monitor 1", "Monitor 2", "AssetNum", "LastLogin",
+            "Notes", "Status", "Common User"};
         BetterTableModel dtm = new BetterTableModel();
         dtm.setDataVector(null, colNames);
 
@@ -2625,6 +2624,7 @@ public class GUIManager extends javax.swing.JFrame {
             resultsTable.getModel().setValueAt(qResult.get(i)[9], i, 9);
             resultsTable.getModel().setValueAt(qResult.get(i)[10], i, 10);
             resultsTable.getModel().setValueAt(qResult.get(i)[11], i, 11);
+
         }
         resultsTable.getColumnModel().removeColumn(resultsTable.getColumnModel().getColumn(0));
         if (selectedRow != -1) {

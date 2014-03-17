@@ -69,14 +69,11 @@ public class DatabaseAccess {
 
                     String notes = pcResult.getString("Notes");
                     String status = pcResult.getString("Status");
-
-                    //String repDate = pcResult.getString("RepDate");
-                    int repDateCode = pcResult.getInt("RepDate");
-                    Date repDateFormatted = new Date((long) repDateCode * 1000);          //Date conversion from 10 digit unix number to correct date FML
-                    String repDate = repDateFormatted.toString();
+                    
+                    String commUsers = pcResult.getString("CommUsers");
 
                     String colNames[] = {id, name, location, pcModel, serialNumber, monitor1, monitor2, assetNum, lastLogin,
-                        notes, status, repDate};
+                        notes, status, commUsers};
                     resultList.add(colNames);
                 }
                 conn.close();
@@ -318,9 +315,11 @@ public class DatabaseAccess {
                     String name = res.getString("Name");
                     int dateCode = res.getInt("Date");
                     Date dateFormatted = new Date((long) dateCode * 1000);          //Date conversion from 10 digit unix number to correct date FML
-                    String dateConv = dateFormatted.toString();
+                    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy kk:mm:ss");
+                    
+                    String dateInstalled = sdf.format(dateFormatted);
 
-                    String tempData[] = {name, dateConv};
+                    String tempData[] = {name, dateInstalled};
                     resultList.add(tempData);
                 }
                 conn.close();
