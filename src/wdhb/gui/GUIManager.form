@@ -1980,6 +1980,7 @@
                 <Property name="text" type="java.lang.String" value="Find String"/>
               </Properties>
               <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pcSearchTextFieldActionPerformed"/>
                 <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="pcSearchTextFieldFocusGained"/>
                 <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="pcSearchTextFieldKeyReleased"/>
               </Events>

@@ -5,12 +5,14 @@
  */
 package wdhb.gui;
 
+import java.awt.Color;
 import java.awt.Point;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import wdhb.util.DatabaseAccess;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
@@ -1198,6 +1200,11 @@ public class GUIManager extends javax.swing.JFrame {
         });
 
         pcSearchTextField.setText("Find String");
+        pcSearchTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pcSearchTextFieldActionPerformed(evt);
+            }
+        });
         pcSearchTextField.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 pcSearchTextFieldFocusGained(evt);
@@ -1736,7 +1743,9 @@ public class GUIManager extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowOpened
 
     private void pcSearchTextFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_pcSearchTextFieldFocusGained
-        //pcSearchTextField.setText("");
+        if(pcSearchTextField.getText().equals("Find String")){
+            pcSearchTextField.setText("");
+        }
     }//GEN-LAST:event_pcSearchTextFieldFocusGained
 
     private void userHistoryViewButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userHistoryViewButtonActionPerformed
@@ -2135,6 +2144,10 @@ public class GUIManager extends javax.swing.JFrame {
     private void pcEditDialogWindowDeactivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_pcEditDialogWindowDeactivated
         editStatusLabel.setText(" ");        // TODO add your handling code here:
     }//GEN-LAST:event_pcEditDialogWindowDeactivated
+
+    private void pcSearchTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pcSearchTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pcSearchTextFieldActionPerformed
     /*try { backup lookandfeel
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -2158,6 +2171,10 @@ public class GUIManager extends javax.swing.JFrame {
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
+        javax.swing.UIManager.put("nimbusBase", Color.DARK_GRAY);
+        javax.swing.UIManager.put("nimbusBlueGrey", Color.GRAY);
+        javax.swing.UIManager.put("control", Color.GRAY);
+        //javax.swing.UIManager.
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
@@ -2182,6 +2199,7 @@ public class GUIManager extends javax.swing.JFrame {
         }
         //</editor-fold>
         /* Create and display the form */
+        
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new GUIManager().setVisible(true);
@@ -2630,11 +2648,19 @@ public class GUIManager extends javax.swing.JFrame {
         if (selectedRow != -1) {
             resultsTable.setRowSelectionInterval(selectedRow, selectedRow); //if something was selected - reselect on load
         }
-        setResultsColumnWidths(0, 70);
+        setResultsColumnWidths(0, 65);
+        setResultsColumnWidths(2, 85);
         setResultsColumnWidths(9, 48);
         setResultsColumnWidths(4, 67);
         setResultsColumnWidths(5, 67);
         setResultsColumnWidths(6, 77);
+        setResultsColumnWidths(7, 80);
+        
+        
+        javax.swing.UIManager.put("nimbusBase", Color.DARK_GRAY);
+        //javax.swing.UIManager.put("nimbusWhite", Color.MAGENTA);
+        javax.swing.UIManager.put("nimbusBlueGrey", Color.GRAY);
+        javax.swing.UIManager.put("control", Color.GRAY);
     }
 
     private void setResultsColumnWidths(int colNumber, int size) {
