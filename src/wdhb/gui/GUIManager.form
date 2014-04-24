@@ -1528,6 +1528,7 @@
         <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[400, 300]"/>
         </Property>
+        <Property name="resizable" type="boolean" value="false"/>
       </Properties>
       <Events>
         <EventHandler event="windowActivated" listener="java.awt.event.WindowListener" parameters="java.awt.event.WindowEvent" handler="monitorEditDialogWindowActivated"/>
@@ -1563,7 +1564,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="monitorEditMonitorModelLabel" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="monitorEditModelField" min="-2" max="-2" attributes="0"/>
+                          <Component id="monitorEditModelCombo" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="monitorEditDateInstalledLabel" min="-2" max="-2" attributes="0"/>
@@ -1610,14 +1611,14 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="monitorEditMonitorModelLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="monitorEditModelField" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="monitorEditModelCombo" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="monitorEditDateInstalledLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="monitorEditDateField" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="37" max="32767" attributes="0"/>
+                  <EmptySpace pref="49" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="monitorEditOKButton" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="monitorEditCancelButton" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -1690,20 +1691,21 @@
             <Property name="text" type="java.lang.String" value="                                                                                  "/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="monitorEditModelField">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="                 "/>
-          </Properties>
-        </Component>
         <Component class="javax.swing.JButton" name="monitorEditOKButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="OK"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="monitorEditOKButtonActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="monitorEditCancelButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="Cancel"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="monitorEditCancelButtonActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="monitorEditDateField">
           <Properties>
@@ -1712,6 +1714,18 @@
               <Color blue="cc" green="cc" red="cc" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="                 "/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="monitorEditModelCombo">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="4">
+                <StringItem index="0" value="Item 1"/>
+                <StringItem index="1" value="Item 2"/>
+                <StringItem index="2" value="Item 3"/>
+                <StringItem index="3" value="Item 4"/>
+              </StringArray>
+            </Property>
           </Properties>
         </Component>
       </SubComponents>
@@ -1824,14 +1838,16 @@
                       <Component id="pcUserDetailsButton" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jButton4" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="45" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="pingButton" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                       <Component id="pcSearchTextField" min="-2" pref="199" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jScrollPane1" pref="886" max="32767" attributes="0"/>
+                          <Component id="jScrollPane1" pref="969" max="32767" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -1840,7 +1856,7 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace pref="560" max="32767" attributes="0"/>
+                      <EmptySpace pref="609" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="pcRefreshButton" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -1848,14 +1864,15 @@
                           <Component id="jButton3" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="pcUserDetailsButton" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jButton4" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="pingButton" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="pcSearchTextField" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
                   </Group>
                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" max="-2" attributes="0"/>
-                          <Component id="jScrollPane1" pref="542" max="32767" attributes="0"/>
+                          <Component id="jScrollPane1" pref="594" max="32767" attributes="0"/>
                           <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -2025,6 +2042,14 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton4ActionPerformed"/>
               </Events>
             </Component>
+            <Component class="javax.swing.JButton" name="pingButton">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Ping"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pingButtonActionPerformed"/>
+              </Events>
+            </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="monitorPanel">
@@ -2043,7 +2068,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="jScrollPane4" pref="886" max="32767" attributes="0"/>
+                              <Component id="jScrollPane4" pref="969" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
@@ -2155,7 +2180,7 @@
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jScrollPane2" pref="886" max="32767" attributes="0"/>
+                          <Component id="jScrollPane2" pref="969" max="32767" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="monitorModelRefreshButton" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
@@ -2261,7 +2286,7 @@
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jScrollPane3" pref="886" max="32767" attributes="0"/>
+                          <Component id="jScrollPane3" pref="969" max="32767" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="locationRefreshButton" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
@@ -2391,7 +2416,7 @@
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jScrollPane5" alignment="1" pref="886" max="32767" attributes="0"/>
+                          <Component id="jScrollPane5" alignment="1" pref="969" max="32767" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="pcModelRefreshButton" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
@@ -2503,7 +2528,7 @@
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jScrollPane6" pref="886" max="32767" attributes="0"/>
+                          <Component id="jScrollPane6" pref="969" max="32767" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="userHistoryRefreshButton" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>

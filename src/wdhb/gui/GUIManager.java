@@ -164,10 +164,10 @@ public class GUIManager extends javax.swing.JFrame {
         monitorEditSerialField = new javax.swing.JTextField();
         monitorEditStatusField = new javax.swing.JTextField();
         monitorEditNotesField = new javax.swing.JTextField();
-        monitorEditModelField = new javax.swing.JTextField();
         monitorEditOKButton = new javax.swing.JButton();
         monitorEditCancelButton = new javax.swing.JButton();
         monitorEditDateField = new javax.swing.JTextField();
+        monitorEditModelCombo = new javax.swing.JComboBox();
         jTab = new javax.swing.JTabbedPane();
         pcPanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -179,6 +179,7 @@ public class GUIManager extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         pcUserDetailsButton = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
+        pingButton = new javax.swing.JButton();
         monitorPanel = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
         monitorTable = new javax.swing.JTable();
@@ -1036,6 +1037,7 @@ public class GUIManager extends javax.swing.JFrame {
         );
 
         monitorEditDialog.setMinimumSize(new java.awt.Dimension(400, 300));
+        monitorEditDialog.setResizable(false);
         monitorEditDialog.addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
                 monitorEditDialogWindowActivated(evt);
@@ -1067,15 +1069,25 @@ public class GUIManager extends javax.swing.JFrame {
 
         monitorEditNotesField.setText("                                                                                  ");
 
-        monitorEditModelField.setText("                 ");
-
         monitorEditOKButton.setText("OK");
+        monitorEditOKButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                monitorEditOKButtonActionPerformed(evt);
+            }
+        });
 
         monitorEditCancelButton.setText("Cancel");
+        monitorEditCancelButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                monitorEditCancelButtonActionPerformed(evt);
+            }
+        });
 
         monitorEditDateField.setEditable(false);
         monitorEditDateField.setBackground(new java.awt.Color(204, 204, 204));
         monitorEditDateField.setText("                 ");
+
+        monitorEditModelCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout monitorEditDialogLayout = new javax.swing.GroupLayout(monitorEditDialog.getContentPane());
         monitorEditDialog.getContentPane().setLayout(monitorEditDialogLayout);
@@ -1104,7 +1116,7 @@ public class GUIManager extends javax.swing.JFrame {
                     .addGroup(monitorEditDialogLayout.createSequentialGroup()
                         .addComponent(monitorEditMonitorModelLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(monitorEditModelField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(monitorEditModelCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(monitorEditDialogLayout.createSequentialGroup()
                         .addComponent(monitorEditDateInstalledLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1141,12 +1153,12 @@ public class GUIManager extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(monitorEditDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(monitorEditMonitorModelLabel)
-                    .addComponent(monitorEditModelField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(monitorEditModelCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(monitorEditDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(monitorEditDateInstalledLabel)
                     .addComponent(monitorEditDateField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
                 .addGroup(monitorEditDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(monitorEditOKButton)
                     .addComponent(monitorEditCancelButton))
@@ -1251,6 +1263,13 @@ public class GUIManager extends javax.swing.JFrame {
             }
         });
 
+        pingButton.setText("Ping");
+        pingButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pingButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout pcPanelLayout = new javax.swing.GroupLayout(pcPanel);
         pcPanel.setLayout(pcPanelLayout);
         pcPanelLayout.setHorizontalGroup(
@@ -1268,19 +1287,21 @@ public class GUIManager extends javax.swing.JFrame {
                 .addComponent(pcUserDetailsButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(pingButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(pcSearchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addGroup(pcPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(pcPanelLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 886, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 969, Short.MAX_VALUE)
                     .addContainerGap()))
         );
         pcPanelLayout.setVerticalGroup(
             pcPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pcPanelLayout.createSequentialGroup()
-                .addContainerGap(560, Short.MAX_VALUE)
+                .addContainerGap(609, Short.MAX_VALUE)
                 .addGroup(pcPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(pcRefreshButton)
                     .addComponent(jButton1)
@@ -1288,12 +1309,13 @@ public class GUIManager extends javax.swing.JFrame {
                     .addComponent(jButton3)
                     .addComponent(pcUserDetailsButton)
                     .addComponent(jButton4)
+                    .addComponent(pingButton)
                     .addComponent(pcSearchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                .addGap(9, 9, 9))
             .addGroup(pcPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(pcPanelLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 542, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 594, Short.MAX_VALUE)
                     .addGap(46, 46, 46)))
         );
 
@@ -1351,7 +1373,7 @@ public class GUIManager extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(monitorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(monitorPanelLayout.createSequentialGroup()
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 886, Short.MAX_VALUE)
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 969, Short.MAX_VALUE)
                         .addContainerGap())
                     .addGroup(monitorPanelLayout.createSequentialGroup()
                         .addComponent(monitorRefreshButton)
@@ -1414,7 +1436,7 @@ public class GUIManager extends javax.swing.JFrame {
             .addGroup(monitorModelPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(monitorModelPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 886, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 969, Short.MAX_VALUE)
                     .addGroup(monitorModelPanelLayout.createSequentialGroup()
                         .addComponent(monitorModelRefreshButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1476,7 +1498,7 @@ public class GUIManager extends javax.swing.JFrame {
             .addGroup(locationPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(locationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 886, Short.MAX_VALUE)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 969, Short.MAX_VALUE)
                     .addGroup(locationPanelLayout.createSequentialGroup()
                         .addComponent(locationRefreshButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1538,7 +1560,7 @@ public class GUIManager extends javax.swing.JFrame {
             .addGroup(pcModelPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pcModelPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 886, Short.MAX_VALUE)
+                    .addComponent(jScrollPane5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 969, Short.MAX_VALUE)
                     .addGroup(pcModelPanelLayout.createSequentialGroup()
                         .addComponent(pcModelRefreshButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1614,7 +1636,7 @@ public class GUIManager extends javax.swing.JFrame {
             .addGroup(userHistoryPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(userHistoryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 886, Short.MAX_VALUE)
+                    .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 969, Short.MAX_VALUE)
                     .addGroup(userHistoryPanelLayout.createSequentialGroup()
                         .addComponent(userHistoryRefreshButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1775,7 +1797,6 @@ public class GUIManager extends javax.swing.JFrame {
             userHistoryDialog.setLocation(jMenuBar1.getLocationOnScreen());
             jScrollPane7.getViewport().setViewPosition(new Point(0, 0));
             String userTemp = (String) userTable.getValueAt(userTable.getSelectedRow(), 0);
-
             userLabel.setText(userTemp);
         }
     }//GEN-LAST:event_userTableMouseClicked
@@ -2148,6 +2169,34 @@ public class GUIManager extends javax.swing.JFrame {
     private void pcSearchTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pcSearchTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_pcSearchTextFieldActionPerformed
+
+    private void pingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pingButtonActionPerformed
+        if (resultsTable.getSelectedRow() != -1) {
+            String workstationName = (String) resultsTable.getValueAt(resultsTable.getSelectedRow(), 0);
+            try {
+                if(ExecuteExternal.pingStart(workstationName)){
+                    JOptionPane.showMessageDialog(this,"Ping Responded");
+                }
+                else{
+                    JOptionPane.showMessageDialog(this,"Ping Did Not Respond");
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }//GEN-LAST:event_pingButtonActionPerformed
+
+    private void monitorEditCancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_monitorEditCancelButtonActionPerformed
+        monitorEditDialog.setVisible(false);
+    }//GEN-LAST:event_monitorEditCancelButtonActionPerformed
+
+    private void monitorEditOKButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_monitorEditOKButtonActionPerformed
+        String monitorEditStatusTemp = monitorEditStatusField.getText();
+        String monitorEditSerialTemp = monitorEditSerialField.getText();
+        String monitorEditAssetTemp = monitorEditAssetField.getText();
+        String monitorEditNotesTemp = monitorEditNotesField.getText();
+        
+    }//GEN-LAST:event_monitorEditOKButtonActionPerformed
     /*try { backup lookandfeel
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -2330,7 +2379,7 @@ public class GUIManager extends javax.swing.JFrame {
     private javax.swing.JTextField monitorEditDateField;
     private javax.swing.JLabel monitorEditDateInstalledLabel;
     private javax.swing.JDialog monitorEditDialog;
-    private javax.swing.JTextField monitorEditModelField;
+    private javax.swing.JComboBox monitorEditModelCombo;
     private javax.swing.JLabel monitorEditMonitorModelLabel;
     private javax.swing.JTextField monitorEditNotesField;
     private javax.swing.JLabel monitorEditNotesLabel;
@@ -2367,6 +2416,7 @@ public class GUIManager extends javax.swing.JFrame {
     private javax.swing.JLabel pcUserDetailsLabel1;
     private javax.swing.JLabel pcUserDetailsLabel2;
     private javax.swing.JTable pcUserDetailsTable;
+    private javax.swing.JButton pingButton;
     private javax.swing.JTable resultsTable;
     private javax.swing.JButton savePCModelButton;
     private javax.swing.JComboBox statusComboBox;
@@ -2610,7 +2660,7 @@ public class GUIManager extends javax.swing.JFrame {
             monitorEditSerialField.setText(monitorDetails[1]);
             monitorEditStatusField.setText(monitorDetails[2]);
             monitorEditNotesField.setText(monitorDetails[3]);
-            monitorEditModelField.setText(monitorDetails[4]);
+            //monitorEditModelField.setText(monitorDetails[4]);
             monitorEditDateField.setText(monitorDetails[5]);
         }
     }

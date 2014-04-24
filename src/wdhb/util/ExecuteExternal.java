@@ -5,8 +5,12 @@
  */
 package wdhb.util;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
 import java.net.InetAddress;
+import java.net.Socket;
 import java.net.UnknownHostException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -58,12 +62,43 @@ public class ExecuteExternal {
 
     public static void vncStart(String workstation) {
         try {
-            Runtime.getRuntime().exec("//fs1/apps$/apps/UltraVNCWIN7/Files/UltraVNC/vncviewer.exe connect " + workstation + ":7000 -user jessvoig -password lemonchiffoN2");
+            Runtime.getRuntime().exec("//fs1/apps$/apps/UltraVNCWIN7/Files/UltraVNC/vncviewer.exe connect " + workstation + ":7000 -user jessvoig -password lemonchiffoN3");
         } catch (IOException ex) {
             Logger.getLogger(ExecuteExternal.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    public static Boolean pingStart(String workstation){
+        //System.out.println(workstation);
+         try{
+            String cmd = "";
+               
+                    // For Windows
+                    cmd = "ping -n 1 " + workstation;
+            
 
+            Process myProcess = Runtime.getRuntime().exec(cmd);
+            myProcess.waitFor();
+            OutputStream os = myProcess.getOutputStream();
+            BufferedReader reader = new BufferedReader(new InputStreamReader(myProcess.getInputStream()));
+            String temp;
+            while ((temp = reader.readLine()) != null){
+                System.out.println(temp);
+                if(temp.indexOf("unreachable") != -1){
+                    return false;
+                }
+            }
+            System.out.println(temp);
+            if(myProcess.exitValue() == 0) {
+                return (true);
+            } else {
+                return (false);
+            }
+
+    } catch( Exception e ) {
+            e.printStackTrace();
+            return (false);
+    }
+    }
     public static void cDriveStart(String workstation) {
         try {
             Runtime.getRuntime().exec("explorer.exe \\\\" + workstation + "\\c$");
