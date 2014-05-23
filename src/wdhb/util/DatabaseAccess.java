@@ -43,7 +43,7 @@ public class DatabaseAccess {
                 ResultSet pcResult;
                 if (loadDecommision == true) {
                     //System.out.println(loadDecommision);
-                    pcResult = st.executeQuery("Select * FROM PC WHERE Name like 'WSC%' or Name like 'LTC%' or Name like 'JULIE%' or Name like 'TAB%'order by Name");
+                    pcResult = st.executeQuery("Select * FROM PC WHERE Name like 'WSC%' or Name like 'LTC%' or Name like 'NUC%' or Name like 'TAB%'order by Name");
                 } else {
                     //System.out.println(loadDecommision);
                     pcResult = st.executeQuery("Select * FROM PC WHERE Status = 'A' AND Name like 'WSC%'or Status = 'A' AND Name like 'JULIE%' or Status = 'A' AND Name like 'TAB%' or Status = 'A' AND Name like 'LTC%' order by Name;");

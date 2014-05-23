@@ -1670,10 +1670,15 @@ public class GUIManager extends javax.swing.JFrame {
         });
         fileMenu.add(jMenuItem1);
 
-        decommissionCheck.setText("Show Decommissioned PCs");
+        decommissionCheck.setText("Show Decom\\New PCs");
         decommissionCheck.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 decommissionCheckItemStateChanged(evt);
+            }
+        });
+        decommissionCheck.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                decommissionCheckActionPerformed(evt);
             }
         });
         fileMenu.add(decommissionCheck);
@@ -2197,6 +2202,10 @@ public class GUIManager extends javax.swing.JFrame {
         String monitorEditNotesTemp = monitorEditNotesField.getText();
         
     }//GEN-LAST:event_monitorEditOKButtonActionPerformed
+
+    private void decommissionCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_decommissionCheckActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_decommissionCheckActionPerformed
     /*try { backup lookandfeel
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {

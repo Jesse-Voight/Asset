@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.6" maxVersion="1.8" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+<Form version="1.8" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <NonVisualComponents>
     <Container class="javax.swing.JDialog" name="aboutScreenDialog">
       <Properties>
@@ -1747,10 +1747,11 @@
             </MenuItem>
             <MenuItem class="javax.swing.JCheckBoxMenuItem" name="decommissionCheck">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Show Decommissioned PCs"/>
+                <Property name="text" type="java.lang.String" value="Show Decom\u005cNew PCs" containsInvalidXMLChars="true"/>
               </Properties>
               <Events>
                 <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="decommissionCheckItemStateChanged"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="decommissionCheckActionPerformed"/>
               </Events>
             </MenuItem>
           </SubComponents>
