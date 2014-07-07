@@ -62,7 +62,7 @@ public class ExecuteExternal {
 
     public static void vncStart(String workstation) {
         try {
-            Runtime.getRuntime().exec("//fs1/apps$/apps/UltraVNCWIN7/Files/UltraVNC/vncviewer.exe connect " + workstation + ":7000 -user jessvoig -password lemonchiffoN3");
+            Runtime.getRuntime().exec("//fs1/apps$/apps/UltraVNCWIN7/Files/UltraVNC/vncviewer.exe connect " + workstation + ":7000 -user jessvoig -password lemonchiffoN4");
         } catch (IOException ex) {
             Logger.getLogger(ExecuteExternal.class.getName()).log(Level.SEVERE, null, ex);
         }
