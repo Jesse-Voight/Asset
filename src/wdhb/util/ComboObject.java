@@ -25,6 +25,9 @@ public class ComboObject extends Object {
     public String getID() {
         return id;
     }
+    public String getDescription() {
+        return description;
+    }
 
     @Override
     public String toString() {

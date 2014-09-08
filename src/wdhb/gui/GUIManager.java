@@ -9,7 +9,6 @@ import java.awt.Color;
 import java.awt.Point;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import wdhb.util.DatabaseAccess;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Random;
@@ -21,7 +20,9 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import wdhb.util.BetterTableModel;
 import wdhb.util.ComboObject;
+import wdhb.util.DatabaseAccess;
 import wdhb.util.ExecuteExternal;
+import wdhb.util.PCObject;
 
 /**
  *
@@ -82,6 +83,7 @@ public class GUIManager extends javax.swing.JFrame {
         editPCCancelButton = new javax.swing.JButton();
         editPCReplacementDateChooser = new com.toedter.calendar.JDateChooser();
         editStatusLabel = new javax.swing.JLabel();
+        editPCLocationComboSub = new javax.swing.JComboBox();
         addMonitorDialog = new javax.swing.JDialog();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
@@ -396,7 +398,7 @@ public class GUIManager extends javax.swing.JFrame {
         editPCLocationCombo.setMinimumSize(new java.awt.Dimension(350, 24));
         editPCLocationCombo.setName(""); // NOI18N
         editPCLocationCombo.setPreferredSize(new java.awt.Dimension(350, 20));
-        pcEditDialog.getContentPane().add(editPCLocationCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(65, 44, 316, 24));
+        pcEditDialog.getContentPane().add(editPCLocationCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 40, 120, 24));
 
         editPCModelCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         pcEditDialog.getContentPane().add(editPCModelCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(65, 74, -1, -1));
@@ -460,6 +462,19 @@ public class GUIManager extends javax.swing.JFrame {
         editStatusLabel.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         editStatusLabel.setText("                ");
         pcEditDialog.getContentPane().add(editStatusLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 380, -1, -1));
+
+        editPCLocationComboSub.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        editPCLocationComboSub.setLightWeightPopupEnabled(false);
+        editPCLocationComboSub.setMaximumSize(new java.awt.Dimension(350, 24));
+        editPCLocationComboSub.setMinimumSize(new java.awt.Dimension(350, 24));
+        editPCLocationComboSub.setName(""); // NOI18N
+        editPCLocationComboSub.setPreferredSize(new java.awt.Dimension(350, 20));
+        editPCLocationComboSub.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                editPCLocationComboSubItemStateChanged(evt);
+            }
+        });
+        pcEditDialog.getContentPane().add(editPCLocationComboSub, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 40, 120, 24));
 
         addMonitorDialog.setTitle("Add Monitor");
         addMonitorDialog.setAlwaysOnTop(true);
@@ -1744,7 +1759,7 @@ public class GUIManager extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void aboutMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aboutMenuMouseClicked
-        
+
         String version = System.getProperty("java.version");
         javaVersionLabel.setText(version);
         aboutScreenDialog.setLocation(jMenuBar1.getLocationOnScreen());
@@ -1756,7 +1771,7 @@ public class GUIManager extends javax.swing.JFrame {
     }//GEN-LAST:event_decommissionCheckItemStateChanged
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        
+
         try {
             //jButton8.isDefaultButton();
             //loginScreen.setVisible(true);
@@ -1770,7 +1785,7 @@ public class GUIManager extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowOpened
 
     private void pcSearchTextFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_pcSearchTextFieldFocusGained
-        if(pcSearchTextField.getText().equals("Find String")){
+        if (pcSearchTextField.getText().equals("Find String")) {
             pcSearchTextField.setText("");
         }
     }//GEN-LAST:event_pcSearchTextFieldFocusGained
@@ -2028,37 +2043,37 @@ public class GUIManager extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void pcUserDetailsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pcUserDetailsButtonActionPerformed
-        if(resultsTable.getSelectedRow() != -1){
-        pcUserDetailsDialog.setLocation(jMenuBar1.getLocationOnScreen());
-        pcUserDetailsDialog.setVisible(true);
+        if (resultsTable.getSelectedRow() != -1) {
+            pcUserDetailsDialog.setLocation(jMenuBar1.getLocationOnScreen());
+            pcUserDetailsDialog.setVisible(true);
         }
     }//GEN-LAST:event_pcUserDetailsButtonActionPerformed
 
     private void pcUserDetailsCloseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pcUserDetailsCloseButtonActionPerformed
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_pcUserDetailsCloseButtonActionPerformed
 
     private void pcUserDetailsDialogWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_pcUserDetailsDialogWindowActivated
-        if(resultsTable.getSelectedRow() != -1){
-            pcUserDetailsLabel2.setText((String)resultsTable.getValueAt(resultsTable.getSelectedRow(), 0));
+        if (resultsTable.getSelectedRow() != -1) {
+            pcUserDetailsLabel2.setText((String) resultsTable.getValueAt(resultsTable.getSelectedRow(), 0));
             String colNames[] = {"UserName", "Login Date"};
             BetterTableModel dtm = new BetterTableModel();
             dtm.setDataVector(null, colNames);
-            ArrayList<String[]> qResult = DatabaseAccess.loadPCUserDetails((String)resultsTable.getValueAt(resultsTable.getSelectedRow(), 0));
+            ArrayList<String[]> qResult = DatabaseAccess.loadPCUserDetails((String) resultsTable.getValueAt(resultsTable.getSelectedRow(), 0));
             pcUserDetailsTable.setModel(dtm);
             for (int i = 0; i < qResult.size(); i++) {
                 dtm.addRow(new String[2]);
                 pcUserDetailsTable.getModel().setValueAt(qResult.get(i)[0], i, 0);
                 pcUserDetailsTable.getModel().setValueAt(qResult.get(i)[1], i, 1);
-        }
+            }
         }
     }//GEN-LAST:event_pcUserDetailsDialogWindowActivated
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        if(resultsTable.getSelectedRow() != -1){
-        pcSpecsDialog.setLocation(jMenuBar1.getLocationOnScreen());
-        pcSpecsDialog.setVisible(true);
+        if (resultsTable.getSelectedRow() != -1) {
+            pcSpecsDialog.setLocation(jMenuBar1.getLocationOnScreen());
+            pcSpecsDialog.setVisible(true);
         }
     }//GEN-LAST:event_jButton4ActionPerformed
 
@@ -2067,15 +2082,15 @@ public class GUIManager extends javax.swing.JFrame {
     }//GEN-LAST:event_pcSpecsMACFieldActionPerformed
 
     private void pcSpecsDialogWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_pcSpecsDialogWindowActivated
-        if(resultsTable.getSelectedRow() != -1){
-            pcSpecsLabel.setText((String)resultsTable.getValueAt(resultsTable.getSelectedRow(), 0));
-            String[] queryResult = DatabaseAccess.loadPCSpecs((String)resultsTable.getValueAt(resultsTable.getSelectedRow(), 0));
+        if (resultsTable.getSelectedRow() != -1) {
+            pcSpecsLabel.setText((String) resultsTable.getValueAt(resultsTable.getSelectedRow(), 0));
+            String[] queryResult = DatabaseAccess.loadPCSpecs((String) resultsTable.getValueAt(resultsTable.getSelectedRow(), 0));
             pcSpecsMemoryField.setText(queryResult[0]);
             pcSpecsCPUField.setText(queryResult[1]);
             pcSpecsHDDField.setText(queryResult[2]);
             pcSpecsMACField.setText(queryResult[3]);
         }
-        
+
     }//GEN-LAST:event_pcSpecsDialogWindowActivated
 
     private void monitorTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_monitorTableMouseClicked
@@ -2097,14 +2112,14 @@ public class GUIManager extends javax.swing.JFrame {
     }//GEN-LAST:event_resultsTableKeyTyped
 
     private void editPCCancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editPCCancelButtonActionPerformed
-        
+
         pcEditDialog.setVisible(false);
     }//GEN-LAST:event_editPCCancelButtonActionPerformed
 
     private void editPCSaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editPCSaveButtonActionPerformed
         //todo: add better checks
-        if(editPCLocationCombo.getSelectedIndex() == -1 | editPCModelCombo.getSelectedIndex() == -1 | editPCSerialNumberField.getText() == "" | editPCAssetNumberField.getText() == ""){
-            JOptionPane.showMessageDialog(new JFrame(),"Empty Field Detected","Fatal Error",JOptionPane.ERROR_MESSAGE);
+        if (editPCLocationCombo.getSelectedIndex() == -1 | editPCModelCombo.getSelectedIndex() == -1 | editPCSerialNumberField.getText() == "" | editPCAssetNumberField.getText() == "") {
+            JOptionPane.showMessageDialog(new JFrame(), "Empty Field Detected", "Fatal Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
         String idPC = (String) resultsTable.getModel().getValueAt(resultsTable.getSelectedRow(), 0);
@@ -2154,10 +2169,9 @@ public class GUIManager extends javax.swing.JFrame {
         try {
             Boolean editResult = DatabaseAccess.editPCDetails(location, pcModel, serialNumber, monitor1, monitor2, assetNumber, notes, status, commonUsers, replacementDate, idPC);
             //System.out.println(editResult);
-            if(editResult){
+            if (editResult) {
                 editStatusLabel.setText("Edit Successful");
-            }
-            else{
+            } else {
                 editStatusLabel.setText("Edit Failed");
             }
         } catch (Exception e) {
@@ -2179,11 +2193,10 @@ public class GUIManager extends javax.swing.JFrame {
         if (resultsTable.getSelectedRow() != -1) {
             String workstationName = (String) resultsTable.getValueAt(resultsTable.getSelectedRow(), 0);
             try {
-                if(ExecuteExternal.pingStart(workstationName)){
-                    JOptionPane.showMessageDialog(this,"Ping Responded");
-                }
-                else{
-                    JOptionPane.showMessageDialog(this,"Ping Did Not Respond");
+                if (ExecuteExternal.pingStart(workstationName)) {
+                    JOptionPane.showMessageDialog(this, "Ping Responded");
+                } else {
+                    JOptionPane.showMessageDialog(this, "Ping Did Not Respond");
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -2200,30 +2213,35 @@ public class GUIManager extends javax.swing.JFrame {
         String monitorEditSerialTemp = monitorEditSerialField.getText();
         String monitorEditAssetTemp = monitorEditAssetField.getText();
         String monitorEditNotesTemp = monitorEditNotesField.getText();
-        
+
     }//GEN-LAST:event_monitorEditOKButtonActionPerformed
 
     private void decommissionCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_decommissionCheckActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_decommissionCheckActionPerformed
+
+    private void editPCLocationComboSubItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_editPCLocationComboSubItemStateChanged
+        this.loadSubBuilding(ICONIFIED);
+    }//GEN-LAST:event_editPCLocationComboSubItemStateChanged
     /*try { backup lookandfeel
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(GUIManager.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(GUIManager.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(GUIManager.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(GUIManager.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }*/
+     for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+     if ("Nimbus".equals(info.getName())) {
+     javax.swing.UIManager.setLookAndFeel(info.getClassName());
+     break;
+     }
+     }
+     } catch (ClassNotFoundException ex) {
+     java.util.logging.Logger.getLogger(GUIManager.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+     } catch (InstantiationException ex) {
+     java.util.logging.Logger.getLogger(GUIManager.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+     } catch (IllegalAccessException ex) {
+     java.util.logging.Logger.getLogger(GUIManager.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+     } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+     java.util.logging.Logger.getLogger(GUIManager.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+     }*/
 // </editor-fold>
     // <editor-fold defaultstate="collapsed" desc="Main"> 
+
     /**
      * @param args the command line arguments
      */
@@ -2237,7 +2255,7 @@ public class GUIManager extends javax.swing.JFrame {
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
-        
+
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 //System.out.println(info.getName());
@@ -2257,7 +2275,7 @@ public class GUIManager extends javax.swing.JFrame {
         }
         //</editor-fold>
         /* Create and display the form */
-        
+
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new GUIManager().setVisible(true);
@@ -2302,6 +2320,7 @@ public class GUIManager extends javax.swing.JFrame {
     private javax.swing.JButton editPCCancelButton;
     private javax.swing.JTextField editPCCommonUsersField;
     private javax.swing.JComboBox editPCLocationCombo;
+    private javax.swing.JComboBox editPCLocationComboSub;
     private javax.swing.JComboBox editPCModelCombo;
     private javax.swing.JComboBox editPCMonitorCombo1;
     private javax.swing.JComboBox editPCMonitorCombo2;
@@ -2469,22 +2488,38 @@ public class GUIManager extends javax.swing.JFrame {
         }
     }
 
+    private void loadSubBuilding(int buildingID) {
+        DefaultComboBoxModel locationComboModelSub = new DefaultComboBoxModel();
+        /*
+         ArrayList<String[]> loadLocationComboSub = DatabaseAccess.loadLocations(building);
+         for (Object locationObject : loadLocationCombo) {
+         String[] stringArray = (String[]) locationObject;
+         ComboObject temp = new ComboObject();
+         temp.setDescription(stringArray[0]);
+         //temp.setID(stringArray[0]);dont need yet, just general building name
+         locationComboModel.addElement(temp);
+         }*/
+
+    }
+
     private void loadPCDetails() {
         if (resultsTable.getSelectedRow() != -1) {
             String assetTemp = (String) resultsTable.getValueAt(resultsTable.getSelectedRow(), 0);
 
             pcNameLabel.setText(assetTemp);
-            DefaultComboBoxModel locationComboModel = new DefaultComboBoxModel();    //create combobox models before laoding
+            DefaultComboBoxModel locationComboModel = new DefaultComboBoxModel();
             DefaultComboBoxModel pcModelComboModel = new DefaultComboBoxModel();
             DefaultComboBoxModel monitorComboModel1 = new DefaultComboBoxModel();
             DefaultComboBoxModel monitorComboModel2 = new DefaultComboBoxModel();
 
-            ArrayList<String[]> loadLocationCombo = DatabaseAccess.loadLocations();
+            String pcDataTemp = (String) resultsTable.getValueAt(resultsTable.getSelectedRow(), 0);
+            String[] pcData = DatabaseAccess.loadPCData(pcDataTemp);
+            ArrayList<String[]> loadLocationCombo = DatabaseAccess.loadDistinctLocations();
             for (Object locationObject : loadLocationCombo) {
                 String[] stringArray = (String[]) locationObject;
                 ComboObject temp = new ComboObject();
-                temp.setDescription(stringArray[1] + " " + stringArray[2]);
-                temp.setID(stringArray[0]);
+                temp.setDescription(stringArray[0]);
+                //temp.setID(stringArray[0]);dont need yet, just general building name
                 locationComboModel.addElement(temp);
             }
 
@@ -2512,8 +2547,8 @@ public class GUIManager extends javax.swing.JFrame {
             editPCMonitorCombo1.setModel(monitorComboModel1);
             editPCMonitorCombo2.setModel(monitorComboModel2);
             editPCModelCombo.setModel(pcModelComboModel);
-            String pcDataTemp = (String) resultsTable.getValueAt(resultsTable.getSelectedRow(), 0);
-            String[] pcData = DatabaseAccess.loadPCData(pcDataTemp);
+            //String pcDataTemp = (String) resultsTable.getValueAt(resultsTable.getSelectedRow(), 0);
+            //String[] pcData = DatabaseAccess.loadPCData(pcDataTemp); moved higher for location control
             editPCSerialNumberField.setText(pcData[2]);
             editPCAssetNumberField.setText(pcData[5]);
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
@@ -2531,7 +2566,7 @@ public class GUIManager extends javax.swing.JFrame {
             Boolean foundLocation = false;
             for (int i = 0; i < editPCLocationCombo.getModel().getSize(); i++) {
                 ComboObject temp = (ComboObject) editPCLocationCombo.getModel().getElementAt(i);
-                if (temp.getID().equals(pcData[10])) {
+                if (temp.getDescription().equals(pcData[10])) {
                     editPCLocationCombo.setSelectedItem(temp);
                     foundLocation = true;
                 }
@@ -2539,6 +2574,7 @@ public class GUIManager extends javax.swing.JFrame {
             if (foundLocation == false) {
                 editPCLocationCombo.setSelectedIndex(-1);
             }
+            System.out.println(editPCLocationCombo.getModel().getElementAt(editPCLocationCombo.getSelectedIndex()));
             for (int i = 1; i < editPCModelCombo.getModel().getSize(); i++) {
                 ComboObject temp = (ComboObject) editPCModelCombo.getModel().getElementAt(i);
 
@@ -2659,12 +2695,13 @@ public class GUIManager extends javax.swing.JFrame {
         }
         monitorTable.getColumnModel().removeColumn(monitorTable.getColumnModel().getColumn(0));
     }
-     // @todo have to do properly 
-    private void loadMonitorDetails(){
-        if (monitorTable.getSelectedRow() != -1){
+
+    // @todo have to do properly 
+    private void loadMonitorDetails() {
+        if (monitorTable.getSelectedRow() != -1) {
             Date date;
-            String[] monitorDetails = DatabaseAccess.loadMonitorDetails((String)monitorTable.getValueAt(monitorTable.getSelectedRow(), 0));
-            
+            String[] monitorDetails = DatabaseAccess.loadMonitorDetails((String) monitorTable.getValueAt(monitorTable.getSelectedRow(), 0));
+
             monitorEditAssetField.setText(monitorDetails[0]);
             monitorEditSerialField.setText(monitorDetails[1]);
             monitorEditStatusField.setText(monitorDetails[2]);
@@ -2714,8 +2751,7 @@ public class GUIManager extends javax.swing.JFrame {
         setResultsColumnWidths(5, 67);
         setResultsColumnWidths(6, 77);
         setResultsColumnWidths(7, 80);
-        
-        
+
         javax.swing.UIManager.put("nimbusBase", Color.DARK_GRAY);
         //javax.swing.UIManager.put("nimbusWhite", Color.MAGENTA);
         javax.swing.UIManager.put("nimbusBlueGrey", Color.GRAY);

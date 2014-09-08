@@ -46,7 +46,7 @@ public class DatabaseAccess {
                     pcResult = st.executeQuery("Select * FROM PC WHERE Name like 'WSC%' or Name like 'LTC%' or Name like 'NUC%' or Name like 'TAB%'order by Name");
                 } else {
                     //System.out.println(loadDecommision);
-                    pcResult = st.executeQuery("Select * FROM PC WHERE Status = 'A' AND Name like 'WSC%'or Status = 'A' AND Name like 'JULIE%' or Status = 'A' AND Name like 'TAB%' or Status = 'A' AND Name like 'LTC%' order by Name;");
+                    pcResult = st.executeQuery("Select * FROM PC WHERE Status = 'A' AND Name like 'WSC%'or Status = 'A' AND Name like 'JULIE%' or Status = 'A' AND Name like 'TAB%' or Status = 'A' AND Name like 'LTC%' or Status = 'A' AND Name like 'NUC%' order by Name;");
                 }
                 while (pcResult.next()) {
                     String id = pcResult.getString("idPC");
@@ -586,6 +586,34 @@ public class DatabaseAccess {
                     String town = res.getString("Town");
                     String rc = res.getString("RC");
                     String colNames[] = {idLocation, building, department, address1, address2, town, rc};
+                    resultList.add(colNames);
+
+                }
+                conn.close();
+            }
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | SQLException e) {
+            e.printStackTrace();
+        }
+        return resultList;
+    }
+    public static ArrayList loadDistinctLocations() {
+        String url = "jdbc:mysql://websrv:3306/";
+        String dbName = "assetDB";
+        String driver = "com.mysql.jdbc.Driver";
+        String userName = "jessvoig";
+        String password = "qzpm9876";
+        ArrayList resultList = new ArrayList();
+
+        try {
+            Class.forName(driver).newInstance();
+            try (Connection conn = DriverManager.getConnection(url + dbName, userName, password)) {
+                Statement st = conn.createStatement();
+
+                ResultSet res = st.executeQuery("Select DISTINCT Building FROM Location order by Building asc");
+
+                while (res.next()) {
+                    String building = res.getString("Building");
+                    String colNames[] = {building};
                     resultList.add(colNames);
 
                 }
