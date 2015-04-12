@@ -11,7 +11,6 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
@@ -170,6 +169,18 @@ public class GUIManager extends javax.swing.JFrame {
         monitorEditCancelButton = new javax.swing.JButton();
         monitorEditDateField = new javax.swing.JTextField();
         monitorEditModelCombo = new javax.swing.JComboBox();
+        newPCDialog = new javax.swing.JDialog();
+        jLabel40 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jLabel41 = new javax.swing.JLabel();
+        jLabel42 = new javax.swing.JLabel();
+        jTextField2 = new javax.swing.JTextField();
+        jLabel43 = new javax.swing.JLabel();
+        jLabel44 = new javax.swing.JLabel();
+        jTextField3 = new javax.swing.JTextField();
+        jTextField5 = new javax.swing.JTextField();
+        jButton6 = new javax.swing.JButton();
+        jButton8 = new javax.swing.JButton();
         jTab = new javax.swing.JTabbedPane();
         pcPanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -182,6 +193,7 @@ public class GUIManager extends javax.swing.JFrame {
         pcUserDetailsButton = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         pingButton = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
         monitorPanel = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
         monitorTable = new javax.swing.JTable();
@@ -358,11 +370,11 @@ public class GUIManager extends javax.swing.JFrame {
         jInternalFrame1.getContentPane().setLayout(jInternalFrame1Layout);
         jInternalFrame1Layout.setHorizontalGroup(
             jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 425, Short.MAX_VALUE)
         );
         jInternalFrame1Layout.setVerticalGroup(
             jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 197, Short.MAX_VALUE)
         );
 
         pcEditDialog.setTitle("Edit PC Details");
@@ -778,6 +790,7 @@ public class GUIManager extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        addPCModelDialog.setAlwaysOnTop(true);
         addPCModelDialog.setMinimumSize(new java.awt.Dimension(300, 220));
         addPCModelDialog.setResizable(false);
 
@@ -888,6 +901,7 @@ public class GUIManager extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        pcUserDetailsDialog.setAlwaysOnTop(true);
         pcUserDetailsDialog.setMinimumSize(new java.awt.Dimension(377, 466));
         pcUserDetailsDialog.addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
@@ -950,6 +964,7 @@ public class GUIManager extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        pcSpecsDialog.setAlwaysOnTop(true);
         pcSpecsDialog.setMinimumSize(new java.awt.Dimension(296, 186));
         pcSpecsDialog.addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
@@ -1051,6 +1066,7 @@ public class GUIManager extends javax.swing.JFrame {
                 .addContainerGap(39, Short.MAX_VALUE))
         );
 
+        monitorEditDialog.setAlwaysOnTop(true);
         monitorEditDialog.setMinimumSize(new java.awt.Dimension(400, 300));
         monitorEditDialog.setResizable(false);
         monitorEditDialog.addWindowListener(new java.awt.event.WindowAdapter() {
@@ -1180,6 +1196,89 @@ public class GUIManager extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        newPCDialog.setAlwaysOnTop(true);
+        newPCDialog.setMaximumSize(new java.awt.Dimension(325, 177));
+        newPCDialog.setMinimumSize(new java.awt.Dimension(325, 177));
+        newPCDialog.setResizable(false);
+
+        jLabel40.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel40.setText("Create New PC");
+
+        jLabel41.setText("PC Name:");
+
+        jLabel42.setText("HDD Size:");
+
+        jLabel43.setText("CPU Speed(MHZ):");
+
+        jLabel44.setText("Memory Size (MB):");
+
+        jButton6.setText("Cancel");
+
+        jButton8.setText("Save");
+
+        javax.swing.GroupLayout newPCDialogLayout = new javax.swing.GroupLayout(newPCDialog.getContentPane());
+        newPCDialog.getContentPane().setLayout(newPCDialogLayout);
+        newPCDialogLayout.setHorizontalGroup(
+            newPCDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(newPCDialogLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(newPCDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(newPCDialogLayout.createSequentialGroup()
+                        .addGroup(newPCDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel40)
+                            .addGroup(newPCDialogLayout.createSequentialGroup()
+                                .addComponent(jLabel41)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(newPCDialogLayout.createSequentialGroup()
+                                .addComponent(jLabel42)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(newPCDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, newPCDialogLayout.createSequentialGroup()
+                                    .addComponent(jLabel44)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jTextField5))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, newPCDialogLayout.createSequentialGroup()
+                                    .addComponent(jLabel43)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(0, 110, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, newPCDialogLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jButton6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton8)))
+                .addContainerGap())
+        );
+        newPCDialogLayout.setVerticalGroup(
+            newPCDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(newPCDialogLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel40)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(newPCDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel41)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(newPCDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel42)
+                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(newPCDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel43))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                .addGroup(newPCDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel44)
+                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(newPCDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton6)
+                    .addComponent(jButton8))
+                .addGap(6, 6, 6))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("ICT Asset Manager");
         setForeground(java.awt.Color.pink);
@@ -1243,14 +1342,14 @@ public class GUIManager extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("UVNC Remote");
+        jButton1.setText("UVNC");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Open C:/ Drive");
+        jButton2.setText("Open C:/");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -1264,14 +1363,14 @@ public class GUIManager extends javax.swing.JFrame {
             }
         });
 
-        pcUserDetailsButton.setText("PC User Details");
+        pcUserDetailsButton.setText("User History");
         pcUserDetailsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 pcUserDetailsButtonActionPerformed(evt);
             }
         });
 
-        jButton4.setText("PC Specs");
+        jButton4.setText("Specs");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
@@ -1282,6 +1381,13 @@ public class GUIManager extends javax.swing.JFrame {
         pingButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 pingButtonActionPerformed(evt);
+            }
+        });
+
+        jButton5.setText("Create");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
             }
         });
 
@@ -1304,7 +1410,9 @@ public class GUIManager extends javax.swing.JFrame {
                 .addComponent(jButton4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pingButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 96, Short.MAX_VALUE)
                 .addComponent(pcSearchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addGroup(pcPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1325,7 +1433,8 @@ public class GUIManager extends javax.swing.JFrame {
                     .addComponent(pcUserDetailsButton)
                     .addComponent(jButton4)
                     .addComponent(pingButton)
-                    .addComponent(pcSearchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(pcSearchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton5))
                 .addGap(9, 9, 9))
             .addGroup(pcPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(pcPanelLayout.createSequentialGroup()
@@ -2213,7 +2322,6 @@ public class GUIManager extends javax.swing.JFrame {
         String monitorEditSerialTemp = monitorEditSerialField.getText();
         String monitorEditAssetTemp = monitorEditAssetField.getText();
         String monitorEditNotesTemp = monitorEditNotesField.getText();
-
     }//GEN-LAST:event_monitorEditOKButtonActionPerformed
 
     private void decommissionCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_decommissionCheckActionPerformed
@@ -2221,8 +2329,13 @@ public class GUIManager extends javax.swing.JFrame {
     }//GEN-LAST:event_decommissionCheckActionPerformed
 
     private void editPCLocationComboSubItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_editPCLocationComboSubItemStateChanged
-        this.loadSubBuilding(ICONIFIED);
+        
     }//GEN-LAST:event_editPCLocationComboSubItemStateChanged
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        newPCDialog.setVisible(true);
+        newPCDialog.setLocation(jMenuBar1.getLocationOnScreen());
+    }//GEN-LAST:event_jButton5ActionPerformed
     /*try { backup lookandfeel
      for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
      if ("Nimbus".equals(info.getName())) {
@@ -2279,9 +2392,9 @@ public class GUIManager extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new GUIManager().setVisible(true);
-
             }
         });
+        
     }
 // </editor-fold>
     // <editor-fold defaultstate="collapsed" desc="Generated Variables">     
@@ -2336,7 +2449,10 @@ public class GUIManager extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JInternalFrame jInternalFrame1;
@@ -2374,6 +2490,11 @@ public class GUIManager extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel40;
+    private javax.swing.JLabel jLabel41;
+    private javax.swing.JLabel jLabel42;
+    private javax.swing.JLabel jLabel43;
+    private javax.swing.JLabel jLabel44;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -2390,7 +2511,11 @@ public class GUIManager extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JTabbedPane jTab;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField8;
     private javax.swing.JLabel javaVersionLabel;
@@ -2423,6 +2548,7 @@ public class GUIManager extends javax.swing.JFrame {
     private javax.swing.JPanel monitorPanel;
     private javax.swing.JButton monitorRefreshButton;
     private javax.swing.JTable monitorTable;
+    private javax.swing.JDialog newPCDialog;
     private javax.swing.JButton openLocationDialog;
     private javax.swing.JDialog pcEditDialog;
     private javax.swing.JPanel pcModelPanel;
@@ -2488,21 +2614,23 @@ public class GUIManager extends javax.swing.JFrame {
         }
     }
 
-    private void loadSubBuilding(int buildingID) {
+    private DefaultComboBoxModel loadSubBuilding(String buildingName) {
         DefaultComboBoxModel locationComboModelSub = new DefaultComboBoxModel();
-        /*
-         ArrayList<String[]> loadLocationComboSub = DatabaseAccess.loadLocations(building);
-         for (Object locationObject : loadLocationCombo) {
+
+         ArrayList<String[]> loadLocationComboSub = DatabaseAccess.loadLocationByBuilding(buildingName);
+         for (Object locationObject : loadLocationComboSub) {
          String[] stringArray = (String[]) locationObject;
          ComboObject temp = new ComboObject();
-         temp.setDescription(stringArray[0]);
-         //temp.setID(stringArray[0]);dont need yet, just general building name
-         locationComboModel.addElement(temp);
-         }*/
+         temp.setDescription(stringArray[2]);
+         temp.setID(stringArray[0]);
+         locationComboModelSub.addElement(temp);
+         }
 
+         return locationComboModelSub;
     }
 
     private void loadPCDetails() {
+        PCObject pcObject;
         if (resultsTable.getSelectedRow() != -1) {
             String assetTemp = (String) resultsTable.getValueAt(resultsTable.getSelectedRow(), 0);
 
@@ -2514,6 +2642,10 @@ public class GUIManager extends javax.swing.JFrame {
 
             String pcDataTemp = (String) resultsTable.getValueAt(resultsTable.getSelectedRow(), 0);
             String[] pcData = DatabaseAccess.loadPCData(pcDataTemp);
+            pcObject = new PCObject(pcData[0],pcData[1],pcData[10],pcData[11],pcData[2],pcData[3],pcData[4],pcData[5],pcData[7],pcData[8],pcData[12]);
+            
+            String[] friendlyLocation = DatabaseAccess.loadFriendlyLocation(pcObject.getIdLocation());
+            
             ArrayList<String[]> loadLocationCombo = DatabaseAccess.loadDistinctLocations();
             for (Object locationObject : loadLocationCombo) {
                 String[] stringArray = (String[]) locationObject;
@@ -2522,6 +2654,24 @@ public class GUIManager extends javax.swing.JFrame {
                 //temp.setID(stringArray[0]);dont need yet, just general building name
                 locationComboModel.addElement(temp);
             }
+            
+            ArrayList<String[]> loadLocationComboFull = DatabaseAccess.loadLocations();
+            for (Object locationObjectFull : loadLocationComboFull) {
+                String[] stringArrayFull = (String[]) locationObjectFull;
+                ComboObject tempFull = new ComboObject();
+                tempFull.setDescription(stringArrayFull[0]);
+                tempFull.setID(stringArrayFull[1]);
+                System.out.println(tempFull.getID() +" "+tempFull.getDescription());
+                //locationComboModel.addElement(tempFull);
+            }
+            /*ArrayList<String[]> loadLocationComboSub = DatabaseAccess
+            for (Object locationObjectSub : loadLocationComboSub) {
+                String[] stringArray = (String[]) locationObjectSub;
+                ComboObject tempSub = new ComboObject();
+                tempSub.setDescription(stringArray[0]);
+                //temp.setID(stringArray[0]);dont need yet, just general building name
+                locationComboModel.addElement(tempSub);
+            }*/
 
             ArrayList<String[]> loadPCModelCombo = DatabaseAccess.loadPCModels();
             for (Object pcModelObject : loadPCModelCombo) {
@@ -2542,13 +2692,12 @@ public class GUIManager extends javax.swing.JFrame {
                 monitorComboModel2.addElement(temp);
             }
             editPCLocationCombo.setModel(locationComboModel);
+            //editPCLocationComboSub.setModel(locationComboFull);   Full
             //locationCombo.getModel();
             editPCStatusCombo.setModel(new DefaultComboBoxModel(new String[]{"A", "D", "I", "S"}));
             editPCMonitorCombo1.setModel(monitorComboModel1);
             editPCMonitorCombo2.setModel(monitorComboModel2);
             editPCModelCombo.setModel(pcModelComboModel);
-            //String pcDataTemp = (String) resultsTable.getValueAt(resultsTable.getSelectedRow(), 0);
-            //String[] pcData = DatabaseAccess.loadPCData(pcDataTemp); moved higher for location control
             editPCSerialNumberField.setText(pcData[2]);
             editPCAssetNumberField.setText(pcData[5]);
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
@@ -2564,6 +2713,7 @@ public class GUIManager extends javax.swing.JFrame {
             editPCNotesField.setText(pcData[7]);
             editPCCommonUsersField.setText(pcData[12]);
             Boolean foundLocation = false;
+            
             for (int i = 0; i < editPCLocationCombo.getModel().getSize(); i++) {
                 ComboObject temp = (ComboObject) editPCLocationCombo.getModel().getElementAt(i);
                 if (temp.getDescription().equals(pcData[10])) {
@@ -2751,9 +2901,8 @@ public class GUIManager extends javax.swing.JFrame {
         setResultsColumnWidths(5, 67);
         setResultsColumnWidths(6, 77);
         setResultsColumnWidths(7, 80);
-
         javax.swing.UIManager.put("nimbusBase", Color.DARK_GRAY);
-        //javax.swing.UIManager.put("nimbusWhite", Color.MAGENTA);
+        javax.swing.UIManager.put("nimbusWhite", Color.MAGENTA);
         javax.swing.UIManager.put("nimbusBlueGrey", Color.GRAY);
         javax.swing.UIManager.put("control", Color.GRAY);
     }
