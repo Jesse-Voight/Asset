@@ -2644,7 +2644,7 @@ public class GUIManager extends javax.swing.JFrame {
     }*/
 
     private void loadPCDetails() {
-        PCObject pcObject;
+        //PCObject pcObject;
         if (resultsTable.getSelectedRow() != -1) {
             String assetTemp = (String) resultsTable.getValueAt(resultsTable.getSelectedRow(), 0);
 
@@ -2656,14 +2656,12 @@ public class GUIManager extends javax.swing.JFrame {
             DefaultComboBoxModel monitorComboModel2 = new DefaultComboBoxModel();
             
 
-            String pcDataTemp = (String) resultsTable.getValueAt(resultsTable.getSelectedRow(), 0);
+            String pcDataTemp = (String)resultsTable.getValueAt(resultsTable.getSelectedRow(), 0);
             String[] pcData = DatabaseAccess.loadPCData(pcDataTemp);
-            pcObject = new PCObject(pcData[0],pcData[1],pcData[10],pcData[11],pcData[2],pcData[3],pcData[4],pcData[5],pcData[7],pcData[8],pcData[12]);
+            //pcObject = new PCObject(pcData[0],pcData[1],pcData[10],pcData[11],pcData[2],pcData[3],pcData[4],pcData[5],pcData[7],pcData[8],pcData[12]);
             
-            String[] friendlyLocation = DatabaseAccess.loadFriendlyLocation(pcObject.getIdLocation());
-            for(Object friendly: friendlyLocation){
-                System.out.println(friendly);
-            }
+            String[] friendlyLocation = DatabaseAccess.loadFriendlyLocation(pcData[10]);
+            
             ArrayList<String[]> loadLocationCombo = DatabaseAccess.loadDistinctLocations();
             for (Object locationObject : loadLocationCombo) {
                 String[] stringArray = (String[]) locationObject;
@@ -2672,26 +2670,47 @@ public class GUIManager extends javax.swing.JFrame {
                 //temp.setID(stringArray[0]);dont need as the id should be in the sub location
                 locationComboModel.addElement(temp);
             }
+            editPCLocationCombo.setModel(locationComboModel); //need to move because of subBuilding
             
-            /*ArrayList<String[]> loadLocationComboFull = DatabaseAccess.loadLocations();
-            for (Object locationObjectFull : loadLocationComboFull) {
-                String[] stringArrayFull = (String[]) locationObjectFull;
-                ComboObject tempFull = new ComboObject();
-                tempFull.setDescription(stringArrayFull[0]);
-                tempFull.setID(stringArrayFull[1]);
-                System.out.println(tempFull.getID() +" "+tempFull.getDescription());
-                //locationComboModel.addElement(tempFull);
+            
+            //subBuildingload
+            ArrayList<String[]> loadLocationSubCombo = DatabaseAccess.loadLocationByBuilding(friendlyLocation[1]);
+            System.out.println("Get sub building");
+            for(Object locationSubObject: loadLocationSubCombo){
+                String[] locationArray = (String[]) locationSubObject;
+                System.out.println(locationArray[0]+" "+locationArray[1]+" "+locationArray[2]);
+                ComboObject temp = new ComboObject();
+                temp.setDescription(locationArray[2]);
+                temp.setID(locationArray[0]);
+                locationComboSubModel.addElement(temp);
             }
-            String selectedBuilding = (String)editPCLocationComboSub.getModel().getSelectedItem();
-            ArrayList<String[]> loadLocationComboSub = DatabaseAccess.loadLocationByBuilding(selectedBuilding);
-            for (Object locationObjectSub : loadLocationComboSub) {
-                String[] stringArray = (String[])locationObjectSub;
-                System.out.println(stringArray[0] + " " + stringArray[1]);
-                ComboObject tempSub = new ComboObject();
-                tempSub.setDescription(stringArray[0]);
-                //temp.setID(stringArray[0]);dont need yet, just general building name
-                locationComboSubModel.addElement(tempSub);
-            }*/
+            editPCLocationComboSub.setModel(locationComboSubModel);
+            
+            System.out.println("friendlyLocation is:  ID= "+friendlyLocation[0]+"  Building= "+friendlyLocation[1]+"  subBuilding= "+friendlyLocation[2]);
+            Boolean foundLocation = false;
+            for (int i = 0; i < editPCLocationCombo.getModel().getSize(); i++) {
+                ComboObject temp = (ComboObject) editPCLocationCombo.getModel().getElementAt(i);
+                //System.out.println("Description is:"+temp.getDescription()+" ID is "+temp.getID());
+                if (temp.getDescription().equals(friendlyLocation[1])) {
+                    editPCLocationCombo.setSelectedItem(temp);
+                    //foundLocation = true;
+                }
+            }
+            for (int i = 0; i < editPCLocationComboSub.getModel().getSize(); i++) {
+                ComboObject temp = (ComboObject) editPCLocationComboSub.getModel().getElementAt(i);
+                //System.out.println("Description is:"+temp.getDescription()+" ID is "+temp.getID());
+                if (temp.getDescription().equals(friendlyLocation[2])) {
+                    editPCLocationComboSub.setSelectedItem(temp);
+                    
+                    foundLocation = true;
+                    break;
+                }
+            }
+            if (foundLocation == false) {
+                //editPCLocationCombo.setSelectedIndex(-1);
+            }
+            System.out.println("Found Location is:"+foundLocation);
+            //System.out.println(editPCLocationCombo.getModel().getElementAt(editPCLocationCombo.getSelectedIndex()));
 
             ArrayList<String[]> loadPCModelCombo = DatabaseAccess.loadPCModels();
             for (Object pcModelObject : loadPCModelCombo) {
@@ -2711,13 +2730,15 @@ public class GUIManager extends javax.swing.JFrame {
                 monitorComboModel1.addElement(temp);
                 monitorComboModel2.addElement(temp);
             }
-            editPCLocationCombo.setModel(locationComboModel);
+
             editPCStatusCombo.setModel(new DefaultComboBoxModel(new String[]{"A", "D", "I", "S"}));
             editPCMonitorCombo1.setModel(monitorComboModel1);
             editPCMonitorCombo2.setModel(monitorComboModel2);
             editPCModelCombo.setModel(pcModelComboModel);
             editPCSerialNumberField.setText(pcData[2]);
             editPCAssetNumberField.setText(pcData[5]);
+            
+            
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
             try {
                 Date convertedDate = sdf.parse(pcData[9]);
@@ -2729,19 +2750,7 @@ public class GUIManager extends javax.swing.JFrame {
             }
             editPCNotesField.setText(pcData[7]);
             editPCCommonUsersField.setText(pcData[12]);
-            Boolean foundLocation = false;
             
-            for (int i = 0; i < editPCLocationCombo.getModel().getSize(); i++) {
-                ComboObject temp = (ComboObject) editPCLocationCombo.getModel().getElementAt(i);
-                if (temp.getDescription().equals(pcData[10])) {
-                    editPCLocationCombo.setSelectedItem(temp);
-                    foundLocation = true;
-                }
-            }
-            if (foundLocation == false) {
-                editPCLocationCombo.setSelectedIndex(-1);
-            }
-            System.out.println(editPCLocationCombo.getModel().getElementAt(editPCLocationCombo.getSelectedIndex()));
             for (int i = 1; i < editPCModelCombo.getModel().getSize(); i++) {
                 ComboObject temp = (ComboObject) editPCModelCombo.getModel().getElementAt(i);
 
