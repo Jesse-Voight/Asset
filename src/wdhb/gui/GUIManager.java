@@ -410,6 +410,11 @@ public class GUIManager extends javax.swing.JFrame {
         editPCLocationCombo.setMinimumSize(new java.awt.Dimension(350, 24));
         editPCLocationCombo.setName(""); // NOI18N
         editPCLocationCombo.setPreferredSize(new java.awt.Dimension(350, 20));
+        editPCLocationCombo.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                editPCLocationComboItemStateChanged(evt);
+            }
+        });
         pcEditDialog.getContentPane().add(editPCLocationCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 40, 120, 24));
 
         editPCModelCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
@@ -481,11 +486,6 @@ public class GUIManager extends javax.swing.JFrame {
         editPCLocationComboSub.setMinimumSize(new java.awt.Dimension(350, 24));
         editPCLocationComboSub.setName(""); // NOI18N
         editPCLocationComboSub.setPreferredSize(new java.awt.Dimension(350, 20));
-        editPCLocationComboSub.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                editPCLocationComboSubItemStateChanged(evt);
-            }
-        });
         pcEditDialog.getContentPane().add(editPCLocationComboSub, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 40, 120, 24));
 
         addMonitorDialog.setTitle("Add Monitor");
@@ -1197,7 +1197,6 @@ public class GUIManager extends javax.swing.JFrame {
         );
 
         newPCDialog.setAlwaysOnTop(true);
-        newPCDialog.setMaximumSize(new java.awt.Dimension(325, 177));
         newPCDialog.setMinimumSize(new java.awt.Dimension(325, 177));
         newPCDialog.setResizable(false);
 
@@ -1269,9 +1268,10 @@ public class GUIManager extends javax.swing.JFrame {
                     .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel43))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
-                .addGroup(newPCDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(newPCDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel44)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(newPCDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(newPCDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton6)
@@ -2328,30 +2328,32 @@ public class GUIManager extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_decommissionCheckActionPerformed
 
-    private void editPCLocationComboSubItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_editPCLocationComboSubItemStateChanged
-        
-    }//GEN-LAST:event_editPCLocationComboSubItemStateChanged
-
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         newPCDialog.setVisible(true);
         newPCDialog.setLocation(jMenuBar1.getLocationOnScreen());
     }//GEN-LAST:event_jButton5ActionPerformed
-    /*try { backup lookandfeel
-     for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-     if ("Nimbus".equals(info.getName())) {
-     javax.swing.UIManager.setLookAndFeel(info.getClassName());
-     break;
-     }
-     }
-     } catch (ClassNotFoundException ex) {
-     java.util.logging.Logger.getLogger(GUIManager.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-     } catch (InstantiationException ex) {
-     java.util.logging.Logger.getLogger(GUIManager.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-     } catch (IllegalAccessException ex) {
-     java.util.logging.Logger.getLogger(GUIManager.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-     } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-     java.util.logging.Logger.getLogger(GUIManager.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-     }*/
+
+    private void editPCLocationComboItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_editPCLocationComboItemStateChanged
+        loadSubBuilding();
+    }//GEN-LAST:event_editPCLocationComboItemStateChanged
+    private void loadSubBuilding(){
+        String buildingName = "empty";
+        if(editPCLocationCombo.getSelectedIndex() != -1){
+            buildingName = ((ComboObject)editPCLocationCombo.getSelectedItem()).toString();
+        }
+        DefaultComboBoxModel subBuildingCombo = new DefaultComboBoxModel();
+        
+        ArrayList<String[]> loadLocationComboSub = DatabaseAccess.loadLocationByBuilding(buildingName);
+            for (Object locationObjectSub : loadLocationComboSub) {
+                String[] stringArray = (String[])locationObjectSub;
+                //System.out.println(stringArray[0] + " " + stringArray[2]);
+                ComboObject tempCombo = new ComboObject();
+                tempCombo.setID(stringArray[0]);
+                tempCombo.setDescription(stringArray[2]);
+                subBuildingCombo.addElement(tempCombo);
+            }
+            editPCLocationComboSub.setModel(subBuildingCombo);
+    }
 // </editor-fold>
     // <editor-fold defaultstate="collapsed" desc="Main"> 
 
@@ -2613,8 +2615,20 @@ public class GUIManager extends javax.swing.JFrame {
             userHistoryTable.getModel().setValueAt(userDetes.get(i)[2], i, 2);
         }
     }
-
-    private DefaultComboBoxModel loadSubBuilding(String buildingName) {
+    private void loadLocations() {
+        String colNames[] = {"idLocation", "Building", "Department", "Address1", "Address2", "Town", "RCode"};
+        BetterTableModel dtm = new BetterTableModel();
+        dtm.setDataVector(null, colNames);
+        ArrayList<String[]> qResult = DatabaseAccess.loadLocations();
+        locationTable.setModel(dtm);
+        for (int i = 0; i < qResult.size(); i++) {
+            dtm.addRow(new String[7]);
+            for (int j = 0; j < 7; j++) {
+                locationTable.getModel().setValueAt(qResult.get(i)[j], i, j);
+            }
+        }
+    }
+    /*private DefaultComboBoxModel loadSubBuilding(String buildingName) {              NOT USED
         DefaultComboBoxModel locationComboModelSub = new DefaultComboBoxModel();
 
          ArrayList<String[]> loadLocationComboSub = DatabaseAccess.loadLocationByBuilding(buildingName);
@@ -2627,7 +2641,7 @@ public class GUIManager extends javax.swing.JFrame {
          }
 
          return locationComboModelSub;
-    }
+    }*/
 
     private void loadPCDetails() {
         PCObject pcObject;
@@ -2636,26 +2650,30 @@ public class GUIManager extends javax.swing.JFrame {
 
             pcNameLabel.setText(assetTemp);
             DefaultComboBoxModel locationComboModel = new DefaultComboBoxModel();
+            DefaultComboBoxModel locationComboSubModel = new DefaultComboBoxModel();
             DefaultComboBoxModel pcModelComboModel = new DefaultComboBoxModel();
             DefaultComboBoxModel monitorComboModel1 = new DefaultComboBoxModel();
             DefaultComboBoxModel monitorComboModel2 = new DefaultComboBoxModel();
+            
 
             String pcDataTemp = (String) resultsTable.getValueAt(resultsTable.getSelectedRow(), 0);
             String[] pcData = DatabaseAccess.loadPCData(pcDataTemp);
             pcObject = new PCObject(pcData[0],pcData[1],pcData[10],pcData[11],pcData[2],pcData[3],pcData[4],pcData[5],pcData[7],pcData[8],pcData[12]);
             
             String[] friendlyLocation = DatabaseAccess.loadFriendlyLocation(pcObject.getIdLocation());
-            
+            for(Object friendly: friendlyLocation){
+                System.out.println(friendly);
+            }
             ArrayList<String[]> loadLocationCombo = DatabaseAccess.loadDistinctLocations();
             for (Object locationObject : loadLocationCombo) {
                 String[] stringArray = (String[]) locationObject;
                 ComboObject temp = new ComboObject();
                 temp.setDescription(stringArray[0]);
-                //temp.setID(stringArray[0]);dont need yet, just general building name
+                //temp.setID(stringArray[0]);dont need as the id should be in the sub location
                 locationComboModel.addElement(temp);
             }
             
-            ArrayList<String[]> loadLocationComboFull = DatabaseAccess.loadLocations();
+            /*ArrayList<String[]> loadLocationComboFull = DatabaseAccess.loadLocations();
             for (Object locationObjectFull : loadLocationComboFull) {
                 String[] stringArrayFull = (String[]) locationObjectFull;
                 ComboObject tempFull = new ComboObject();
@@ -2664,13 +2682,15 @@ public class GUIManager extends javax.swing.JFrame {
                 System.out.println(tempFull.getID() +" "+tempFull.getDescription());
                 //locationComboModel.addElement(tempFull);
             }
-            /*ArrayList<String[]> loadLocationComboSub = DatabaseAccess
+            String selectedBuilding = (String)editPCLocationComboSub.getModel().getSelectedItem();
+            ArrayList<String[]> loadLocationComboSub = DatabaseAccess.loadLocationByBuilding(selectedBuilding);
             for (Object locationObjectSub : loadLocationComboSub) {
-                String[] stringArray = (String[]) locationObjectSub;
+                String[] stringArray = (String[])locationObjectSub;
+                System.out.println(stringArray[0] + " " + stringArray[1]);
                 ComboObject tempSub = new ComboObject();
                 tempSub.setDescription(stringArray[0]);
                 //temp.setID(stringArray[0]);dont need yet, just general building name
-                locationComboModel.addElement(tempSub);
+                locationComboSubModel.addElement(tempSub);
             }*/
 
             ArrayList<String[]> loadPCModelCombo = DatabaseAccess.loadPCModels();
@@ -2692,8 +2712,6 @@ public class GUIManager extends javax.swing.JFrame {
                 monitorComboModel2.addElement(temp);
             }
             editPCLocationCombo.setModel(locationComboModel);
-            //editPCLocationComboSub.setModel(locationComboFull);   Full
-            //locationCombo.getModel();
             editPCStatusCombo.setModel(new DefaultComboBoxModel(new String[]{"A", "D", "I", "S"}));
             editPCMonitorCombo1.setModel(monitorComboModel1);
             editPCMonitorCombo2.setModel(monitorComboModel2);
@@ -2709,7 +2727,6 @@ public class GUIManager extends javax.swing.JFrame {
                 editPCReplacementDateChooser.setDate(todayDate);
                 Logger.getLogger(GUIManager.class.getName()).log(Level.SEVERE, null, ex);
             }
-
             editPCNotesField.setText(pcData[7]);
             editPCCommonUsersField.setText(pcData[12]);
             Boolean foundLocation = false;
@@ -2799,19 +2816,7 @@ public class GUIManager extends javax.swing.JFrame {
         }
     }
 
-    private void loadLocations() {
-        String colNames[] = {"idLocation", "Building", "Department", "Address1", "Address2", "Town", "RCode"};
-        BetterTableModel dtm = new BetterTableModel();
-        dtm.setDataVector(null, colNames);
-        ArrayList<String[]> qResult = DatabaseAccess.loadLocations();
-        locationTable.setModel(dtm);
-        for (int i = 0; i < qResult.size(); i++) {
-            dtm.addRow(new String[7]);
-            for (int j = 0; j < 7; j++) {
-                locationTable.getModel().setValueAt(qResult.get(i)[j], i, j);
-            }
-        }
-    }
+    
 
     private void loadMonitorModel() {
         String colNames[] = {"idMonitorModel", "Make", "Model"};
